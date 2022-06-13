@@ -1,9 +1,23 @@
 using System;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Item Database", menuName = "Game/Database/Item")]
+public class ItemDatabase : ScriptableObject
+{
+    public OreType[] items;
+}
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Game/Item")]
-public class ItemStats : ScriptableObject
+[Serializable]
+public class OreType
+{
+    public string name;
+    public int collectionID;
+    public ItemStats[] items;
+}
+    
+    
+[Serializable]
+public class ItemStats
 {
     public enum Rarity
     {
@@ -25,5 +39,8 @@ public class ItemStats : ScriptableObject
     
     [Header("Player Stats")]
     public int timesForged;
-
+        
+    public int itemID;
+    public int oreID;
+    public bool isUnlocked;
 }
