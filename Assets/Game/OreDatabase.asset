@@ -16,8 +16,8 @@ MonoBehaviour:
   - oreName: Copper
     oreSprite: {fileID: 7482667652216324306, guid: d4414fe66cbaa4b4aa8a0b308275fb48, type: 3}
     oreDescription: 
-    currentHardness: 3
-    isUnlocked: 0
+    currentHardness: 5
+    isUnlocked: 1
     defaultHardness: 5
     isPremium: 0
   - oreName: Silver

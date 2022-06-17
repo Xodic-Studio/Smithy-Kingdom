@@ -32,6 +32,7 @@ public class Ore : Singleton<Ore>
     {
         CheckHardness();
         CheckOreIndex();
+        _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
 
@@ -40,6 +41,7 @@ public class Ore : Singleton<Ore>
     {
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
+        _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _oreSprite.sprite = _thisOre.oreSprite;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
@@ -49,13 +51,19 @@ public class Ore : Singleton<Ore>
     {
         if (index == -1 && selectedOreIndex - 1 >= 0)
         {
-            selectedOreIndex--;
+            if (oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+            {
+                selectedOreIndex--;
+            }
         }
         else if (index == 1 && selectedOreIndex + 1 < oreDatabase.ores.Length)
         {
-            selectedOreIndex++;
+            if (oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+            {
+                selectedOreIndex++;
+            }
         }
-        Debug.Log("You selected ore " + selectedOreIndex);
+        Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
         
     }
     public void ModifyHardness(int amount)

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
   items:
-  - name: 
-    collectionID: 0
+  - collectionName: Copper Collection
     items:
     - itemName: 
       itemIcon: {fileID: 0}
@@ -22,6 +21,4 @@ MonoBehaviour:
       itemRarity: 0
       itemDescription: 
       timesForged: 0
-      itemID: 0
-      oreID: 0
       isUnlocked: 0

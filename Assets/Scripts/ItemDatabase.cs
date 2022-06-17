@@ -41,3 +41,4 @@ public class ItemStats
     
     public bool isUnlocked;
 }
+
