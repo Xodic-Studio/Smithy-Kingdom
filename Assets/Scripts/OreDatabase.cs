@@ -15,9 +15,9 @@ public class OreStats
     public Sprite oreSprite;
     public string oreDescription;
     public int currentHardness;
+    public bool isUnlocked;
     
     [Header("Default Values")]
     public int defaultHardness;
     public bool isPremium;
-    public int oreID;
 }

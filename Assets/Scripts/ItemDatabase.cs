@@ -10,8 +10,7 @@ public class ItemDatabase : ScriptableObject
 [Serializable]
 public class OreType
 {
-    public string name;
-    public int collectionID;
+    public string collectionName;
     public ItemStats[] items;
 }
     
@@ -39,8 +38,6 @@ public class ItemStats
     
     [Header("Player Stats")]
     public int timesForged;
-        
-    public int itemID;
-    public int oreID;
+    
     public bool isUnlocked;
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2372c84706c9244a83ff9c580499e0b, type: 3}
+  m_Name: OreDatabase
+  m_EditorClassIdentifier: 
+  ores:
+  - oreName: Copper
+    oreSprite: {fileID: 7482667652216324306, guid: d4414fe66cbaa4b4aa8a0b308275fb48, type: 3}
+    oreDescription: 
+    currentHardness: 100
+    isUnlocked: 0
+    defaultHardness: 100
+    isPremium: 0
+  - oreName: Silver
+    oreSprite: {fileID: -2413806693520163455, guid: 12a4cc6f8967b83429a14ab82d379e0a, type: 3}
+    oreDescription: 
+    currentHardness: 100
+    isUnlocked: 0
+    defaultHardness: 100
+    isPremium: 0
+  - oreName: Gold
+    oreSprite: {fileID: -9095717837082945937, guid: 17b9019ac8dc4074f97a6ee8a08aa741, type: 3}
+    oreDescription: 
+    currentHardness: 100
+    isUnlocked: 0
+    defaultHardness: 100
+    isPremium: 0
