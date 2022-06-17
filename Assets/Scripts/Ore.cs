@@ -1,25 +1,49 @@
 using System;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
-public class Ore : MonoBehaviour
+public class Ore : Singleton<Ore>
 {
     [SerializeField] private OreDatabase oreDatabase;
     private UIManager _uiManager;
-    
-    
+    private GameManager _gameManager;
     
     private OreStats _thisOre;
     private SpriteRenderer _oreSprite;
-    
     public int selectedOreIndex;
     
     
+
+    private void Awake()
+    {
+        _uiManager = UIManager.Instance;
+        _gameManager = GameManager.Instance;
+    }
+
+    private void Start()
+    {
+        _oreSprite = GetComponent<SpriteRenderer>();
+        UpdateOre();
+    }
     
     
+
+    void Update()
+    {
+        CheckHardness();
+        CheckOreIndex();
+    }
     
-    
-    
-    
+
+    //update ore
+    public void UpdateOre()
+    {
+        _thisOre = oreDatabase.ores[selectedOreIndex];
+        name = _thisOre.oreName;
+        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _oreSprite.sprite = _thisOre.oreSprite;
+        _uiManager.UpdateOreNameText(_thisOre.oreName);
+    }
     
     public void ModifySelectedOreIndex(int index)
     {
@@ -38,40 +62,15 @@ public class Ore : MonoBehaviour
     {
         _thisOre.currentHardness -= amount;
     }
-
-
-    private void Awake()
-    {
-        _uiManager = UIManager.Instance;
-    }
-
-    private void Start()
-    {
-        _oreSprite = GetComponent<SpriteRenderer>();
-        UpdateOre();
-    }
-    
-    //update ore
-    public void UpdateOre()
-    {
-        _thisOre = oreDatabase.ores[selectedOreIndex];
-        _oreSprite.sprite = _thisOre.oreSprite;
-        _uiManager.UpdateOreNameText(_thisOre.oreName);
-    }
-
-    void Update()
-    {
-        CheckHardness();
-        CheckOreIndex();
-    }
     void CheckHardness()
     {
         if (_thisOre.currentHardness <= 0)
         {
             _thisOre.currentHardness = _thisOre.defaultHardness;
+            _gameManager.ModifyMoney(100);
         }
     }
-    
+
     void CheckOreIndex()
     {
         if (selectedOreIndex >= oreDatabase.ores.Length || selectedOreIndex < 0)

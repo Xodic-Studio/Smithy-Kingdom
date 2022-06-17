@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private Ore ore;
+    private Ore _ore;
     private UIManager _uiManager;
+
+    public int money;
     
     
     
@@ -15,31 +17,64 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
         _uiManager = UIManager.Instance;
+        _ore = Ore.Instance;
+    }
+
+    private void Start()
+    {
+        _uiManager.UpdateMoneyText();
     }
 
 
+    //Modify money
+    public void ModifyMoney(int amount)
+    {
+        money += amount;
+        _uiManager.UpdateMoneyText();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     //Hitting Function
-    void OnFire()
+    public void TapTap()
     {
         Debug.Log("Hammer hit");
-        ore.ModifyHardness(hammerDamage);
+        _ore.ModifyHardness(hammerDamage);
     }
     
     // Ore Selection
     public void SelectPreviousOre()
     {
-        ore.ModifySelectedOreIndex(-1);
-        ore.UpdateOre();
-        _uiManager.UpdateOreNameText(ore.GetOreStats().oreName);
+        _ore.ModifySelectedOreIndex(-1);
+        _ore.UpdateOre();
+        _uiManager.UpdateOreNameText(_ore.GetOreStats().oreName);
     }
     
     public void SelectNextOre()
     {
-        ore.ModifySelectedOreIndex(1);
-        ore.UpdateOre();
-        _uiManager.UpdateOreNameText(ore.GetOreStats().oreName);
+        _ore.ModifySelectedOreIndex(1);
+        _ore.UpdateOre();
+        _uiManager.UpdateOreNameText(_ore.GetOreStats().oreName);
     }
 
+    
 
 
 }
