@@ -36,7 +36,7 @@ public class CollectionManager : Singleton<CollectionManager>
         {
             _itemCollection = itemDatabase.items[itemCollectionIndex];
             _itemStats = _itemCollection.items[itemStatsIndex];
-        } catch (IndexOutOfRangeException e)
+        } catch (IndexOutOfRangeException)
         {
             Debug.LogWarning("Item Collection for This Ore Does Not Exist");
         }
