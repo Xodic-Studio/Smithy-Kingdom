@@ -67,7 +67,7 @@ public class Upgrade : Singleton<Upgrade>
 }
 
 
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(Upgrade))]
 public class UpgradeEditor : Editor
 {
@@ -82,3 +82,5 @@ public class UpgradeEditor : Editor
         }
     }
 }
+#endif
+
