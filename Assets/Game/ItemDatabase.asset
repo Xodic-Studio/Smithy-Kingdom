@@ -15,10 +15,51 @@ MonoBehaviour:
   items:
   - collectionName: Copper Collection
     items:
-    - itemName: 
+    - itemName: Copper01
       itemIcon: {fileID: 0}
-      itemPrice: 0
+      itemPrice: 100
       itemRarity: 0
       itemDescription: 
+      dropChance: 70
+      timesForged: 0
+      isUnlocked: 1
+    - itemName: Copper02
+      itemIcon: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: 
+      dropChance: 20
+      timesForged: 0
+      isUnlocked: 1
+    - itemName: Copper03
+      itemIcon: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: 
+      dropChance: 7.5
+      timesForged: 0
+      isUnlocked: 1
+    - itemName: Copper04
+      itemIcon: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: 
+      dropChance: 2
+      timesForged: 0
+      isUnlocked: 0
+    - itemName: Copper05
+      itemIcon: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 3
+      itemDescription: 
+      dropChance: 0.4
+      timesForged: 0
+      isUnlocked: 0
+    - itemName: Copper06
+      itemIcon: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 3
+      itemDescription: 
+      dropChance: 0.1
       timesForged: 0
       isUnlocked: 0

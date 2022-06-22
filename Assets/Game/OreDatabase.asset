@@ -24,13 +24,13 @@ MonoBehaviour:
     oreSprite: {fileID: -2413806693520163455, guid: 12a4cc6f8967b83429a14ab82d379e0a, type: 3}
     oreDescription: 
     currentHardness: 10
-    isUnlocked: 0
+    isUnlocked: 1
     defaultHardness: 10
     isPremium: 0
   - oreName: Gold
     oreSprite: {fileID: -9095717837082945937, guid: 17b9019ac8dc4074f97a6ee8a08aa741, type: 3}
     oreDescription: 
     currentHardness: 100
-    isUnlocked: 0
+    isUnlocked: 1
     defaultHardness: 100
     isPremium: 0

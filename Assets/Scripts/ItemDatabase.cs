@@ -4,11 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Game/Database/Item")]
 public class ItemDatabase : ScriptableObject
 {
-    public OreType[] items;
+    public ItemCollection[] items;
 }
 
 [Serializable]
-public class OreType
+public class ItemCollection
 {
     public string collectionName;
     public ItemStats[] items;
@@ -35,6 +35,8 @@ public class ItemStats
     public Rarity itemRarity;
     [TextArea(3, 10)]
     public string itemDescription;
+
+    public float dropChance;
     
     [Header("Player Stats")]
     public int timesForged;

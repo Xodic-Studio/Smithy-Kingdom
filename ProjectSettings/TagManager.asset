@@ -47,3 +47,6 @@ TagManager:
   - name: GameObject
     uniqueID: 4023074261
     locked: 0
+  - name: Canvas
+    uniqueID: 2809713043
+    locked: 0

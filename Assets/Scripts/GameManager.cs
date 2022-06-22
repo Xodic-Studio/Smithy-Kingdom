@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -6,7 +5,7 @@ public class GameManager : Singleton<GameManager>
     private Ore _ore;
     private UIManager _uiManager;
 
-    public int money;
+    public float money;
     
     
     
@@ -27,7 +26,7 @@ public class GameManager : Singleton<GameManager>
 
 
     //Modify money
-    public void ModifyMoney(int amount)
+    public void ModifyMoney(float amount)
     {
         money += amount;
         _uiManager.UpdateMoneyText();

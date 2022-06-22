@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class Ore : Singleton<Ore>
@@ -7,6 +5,7 @@ public class Ore : Singleton<Ore>
     [SerializeField] private OreDatabase oreDatabase;
     private UIManager _uiManager;
     private GameManager _gameManager;
+    private CollectionManager _collectionManager;
     
     private OreStats _thisOre;
     private SpriteRenderer _oreSprite;
@@ -18,6 +17,7 @@ public class Ore : Singleton<Ore>
     {
         _uiManager = UIManager.Instance;
         _gameManager = GameManager.Instance;
+        _collectionManager = CollectionManager.Instance;
     }
 
     private void Start()
@@ -45,6 +45,7 @@ public class Ore : Singleton<Ore>
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _oreSprite.sprite = _thisOre.oreSprite;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
+        _collectionManager.UpdateRandomSystem();
     }
     
     public void ModifySelectedOreIndex(int index)
@@ -70,12 +71,14 @@ public class Ore : Singleton<Ore>
     {
         _thisOre.currentHardness -= amount;
     }
+    // ReSharper disable Unity.PerformanceAnalysis
     void CheckHardness()
     {
         if (_thisOre.currentHardness <= 0)
         {
             _thisOre.currentHardness = _thisOre.defaultHardness;
-            _gameManager.ModifyMoney(100);
+            _collectionManager.DropItem();
+            
         }
     }
 
