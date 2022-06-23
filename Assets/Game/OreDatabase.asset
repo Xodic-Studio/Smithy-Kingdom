@@ -34,3 +34,10 @@ MonoBehaviour:
     isUnlocked: 1
     defaultHardness: 100
     isPremium: 0
+  - oreName: Platinum
+    oreSprite: {fileID: -9095717837082945937, guid: 17b9019ac8dc4074f97a6ee8a08aa741, type: 3}
+    oreDescription: 
+    currentHardness: 100
+    isUnlocked: 1
+    defaultHardness: 100
+    isPremium: 0

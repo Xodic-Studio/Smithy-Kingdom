@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -30,7 +29,7 @@ public class CollectionManager : Singleton<CollectionManager>
         UpdateItemSelection();
     }
 
-    public void UpdateItemSelection()
+    private void UpdateItemSelection()
     {
         try
         {
@@ -66,9 +65,9 @@ public class CollectionManager : Singleton<CollectionManager>
     {
         var randomNumber = Random.Range(0f, 100f);
         var i = 0;
-        foreach (var VARIABLE in _cumulativeDropChances)
+        foreach (var variable in _cumulativeDropChances)
         {
-            if (randomNumber <= VARIABLE)
+            if (randomNumber <= variable)
             {
                 itemStatsIndex = i;
                 UpdateItemSelection();

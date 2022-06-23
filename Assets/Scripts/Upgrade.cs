@@ -25,7 +25,7 @@ public class Upgrade : Singleton<Upgrade>
     public void UpdateUpgrades()
     {
         var i = 0;
-        foreach (var VARIABLE in upgradesDatabase.stats)
+        foreach (var variable in upgradesDatabase.stats)
         {
             try
             {
@@ -75,11 +75,15 @@ public class UpgradeEditor : Editor
     {
         Upgrade upgrade = (Upgrade) target;
         base.OnInspectorGUI();
-        if (GUILayout.Button("Update Upgrades"))
+        EditorGUILayout.Space();
+        GUILayout.Label("Update UI", EditorStyles.boldLabel);
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Update", GUILayout.Width(100)))
         {
-            //Debug.Log("Update Pressed");
             upgrade.UpdateUpgrades();
         }
+        GUILayout.Label("*Only Use in Editor");
+        GUILayout.EndHorizontal();
     }
 }
 #endif
