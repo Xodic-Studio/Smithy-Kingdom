@@ -9,7 +9,7 @@ public class CollectionManager : Singleton<CollectionManager>
     
     
     
-    [SerializeField] ItemDatabase itemDatabase;
+    public ItemDatabase itemDatabase;
     ItemCollection _itemCollection;
     ItemStats _itemStats;
     
@@ -33,7 +33,7 @@ public class CollectionManager : Singleton<CollectionManager>
     {
         try
         {
-            _itemCollection = itemDatabase.items[itemCollectionIndex];
+            _itemCollection = itemDatabase.collections[itemCollectionIndex];
             _itemStats = _itemCollection.items[itemStatsIndex];
         } catch (IndexOutOfRangeException)
         {

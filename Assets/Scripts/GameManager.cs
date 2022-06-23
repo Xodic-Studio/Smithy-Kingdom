@@ -48,10 +48,10 @@ public class GameManager : Singleton<GameManager>
     
     IEnumerator FloatDelayDestroy(GameObject go)
     {
-        for (int i = 0; i < 10; i++)
+        for (float i = 0; i < 0.5f; i += 1 * Time.fixedDeltaTime)
         {
-            go.transform.position += new Vector3(0, 0.1f, 0);
-            yield return new WaitForSeconds(0.1f);
+            go.transform.position += new Vector3(0, 0.01f, 0);
+            yield return null;
         }
         Destroy(go);
     }

@@ -4,10 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Upgrade : Singleton<Upgrade>
+public class Collection : Singleton<Collection>
 {
-    public UpgradesDatabase upgradesDatabase;
-    public GameObject upgradePrefab;
+    public ItemDatabase itemDatabase;
+    public GameObject collectionPrefab;
+    
     private RectTransform _thisRectTransform;
     private RectTransform _parentRectTransform;
     private RectTransform _prefabRectTransform;
@@ -15,26 +16,25 @@ public class Upgrade : Singleton<Upgrade>
 
     
 
-    public void OnValidate()
-    {   
+    private void OnValidate()
+    {
         _thisVerticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
-        _prefabRectTransform = upgradePrefab.GetComponent<RectTransform>();
+        _prefabRectTransform = collectionPrefab.GetComponent<RectTransform>();
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _thisRectTransform = GetComponent<RectTransform>();
-        UpdateUpgrades();
+        UpdateCollection();
     }
+
     IEnumerator Destroy(GameObject go)
     {
         yield return new WaitForEndOfFrame();
         DestroyImmediate(go);
     }
-
     
-    // ReSharper disable Unity.PerformanceAnalysis
-    public void UpdateUpgrades()
+    public void UpdateCollection()
     {
         var i = 0;
-        foreach (var variable in upgradesDatabase.stats)
+        foreach (var collection in itemDatabase.collections)
         {
             try
             {
@@ -42,16 +42,14 @@ public class Upgrade : Singleton<Upgrade>
             }
             catch (UnityException)
             {
-                var newUpgrade = Instantiate(upgradePrefab, transform);
-                newUpgrade.transform.SetParent(transform);
+                var newCollection = Instantiate(collectionPrefab, transform);
+                newCollection.transform.SetParent(transform);
             }
-            transform.GetChild(i).name = upgradesDatabase.stats[i].upgradeName;
-            transform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text = upgradesDatabase.stats[i].upgradeName;
-            transform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>().text = upgradesDatabase.stats[i].upgradeDescription;
+            transform.GetChild(i).name = itemDatabase.collections[i].collectionName;
+            transform.GetChild(i).GetComponent<TMP_Text>().text = itemDatabase.collections[i].collectionName;
             i++;
         }
-        
-        var needDestroy = transform.childCount - upgradesDatabase.stats.Length;
+        var needDestroy = transform.childCount - itemDatabase.collections.Length;
                 
         for (i = transform.childCount; i > transform.childCount - needDestroy; i--)
         {
@@ -59,40 +57,37 @@ public class Upgrade : Singleton<Upgrade>
         }
         UpdateScrollViewSize();
     }
-
+    
     private void UpdateScrollViewSize()
     {
-        if (transform.childCount <= 5)
+        if (transform.childCount <= 2)
         {
             _thisRectTransform.sizeDelta = new Vector2(_thisRectTransform.sizeDelta.x, _parentRectTransform.rect.height);
         }
         else
         {
-            float y = _parentRectTransform.rect.height + (transform.childCount - 5) * (_prefabRectTransform.rect.height + _thisVerticalLayoutGroup.spacing);
+            float y = _parentRectTransform.rect.height + (transform.childCount - 2) * (_prefabRectTransform.rect.height + _thisVerticalLayoutGroup.spacing);
             _thisRectTransform.sizeDelta = new Vector2(_thisRectTransform.sizeDelta.x, y);
         }
     }
 }
-
-
 #if UNITY_EDITOR
-[CustomEditor(typeof(Upgrade))]
-public class UpgradeEditor : Editor
+[CustomEditor(typeof(Collection))]
+public class CollectionEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        Upgrade upgrade = (Upgrade) target;
+        Collection collection = (Collection) target;
         base.OnInspectorGUI();
         EditorGUILayout.Space();
         GUILayout.Label("Update UI", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Update", GUILayout.Width(100)))
         {
-            upgrade.UpdateUpgrades();
+            collection.UpdateCollection();
         }
         GUILayout.Label("*Only Use in Editor");
         GUILayout.EndHorizontal();
     }
 }
 #endif
-

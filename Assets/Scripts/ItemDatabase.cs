@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Game/Database/Item")]
 public class ItemDatabase : ScriptableObject
 {
-    public ItemCollection[] items;
+    public ItemCollection[] collections;
 }
 
 [Serializable]
