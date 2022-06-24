@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Collection : Singleton<Collection>
+public class CollectionType : Singleton<CollectionType>
 {
     public ItemDatabase itemDatabase;
     public GameObject collectionPrefab;
@@ -33,6 +33,11 @@ public class Collection : Singleton<Collection>
     
     public void UpdateCollection()
     {
+        var active = gameObject.activeSelf;
+        if (!active)
+        {
+            gameObject.SetActive(true);
+        }
         var i = 0;
         foreach (var collection in itemDatabase.collections)
         {
@@ -56,6 +61,7 @@ public class Collection : Singleton<Collection>
             StartCoroutine(Destroy(transform.GetChild(i-1).gameObject));
         }
         UpdateScrollViewSize();
+        gameObject.SetActive(active);
     }
     
     private void UpdateScrollViewSize()
@@ -72,19 +78,19 @@ public class Collection : Singleton<Collection>
     }
 }
 #if UNITY_EDITOR
-[CustomEditor(typeof(Collection))]
+[CustomEditor(typeof(CollectionType))]
 public class CollectionEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        Collection collection = (Collection) target;
+        CollectionType collectionType = (CollectionType) target;
         base.OnInspectorGUI();
         EditorGUILayout.Space();
         GUILayout.Label("Update UI", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Update", GUILayout.Width(100)))
         {
-            collection.UpdateCollection();
+            collectionType.UpdateCollection();
         }
         GUILayout.Label("*Only Use in Editor");
         GUILayout.EndHorizontal();

@@ -8,6 +8,7 @@ public class Upgrade : Singleton<Upgrade>
 {
     public UpgradesDatabase upgradesDatabase;
     public GameObject upgradePrefab;
+    
     private RectTransform _thisRectTransform;
     private RectTransform _parentRectTransform;
     private RectTransform _prefabRectTransform;
@@ -33,6 +34,12 @@ public class Upgrade : Singleton<Upgrade>
     // ReSharper disable Unity.PerformanceAnalysis
     public void UpdateUpgrades()
     {
+        var active = gameObject.activeSelf;
+        if (!active)
+        {
+            gameObject.SetActive(true);
+        }
+
         var i = 0;
         foreach (var variable in upgradesDatabase.stats)
         {
@@ -58,6 +65,7 @@ public class Upgrade : Singleton<Upgrade>
             StartCoroutine(Destroy(transform.GetChild(i-1).gameObject));
         }
         UpdateScrollViewSize();
+        gameObject.SetActive(active);
     }
 
     private void UpdateScrollViewSize()

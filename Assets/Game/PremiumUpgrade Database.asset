@@ -22,3 +22,6 @@ MonoBehaviour:
   - upgradeName: Premium Ore Upgrade
     upgradeDescription: Premium Upgrade For Ores This is aPlaceholder
     upgradeLevels: 1
+  - upgradeName: Premium Ore Upgrade
+    upgradeDescription: Premium Upgrade For Ores This is aPlaceholder
+    upgradeLevels: 1

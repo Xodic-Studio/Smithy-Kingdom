@@ -7,6 +7,11 @@ public class UIManager : Singleton<UIManager>
 {
     private GameManager _gameManager;
     
+    [Header("AutoUI Scripts")]
+    public Upgrade uiUpgrade;
+    public Upgrade uiPremiumUpgrade;
+    public CollectionType uiCollectionType;
+    
     [Header("BaseUI")]
     public TMP_Text oreNameText;
     public TMP_Text moneyText;
@@ -26,27 +31,41 @@ public class UIManager : Singleton<UIManager>
         AddMenuButtons();
     }
 
-    //update money text
+    /// <summary>
+    /// Update the Money TMP text with the current money
+    /// </summary>
     public void UpdateMoneyText()
     {
         moneyText.text = $"$: {_gameManager.money}";
     }
     
     
-    
+    /// <summary>
+    /// Update the Ore Name TMP text with the current ore name
+    /// </summary>
+    /// <param name="newText"> is the Ore Name</param>
     public void UpdateOreNameText(string newText)
     {
         oreNameText.text = newText;
     }
     
-    public void UpdateMaxHardnessSlider(int hardness)
+    /// <summary>
+    /// Update the Hardness Slider Max Value and TMP text with the default hardness
+    /// </summary>
+    /// <param name="defaultHardness">Default hardness of an ore</param>
+    public void UpdateMaxHardnessSlider(int defaultHardness)
     {
-        hardnessSlider.maxValue = hardness;
-        hardnessSlider.value = hardness;
+        hardnessSlider.maxValue = defaultHardness;
+        hardnessSlider.value = defaultHardness;
         
         
     }
 
+    /// <summary>
+    /// Update the Hardness Slider Value and TMP text with the current hardness
+    /// </summary>
+    /// <param name="hardness">Current Hardness of an ore</param>
+    /// <param name="maxHardness">Default Hardness of an ore</param>
     public void UpdateHardnessSlider(int hardness, int maxHardness)
     {
         hardnessSlider.value = hardness;
@@ -69,6 +88,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject premiumMenu;
     public GameObject settingsMenu;
 
+    /// <summary>
+    /// Add Functions to all buttons in the Main Menu
+    /// </summary>
     private void AddMenuButtons()
     {
         upgradeMenuButton.onClick.AddListener(OpenUpgradeMenu);
@@ -79,12 +101,20 @@ public class UIManager : Singleton<UIManager>
     }
 
 
+    /// <summary>
+    /// Close Button Function
+    /// Close Current UI and Open Base UI
+    /// </summary>
     public void CloseMenu()
     {
         overrideCanvas.SetActive(false);
         baseCanvas.SetActive(true);
     }
     
+    /// <summary>
+    /// Open Upgrade Menu Function
+    /// Open Upgrade Menu, Close Other Menu and Close Base UI
+    /// </summary>
     public void OpenUpgradeMenu()
     {
         CheckCanvas();
@@ -95,6 +125,10 @@ public class UIManager : Singleton<UIManager>
         TapNormalUpgradePanel();
     }
 
+    /// <summary>
+    /// Open Collectibles Menu Function
+    /// Open Collectibles Menu, Close Other Menu and Close Base UI
+    /// </summary>
     public void OpenCollectiblesMenu()
     {
         CheckCanvas();
@@ -104,6 +138,10 @@ public class UIManager : Singleton<UIManager>
         settingsMenu.SetActive(false);
     }
 
+    /// <summary>
+    /// Open Premium Menu Function
+    /// Open Premium Menu, Close Other Menu and Close Base UI
+    /// </summary>
     public void OpenPremiumMenu()
     {
         CheckCanvas();
@@ -113,6 +151,10 @@ public class UIManager : Singleton<UIManager>
         settingsMenu.SetActive(false);
     }
 
+    /// <summary>
+    /// Open Settings Menu Function
+    /// Open Settings Menu, Close Other Menu and Close Base UI
+    /// </summary>
     public void OpenSettingsMenu()
     {
         CheckCanvas();
@@ -122,6 +164,9 @@ public class UIManager : Singleton<UIManager>
         settingsMenu.SetActive(true);
     }
 
+    /// <summary>
+    /// Check if the override canvas is already active or not
+    /// </summary>
     private void CheckCanvas()
     {
         if (!overrideCanvas.activeSelf)
@@ -148,12 +193,18 @@ public class UIManager : Singleton<UIManager>
     private RectTransform _normalRectTransform;
     private RectTransform _premiumRectTransform;
 
+    /// <summary>
+    /// This function needed to be called in start
+    /// </summary>
     private void UpgradeStart()
     {
         _normalRectTransform = normalUpgradePanel.GetComponent<RectTransform>();
         _premiumRectTransform = premiumUpgradePanel.GetComponent<RectTransform>();
     }
 
+    /// <summary>
+    /// Add Functions to all buttons in the Upgrades Menu
+    /// </summary>
     private void AddUpgradeButtons()
     {
         normalUpgradeButton.onClick.AddListener(TapNormalUpgradePanel);
@@ -161,7 +212,10 @@ public class UIManager : Singleton<UIManager>
 
     }
 
-    private void TapNormalUpgradePanel()
+    /// <summary>
+    /// Switch to the Normal Upgrade Panel
+    /// </summary>
+    public void TapNormalUpgradePanel()
     {
         normalUpgradePanel.SetActive(true);
         premiumUpgradePanel.SetActive(false);
@@ -169,7 +223,10 @@ public class UIManager : Singleton<UIManager>
         
     }
 
-    private void TapPremiumUpgradePanel()
+    /// <summary>
+    /// Switch to the Premium Upgrade Panel
+    /// </summary>
+    public void TapPremiumUpgradePanel()
     {
         normalUpgradePanel.SetActive(false);
         premiumUpgradePanel.SetActive(true);
@@ -213,27 +270,46 @@ public class UIManagerEditor : Editor
         {
             uiManager.CloseMenu();
         }
+
         EditorGUILayout.Space();
-        GUILayout.Label("Menu Quick Access");
-        GUILayout.BeginHorizontal( GUILayout.ExpandWidth(true));
+        GUILayout.Label("Menu Quick Access", EditorStyles.boldLabel);
+        GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
         if (GUILayout.Button("UpgradeMenu"))
         {
             uiManager.OpenUpgradeMenu();
         }
+
         if (GUILayout.Button("CollectiblesMenu"))
         {
             uiManager.OpenCollectiblesMenu();
         }
+
         if (GUILayout.Button("PremiumMenu"))
         {
             uiManager.OpenPremiumMenu();
         }
+
         if (GUILayout.Button("SettingsMenu"))
         {
             uiManager.OpenSettingsMenu();
         }
+
         GUILayout.EndHorizontal();
-        
+        EditorGUILayout.Space();
+        GUILayout.Label("Update All UI", EditorStyles.boldLabel);
+        GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
+        if (GUILayout.Button("Update UIs", GUILayout.Width(100)))
+        {
+            uiManager.OpenUpgradeMenu();
+            uiManager.TapNormalUpgradePanel();
+            uiManager.uiUpgrade.UpdateUpgrades();
+            uiManager.TapPremiumUpgradePanel();
+            uiManager.uiPremiumUpgrade.UpdateUpgrades();
+            uiManager.OpenCollectiblesMenu();
+            uiManager.uiCollectionType.UpdateCollection();
+        }
+        GUILayout.Label("**Update All Data For UIs**");
+        GUILayout.EndHorizontal();
     }
 }
 

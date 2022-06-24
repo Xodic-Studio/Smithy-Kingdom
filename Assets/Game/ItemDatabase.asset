@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collections:
   - collectionName: Bronze
-    items: []
-  - collectionName: Silver
-    items: []
-  - collectionName: Gold
-    items: []
-  - collectionName: Platinum
-    items: []
-  - collectionName: Platinum
-    items: []
+    items:
+    - itemName: 
+      itemIcon: {fileID: 0}
+      itemPrice: 0
+      itemRarity: 0
+      itemDescription: 
+      dropChance: 0
+      timesForged: 0
+      isUnlocked: 0
