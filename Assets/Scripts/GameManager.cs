@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -8,11 +10,41 @@ public class GameManager : Singleton<GameManager>
     private UIManager _uiManager;
     public GameObject damageGameObject;
     TMP_Text _damageText;
-
+    [SerializeField] Camera mainCamera;
     public float money;
-    
-    
-    
+
+    void OnFire()
+    {
+        Vector2 touchPosition;
+        Vector3 worldCords;
+        // if (Touchscreen.current != null)
+        // {
+        //     touchPosition = Touchscreen.current.position.ReadValue();
+        //     worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+        // }
+        if (Mouse.current != null)
+        {
+            touchPosition = Mouse.current.position.ReadValue();
+            worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+            worldCords.z = 0f;
+        }
+        else
+        {
+            return;
+        }
+
+        Debug.Log(touchPosition);
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log("Touched UI");
+        }
+        else
+        {
+            TapTap(touchPosition);
+        }
+    }
+
+
     //Hammer variables
     public int hammerDamage;
 
@@ -65,10 +97,10 @@ public class GameManager : Singleton<GameManager>
     
     
     //Hitting Function
-    public void TapTap()
+    private void TapTap(Vector2 position)
     {
         _ore.ModifyHardness(hammerDamage);
-        AddDamageText(hammerDamage.ToString(), _ore.transform.position);
+        AddDamageText(position.ToString(), position);
     }
     
     // Ore Selection

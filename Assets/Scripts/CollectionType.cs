@@ -17,7 +17,7 @@ public class CollectionType : Singleton<CollectionType>
     
 
     private void OnValidate()
-    {
+    {   
         _thisVerticalLayoutGroup = GetComponent<VerticalLayoutGroup>();
         _prefabRectTransform = collectionPrefab.GetComponent<RectTransform>();
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
