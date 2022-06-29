@@ -5910,7 +5910,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -9000,6 +9000,8 @@ MonoBehaviour:
   uiCollectionType: {fileID: 1489542807}
   oreNameText: {fileID: 1779429849}
   moneyText: {fileID: 1866464797}
+  previousOreButtonGo: {fileID: 2074068639}
+  nextOreButtonGo: {fileID: 1551988307}
   hardnessSlider: {fileID: 1113044958}
   hardnessText: {fileID: 1497258063}
   upgradeMenuButton: {fileID: 518365796}
@@ -11174,19 +11176,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1551988310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1272240230}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectNextOre
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1551988310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14151,19 +14141,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2074068642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1272240230}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SelectPreviousOre
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2074068642
 MonoBehaviour:
   m_ObjectHideFlags: 0

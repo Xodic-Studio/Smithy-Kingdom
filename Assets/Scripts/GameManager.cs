@@ -17,21 +17,12 @@ public class GameManager : Singleton<GameManager>
     {
         Vector2 touchPosition;
         Vector3 worldCords;
-        // if (Touchscreen.current != null)
-        // {
-        //     touchPosition = Touchscreen.current.position.ReadValue();
-        //     worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-        // }
-        if (Mouse.current != null)
-        {
-            touchPosition = Mouse.current.position.ReadValue();
-            worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-            worldCords.z = 0f;
-        }
-        else
-        {
-            return;
-        }
+        Touch touch = Input.GetTouch(0);
+        
+        touchPosition = touch.position;
+        worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+        worldCords.z = 0f;
+            
 
         Debug.Log(touchPosition);
         if (EventSystem.current.IsPointerOverGameObject())

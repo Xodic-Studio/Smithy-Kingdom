@@ -39,6 +39,7 @@ public class Ore : Singleton<Ore>
     //update ore
     public void UpdateOre()
     {
+        DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
         _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
@@ -55,6 +56,8 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
             {
                 selectedOreIndex--;
+                _uiManager.nextOreButtonGo.SetActive(true);
+                DisableButtonIfNoNextOre();
             }
         }
         else if (index == 1 && selectedOreIndex + 1 < oreDatabase.ores.Length)
@@ -62,6 +65,8 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
             {
                 selectedOreIndex++;
+                _uiManager.previousOreButtonGo.SetActive(true);
+                DisableButtonIfNoNextOre();
             }
         }
         Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
@@ -70,6 +75,18 @@ public class Ore : Singleton<Ore>
     public void ModifyHardness(int amount)
     {
         _thisOre.currentHardness -= amount;
+    }
+    
+    void DisableButtonIfNoNextOre()
+    {
+        if (selectedOreIndex - 1 < 0 || !oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+        {
+            _uiManager.previousOreButtonGo.SetActive(false);
+        }
+        else if (selectedOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+        {
+            _uiManager.nextOreButtonGo.SetActive(false);
+        }
     }
     // ReSharper disable Unity.PerformanceAnalysis
     void CheckHardness()

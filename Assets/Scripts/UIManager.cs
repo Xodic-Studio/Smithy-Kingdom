@@ -15,8 +15,12 @@ public class UIManager : Singleton<UIManager>
     [Header("BaseUI")]
     public TMP_Text oreNameText;
     public TMP_Text moneyText;
+    public GameObject previousOreButtonGo;
+    public GameObject nextOreButtonGo;
     public Slider hardnessSlider;
     public TMP_Text hardnessText;
+    private Button _previousOreButton;
+    private Button _nextOreButton;
     
 
     private void Awake()
@@ -26,6 +30,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
+        BaseStart();
         UpgradeStart();
         AddUpgradeButtons();
         AddMenuButtons();
@@ -72,6 +77,17 @@ public class UIManager : Singleton<UIManager>
         hardnessText.text = $"{hardness}/{maxHardness}";
     }
 
+    #region Base
+
+    void BaseStart()
+    {
+        _nextOreButton = nextOreButtonGo.GetComponent<Button>();
+        _previousOreButton = previousOreButtonGo.GetComponent<Button>();
+        _nextOreButton.onClick.AddListener(() => _gameManager.SelectNextOre());
+        _previousOreButton.onClick.AddListener(() => _gameManager.SelectPreviousOre());
+    }
+
+    #endregion
     #region MainMenu
     
     [Header("Main Menu")]
