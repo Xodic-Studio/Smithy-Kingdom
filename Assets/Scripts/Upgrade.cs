@@ -41,7 +41,7 @@ public class Upgrade : Singleton<Upgrade>
         }
 
         var i = 0;
-        foreach (var variable in upgradesDatabase.stats)
+        foreach (var unused in upgradesDatabase.stats)
         {
             try
             {

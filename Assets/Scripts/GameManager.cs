@@ -17,21 +17,30 @@ public class GameManager : Singleton<GameManager>
     {
         Vector2 touchPosition;
         Vector3 worldCords;
-        Touch touch = Input.GetTouch(0);
-        
-        touchPosition = touch.position;
-        worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-        worldCords.z = 0f;
-            
+        // if (Touchscreen.current != null)
+        // {
+        //     touchPosition = Touchscreen.current.position.ReadValue();
+        //     worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+        // }
+        if (Mouse.current != null)
+        {
+            touchPosition = Mouse.current.position.ReadValue();
+            worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+            worldCords.z = 0f;
+        }
+        else
+        {
+            return;
+        }
 
-        Debug.Log(touchPosition);
+        Debug.Log(worldCords);
         if (EventSystem.current.IsPointerOverGameObject())
         {
             Debug.Log("Touched UI");
         }
         else
         {
-            TapTap(touchPosition);
+            TapTap(worldCords);
         }
     }
 
@@ -61,22 +70,24 @@ public class GameManager : Singleton<GameManager>
     }
     
     //Instantiate Damage text
-    private void AddDamageText(string text, Vector3 position)
+    private void AddDamageText(string text, Vector2 position)
     {
         var go = Instantiate(damageGameObject, position, Quaternion.identity);
+        RectTransform goRect = go.GetComponent<RectTransform>();
         go.GetComponent<TMP_Text>().text = $"- {text}";
         go.transform.SetParent(_uiManager.baseCanvas.transform, false);
-        StartCoroutine(FloatDelayDestroy(go));
+        goRect.position = position;
+        StartCoroutine(FloatDelayDestroy(goRect));
     }
     
-    IEnumerator FloatDelayDestroy(GameObject go)
+    IEnumerator FloatDelayDestroy(RectTransform goRect)
     {
-        for (float i = 0; i < 0.5f; i += 1 * Time.fixedDeltaTime)
+        for (float i = 0; i < 10f; i += 1 * Time.fixedDeltaTime)
         {
-            go.transform.position += new Vector3(0, 0.01f, 0);
+            goRect.position += new Vector3(0, 0.01f, 0);
             yield return null;
         }
-        Destroy(go);
+        Destroy(goRect.gameObject);
     }
 
     
