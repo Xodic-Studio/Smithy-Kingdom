@@ -58,11 +58,11 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
 
       #Get Version
-      - name: Get Version
-        uses: battila7/get-version-action@v2
-        id: get_version
-
-      - run: echo ${{ steps.get_version.outputs.version }}
+      # - name: Get Version
+      #   uses: battila7/get-version-action@v2
+      #   id: get_version
+      #
+      # - run: echo ${{ steps.get_version.outputs.version }}
 
       #Return License
       # - name: Return license
@@ -72,5 +72,5 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}-${{ steps.get_version.outputs.version }}
+          name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
