@@ -1,7 +1,6 @@
 name: Build Project 😎
 
-on:
-  release:
+on: release
 
 jobs:
   build:
