@@ -63,5 +63,5 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          name: Build-${{ matrix.targetPlatform }}-${{ steps.myBuildStep.outputs.outputName }}
+          path: build/${{ matrix.targetPlatform }}/${{ steps.myBuildStep.outputs.outputName }}
