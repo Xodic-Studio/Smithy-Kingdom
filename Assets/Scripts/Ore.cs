@@ -30,8 +30,6 @@ public class Ore : Singleton<Ore>
 
     void Update()
     {
-        CheckHardness();
-        CheckOreIndex();
         _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
@@ -69,12 +67,14 @@ public class Ore : Singleton<Ore>
                 DisableButtonIfNoNextOre();
             }
         }
+        CheckOreIndex();
         Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
         
     }
     public void ModifyHardness(int amount)
     {
         _thisOre.currentHardness -= amount;
+        CheckHardness();
     }
     
     void DisableButtonIfNoNextOre()
@@ -88,7 +88,7 @@ public class Ore : Singleton<Ore>
             _uiManager.nextOreButtonGo.SetActive(false);
         }
     }
-    // ReSharper disable Unity.PerformanceAnalysis
+    
     void CheckHardness()
     {
         if (_thisOre.currentHardness <= 0)

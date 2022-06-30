@@ -22,7 +22,6 @@ public class Upgrade : Singleton<Upgrade>
         _prefabRectTransform = upgradePrefab.GetComponent<RectTransform>();
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _thisRectTransform = GetComponent<RectTransform>();
-        //UpdateUpgrades();
     }
     IEnumerator Destroy(GameObject go)
     {
@@ -101,6 +100,8 @@ public class UpgradeEditor : Editor
         GUILayout.Label("*Only Use in Editor");
         GUILayout.EndHorizontal();
     }
+    
+    
 }
 #endif
 

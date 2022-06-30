@@ -40,7 +40,7 @@ public class GameManager : Singleton<GameManager>
     //Instantiate Damage text
     private void AddDamageText(string text)
     {
-        Vector2 touchPosition = new Vector2(0 , 0);
+        Vector2 touchPosition;
         Vector3 worldCords;
         if (Touchscreen.current != null)
         {
