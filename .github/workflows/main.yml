@@ -46,6 +46,8 @@ jobs:
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
+        id: buildProject
+        run: echo 'Project Version: ${{ steps.buildProject.outputs.buildVersion }}'
         # env:
         #   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
         #   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
@@ -55,6 +57,12 @@ jobs:
         with:
           allowDirtyBuild: true
           targetPlatform: ${{ matrix.targetPlatform }}
+      #Get Version
+      - name: Get Version
+        uses: battila7/get-version-action@v2
+        run: echo ${{ steps.get_version.outputs.version }}
+        run: echo ${{ steps.get_version.outputs.version-without-v }}
+
       #Return License
       - name: Return license
         uses: game-ci/unity-return-license@v2
@@ -62,5 +70,5 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}-${{ steps.myBuildStep.outputs.outputName }}
-          path: build/${{ matrix.targetPlatform }}/${{ steps.myBuildStep.outputs.outputName }}
+          name: Build-${{ matrix.targetPlatform }}-${{ steps.buildProject.outputs.buildVersion }}
+          path: build/${{ matrix.targetPlatform }}/${{ steps.buildProject.outputs.buildVersion }}
