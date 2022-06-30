@@ -9,30 +9,9 @@ public class GameManager : Singleton<GameManager>
     private Ore _ore;
     private UIManager _uiManager;
     public GameObject damageGameObject;
-    TMP_Text _damageText;
+    private TMP_Text _damageText;
     [SerializeField] Camera mainCamera;
     public float money;
-
-    void OnFire()
-    {
-        Vector2 touchPosition;
-        Vector3 worldCords;
-        if (Touchscreen.current != null)
-        {
-            touchPosition = Touchscreen.current.position.ReadValue();
-        }
-
-        // if (Mouse.current != null)
-        // {
-        //     touchPosition = Mouse.current.position.ReadValue();
-        // }
-        else
-        {
-            return;
-        }
-        worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-        worldCords.z = 0f;
-    }
 
 
     //Hammer variables
@@ -62,18 +41,18 @@ public class GameManager : Singleton<GameManager>
     //Instantiate Damage text
     private void AddDamageText(string text)
     {
-        Vector2 touchPosition;
+        Vector2 touchPosition = new Vector2(0 , 0);
         Vector3 worldCords;
-        // if (Touchscreen.current != null)
-        // {
-        //     touchPosition = Touchscreen.current.position.ReadValue();
-        // }
-
-        if (Mouse.current != null)
+        if (Touchscreen.current != null)
         {
-            touchPosition = Mouse.current.position.ReadValue();
+            touchPosition = Touchscreen.current.position.ReadValue();
         }
-        else
+
+        // if (Mouse.current != null)
+        // {
+        //     touchPosition = Mouse.current.position.ReadValue();
+        // }
+        else 
         {
             return;
         }
@@ -89,9 +68,13 @@ public class GameManager : Singleton<GameManager>
     
     IEnumerator FloatDelayDestroy(RectTransform goRect)
     {
-        for (float i = 0; i < 0.5f; i += 1 * Time.fixedDeltaTime)
+        for (float i = 0; i < 0.75f; i += 1 * Time.fixedDeltaTime)
         {
             goRect.position += new Vector3(0, 0.01f, 0);
+            if (i > 0.5f)
+            {
+                _damageText.color -= new Color(0, 0, 0, 1 * Time.fixedDeltaTime);
+            }
             yield return null;
         }
         Destroy(goRect.gameObject);
