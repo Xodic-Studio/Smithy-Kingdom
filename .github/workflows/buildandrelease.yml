@@ -52,6 +52,7 @@ jobs:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           allowDirtyBuild: true
+          versioning: Semantic
           targetPlatform: ${{ matrix.targetPlatform }}
 
       #Get Version
