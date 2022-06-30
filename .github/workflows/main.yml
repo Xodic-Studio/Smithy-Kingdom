@@ -47,7 +47,6 @@ jobs:
       - name: Build project
         uses: game-ci/unity-builder@v2
         id: buildProject
-        run: echo ${{ steps.buildProject.outputs.buildVersion }}
         # env:
         #   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
         #   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
