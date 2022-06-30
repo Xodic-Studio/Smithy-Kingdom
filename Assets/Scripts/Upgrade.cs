@@ -22,7 +22,7 @@ public class Upgrade : Singleton<Upgrade>
         _prefabRectTransform = upgradePrefab.GetComponent<RectTransform>();
         _parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _thisRectTransform = GetComponent<RectTransform>();
-        UpdateUpgrades();
+        //UpdateUpgrades();
     }
     IEnumerator Destroy(GameObject go)
     {

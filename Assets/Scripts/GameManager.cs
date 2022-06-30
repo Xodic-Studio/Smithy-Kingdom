@@ -17,31 +17,21 @@ public class GameManager : Singleton<GameManager>
     {
         Vector2 touchPosition;
         Vector3 worldCords;
-        // if (Touchscreen.current != null)
-        // {
-        //     touchPosition = Touchscreen.current.position.ReadValue();
-        //     worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-        // }
-        if (Mouse.current != null)
+        if (Touchscreen.current != null)
         {
-            touchPosition = Mouse.current.position.ReadValue();
-            worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
-            worldCords.z = 0f;
+            touchPosition = Touchscreen.current.position.ReadValue();
         }
+
+        // if (Mouse.current != null)
+        // {
+        //     touchPosition = Mouse.current.position.ReadValue();
+        // }
         else
         {
             return;
         }
-
-        Debug.Log(worldCords);
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            Debug.Log("Touched UI");
-        }
-        else
-        {
-            TapTap(worldCords);
-        }
+        worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+        worldCords.z = 0f;
     }
 
 
@@ -70,19 +60,36 @@ public class GameManager : Singleton<GameManager>
     }
     
     //Instantiate Damage text
-    private void AddDamageText(string text, Vector2 position)
+    private void AddDamageText(string text)
     {
-        var go = Instantiate(damageGameObject, position, Quaternion.identity);
+        Vector2 touchPosition;
+        Vector3 worldCords;
+        // if (Touchscreen.current != null)
+        // {
+        //     touchPosition = Touchscreen.current.position.ReadValue();
+        // }
+
+        if (Mouse.current != null)
+        {
+            touchPosition = Mouse.current.position.ReadValue();
+        }
+        else
+        {
+            return;
+        }
+        worldCords = mainCamera.ScreenToWorldPoint(touchPosition);
+        worldCords.z = 0f;
+        var go = Instantiate(damageGameObject, worldCords, Quaternion.identity);
         RectTransform goRect = go.GetComponent<RectTransform>();
         go.GetComponent<TMP_Text>().text = $"- {text}";
         go.transform.SetParent(_uiManager.baseCanvas.transform, false);
-        goRect.position = position;
+        goRect.position = worldCords;
         StartCoroutine(FloatDelayDestroy(goRect));
     }
     
     IEnumerator FloatDelayDestroy(RectTransform goRect)
     {
-        for (float i = 0; i < 10f; i += 1 * Time.fixedDeltaTime)
+        for (float i = 0; i < 0.5f; i += 1 * Time.fixedDeltaTime)
         {
             goRect.position += new Vector3(0, 0.01f, 0);
             yield return null;
@@ -99,10 +106,10 @@ public class GameManager : Singleton<GameManager>
     
     
     //Hitting Function
-    private void TapTap(Vector2 position)
+    private void TapTap()
     {
         _ore.ModifyHardness(hammerDamage);
-        AddDamageText(position.ToString(), position);
+        AddDamageText(hammerDamage.ToString());
     }
     
     // Ore Selection
