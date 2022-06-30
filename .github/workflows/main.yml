@@ -57,7 +57,7 @@ jobs:
           allowDirtyBuild: true
           targetPlatform: ${{ matrix.targetPlatform }}
 
-      Get Version
+      #Get Version
       - name: Get Version
         uses: battila7/get-version-action@v2
         id: get_version
