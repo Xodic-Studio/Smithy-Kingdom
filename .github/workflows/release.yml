@@ -1,0 +1,52 @@
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # This is important for the Git history
+      - name: Extract Repo Attributes
+        id: attrs # This is important for future referencing
+        uses: ibnesayeed/repo-attrs@master
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          # Utilize extracted attributes from the previous step
+          body: |
+            ## Changes in this Release
+
+            History from `${{ steps.attrs.outputs.tail }}` to `${{ steps.attrs.outputs.head }}`
+
+            ### Commits
+
+            ${{ steps.attrs.outputs.commits }}
+
+            ### Pull Requests
+
+            ${{ steps.attrs.outputs.prs }}
+
+            ### Contributors
+
+            ${{ steps.attrs.outputs.contributors }}
+
+            ### Files
+
+            ```
+            ${{ steps.attrs.outputs.files }}
+            ```
