@@ -61,7 +61,8 @@ jobs:
       - name: Get Version
         uses: battila7/get-version-action@v2
         id: get_version
-        run: echo ${{ steps.get_version.outputs.version }}
+
+      - run: echo ${{ steps.get_version.outputs.version }}
 
       #Return License
       # - name: Return license
