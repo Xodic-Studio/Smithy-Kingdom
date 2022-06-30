@@ -7,7 +7,7 @@ name: Create Release
 
 jobs:
   build:
-    name: Build project
+    name: Build project And Relase
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -71,8 +71,9 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}-${{ steps.get_version.outputs.version }}
           path: build/${{ matrix.targetPlatform }}
-
-    name: Create Release and Build
+  release:
+    name: Create Release
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
