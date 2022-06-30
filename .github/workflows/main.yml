@@ -56,19 +56,20 @@ jobs:
         with:
           allowDirtyBuild: true
           targetPlatform: ${{ matrix.targetPlatform }}
-      #Get Version
-      # - name: Get Version
-      #   uses: battila7/get-version-action@v2
-      #   id: get_version
-      #   run: echo ${{ steps.get_version.outputs.version }}
-      #   run: echo ${{ steps.get_version.outputs.version-without-v }}
+
+      Get Version
+      - name: Get Version
+        uses: battila7/get-version-action@v2
+        id: get_version
+        run: echo ${{ steps.get_version.outputs.version }}
 
       #Return License
-      - name: Return license
-        uses: game-ci/unity-return-license@v2
-        if: always()
+      # - name: Return license
+      #   uses: game-ci/unity-return-license@v2
+      #   if: always()
+
       # Output
       - uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}-${{ steps.buildProject.outputs.buildVersion }}
-          path: build/${{ matrix.targetPlatform }}/${{ steps.buildProject.outputs.buildVersion }}
+          name: Build-${{ matrix.targetPlatform }}-${{ steps.get_version.outputs.version }}
+          path: build/${{ matrix.targetPlatform }}
