@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Upgrade Database", menuName = "Game/Database/Upgrades")]
-public class UpgradesDatabase : ScriptableObject
+public class UpgradeDatabase : ScriptableObject
 {
     public UpgradesStats[] stats;
     

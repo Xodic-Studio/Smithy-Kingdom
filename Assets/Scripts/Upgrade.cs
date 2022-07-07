@@ -6,13 +6,27 @@ using UnityEngine.UI;
 
 public class Upgrade : Singleton<Upgrade>
 {
-    public UpgradesDatabase upgradesDatabase;
-    public GameObject upgradePrefab;
-    
+    /// <summary>
+    /// All Database Types
+    /// </summary>
+    public enum DatabaseType
+    {
+        Ore,
+        Upgrade,
+        Item,
+    }
+    public Database database;
+    public DatabaseType databaseType;
+    [SerializeField] private GameObject upgradePrefab;
+    [SerializeField] private GameObject orePrefab;
+    [SerializeField] private GameObject itemPrefab;
+
+
     private RectTransform _thisRectTransform;
     private RectTransform _parentRectTransform;
     private RectTransform _prefabRectTransform;
     private VerticalLayoutGroup _thisVerticalLayoutGroup;
+    private HorizontalLayoutGroup _thisHorizontalLayoutGroup;
 
     
 
@@ -30,7 +44,6 @@ public class Upgrade : Singleton<Upgrade>
     }
 
     
-    // ReSharper disable Unity.PerformanceAnalysis
     public void UpdateUpgrades()
     {
         var active = gameObject.activeSelf;
@@ -40,7 +53,7 @@ public class Upgrade : Singleton<Upgrade>
         }
 
         var i = 0;
-        foreach (var unused in upgradesDatabase.stats)
+        foreach (var unused in database.stats)
         {
             try
             {
@@ -51,13 +64,13 @@ public class Upgrade : Singleton<Upgrade>
                 var newUpgrade = Instantiate(upgradePrefab, transform);
                 newUpgrade.transform.SetParent(transform);
             }
-            transform.GetChild(i).name = upgradesDatabase.stats[i].upgradeName;
-            transform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text = upgradesDatabase.stats[i].upgradeName;
-            transform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>().text = upgradesDatabase.stats[i].upgradeDescription;
+            transform.GetChild(i).name = database.stats[i].upgradeName;
+            transform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text = database.stats[i].upgradeName;
+            transform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>().text = database.stats[i].upgradeDescription;
             i++;
         }
         
-        var needDestroy = transform.childCount - upgradesDatabase.stats.Length;
+        var needDestroy = transform.childCount - database.stats.Length;
                 
         for (i = transform.childCount; i > transform.childCount - needDestroy; i--)
         {
