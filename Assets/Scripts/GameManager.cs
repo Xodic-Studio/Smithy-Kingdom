@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +14,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] Camera mainCamera;
     public float money;
 
+    public Animator smithy;
+    public Animator anvil;
+
 
     //Hammer variables
     public int hammerDamage;
+    private float _timer;
 
 
     private void Awake()
@@ -29,6 +35,21 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateMoneyText();
     }
 
+    private void Update()
+    {
+        CheckTimer();
+    }
+
+
+    void CheckTimer()
+    {
+        _timer -= Time.deltaTime;
+        if (_timer < 0)
+        {
+            smithy.SetBool("Hit",false);
+            anvil.SetBool("Hit",false);
+        }
+    }
 
     //Modify money
     public void ModifyMoney(float amount)
@@ -92,6 +113,11 @@ public class GameManager : Singleton<GameManager>
     {
         _ore.ModifyHardness(hammerDamage);
         AddDamageText(hammerDamage.ToString());
+        smithy.SetBool("Hit",true);
+        anvil.SetBool("Hit",true);
+        _timer = 0.4f;
+
+
     }
     
     // Ore Selection

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 36
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: AnvilOre
+    m_Hash: 941809063
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Bronze
+      m_Hash: -1186677569
+      m_Sprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    - m_Name: Iron
+      m_Hash: -666742878
+      m_Sprite: {fileID: 6115424208678247343, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 6115424208678247343, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    - m_Name: Silver
+      m_Hash: 687283565
+      m_Sprite: {fileID: -3820565363588215082, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3820565363588215082, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    - m_Name: Gold
+      m_Hash: -409226641
+      m_Sprite: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  m_PrimaryLibraryGUID: 

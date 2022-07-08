@@ -44,7 +44,10 @@ TagManager:
   - name: Background
     uniqueID: 2130155131
     locked: 0
-  - name: GameObject
+  - name: Smithy
+    uniqueID: 2596419263
+    locked: 0
+  - name: Anvil
     uniqueID: 4023074261
     locked: 0
   - name: Canvas

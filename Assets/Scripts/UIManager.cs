@@ -1,4 +1,6 @@
+using System.Collections;
 using TMPro;
+using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -269,6 +271,31 @@ public class UIManager : Singleton<UIManager>
     #endregion
 
 
+    #region UpdateUI
+    public enum DatabaseType
+    {
+        Collection,
+        Item,
+        Upgrades,
+    }
+    
+    [Header("Update UI")]
+    [SerializeField]
+    internal Database database;
+    [SerializeField] private DatabaseType databaseType;
+    
+    [SerializeField] internal GameObject upgradeList;
+    [SerializeField] internal GameObject upgradeUIPrefab;
+
+    internal RectTransform ThisRectTransform;
+    internal RectTransform ParentRectTransform;
+    internal RectTransform PrefabRectTransform;
+    internal VerticalLayoutGroup ThisVerticalLayoutGroup;
+
+    [SerializeField] internal GameObject collectionList;
+    [SerializeField] internal GameObject collectionUIPrefab;
+
+    #endregion
 
 
 
@@ -277,8 +304,12 @@ public class UIManager : Singleton<UIManager>
 [CustomEditor(typeof(UIManager))]
 public class UIManagerEditor : Editor
 {
+
+
     public override void OnInspectorGUI()
     {
+        #region Navigation
+
         UIManager uiManager = (UIManager) target;
         base.OnInspectorGUI();
         EditorGUILayout.Space();
@@ -311,21 +342,167 @@ public class UIManagerEditor : Editor
         }
 
         GUILayout.EndHorizontal();
+        #endregion
         EditorGUILayout.Space();
-        GUILayout.Label("Update All UI", EditorStyles.boldLabel);
         GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
-        if (GUILayout.Button("Update UIs", GUILayout.Width(100)))
+        if (GUILayout.Button("UpdateUpgrade"))
         {
             uiManager.OpenUpgradeMenu();
-            uiManager.TapNormalUpgradePanel();
-            uiManager.uiUpgrade.UpdateUpgrades();
-            uiManager.TapPremiumUpgradePanel();
-            uiManager.uiPremiumUpgrade.UpdateUpgrades();
-            uiManager.OpenCollectiblesMenu();
-            uiManager.uiCollectionType.UpdateCollection();
+            UpdateUI(UIManager.DatabaseType.Upgrades);
         }
-        GUILayout.Label("**Update All Data For UIs**");
+        if (GUILayout.Button("UpdatePremiumUpgrade"))
+        {
+            uiManager.OpenPremiumMenu();
+            UpdateUI(UIManager.DatabaseType.Upgrades);
+        }
+        if (GUILayout.Button("UpdateCollection"))
+        {
+            uiManager.OpenCollectiblesMenu();
+            UpdateUI(UIManager.DatabaseType.Collection);
+        }
         GUILayout.EndHorizontal();
+
+        #region UpdateUI
+        
+        void UpdateUI(UIManager.DatabaseType databaseType)
+        {
+            void CheckIfActive()
+            {
+                if (databaseType == UIManager.DatabaseType.Upgrades)
+                {
+                    var active = uiManager.upgradeList.activeSelf;
+                    uiManager.ThisVerticalLayoutGroup = uiManager.upgradeList.GetComponent<VerticalLayoutGroup>();
+                    uiManager.PrefabRectTransform = uiManager.upgradeUIPrefab.GetComponent<RectTransform>();
+                    uiManager.ParentRectTransform = uiManager.upgradeList.transform.parent.GetComponent<RectTransform>();
+                    uiManager.ThisRectTransform = uiManager.upgradeList.GetComponent<RectTransform>();
+                    if (!active)
+                    {
+                        uiManager.upgradeList.SetActive(true);
+                    }
+                } 
+                else if (databaseType == UIManager.DatabaseType.Collection)
+                {
+                    var active = uiManager.collectionList.activeSelf;
+                    uiManager.ThisVerticalLayoutGroup = uiManager.collectionList.GetComponent<VerticalLayoutGroup>();
+                    uiManager.PrefabRectTransform = uiManager.collectionUIPrefab.GetComponent<RectTransform>();
+                    uiManager.ParentRectTransform = uiManager.collectionList.transform.parent.GetComponent<RectTransform>();
+                    uiManager.ThisRectTransform = uiManager.collectionList.GetComponent<RectTransform>();
+                    if (!active)
+                    {
+                        uiManager.collectionList.SetActive(true);
+                    }
+                }
+                else
+                {
+                    var active = uiManager.upgradeList.activeSelf;
+                    if (!active)
+                    {
+                        uiManager.upgradeList.SetActive(true);
+                    }
+                }
+            }
+            void EditUIs()
+            {
+                IEnumerator DestroyUnused(GameObject go)
+                {
+                    yield return new WaitForEndOfFrame();
+                    DestroyImmediate(go);
+                }
+                if (databaseType == UIManager.DatabaseType.Upgrades)
+                {
+                    var databaseStats = uiManager.database.upgradeDatabase.stats;
+                    var listTransform = uiManager.upgradeList.transform;
+                    var i = 0;
+                    foreach (var unused in databaseStats)
+                    {  
+                        try
+                        {
+                            listTransform.transform.GetChild(i);
+                        }
+                        catch (UnityException)
+                        {
+                            var newUpgrade = Instantiate(uiManager.upgradeUIPrefab, listTransform);
+                            newUpgrade.transform.SetParent(listTransform);
+                        }
+                        listTransform.GetChild(i).name = databaseStats[i].upgradeName;
+                        listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text = databaseStats[i].upgradeName;
+                        listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>().text = databaseStats[i].upgradeDescription;
+                        i++;
+                    }
+                                            
+                    var needDestroy = listTransform.childCount - databaseStats.Length;
+                    
+                    for (i = listTransform.childCount; i > listTransform.childCount - needDestroy; i--)
+                    {
+                        EditorCoroutineUtility.StartCoroutine(DestroyUnused(listTransform.GetChild(i-1).gameObject), this);
+                    }
+                    if (listTransform.transform.childCount <= 5)
+                    {
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x,
+                            uiManager.ParentRectTransform.rect.height);
+                    }
+                    else
+                    {
+                        float y = uiManager.ParentRectTransform.rect.height +
+                                  (listTransform.childCount - 5) *
+                                  (uiManager.PrefabRectTransform.rect.height +
+                                   uiManager.ThisVerticalLayoutGroup.spacing);
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x, y);
+                    }
+                } 
+                else if (databaseType == UIManager.DatabaseType.Collection)
+                {
+                    var databaseStats = uiManager.database.itemsDatabase.collections;
+                    var listTransform = uiManager.collectionList.transform;
+                    var i = 0;
+                    foreach (var unused in databaseStats)
+                    {  
+                        try
+                        {
+                            listTransform.transform.GetChild(i);
+                        }
+                        catch (UnityException)
+                        {
+                            var newUpgrade = Instantiate(uiManager.collectionUIPrefab, listTransform);
+                            newUpgrade.transform.SetParent(listTransform);
+                        }
+                        listTransform.GetChild(i).name = databaseStats[i].collectionName;
+                        listTransform.GetChild(i).GetComponent<TMP_Text>().text = databaseStats[i].collectionName;
+                        i++;
+                    }
+                                            
+                    var needDestroy = listTransform.childCount - databaseStats.Length;
+                    
+                    for (i = listTransform.childCount; i > listTransform.childCount - needDestroy; i--)
+                    {
+                        EditorCoroutineUtility.StartCoroutine(DestroyUnused(listTransform.GetChild(i-1).gameObject), this);
+                    }
+                    if (listTransform.transform.childCount <= 2)
+                    {
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x,
+                            uiManager.ParentRectTransform.rect.height);
+                    }
+                    else
+                    {
+                        float y = uiManager.ParentRectTransform.rect.height +
+                                  (listTransform.childCount - 2) *
+                                  (uiManager.PrefabRectTransform.rect.height +
+                                   uiManager.ThisVerticalLayoutGroup.spacing);
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x, y);
+                    }
+                }
+            }
+            
+            
+            CheckIfActive();
+            EditUIs();
+
+
+            
+        }
+
+
+        #endregion
     }
 }
 

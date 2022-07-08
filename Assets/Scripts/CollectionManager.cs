@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 using Random = UnityEngine.Random;
 
 public class CollectionManager : Singleton<CollectionManager>
 {
+    public SpriteResolver a;
     private GameManager _gameManager;
     private Ore _ore;
     
@@ -29,7 +31,7 @@ public class CollectionManager : Singleton<CollectionManager>
         UpdateItemSelection();
     }
 
-    private void UpdateItemSelection()
+    public void UpdateItemSelection()
     {
         try
         {
@@ -54,8 +56,13 @@ public class CollectionManager : Singleton<CollectionManager>
             {
                 dropChance += item.dropChance;
                 _cumulativeDropChances[i] = dropChance ;
+                Debug.Log(_cumulativeDropChances[i]);
                 i++;
             }
+        }
+        else
+        {
+            Debug.LogWarning("No items in the item collection");
         }
 
     }
@@ -63,18 +70,26 @@ public class CollectionManager : Singleton<CollectionManager>
     //Method to drop an item
     public void DropItem()
     {
-        var randomNumber = Random.Range(0f, 100f);
-        var i = 0;
-        foreach (var variable in _cumulativeDropChances)
+        if (_itemCollection.items.Length != 0)
         {
-            if (randomNumber <= variable)
+            var randomNumber = Random.Range(0f, 100f);
+            var i = 0;
+            foreach (var variable in _cumulativeDropChances)
             {
-                itemStatsIndex = i;
-                UpdateItemSelection();
-                CheckCollection();
-                break;
+                if (randomNumber <= variable)
+                {
+                    itemStatsIndex = i;
+                    UpdateItemSelection();
+                    CheckCollection();
+                    break;
+                }
+
+                i++;
             }
-            i++;
+        }
+        else
+        {
+            Debug.LogWarning("No items in the item collection");
         }
     }
     
@@ -95,6 +110,7 @@ public class CollectionManager : Singleton<CollectionManager>
     public void UpdateRandomSystem()
     {
         itemCollectionIndex = _ore.selectedOreIndex;
+        Debug.Log(_itemCollection.items.Length);
         if (_itemCollection.items.Length != 0)
         {
             CalculateCumDropRate();

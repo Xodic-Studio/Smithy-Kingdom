@@ -4,11 +4,9 @@ public class Ore : Singleton<Ore>
 {
     [SerializeField] private OreDatabase oreDatabase;
     private UIManager _uiManager;
-    private GameManager _gameManager;
     private CollectionManager _collectionManager;
     
     private OreStats _thisOre;
-    private SpriteRenderer _oreSprite;
     public int selectedOreIndex;
     
     
@@ -16,13 +14,11 @@ public class Ore : Singleton<Ore>
     private void Awake()
     {
         _uiManager = UIManager.Instance;
-        _gameManager = GameManager.Instance;
         _collectionManager = CollectionManager.Instance;
     }
 
     private void Start()
     {
-        _oreSprite = GetComponent<SpriteRenderer>();
         UpdateOre();
     }
     
@@ -42,8 +38,8 @@ public class Ore : Singleton<Ore>
         name = _thisOre.oreName;
         _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
         _thisOre.currentHardness = _thisOre.defaultHardness;
-        _oreSprite.sprite = _thisOre.oreSprite;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
+        _collectionManager.UpdateItemSelection();
         _collectionManager.UpdateRandomSystem();
     }
     
