@@ -9,8 +9,6 @@ public class Ore : Singleton<Ore>
     private OreStats _thisOre;
     public int selectedOreIndex;
     
-    
-
     private void Awake()
     {
         _uiManager = UIManager.Instance;
@@ -22,14 +20,11 @@ public class Ore : Singleton<Ore>
         UpdateOre();
     }
     
-    
-
     void Update()
     {
         _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
-
     //update ore
     public void UpdateOre()
     {
@@ -65,7 +60,6 @@ public class Ore : Singleton<Ore>
         }
         CheckOreIndex();
         Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
-        
     }
     public void ModifyHardness(int amount)
     {
@@ -91,7 +85,6 @@ public class Ore : Singleton<Ore>
         {
             _thisOre.currentHardness = _thisOre.defaultHardness;
             _collectionManager.DropItem();
-            
         }
     }
 
