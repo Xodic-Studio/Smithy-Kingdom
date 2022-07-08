@@ -100,20 +100,21 @@ public class GameManager : Singleton<GameManager>
         worldCords.z = 0f;
         var go = Instantiate(damageGameObject, worldCords, Quaternion.identity);
         RectTransform goRect = go.GetComponent<RectTransform>();
-        go.GetComponent<TMP_Text>().text = $"- {text}";
+        TMP_Text goText = go.GetComponent<TMP_Text>();
+        goText.text = $"- {text}";
         go.transform.SetParent(_uiManager.baseCanvas.transform, false);
         goRect.position = worldCords;
-        StartCoroutine(FloatDelayDestroy(goRect));
+        StartCoroutine(FloatDelayDestroy(goRect, goText));
     }
     
-    IEnumerator FloatDelayDestroy(RectTransform goRect)
+    IEnumerator FloatDelayDestroy(RectTransform goRect, TMP_Text goText)
     {
         for (float i = 0; i < 0.75f; i += 1 * Time.fixedDeltaTime)
         {
             goRect.position += new Vector3(0, 0.01f, 0);
             if (i > 0.1f)
             {
-                _damageText.color -= new Color(0, 0, 0, 0.1f);
+                goText.color -= new Color(0, 0, 0, 0.1f);
             }
             yield return null;
         }
