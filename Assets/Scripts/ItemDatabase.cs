@@ -13,8 +13,7 @@ public class ItemCollection
     public string collectionName;
     public ItemStats[] items;
 }
-    
-    
+
 [Serializable]
 public class ItemStats
 {
@@ -43,4 +42,3 @@ public class ItemStats
     
     public bool isUnlocked;
 }
-

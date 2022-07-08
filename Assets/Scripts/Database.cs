@@ -7,6 +7,4 @@ public class Database : ScriptableObject
     public UpgradeDatabase premiumUpgradeDatabase;
     public ItemDatabase itemsDatabase;
     public OreDatabase oresDatabase;
-
-
 }
