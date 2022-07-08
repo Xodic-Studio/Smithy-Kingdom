@@ -990,7 +990,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -71, y: -391}
-  - name: Bronze Ore
+  - name: Copper Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -3287,7 +3287,7 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Ores
+  - name: Ore
     spriteName: 
     isGroup: 1
     parentIndex: 0
@@ -3297,8 +3297,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: Bronze Ore
-    spriteName: Bronze Ore
+  - name: Copper Ore
+    spriteName: Copper Ore
     isGroup: 0
     parentIndex: 4
     spriteID: 370a51b1af2de5848b97246d3617ab29

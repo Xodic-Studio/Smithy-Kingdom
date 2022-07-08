@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
-  - m_Name: AnvilOre
-    m_Hash: 941809063
+  - m_Name: Ore
+    m_Hash: -1537827508
     m_CategoryList: []
     m_OverrideEntries:
-    - m_Name: Bronze
-      m_Hash: -1186677569
+    - m_Name: Copper
+      m_Hash: -1172078909
       m_Sprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
