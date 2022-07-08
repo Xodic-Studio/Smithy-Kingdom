@@ -1,7 +1,5 @@
-using System.Collections;
 using TMPro;
 using UnityEditor;
-using Unity.EditorCoroutines.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -272,6 +270,7 @@ public class UIManager : Singleton<UIManager>
         Collection,
         Item,
         Upgrades,
+        PremiumUpgrade,
     }
     
     [Header("Update UI")]
@@ -364,7 +363,8 @@ public class UIManagerEditor : Editor
             void CheckIfActive()
             {
                 if (databaseType == UIManager.DatabaseType.Upgrades)
-                {
+
+            {
                     var active = uiManager.upgradeList.activeSelf;
                     uiManager.ThisVerticalLayoutGroup = uiManager.upgradeList.GetComponent<VerticalLayoutGroup>();
                     uiManager.PrefabRectTransform = uiManager.upgradeUIPrefab.GetComponent<RectTransform>();
@@ -398,11 +398,6 @@ public class UIManagerEditor : Editor
             }
             void EditUIs()
             {
-                IEnumerator DestroyUnused(GameObject go)
-                {
-                    yield return new WaitForEndOfFrame();
-                    DestroyImmediate(go);
-                }
                 if (databaseType == UIManager.DatabaseType.Upgrades)
                 {
                     var databaseStats = uiManager.database.upgradeDatabase.stats;
@@ -424,12 +419,13 @@ public class UIManagerEditor : Editor
                         listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>().text = databaseStats[i].upgradeDescription;
                         i++;
                     }
-                                            
-                    var needDestroy = listTransform.childCount - databaseStats.Length;
-                    
-                    for (i = listTransform.childCount; i > listTransform.childCount - needDestroy; i--)
+
+                    var childCount = listTransform.childCount;
+                    var needDestroy = childCount - databaseStats.Length;
+
+                    for (i = childCount; i > childCount - needDestroy; i--)
                     {
-                        EditorCoroutineUtility.StartCoroutine(DestroyUnused(listTransform.GetChild(i-1).gameObject), this);
+                        DestroyImmediate(listTransform.GetChild(i-1).gameObject);
                     }
                     if (listTransform.transform.childCount <= 5)
                     {
@@ -465,12 +461,13 @@ public class UIManagerEditor : Editor
                         listTransform.GetChild(i).GetComponent<TMP_Text>().text = databaseStats[i].collectionName;
                         i++;
                     }
-                                            
-                    var needDestroy = listTransform.childCount - databaseStats.Length;
+                    var childCount = listTransform.childCount;                       
+                    var needDestroy = childCount - databaseStats.Length;
                     
-                    for (i = listTransform.childCount; i > listTransform.childCount - needDestroy; i--)
+
+                    for (i = childCount; i > childCount - needDestroy; i--)
                     {
-                        EditorCoroutineUtility.StartCoroutine(DestroyUnused(listTransform.GetChild(i-1).gameObject), this);
+                        DestroyImmediate(listTransform.GetChild(i-1).gameObject);
                     }
                     if (listTransform.transform.childCount <= 2)
                     {

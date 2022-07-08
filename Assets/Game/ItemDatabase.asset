@@ -22,4 +22,14 @@ MonoBehaviour:
       itemDescription: 
       dropChance: 100
       timesForged: 0
-      isUnlocked: 0
+      isUnlocked: 1
+  - collectionName: Bronze
+    items:
+    - itemName: 123123
+      itemIcon: {fileID: 0}
+      itemPrice: 20
+      itemRarity: 0
+      itemDescription: 
+      dropChance: 100
+      timesForged: 0
+      isUnlocked: 1

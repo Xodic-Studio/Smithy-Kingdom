@@ -46,10 +46,11 @@ public class GameManager : Singleton<GameManager>
 
     void CheckTimer()
     {
-        _timer -= Time.deltaTime;
+        _timer += Time.deltaTime;
         if (_timer > 1)
         {
             _clickPerSec = _click;
+            _click = 0;
             _timer = 0;
             if (_clickPerSec is < 10 and > 5)
             {
@@ -134,7 +135,7 @@ public class GameManager : Singleton<GameManager>
         AddDamageText(hammerDamage.ToString());
         smithy.SetTrigger("Hit");
         anvil.SetTrigger("Hit");
-        _click++;
+        _click +=5;
     }
     
     // Ore Selection
