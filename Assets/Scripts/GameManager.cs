@@ -16,11 +16,14 @@ public class GameManager : Singleton<GameManager>
 
     public Animator smithy;
     public Animator anvil;
+    
 
 
     //Hammer variables
     public int hammerDamage;
     private float _timer;
+    private int _clickPerSec;
+    private int _click;
 
 
     private void Awake()
@@ -44,11 +47,27 @@ public class GameManager : Singleton<GameManager>
     void CheckTimer()
     {
         _timer -= Time.deltaTime;
-        if (_timer < 0)
+        if (_timer > 1)
         {
-            smithy.SetBool("Hit",false);
-            anvil.SetBool("Hit",false);
+            _clickPerSec = _click;
+            _timer = 0;
+            if (_clickPerSec is < 10 and > 5)
+            {
+                smithy.SetFloat("Speed", 1.25f);
+                anvil.SetFloat("Speed", 1.25f);
+            } else if (_clickPerSec > 10)
+            {
+                smithy.SetFloat("Speed", 1.5f);
+                anvil.SetFloat("Speed", 1.5f);
+            }
+            else
+            {
+                smithy.SetFloat("Speed", 1f);
+                anvil.SetFloat("Speed", 1f);
+            }
         }
+        
+
     }
 
     //Modify money
@@ -113,11 +132,9 @@ public class GameManager : Singleton<GameManager>
     {
         _ore.ModifyHardness(hammerDamage);
         AddDamageText(hammerDamage.ToString());
-        smithy.SetBool("Hit",true);
-        anvil.SetBool("Hit",true);
-        _timer = 0.4f;
-
-
+        smithy.SetTrigger("Hit");
+        anvil.SetTrigger("Hit");
+        _click++;
     }
     
     // Ore Selection

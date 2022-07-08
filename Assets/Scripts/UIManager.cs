@@ -1,19 +1,14 @@
 using System.Collections;
 using TMPro;
-using Unity.EditorCoroutines.Editor;
 using UnityEditor;
+using Unity.EditorCoroutines.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
     private GameManager _gameManager;
-    
-    [Header("AutoUI Scripts")]
-    public Upgrade uiUpgrade;
-    public Upgrade uiPremiumUpgrade;
-    public CollectionType uiCollectionType;
-    
+
     [Header("BaseUI")]
     public TMP_Text oreNameText;
     public TMP_Text moneyText;
