@@ -17,15 +17,12 @@ public class GameManager : Singleton<GameManager>
     public Animator smithy;
     public Animator anvil;
     
-
-
     //Hammer variables
     public int hammerDamage;
     private float _timer;
     private int _clickPerSec;
     private int _click;
-
-
+    
     private void Awake()
     {
         _uiManager = UIManager.Instance;
@@ -42,8 +39,7 @@ public class GameManager : Singleton<GameManager>
     {
         CheckTimer();
     }
-
-
+    
     void CheckTimer()
     {
         _timer += Time.deltaTime;
@@ -67,8 +63,6 @@ public class GameManager : Singleton<GameManager>
                 anvil.SetFloat("Speed", 1f);
             }
         }
-        
-
     }
 
     //Modify money
@@ -120,14 +114,6 @@ public class GameManager : Singleton<GameManager>
         }
         Destroy(goRect.gameObject);
     }
-
-    
-    
-    
-    
-    
-    
-    
     
     //Hitting Function
     private void TapTap()
@@ -152,8 +138,4 @@ public class GameManager : Singleton<GameManager>
         _ore.UpdateOre();
         _uiManager.UpdateOreNameText(_ore.GetOreStats().oreName);
     }
-
-    
-
-
 }
