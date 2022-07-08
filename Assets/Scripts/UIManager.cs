@@ -17,7 +17,6 @@ public class UIManager : Singleton<UIManager>
     private Button _previousOreButton;
     private Button _nextOreButton;
     
-
     private void Awake()
     {
         _gameManager = GameManager.Instance;
@@ -39,7 +38,6 @@ public class UIManager : Singleton<UIManager>
         moneyText.text = $"$: {_gameManager.money}";
     }
     
-    
     /// <summary>
     /// Update the Ore Name TMP text with the current ore name
     /// </summary>
@@ -57,8 +55,6 @@ public class UIManager : Singleton<UIManager>
     {
         hardnessSlider.maxValue = defaultHardness;
         hardnessSlider.value = defaultHardness;
-        
-        
     }
 
     /// <summary>
@@ -110,8 +106,7 @@ public class UIManager : Singleton<UIManager>
         settingsMenuButton.onClick.AddListener(OpenSettingsMenu);
         closeButton.onClick.AddListener(CloseMenu);
     }
-
-
+    
     /// <summary>
     /// Close Button Function
     /// Close Current UI and Open Base UI
@@ -189,12 +184,9 @@ public class UIManager : Singleton<UIManager>
             baseCanvas.SetActive(false);
         }
     }
-    
-    
     #endregion
     
     #region Upgrades
-
     [Header("Upgrades Tab")]
     public ScrollRect upgradesScrollRect;
     public Button normalUpgradeButton;
@@ -220,7 +212,6 @@ public class UIManager : Singleton<UIManager>
     {
         normalUpgradeButton.onClick.AddListener(TapNormalUpgradePanel);
         premiumUpgradeButton.onClick.AddListener(TapPremiumUpgradePanel);
-
     }
 
     /// <summary>
@@ -231,7 +222,6 @@ public class UIManager : Singleton<UIManager>
         normalUpgradePanel.SetActive(true);
         premiumUpgradePanel.SetActive(false);
         upgradesScrollRect.content = _normalRectTransform;
-        
     }
 
     /// <summary>
@@ -262,8 +252,7 @@ public class UIManager : Singleton<UIManager>
     public ScrollRect settingsScrollRect;
 
     #endregion
-
-
+    
     #region UpdateUI
     public enum DatabaseType
     {
@@ -290,16 +279,13 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] internal GameObject collectionUIPrefab;
 
     #endregion
-
-
-
 }
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(UIManager))]
 public class UIManagerEditor : Editor
 {
-
-
+    //TODO: Refactor this to be more readable
     public override void OnInspectorGUI()
     {
         #region Navigation
