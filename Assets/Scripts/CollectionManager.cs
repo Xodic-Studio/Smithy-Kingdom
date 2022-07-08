@@ -115,4 +115,3 @@ public class CollectionManager : Singleton<CollectionManager>
         }
     }
 }
-
