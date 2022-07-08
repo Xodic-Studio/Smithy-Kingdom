@@ -276,9 +276,9 @@ public class UIManager : Singleton<UIManager>
     [Header("Update UI")]
     [SerializeField]
     internal Database database;
-    [SerializeField] private DatabaseType databaseType;
-    
+
     [SerializeField] internal GameObject upgradeList;
+    [SerializeField] internal GameObject premiumUpgradeList;
     [SerializeField] internal GameObject upgradeUIPrefab;
 
     internal RectTransform ThisRectTransform;

@@ -110,11 +110,10 @@ public class GameManager : Singleton<GameManager>
     {
         for (float i = 0; i < 0.75f; i += 1 * Time.fixedDeltaTime)
         {
-            _damageText.color = Color.white;
             goRect.position += new Vector3(0, 0.01f, 0);
-            if (i > 0.5f)
+            if (i > 0.1f)
             {
-                _damageText.color -= new Color(0, 0, 0, 1 * Time.fixedDeltaTime);
+                _damageText.color -= new Color(0, 0, 0, 0.1f);
             }
             yield return null;
         }
