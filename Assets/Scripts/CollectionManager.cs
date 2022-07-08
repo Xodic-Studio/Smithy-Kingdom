@@ -9,8 +9,6 @@ public class CollectionManager : Singleton<CollectionManager>
     private GameManager _gameManager;
     private Ore _ore;
     
-    
-    
     public ItemDatabase itemDatabase;
     ItemCollection _itemCollection;
     ItemStats _itemStats;
@@ -41,7 +39,6 @@ public class CollectionManager : Singleton<CollectionManager>
         {
             Debug.LogWarning("Item Collection for This Ore Does Not Exist");
         }
-        
     }
 
     //Method to get the cumulative drop rate
@@ -64,7 +61,6 @@ public class CollectionManager : Singleton<CollectionManager>
         {
             Debug.LogWarning("No items in the item collection");
         }
-
     }
     
     //Method to drop an item
@@ -83,7 +79,6 @@ public class CollectionManager : Singleton<CollectionManager>
                     CheckCollection();
                     break;
                 }
-
                 i++;
             }
         }
@@ -104,8 +99,6 @@ public class CollectionManager : Singleton<CollectionManager>
         _gameManager.ModifyMoney(_itemStats.itemPrice);
         Debug.Log($"{_itemStats.itemPrice} has been added to your wallet");
     }
-    
-    
     
     public void UpdateRandomSystem()
     {
