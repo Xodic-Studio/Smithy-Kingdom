@@ -65,13 +65,8 @@ public class UIManager : Singleton<UIManager>
         hardnessSlider.value = hardness;
         hardnessText.text = $"{hardness}/{maxHardness}";
     }
-
-    #region Base
     
-
-    #endregion
     #region MainMenu
-    
     [Header("Main Menu")]
     public Button oreSelectButton;
     public Button upgradeMenuButton;
