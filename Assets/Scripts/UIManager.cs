@@ -69,10 +69,10 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     /// <param name="hardness">Current Hardness of an ore</param>
     /// <param name="maxHardness">Default Hardness of an ore</param>
-    public void UpdateHardnessSlider(int hardness, int maxHardness)
+    public void UpdateHardnessSlider(float hardness, float maxHardness)
     {
         hardnessSlider.value = hardness;
-        hardnessText.text = $"{hardness}/{maxHardness}";
+        hardnessText.text = $"{hardness}/{maxHardness} ({hardness/maxHardness * 100}%)";
     }
     
     #region MainMenu
