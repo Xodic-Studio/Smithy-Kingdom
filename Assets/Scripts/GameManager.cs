@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -81,11 +79,6 @@ public class GameManager : Singleton<GameManager>
         {
             touchPosition = Touchscreen.current.position.ReadValue();
         }
-
-        // if (Mouse.current != null)
-        // {
-        //     touchPosition = Mouse.current.position.ReadValue();
-        // }
         else 
         {
             return;

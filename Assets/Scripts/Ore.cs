@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Ore : Singleton<Ore>
 {
-    [SerializeField] private OreDatabase oreDatabase;
+    public  OreDatabase oreDatabase;
     private UIManager _uiManager;
     private CollectionManager _collectionManager;
     
