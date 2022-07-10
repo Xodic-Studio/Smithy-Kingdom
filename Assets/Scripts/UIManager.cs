@@ -78,6 +78,7 @@ public class UIManager : Singleton<UIManager>
     #region MainMenu
     [Header("Main Menu")]
     public Button oreSelectButton;
+    public Button prestigeMenuButton;
     public Button upgradeMenuButton;
     public Button collectiblesMenuButton;
     public Button premiumMenuButton;
@@ -87,6 +88,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject overrideCanvas;
     public GameObject baseCanvas;
     public GameObject oreSelectionPanel;
+    public GameObject prestigeMenuPanel;
     public GameObject upgradeMenu;
     public GameObject collectiblesMenu;
     public GameObject premiumMenu;
@@ -103,6 +105,7 @@ public class UIManager : Singleton<UIManager>
         settingsMenuButton.onClick.AddListener(OpenSettingsMenu);
         oreSelectButton.onClick.AddListener(OpenOreMenu);
         closeButton.onClick.AddListener(CloseMenu);
+        prestigeMenuButton.onClick.AddListener(OpenPrestigeMenu);
     }
     
     /// <summary>
@@ -122,6 +125,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenUpgradeMenu()
     {
         CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
         oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(true);
         collectiblesMenu.SetActive(false);
@@ -137,6 +141,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenCollectiblesMenu()
     {
         CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
         oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(true);
@@ -151,6 +156,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenPremiumMenu()
     {
         CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
         oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(false);
@@ -165,6 +171,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenSettingsMenu()
     {
         CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
         oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(false);
@@ -179,12 +186,24 @@ public class UIManager : Singleton<UIManager>
     public void OpenOreMenu()
     {
         CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(false);
         premiumMenu.SetActive(false);
         settingsMenu.SetActive(false);
         oreSelectionPanel.SetActive(true);
         _ore.tempSelectOreIndex = _ore.selectedOreIndex;
+    }
+    
+    public void OpenPrestigeMenu()
+    {
+        CheckCanvas();
+        oreSelectionPanel.SetActive(false);
+        upgradeMenu.SetActive(false);
+        collectiblesMenu.SetActive(false);
+        premiumMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        prestigeMenuPanel.SetActive(true);
     }
 
     /// <summary>
@@ -288,6 +307,13 @@ public class UIManager : Singleton<UIManager>
         UpdateOreImageHead();
         UpdateOreNameText(_ore.GetOreStats().oreName);
     }
+    #endregion
+
+    #region Prestige
+    
+    [Header("Prestige")]
+    public TMP_Text prestigeText;
+
     #endregion
     
     #region Upgrades
