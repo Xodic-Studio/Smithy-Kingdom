@@ -9393,7 +9393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272240228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.51600605, y: -2.1618547, z: -0.08294884}
+  m_LocalPosition: {x: 0, y: -4.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9415,6 +9415,7 @@ MonoBehaviour:
   damageGameObject: {fileID: 9071759711258840025, guid: e3fb8a267e2d3f6418b6dcb2389fb149, type: 3}
   mainCamera: {fileID: 519420031}
   money: 0
+  gems: 0
   smithy: {fileID: 1344973187}
   anvil: {fileID: 955110012}
   hammerDamage: 1
@@ -9432,6 +9433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oreNameText: {fileID: 1779429849}
   moneyText: {fileID: 1866464797}
+  gemText: {fileID: 700987021}
   hardnessSlider: {fileID: 1113044958}
   hardnessText: {fileID: 1497258063}
   oreSelectButton: {fileID: 606659669}
@@ -11029,7 +11031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1541483949
 MonoBehaviour:
   m_ObjectHideFlags: 0

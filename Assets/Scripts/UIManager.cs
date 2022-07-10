@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [Header("BaseUI")]
     public TMP_Text oreNameText;
     public TMP_Text moneyText;
+    public TMP_Text gemText;
     public Slider hardnessSlider;
     public TMP_Text hardnessText;
 
@@ -33,7 +34,15 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public void UpdateMoneyText()
     {
-        moneyText.text = $"$: {_gameManager.money}";
+        moneyText.text = $"$: {_gameManager.GetMoney()}";
+    }
+    
+    /// <summary>
+    /// Update the Gem TMP text with the current gem
+    /// </summary>
+    public void UpdateGemText()
+    {
+        gemText.text = $"{_gameManager.GetGems()}";
     }
     
     /// <summary>
