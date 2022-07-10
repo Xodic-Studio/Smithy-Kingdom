@@ -15,21 +15,21 @@ MonoBehaviour:
   ores:
   - oreName: Copper Ore
     oreSprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    oreDescription: 
+    oreDescription: This is a copper ore least ore you wanted!
     currentHardness: 5
     isUnlocked: 1
     defaultHardness: 5
     isPremium: 0
   - oreName: Iron Ore
     oreSprite: {fileID: 6115424208678247343, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    oreDescription: 
+    oreDescription: This is Iron Ore A bit Better Ore
     currentHardness: 10
     isUnlocked: 1
     defaultHardness: 10
     isPremium: 0
   - oreName: Gold Ore
     oreSprite: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    oreDescription: 
+    oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 100
     isUnlocked: 1
     defaultHardness: 100
