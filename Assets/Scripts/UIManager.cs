@@ -6,28 +6,26 @@ using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
     private GameManager _gameManager;
+    private Ore _ore;
 
     [Header("BaseUI")]
     public TMP_Text oreNameText;
     public TMP_Text moneyText;
-    public GameObject previousOreButtonGo;
-    public GameObject nextOreButtonGo;
     public Slider hardnessSlider;
     public TMP_Text hardnessText;
-    private Button _previousOreButton;
-    private Button _nextOreButton;
-    
+
     private void Awake()
     {
+        _ore = Ore.Instance;
         _gameManager = GameManager.Instance;
     }
 
     private void Start()
     {
-        BaseStart();
         UpgradeStart();
         AddUpgradeButtons();
         AddMenuButtons();
+        OreSelectionStart();
     }
 
     /// <summary>
@@ -67,21 +65,10 @@ public class UIManager : Singleton<UIManager>
         hardnessSlider.value = hardness;
         hardnessText.text = $"{hardness}/{maxHardness}";
     }
-
-    #region Base
-
-    void BaseStart()
-    {
-        _nextOreButton = nextOreButtonGo.GetComponent<Button>();
-        _previousOreButton = previousOreButtonGo.GetComponent<Button>();
-        _nextOreButton.onClick.AddListener(() => _gameManager.SelectNextOre());
-        _previousOreButton.onClick.AddListener(() => _gameManager.SelectPreviousOre());
-    }
-
-    #endregion
-    #region MainMenu
     
+    #region MainMenu
     [Header("Main Menu")]
+    public Button oreSelectButton;
     public Button upgradeMenuButton;
     public Button collectiblesMenuButton;
     public Button premiumMenuButton;
@@ -90,6 +77,7 @@ public class UIManager : Singleton<UIManager>
     
     public GameObject overrideCanvas;
     public GameObject baseCanvas;
+    public GameObject oreSelectionPanel;
     public GameObject upgradeMenu;
     public GameObject collectiblesMenu;
     public GameObject premiumMenu;
@@ -104,6 +92,7 @@ public class UIManager : Singleton<UIManager>
         collectiblesMenuButton.onClick.AddListener(OpenCollectiblesMenu);
         premiumMenuButton.onClick.AddListener(OpenPremiumMenu);
         settingsMenuButton.onClick.AddListener(OpenSettingsMenu);
+        oreSelectButton.onClick.AddListener(OpenOreMenu);
         closeButton.onClick.AddListener(CloseMenu);
     }
     
@@ -124,6 +113,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenUpgradeMenu()
     {
         CheckCanvas();
+        oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(true);
         collectiblesMenu.SetActive(false);
         premiumMenu.SetActive(false);
@@ -138,6 +128,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenCollectiblesMenu()
     {
         CheckCanvas();
+        oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(true);
         premiumMenu.SetActive(false);
@@ -151,6 +142,7 @@ public class UIManager : Singleton<UIManager>
     public void OpenPremiumMenu()
     {
         CheckCanvas();
+        oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(false);
         premiumMenu.SetActive(true);
@@ -164,10 +156,26 @@ public class UIManager : Singleton<UIManager>
     public void OpenSettingsMenu()
     {
         CheckCanvas();
+        oreSelectionPanel.SetActive(false);
         upgradeMenu.SetActive(false);
         collectiblesMenu.SetActive(false);
         premiumMenu.SetActive(false);
         settingsMenu.SetActive(true);
+    }
+    
+    /// <summary>
+    /// Open Ore Menu Function
+    /// Open Ore Menu, Close Other Menu and Close Base UI
+    /// </summary>
+    public void OpenOreMenu()
+    {
+        CheckCanvas();
+        upgradeMenu.SetActive(false);
+        collectiblesMenu.SetActive(false);
+        premiumMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        oreSelectionPanel.SetActive(true);
+        _ore.tempSelectOreIndex = _ore.selectedOreIndex;
     }
 
     /// <summary>
@@ -183,6 +191,93 @@ public class UIManager : Singleton<UIManager>
         {
             baseCanvas.SetActive(false);
         }
+    }
+    #endregion
+
+    #region OreSelection
+
+    [Header("Ore Selection")]
+    public Image oreImageHead;
+    public Image oreImageBody;
+    public TMP_Text oreName;
+    public TMP_Text oreDescription;
+    [SerializeField] public Button previousOreButton;
+    [SerializeField] public Button nextOreButton;
+    [SerializeField] public GameObject confirmOreButtonGo;
+    private Button _confirmOreButton;
+    private Image _confirmOreButtonImage;
+    private TMP_Text _confirmOreButtonText;
+
+    /// <summary>
+    /// Start Method Of the Ore Selection UI
+    /// </summary>
+    void OreSelectionStart()
+    {
+        _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
+        _confirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
+        _confirmOreButton = confirmOreButtonGo.GetComponent<Button>();
+        _confirmOreButton.onClick.AddListener(SelectOre);
+        nextOreButton.onClick.AddListener(PreviewNextOre);
+        previousOreButton.onClick.AddListener(PreviewPreviousOre);
+        UpdateOreDetails();
+    }
+    
+    /// <summary>
+    /// update the ore details(In The Selector)
+    /// </summary>
+    private void UpdateOreDetails()
+    {
+        oreImageBody.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
+        oreName.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreName;
+        oreDescription.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreDescription;
+        if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
+        {
+            _confirmOreButtonImage.color = new Color(0.41f, 0.41f, 0.41f);
+            _confirmOreButton.interactable = false;
+            _confirmOreButtonText.text = "Selected";
+        }
+        else
+        {
+            _confirmOreButtonImage.color = new Color(0.45f, 0.69f, 1f);
+            _confirmOreButton.interactable = true;
+            _confirmOreButtonText.text = "Select";
+        }
+    }
+    
+    /// <summary>
+    /// update Currently Selected Ore Image (Outside the Selector)
+    /// </summary>
+    private void UpdateOreImageHead()
+    {
+        oreImageHead.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
+    }
+    /// <summary>
+    /// Preview Previous Ore and Update the Ore Details
+    /// </summary>
+    private void PreviewPreviousOre()
+    {
+        _ore.ModifySelectedOreIndex(-1);
+        UpdateOreDetails();
+        UpdateOreNameText(_ore.GetOreStats().oreName);
+    }
+    /// <summary>
+    /// Preview Next Ore and Update the Ore Details
+    /// </summary>
+    private void PreviewNextOre()
+    {
+        _ore.ModifySelectedOreIndex(1);
+        UpdateOreDetails();
+        UpdateOreNameText(_ore.GetOreStats().oreName);
+    }
+    /// <summary>
+    /// Select the Ore and Update the Ore Details in the game
+    /// </summary>
+    private void SelectOre()
+    {
+        _ore.UpdateOre();
+        UpdateOreDetails();
+        UpdateOreImageHead();
+        UpdateOreNameText(_ore.GetOreStats().oreName);
     }
     #endregion
     

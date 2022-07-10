@@ -117,18 +117,4 @@ public class GameManager : Singleton<GameManager>
         anvil.SetTrigger("Hit");
         _click +=5;
     }
-    
-    // Ore Selection
-    public void SelectPreviousOre()
-    {
-        _ore.ModifySelectedOreIndex(-1);
-        _ore.UpdateOre();
-        _uiManager.UpdateOreNameText(_ore.GetOreStats().oreName);
-    }
-    public void SelectNextOre()
-    {
-        _ore.ModifySelectedOreIndex(1);
-        _ore.UpdateOre();
-        _uiManager.UpdateOreNameText(_ore.GetOreStats().oreName);
-    }
 }
