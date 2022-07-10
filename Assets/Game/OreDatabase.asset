@@ -13,29 +13,22 @@ MonoBehaviour:
   m_Name: OreDatabase
   m_EditorClassIdentifier: 
   ores:
-  - oreName: Copper
-    oreSprite: {fileID: 7482667652216324306, guid: d4414fe66cbaa4b4aa8a0b308275fb48, type: 3}
+  - oreName: Copper Ore
+    oreSprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: 
     currentHardness: 5
     isUnlocked: 1
     defaultHardness: 5
     isPremium: 0
-  - oreName: Silver
-    oreSprite: {fileID: -2413806693520163455, guid: 12a4cc6f8967b83429a14ab82d379e0a, type: 3}
+  - oreName: Iron Ore
+    oreSprite: {fileID: 6115424208678247343, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: 
     currentHardness: 10
     isUnlocked: 1
     defaultHardness: 10
     isPremium: 0
-  - oreName: Gold
-    oreSprite: {fileID: -9095717837082945937, guid: 17b9019ac8dc4074f97a6ee8a08aa741, type: 3}
-    oreDescription: 
-    currentHardness: 100
-    isUnlocked: 1
-    defaultHardness: 100
-    isPremium: 0
-  - oreName: Platinum
-    oreSprite: {fileID: -9095717837082945937, guid: 17b9019ac8dc4074f97a6ee8a08aa741, type: 3}
+  - oreName: Gold Ore
+    oreSprite: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: 
     currentHardness: 100
     isUnlocked: 1

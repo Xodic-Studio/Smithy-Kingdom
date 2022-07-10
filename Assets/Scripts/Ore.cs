@@ -7,6 +7,8 @@ public class Ore : Singleton<Ore>
     private CollectionManager _collectionManager;
     
     private OreStats _thisOre;
+    
+    public int tempSelectOreIndex;
     public int selectedOreIndex;
     
     private void Awake()
@@ -28,6 +30,7 @@ public class Ore : Singleton<Ore>
     //update ore
     public void UpdateOre()
     {
+        selectedOreIndex = tempSelectOreIndex;
         DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
@@ -40,26 +43,26 @@ public class Ore : Singleton<Ore>
     
     public void ModifySelectedOreIndex(int index)
     {
-        if (index == -1 && selectedOreIndex - 1 >= 0)
+        if (index == -1 && tempSelectOreIndex - 1 >= 0)
         {
-            if (oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+            if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                selectedOreIndex--;
-                _uiManager.nextOreButtonGo.SetActive(true);
+                tempSelectOreIndex--;
+                _uiManager.nextOreButton.gameObject.SetActive(true);
                 DisableButtonIfNoNextOre();
             }
         }
-        else if (index == 1 && selectedOreIndex + 1 < oreDatabase.ores.Length)
+        else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
         {
-            if (oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+            if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                selectedOreIndex++;
-                _uiManager.previousOreButtonGo.SetActive(true);
+                tempSelectOreIndex++;
+                _uiManager.previousOreButton.gameObject.SetActive(true);
                 DisableButtonIfNoNextOre();
             }
         }
         CheckOreIndex();
-        Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
+        Debug.Log("You selected ore " + oreDatabase.ores[tempSelectOreIndex].oreName);
     }
     public void ModifyHardness(int amount)
     {
@@ -69,13 +72,13 @@ public class Ore : Singleton<Ore>
     
     void DisableButtonIfNoNextOre()
     {
-        if (selectedOreIndex - 1 < 0 || !oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+        if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
         {
-            _uiManager.previousOreButtonGo.SetActive(false);
+            _uiManager.previousOreButton.gameObject.SetActive(false);
         }
-        else if (selectedOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+        else if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
         {
-            _uiManager.nextOreButtonGo.SetActive(false);
+            _uiManager.nextOreButton.gameObject.SetActive(false);
         }
     }
     
@@ -90,9 +93,9 @@ public class Ore : Singleton<Ore>
 
     void CheckOreIndex()
     {
-        if (selectedOreIndex >= oreDatabase.ores.Length || selectedOreIndex < 0)
+        if (tempSelectOreIndex >= oreDatabase.ores.Length || tempSelectOreIndex < 0)
         {
-            selectedOreIndex = 0;
+            tempSelectOreIndex = 0;
         }
     }
     
