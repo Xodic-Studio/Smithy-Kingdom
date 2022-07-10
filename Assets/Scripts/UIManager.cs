@@ -222,16 +222,16 @@ public class UIManager : Singleton<UIManager>
         _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
         _confirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
         _confirmOreButton = confirmOreButtonGo.GetComponent<Button>();
-        _confirmOreButton.onClick.AddListener(ConfirmOre);
-        nextOreButton.onClick.AddListener(SelectNextOre);
-        previousOreButton.onClick.AddListener(SelectPreviousOre);
+        _confirmOreButton.onClick.AddListener(SelectOre);
+        nextOreButton.onClick.AddListener(PreviewNextOre);
+        previousOreButton.onClick.AddListener(PreviewPreviousOre);
         UpdateOreDetails();
     }
     
     /// <summary>
     /// update the ore details(In The Selector)
     /// </summary>
-    public void UpdateOreDetails()
+    private void UpdateOreDetails()
     {
         oreImageBody.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
         oreName.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreName;
@@ -253,25 +253,32 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// update Currently Selected Ore Image (Outside the Selector)
     /// </summary>
-    public void UpdateOreImageHead()
+    private void UpdateOreImageHead()
     {
         oreImageHead.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
     }
-    
-    public void SelectPreviousOre()
+    /// <summary>
+    /// Preview Previous Ore and Update the Ore Details
+    /// </summary>
+    private void PreviewPreviousOre()
     {
         _ore.ModifySelectedOreIndex(-1);
         UpdateOreDetails();
         UpdateOreNameText(_ore.GetOreStats().oreName);
     }
-    public void SelectNextOre()
+    /// <summary>
+    /// Preview Next Ore and Update the Ore Details
+    /// </summary>
+    private void PreviewNextOre()
     {
         _ore.ModifySelectedOreIndex(1);
         UpdateOreDetails();
         UpdateOreNameText(_ore.GetOreStats().oreName);
     }
-    
-    public void ConfirmOre()
+    /// <summary>
+    /// Select the Ore and Update the Ore Details in the game
+    /// </summary>
+    private void SelectOre()
     {
         _ore.UpdateOre();
         UpdateOreDetails();

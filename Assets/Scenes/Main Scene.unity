@@ -9453,7 +9453,7 @@ MonoBehaviour:
   oreDescription: {fileID: 698032947}
   previousOreButton: {fileID: 2074068641}
   nextOreButton: {fileID: 1551988309}
-  confirmButton: {fileID: 1520872449}
+  confirmOreButtonGo: {fileID: 1520872447}
   upgradesScrollRect: {fileID: 589170787}
   normalUpgradeButton: {fileID: 965166652}
   premiumUpgradeButton: {fileID: 911276987}
