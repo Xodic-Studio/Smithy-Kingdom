@@ -216,7 +216,6 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// Start Method Of the Ore Selection UI
     /// </summary>
-    
     void OreSelectionStart()
     {
         _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
