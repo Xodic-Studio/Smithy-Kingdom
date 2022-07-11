@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
-  - m_Name: Ore
-    m_Hash: -1537827508
+  - m_Name: Common Ore
+    m_Hash: -1864917716
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: Copper
@@ -37,6 +37,63 @@ MonoBehaviour:
       m_Sprite: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    - m_Name: Meteorite
+      m_Hash: -99064335
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Mithril
+      m_Hash: -1027257067
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Adamantine
+      m_Hash: -452306935
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 4
+    m_EntryOverrideCount: 7
+  - m_Name: Gacha Ore
+    m_Hash: 1094038679
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Dragonite
+      m_Hash: 1109660125
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Fishore
+      m_Hash: -1225357598
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Astral Shard
+      m_Hash: 1581068772
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Computronium
+      m_Hash: 1997884119
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    - m_Name: Kedalium
+      m_Hash: -1462675101
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 5
+  - m_Name: Easter Egg
+    m_Hash: 517707766
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Baguette
+      m_Hash: 773055341
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
   m_PrimaryLibraryGUID: 
