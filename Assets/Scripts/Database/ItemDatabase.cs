@@ -32,6 +32,7 @@ public class ItemStats
     public Sprite itemSprite;
     public float itemPrice;
     public Rarity itemRarity;
+    public string itemFirstForged;
     [TextArea(3, 10)]
     public string itemDescription;
 

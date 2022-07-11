@@ -103,6 +103,18 @@ public class CollectionManager : Singleton<CollectionManager>
         {
             _itemStats.isUnlocked = true;
             _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0).GetComponent<Image>().color = Color.white;
+            Button itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetComponent<Button>();
+            _itemStats.itemFirstForged = DateTime.Today.ToString("d");
+            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                                  $"Rarity: {_itemStats.itemRarity}\n" +
+                                  $"First Forged: {_itemStats.itemFirstForged}\n" +
+                                  $"Times Forged: {_itemStats.timesForged}\n" +
+                                  "\n" +
+                                  $"{_itemStats.itemDescription}";
+            itemButton.onClick.AddListener(
+                delegate { _uiManager.AssignOverlayValue(_itemStats.itemName,  displayDescription, _itemStats.itemSprite);
+                _uiManager.OpenOverlay();
+            });
             Debug.Log($"{_itemStats.itemName} has been added to your collection");
         }
         _gameManager.ModifyMoney(_itemStats.itemPrice);
@@ -119,6 +131,18 @@ public class CollectionManager : Singleton<CollectionManager>
                 if (items.isUnlocked)
                 {
                     _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>().color = Color.white;
+                    Button itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
+                    var displayDescription = $"Selling Price: {items.itemPrice}\n" +
+                                          $"Rarity: {items.itemRarity}\n" +
+                                          $"First Forged: {items.itemFirstForged}\n" +
+                                          $"Times Forged: {items.timesForged}\n" +
+                                          "\n" +
+                                          $"{items.itemDescription}";
+                    itemButton.onClick.AddListener(delegate
+                    {
+                        _uiManager.AssignOverlayValue(items.itemName, displayDescription, items.itemSprite);
+                        _uiManager.OpenOverlay();
+                    });
                 }
                 Debug.Log("Checked" + items.itemName + "from" + collection.collectionName);
                 i++;

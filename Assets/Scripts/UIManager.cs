@@ -26,7 +26,7 @@ public class UIManager : Singleton<UIManager>
         AddUpgradeButtons();
         AddMenuButtons();
         OreSelectionStart();
-        MailStart();
+        OverlayStart();
     }
 
     /// <summary>
@@ -359,15 +359,24 @@ public class UIManager : Singleton<UIManager>
 
     #endregion
 
-    #region Mail
+    #region Overlay UI
 
-    [Header("Mail")] public TMP_Text mailTitle;
-    public TMP_Text mailText;
+    [Header("Overlay")]
+    public TMP_Text overlayTitle;
+    public TMP_Text overlayDescription;
+    public Image overlayImage;
     public Button okButton;
 
-    private void MailStart()
+    private void OverlayStart()
     {
         okButton.onClick.AddListener(CloseOverlay);
+    }
+    
+    public void AssignOverlayValue(string textTitle, string textDescription, Sprite sprite)
+    {
+        overlayTitle.text = textTitle;
+        overlayDescription.text = textDescription;
+        overlayImage.sprite = sprite;
     }
 
     #endregion
@@ -430,8 +439,9 @@ public class UIManager : Singleton<UIManager>
 
     #region Collectibles
 
-    [Header("Collectibles Tab")] public ScrollRect collectiblesScrollRect;
-
+    [Header("Collectibles Tab")] 
+    public ScrollRect collectiblesScrollRect;
+    
     #endregion
 
     #region Premium
