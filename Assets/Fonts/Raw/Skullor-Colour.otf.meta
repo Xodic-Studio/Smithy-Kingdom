@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a8cdf3adf32855b46a61e1a1c1b5e603
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Skullor
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 22c809953de54314a8632137ea2668c8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
