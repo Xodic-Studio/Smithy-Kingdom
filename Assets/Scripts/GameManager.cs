@@ -23,6 +23,9 @@ public class GameManager : Singleton<GameManager>
     private int _clickPerSec;
     private int _click;
     
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int Hit = Animator.StringToHash("Hit");
+
     private void Awake()
     {
         _uiManager = UIManager.Instance;
@@ -52,22 +55,21 @@ public class GameManager : Singleton<GameManager>
             _cpsTimer = 0;
             if (_clickPerSec is < 10 and > 5)
             {
-                smithy.SetFloat("Speed", 1.25f);
-                anvil.SetFloat("Speed", 1.25f);
+                smithy.SetFloat(Speed, 1.25f);
+                anvil.SetFloat(Speed, 1.25f);
             } else if (_clickPerSec > 10)
             {
-                smithy.SetFloat("Speed", 1.5f);
-                anvil.SetFloat("Speed", 1.5f);
+                smithy.SetFloat(Speed, 1.5f);
+                anvil.SetFloat(Speed, 1.5f);
             }
             else
             {
-                smithy.SetFloat("Speed", 1f);
-                anvil.SetFloat("Speed", 1f);
+                smithy.SetFloat(Speed, 1f);
+                anvil.SetFloat(Speed, 1f);
             }
         }
     }
     
-
     //Instantiate Damage text
     private void AddDamageText(string text)
     {
@@ -83,7 +85,6 @@ public class GameManager : Singleton<GameManager>
             _damageTextTimer = 0;
             goRect.localScale = new Vector3(1, 1, 1);
         }
-        
     }
     
     IEnumerator FloatDelayDestroy(RectTransform goRect, TMP_Text goText)
@@ -105,11 +106,11 @@ public class GameManager : Singleton<GameManager>
     {
         _ore.ModifyHardness(hammerDamage);
         AddDamageText(hammerDamage.ToString());
-        smithy.SetTrigger("Hit");
-        anvil.SetTrigger("Hit");
+        smithy.SetTrigger(Hit);
+        anvil.SetTrigger(Hit);
         _click +=5;
     }
-
+    
     #region Getter Setter
     public float GetGems()
     {
@@ -134,5 +135,4 @@ public class GameManager : Singleton<GameManager>
     }
 
     #endregion
-    
 }
