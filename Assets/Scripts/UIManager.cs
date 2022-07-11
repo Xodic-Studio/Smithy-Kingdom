@@ -27,6 +27,7 @@ public class UIManager : Singleton<UIManager>
         AddUpgradeButtons();
         AddMenuButtons();
         OreSelectionStart();
+        MailStart();
     }
 
     /// <summary>
@@ -77,22 +78,24 @@ public class UIManager : Singleton<UIManager>
     
     #region MainMenu
     [Header("Main Menu")]
-    public Button oreSelectButton;
-    public Button prestigeMenuButton;
-    public Button upgradeMenuButton;
-    public Button collectiblesMenuButton;
-    public Button premiumMenuButton;
-    public Button settingsMenuButton;
-    public Button closeButton;
+    [SerializeField] Button oreSelectButton;
+    [SerializeField] Button prestigeMenuButton;
+    [SerializeField] Button upgradeMenuButton;
+    [SerializeField] Button collectiblesMenuButton;
+    [SerializeField] Button premiumMenuButton;
+    [SerializeField] Button settingsMenuButton;
+    [SerializeField] Button closeButton;
     
-    public GameObject overrideCanvas;
-    public GameObject baseCanvas;
-    public GameObject oreSelectionPanel;
-    public GameObject prestigeMenuPanel;
-    public GameObject upgradeMenu;
-    public GameObject collectiblesMenu;
-    public GameObject premiumMenu;
-    public GameObject settingsMenu;
+    [SerializeField] GameObject overrideCanvas;
+    [SerializeField] GameObject oreSelectionPanel;
+    [SerializeField] GameObject prestigeMenuPanel;
+    [SerializeField] GameObject upgradeMenu;
+    [SerializeField] GameObject collectiblesMenu;
+    [SerializeField] GameObject premiumMenu;
+    [SerializeField] GameObject settingsMenu;
+    
+    [SerializeField] GameObject baseCanvas;
+    [SerializeField] GameObject overlayCanvas;
 
     /// <summary>
     /// Add Functions to all buttons in the Main Menu
@@ -106,6 +109,24 @@ public class UIManager : Singleton<UIManager>
         oreSelectButton.onClick.AddListener(OpenOreMenu);
         closeButton.onClick.AddListener(CloseMenu);
         prestigeMenuButton.onClick.AddListener(OpenPrestigeMenu);
+        
+    }
+    /// <summary>
+    /// Close Overlay Canvas
+    /// </summary>
+    public void CloseOverlay()
+    {
+        overlayCanvas.SetActive(false);
+        overlayCanvas.GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
+    }
+    
+    /// <summary>
+    /// Open Overlay Canvas
+    /// </summary>
+    public void OpenOverlay()
+    {
+        overlayCanvas.SetActive(true);
+        overlayCanvas.GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0.4f);
     }
     
     /// <summary>
@@ -195,6 +216,10 @@ public class UIManager : Singleton<UIManager>
         _ore.tempSelectOreIndex = _ore.selectedOreIndex;
     }
     
+    /// <summary>
+    /// Open Prestige Menu Function
+    /// Open Prestige Menu, Close Other Menu and Close Base UI
+    /// </summary>
     public void OpenPrestigeMenu()
     {
         CheckCanvas();
@@ -220,6 +245,19 @@ public class UIManager : Singleton<UIManager>
             baseCanvas.SetActive(false);
         }
     }
+
+    #region Getters and Setters
+
+    /// <summary>
+    /// Get Base Canvas
+    /// </summary>
+    /// <returns>Returns Base Canvas</returns>
+    public GameObject GetCanvas()
+    {
+        return baseCanvas;
+    }
+
+    #endregion
     #endregion
 
     #region OreSelection
@@ -307,6 +345,22 @@ public class UIManager : Singleton<UIManager>
         UpdateOreImageHead();
         UpdateOreNameText(_ore.GetOreStats().oreName);
     }
+    #endregion
+
+    #region Mail
+
+    [Header("Mail")]
+    public TMP_Text mailTitle;
+    public TMP_Text mailText;
+    public Button okButton;
+    
+    void MailStart()
+    {
+        okButton.onClick.AddListener(CloseOverlay);
+    }
+
+
+
     #endregion
 
     #region Prestige

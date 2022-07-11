@@ -79,7 +79,7 @@ public class GameManager : Singleton<GameManager>
             RectTransform goRect = (RectTransform) go.transform;
             TMP_Text goText = go.GetComponent<TMP_Text>();
             goText.text = $"- {text}";
-            goRect.SetParent(_uiManager.baseCanvas.transform, true);
+            goRect.SetParent(_uiManager.GetCanvas().transform, true);
             StartCoroutine(FloatDelayDestroy(goRect, goText));
             _damageTextTimer = 0;
             goRect.localScale = new Vector3(1, 1, 1);
