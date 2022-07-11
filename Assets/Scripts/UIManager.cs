@@ -155,6 +155,21 @@ public class UIManager : Singleton<UIManager>
     }
 
     /// <summary>
+    ///     Open Premium Upgrade Menu
+    /// </summary>
+    public void OpenPremiumUpgradeMenu()
+    {
+        CheckCanvas();
+        prestigeMenuPanel.SetActive(false);
+        oreSelectionPanel.SetActive(false);
+        upgradeMenu.SetActive(true);
+        collectiblesMenu.SetActive(false);
+        premiumMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        TapPremiumUpgradePanel();
+    }
+
+    /// <summary>
     ///     Open Collectibles Menu Function
     ///     Open Collectibles Menu, Close Other Menu and Close Base UI
     /// </summary>
@@ -442,7 +457,6 @@ public class UIManager : Singleton<UIManager>
     }
 
     [Header("Update UI")] [SerializeField] internal Database database;
-
     [SerializeField] internal GameObject upgradeList;
     [SerializeField] internal GameObject premiumUpgradeList;
     [SerializeField] internal GameObject upgradeUIPrefab;
@@ -454,6 +468,7 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] internal GameObject collectionList;
     [SerializeField] internal GameObject collectionUIPrefab;
+    [SerializeField] internal GameObject itemUIPrefab;
 
     #endregion
 }
@@ -497,8 +512,8 @@ public class UIManagerEditor : Editor
 
         if (GUILayout.Button("UpdatePremiumUpgrade"))
         {
-            uiManager.OpenPremiumMenu();
-            UpdateUI(UIManager.DatabaseType.Upgrades);
+            uiManager.OpenPremiumUpgradeMenu();
+            UpdateUI(UIManager.DatabaseType.PremiumUpgrade);
         }
 
         if (GUILayout.Button("UpdateCollection"))
@@ -516,7 +531,6 @@ public class UIManagerEditor : Editor
             void CheckIfActive()
             {
                 if (databaseType == UIManager.DatabaseType.Upgrades)
-
                 {
                     var active = uiManager.upgradeList.activeSelf;
                     uiManager.ThisVerticalLayoutGroup = uiManager.upgradeList.GetComponent<VerticalLayoutGroup>();
@@ -526,6 +540,19 @@ public class UIManagerEditor : Editor
                     uiManager.ThisRectTransform = uiManager.upgradeList.GetComponent<RectTransform>();
                     if (!active) uiManager.upgradeList.SetActive(true);
                 }
+
+                else if (databaseType == UIManager.DatabaseType.PremiumUpgrade)
+                {
+                    var active = uiManager.premiumUpgradeList.activeSelf;
+                    uiManager.ThisVerticalLayoutGroup =
+                        uiManager.premiumUpgradeList.GetComponent<VerticalLayoutGroup>();
+                    uiManager.PrefabRectTransform = uiManager.upgradeUIPrefab.GetComponent<RectTransform>();
+                    uiManager.ParentRectTransform =
+                        uiManager.premiumUpgradeList.transform.parent.GetComponent<RectTransform>();
+                    uiManager.ThisRectTransform = uiManager.premiumUpgradeList.GetComponent<RectTransform>();
+                    if (!active) uiManager.premiumUpgradeList.SetActive(true);
+                }
+
                 else if (databaseType == UIManager.DatabaseType.Collection)
                 {
                     var active = uiManager.collectionList.activeSelf;
@@ -554,7 +581,7 @@ public class UIManagerEditor : Editor
                     {
                         try
                         {
-                            listTransform.transform.GetChild(i);
+                            listTransform.GetChild(i);
                         }
                         catch (UnityException)
                         {
@@ -575,7 +602,50 @@ public class UIManagerEditor : Editor
 
                     for (i = childCount; i > childCount - needDestroy; i--)
                         DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                    if (listTransform.transform.childCount <= 5)
+                    if (listTransform.childCount <= 5)
+                    {
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x,
+                            uiManager.ParentRectTransform.rect.height);
+                    }
+                    else
+                    {
+                        var y = uiManager.ParentRectTransform.rect.height +
+                                (listTransform.childCount - 5) *
+                                (uiManager.PrefabRectTransform.rect.height +
+                                 uiManager.ThisVerticalLayoutGroup.spacing);
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x, y);
+                    }
+                }
+                else if (databaseType == UIManager.DatabaseType.PremiumUpgrade)
+                {
+                    var databaseStats = uiManager.database.premiumUpgradeDatabase.stats;
+                    var listTransform = uiManager.premiumUpgradeList.transform;
+                    var i = 0;
+                    foreach (var unused in databaseStats)
+                    {
+                        try
+                        {
+                            listTransform.GetChild(i);
+                        }
+                        catch (UnityException)
+                        {
+                            var newUpgrade = Instantiate(uiManager.upgradeUIPrefab, listTransform);
+                            newUpgrade.transform.SetParent(listTransform);
+                        }
+
+                        listTransform.GetChild(i).name = databaseStats[i].upgradeName;
+                        listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text =
+                            databaseStats[i].upgradeName;
+                        listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>()
+                            .text = databaseStats[i].upgradeDescription;
+                        i++;
+                    }
+
+                    var childCount = listTransform.childCount;
+                    var needDestroy = childCount - databaseStats.Length;
+                    for (i = childCount; i > childCount - needDestroy; i--)
+                        DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                    if (listTransform.childCount <= 5)
                     {
                         uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x,
                             uiManager.ParentRectTransform.rect.height);
@@ -598,7 +668,7 @@ public class UIManagerEditor : Editor
                     {
                         try
                         {
-                            listTransform.transform.GetChild(i);
+                            listTransform.GetChild(i);
                         }
                         catch (UnityException)
                         {
@@ -613,11 +683,9 @@ public class UIManagerEditor : Editor
 
                     var childCount = listTransform.childCount;
                     var needDestroy = childCount - databaseStats.Length;
-
-
                     for (i = childCount; i > childCount - needDestroy; i--)
                         DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                    if (listTransform.transform.childCount <= 2)
+                    if (listTransform.childCount <= 2)
                     {
                         uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x,
                             uiManager.ParentRectTransform.rect.height);
@@ -629,6 +697,48 @@ public class UIManagerEditor : Editor
                                 (uiManager.PrefabRectTransform.rect.height +
                                  uiManager.ThisVerticalLayoutGroup.spacing);
                         uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x, y);
+                    }
+
+                    var j = 0;
+                    foreach (var collection in databaseStats)
+                    {
+                        listTransform = uiManager.collectionList.transform.GetChild(j);
+                        i = 0;
+                        foreach (var unused in collection.items)
+                        {
+                            try
+                            {
+                                listTransform.GetChild(i);
+                            }
+                            catch (UnityException)
+                            {
+                                var gameObject = Instantiate(uiManager.itemUIPrefab, listTransform);
+                                gameObject.transform.SetParent(listTransform);
+                            }
+
+                            listTransform.GetChild(i).name = databaseStats[j].items[i].itemName;
+                            listTransform.GetChild(i).GetChild(0).GetComponent<Image>().sprite =
+                                databaseStats[j].items[i].itemSprite;
+                            listTransform.GetChild(i).GetChild(0).GetComponent<Image>().color =
+                                new Color(0.22f, 0.22f, 0.22f);
+                            i++;
+                        }
+
+                        childCount = listTransform.childCount;
+                        needDestroy = childCount - databaseStats[j].items.Length;
+                        for (i = childCount; i > childCount - needDestroy; i--)
+                            DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+
+
+                        var spacing = listTransform.GetComponent<GridLayoutGroup>();
+                        uiManager.PrefabRectTransform = uiManager.itemUIPrefab.GetComponent<RectTransform>();
+                        uiManager.ThisRectTransform = listTransform.GetComponent<RectTransform>();
+                        var count = listTransform.childCount;
+                        Debug.Log(Mathf.Ceil((float) count / 3));
+                        var y = Mathf.Ceil((float) count / 3) *
+                            (uiManager.PrefabRectTransform.rect.height + spacing.spacing.y) + spacing.padding.top;
+                        uiManager.ThisRectTransform.sizeDelta = new Vector2(uiManager.ThisRectTransform.sizeDelta.x, y);
+                        j++;
                     }
                 }
             }

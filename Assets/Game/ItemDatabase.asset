@@ -15,21 +15,45 @@ MonoBehaviour:
   collections:
   - collectionName: Bronze
     items:
-    - itemName: 123123
-      itemIcon: {fileID: 0}
-      itemPrice: 20
+    - itemName: 1
+      itemSprite: {fileID: -7604778270247989505, guid: 2f0d6b6e3d81e044297ab649a6ae5fa5, type: 3}
+      itemPrice: 0
       itemRarity: 0
       itemDescription: 
-      dropChance: 100
+      dropChance: 50
       timesForged: 0
       isUnlocked: 1
-  - collectionName: Bronze
+    - itemName: 1
+      itemSprite: {fileID: -4701524945738760775, guid: 51ebb3c4b39f6af4b9bbd7bdca65f284, type: 3}
+      itemPrice: 0
+      itemRarity: 0
+      itemDescription: 
+      dropChance: 50
+      timesForged: 0
+      isUnlocked: 1
+  - collectionName: Boojzsdfsja
     items:
-    - itemName: 123123
-      itemIcon: {fileID: 0}
-      itemPrice: 20
+    - itemName: 
+      itemSprite: {fileID: 0}
+      itemPrice: 0
       itemRarity: 0
       itemDescription: 
-      dropChance: 100
+      dropChance: 0
       timesForged: 0
-      isUnlocked: 1
+      isUnlocked: 0
+    - itemName: 
+      itemSprite: {fileID: 0}
+      itemPrice: 0
+      itemRarity: 0
+      itemDescription: 
+      dropChance: 0
+      timesForged: 0
+      isUnlocked: 0
+    - itemName: 
+      itemSprite: {fileID: 0}
+      itemPrice: 0
+      itemRarity: 0
+      itemDescription: 
+      dropChance: 0
+      timesForged: 0
+      isUnlocked: 0

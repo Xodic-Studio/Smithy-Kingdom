@@ -1,25 +1,30 @@
 using System;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class CollectionManager : Singleton<CollectionManager>
 {
     public SpriteResolver a;
     private GameManager _gameManager;
+    private UIManager _uiManager;
     private Ore _ore;
-    
+
     public ItemDatabase itemDatabase;
     ItemCollection _itemCollection;
     ItemStats _itemStats;
-    
+
     private float[] _cumulativeDropChances;
 
     public int itemCollectionIndex;
     public int itemStatsIndex;
 
+    private bool once;
+
     private void Awake()
     {
+        _uiManager = UIManager.Instance;
         _gameManager = GameManager.Instance;
         _ore = Ore.Instance;
     }
@@ -27,6 +32,7 @@ public class CollectionManager : Singleton<CollectionManager>
     private void Start()
     {
         UpdateItemSelection();
+        CheckEveryCollection();
     }
 
     public void UpdateItemSelection()
@@ -35,7 +41,8 @@ public class CollectionManager : Singleton<CollectionManager>
         {
             _itemCollection = itemDatabase.collections[itemCollectionIndex];
             _itemStats = _itemCollection.items[itemStatsIndex];
-        } catch (IndexOutOfRangeException)
+        }
+        catch (IndexOutOfRangeException)
         {
             Debug.LogWarning("Item Collection for This Ore Does Not Exist");
         }
@@ -49,10 +56,10 @@ public class CollectionManager : Singleton<CollectionManager>
             Array.Resize(ref _cumulativeDropChances, _itemCollection.items.Length);
             var i = 0;
             float dropChance = 0;
-            foreach(ItemStats item in _itemCollection.items) 
+            foreach (ItemStats item in _itemCollection.items)
             {
                 dropChance += item.dropChance;
-                _cumulativeDropChances[i] = dropChance ;
+                _cumulativeDropChances[i] = dropChance;
                 Debug.Log(_cumulativeDropChances[i]);
                 i++;
             }
@@ -62,7 +69,7 @@ public class CollectionManager : Singleton<CollectionManager>
             Debug.LogWarning("No items in the item collection");
         }
     }
-    
+
     //Method to drop an item
     public void DropItem()
     {
@@ -79,6 +86,7 @@ public class CollectionManager : Singleton<CollectionManager>
                     CheckCollection();
                     break;
                 }
+
                 i++;
             }
         }
@@ -87,19 +95,38 @@ public class CollectionManager : Singleton<CollectionManager>
             Debug.LogWarning("No items in the item collection");
         }
     }
-    
+
     //Method to add Item to collection otherwise Give Money to player
     private void CheckCollection()
     {
         if (!_itemStats.isUnlocked)
         {
             _itemStats.isUnlocked = true;
+            _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0).GetComponent<Image>().color = Color.white;
             Debug.Log($"{_itemStats.itemName} has been added to your collection");
         }
         _gameManager.ModifyMoney(_itemStats.itemPrice);
-        Debug.Log($"{_itemStats.itemPrice} has been added to your wallet");
     }
-    
+
+    private void CheckEveryCollection()
+    {
+        var j = 0;
+        foreach (var collection in itemDatabase.collections)
+        {
+            var i = 0;
+            foreach (var items in collection.items)
+            {
+                if (items.isUnlocked)
+                {
+                    _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>().color = Color.white;
+                }
+                Debug.Log("Checked" + items.itemName + "from" + collection.collectionName);
+                i++;
+            }
+            j++;
+        }
+    }
+
     public void UpdateRandomSystem()
     {
         itemCollectionIndex = _ore.selectedOreIndex;

@@ -21,7 +21,3 @@ MonoBehaviour:
     upgradeDescription: Upgrade the ore count to the best of the best scale from
       lowest cost to highest cost
     upgradeLevels: 1
-  - upgradeName: Ore Upgrade
-    upgradeDescription: Upgrade the ore count to the best of the best scale from
-      lowest cost to highest cost
-    upgradeLevels: 1

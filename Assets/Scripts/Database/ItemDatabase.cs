@@ -29,7 +29,7 @@ public class ItemStats
 
     [Header("Item Stats")]
     public string itemName;
-    public Sprite itemIcon;
+    public Sprite itemSprite;
     public float itemPrice;
     public Rarity itemRarity;
     [TextArea(3, 10)]
