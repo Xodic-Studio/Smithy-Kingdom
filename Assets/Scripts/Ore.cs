@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ore : Singleton<Ore>
 {
@@ -48,7 +49,7 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
                 tempSelectOreIndex--;
-                _uiManager.nextOreButton.gameObject.SetActive(true);
+                _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
@@ -57,7 +58,7 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
                 tempSelectOreIndex++;
-                _uiManager.previousOreButton.gameObject.SetActive(true);
+                _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
@@ -74,11 +75,11 @@ public class Ore : Singleton<Ore>
     {
         if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
         {
-            _uiManager.previousOreButton.gameObject.SetActive(false);
+            _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
         else if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
         {
-            _uiManager.nextOreButton.gameObject.SetActive(false);
+            _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
     }
     
