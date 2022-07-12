@@ -13,52 +13,339 @@ MonoBehaviour:
   m_Name: ItemDatabase
   m_EditorClassIdentifier: 
   collections:
-  - collectionName: Bronze
+  - collectionName: Copper
     items:
-    - itemName: 1
-      itemSprite: {fileID: -7604778270247989505, guid: 2f0d6b6e3d81e044297ab649a6ae5fa5, type: 3}
-      itemPrice: 0
-      itemRarity: 0
-      itemFirstForged: 7/12/2022
-      itemDescription: Firs Description This is looking Very Good
-      dropChance: 50
-      timesForged: 0
-      isUnlocked: 1
-    - itemName: 1
-      itemSprite: {fileID: -4701524945738760775, guid: 51ebb3c4b39f6af4b9bbd7bdca65f284, type: 3}
-      itemPrice: 0
-      itemRarity: 0
-      itemFirstForged: 7/12/2022
-      itemDescription: 
-      dropChance: 50
-      timesForged: 0
-      isUnlocked: 1
-  - collectionName: Boojzsdfsja
-    items:
-    - itemName: 
+    - itemName: Copper Sword
       itemSprite: {fileID: 0}
-      itemPrice: 0
+      itemPrice: 100
       itemRarity: 0
-      itemFirstForged: 
-      itemDescription: 
-      dropChance: 0
+      itemDescription: Copper Sword
+      dropChance: 70
       timesForged: 0
+      itemFirstForged: 0
       isUnlocked: 0
-    - itemName: 
+    - itemName: Copper Scimitar
       itemSprite: {fileID: 0}
-      itemPrice: 0
-      itemRarity: 0
-      itemFirstForged: 7/12/2022
-      itemDescription: 
-      dropChance: 0
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
       timesForged: 0
-      isUnlocked: 1
-    - itemName: 
+      itemFirstForged: 0
+      isUnlocked: 0
+    - itemName: Copper Katana
       itemSprite: {fileID: 0}
-      itemPrice: 0
-      itemRarity: 0
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 0
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
       itemFirstForged: 
-      itemDescription: 
-      dropChance: 0
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
       timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Iron
+    items:
+    - itemName: Copper Sword
+      itemSprite: {fileID: 0}
+      itemPrice: 100
+      itemRarity: 0
+      itemDescription: Copper Sword
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Scimitar
+      itemSprite: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Katana
+      itemSprite: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Gold
+    items:
+    - itemName: Copper Sword
+      itemSprite: {fileID: 0}
+      itemPrice: 100
+      itemRarity: 0
+      itemDescription: Copper Sword
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Scimitar
+      itemSprite: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Katana
+      itemSprite: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Meteorite
+    items:
+    - itemName: Copper Sword
+      itemSprite: {fileID: 0}
+      itemPrice: 100
+      itemRarity: 0
+      itemDescription: Copper Sword
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Scimitar
+      itemSprite: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Katana
+      itemSprite: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Mithril
+    items:
+    - itemName: Copper Sword
+      itemSprite: {fileID: 0}
+      itemPrice: 100
+      itemRarity: 0
+      itemDescription: Copper Sword
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Scimitar
+      itemSprite: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Katana
+      itemSprite: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Adamantine
+    items:
+    - itemName: Copper Sword
+      itemSprite: {fileID: 0}
+      itemPrice: 100
+      itemRarity: 0
+      itemDescription: Copper Sword
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Scimitar
+      itemSprite: {fileID: 0}
+      itemPrice: 350
+      itemRarity: 1
+      itemDescription: Copper Sword
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copper Katana
+      itemSprite: {fileID: 0}
+      itemPrice: 930
+      itemRarity: 2
+      itemDescription: Copper Sword
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Blade of Urun
+      itemSprite: {fileID: 0}
+      itemPrice: 3500
+      itemRarity: 3
+      itemDescription: Copper Sword
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: 'Copper Sword 2: Ender of all expectations'
+      itemSprite: {fileID: 0}
+      itemPrice: 17500
+      itemRarity: 4
+      itemDescription: Copper Sword
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Copperium
+      itemSprite: {fileID: 0}
+      itemPrice: 70000
+      itemRarity: 5
+      itemDescription: Copper Sword
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
       isUnlocked: 0

@@ -12,8 +12,8 @@ public class CollectionManager : Singleton<CollectionManager>
     private Ore _ore;
 
     public ItemDatabase itemDatabase;
-    ItemCollection _itemCollection;
-    ItemStats _itemStats;
+    private ItemCollection _itemCollection;
+    private ItemStats _itemStats;
 
     private float[] _cumulativeDropChances;
 
@@ -56,7 +56,7 @@ public class CollectionManager : Singleton<CollectionManager>
             Array.Resize(ref _cumulativeDropChances, _itemCollection.items.Length);
             var i = 0;
             float dropChance = 0;
-            foreach (ItemStats item in _itemCollection.items)
+            foreach (var item in _itemCollection.items)
             {
                 dropChance += item.dropChance;
                 _cumulativeDropChances[i] = dropChance;
@@ -99,24 +99,37 @@ public class CollectionManager : Singleton<CollectionManager>
     //Method to add Item to collection otherwise Give Money to player
     private void CheckCollection()
     {
+        _itemStats.timesForged++;
+        var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex)
+            .GetComponent<Button>();
+        var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                                 $"Rarity: {_itemStats.itemRarity}\n" +
+                                 $"First Forged: {_itemStats.itemFirstForged}\n" +
+                                 $"Times Forged: {_itemStats.timesForged}\n" +
+                                 "\n" +
+                                 $"{_itemStats.itemDescription}";
+        var itemName = _itemStats.itemName;
+        var itemSprite = _itemStats.itemSprite;
+        
         if (!_itemStats.isUnlocked)
         {
             _itemStats.isUnlocked = true;
-            _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0).GetComponent<Image>().color = Color.white;
-            Button itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetComponent<Button>();
+            _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
+                .GetComponent<Image>().color = Color.white;
             _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
-                                  $"Rarity: {_itemStats.itemRarity}\n" +
-                                  $"First Forged: {_itemStats.itemFirstForged}\n" +
-                                  $"Times Forged: {_itemStats.timesForged}\n" +
-                                  "\n" +
-                                  $"{_itemStats.itemDescription}";
-            itemButton.onClick.AddListener(
-                delegate { _uiManager.AssignOverlayValue(_itemStats.itemName,  displayDescription, _itemStats.itemSprite);
-                _uiManager.OpenOverlay();
-            });
             Debug.Log($"{_itemStats.itemName} has been added to your collection");
         }
+
+        itemButton.onClick.RemoveAllListeners();
+        Debug.Log(_itemStats.itemName + "Assigning to button" + itemButton);
+
+        itemButton.onClick.AddListener(
+            delegate
+            {
+                _uiManager.AssignOverlayValue(itemName, displayDescription, itemSprite);
+                Debug.Log(_itemStats.itemName);
+                _uiManager.OpenOverlay();
+            });
         _gameManager.ModifyMoney(_itemStats.itemPrice);
     }
 
@@ -128,25 +141,29 @@ public class CollectionManager : Singleton<CollectionManager>
             var i = 0;
             foreach (var items in collection.items)
             {
+                var itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
+                var displayDescription = $"Selling Price: {items.itemPrice}\n" +
+                                         $"Rarity: {items.itemRarity}\n" +
+                                         $"First Forged: {items.itemFirstForged}\n" +
+                                         $"Times Forged: {items.timesForged}\n" +
+                                         "\n" +
+                                         $"{items.itemDescription}";
                 if (items.isUnlocked)
                 {
-                    _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>().color = Color.white;
-                    Button itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
-                    var displayDescription = $"Selling Price: {items.itemPrice}\n" +
-                                          $"Rarity: {items.itemRarity}\n" +
-                                          $"First Forged: {items.itemFirstForged}\n" +
-                                          $"Times Forged: {items.timesForged}\n" +
-                                          "\n" +
-                                          $"{items.itemDescription}";
+                    _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>()
+                        .color = Color.white;
                     itemButton.onClick.AddListener(delegate
                     {
                         _uiManager.AssignOverlayValue(items.itemName, displayDescription, items.itemSprite);
+                        Debug.Log(items.itemName);
                         _uiManager.OpenOverlay();
                     });
                 }
+
                 Debug.Log("Checked" + items.itemName + "from" + collection.collectionName);
                 i++;
             }
+
             j++;
         }
     }

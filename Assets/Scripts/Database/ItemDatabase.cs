@@ -32,7 +32,6 @@ public class ItemStats
     public Sprite itemSprite;
     public float itemPrice;
     public Rarity itemRarity;
-    public string itemFirstForged;
     [TextArea(3, 10)]
     public string itemDescription;
 
@@ -40,6 +39,6 @@ public class ItemStats
     
     [Header("Player Stats")]
     public int timesForged;
-    
+    public string itemFirstForged;
     public bool isUnlocked;
 }
