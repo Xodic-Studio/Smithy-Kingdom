@@ -22,7 +22,7 @@ MonoBehaviour:
       itemDescription: Copper Sword
       dropChance: 70
       timesForged: 0
-      itemFirstForged: 0
+      itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
       itemSprite: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
       itemDescription: Copper Sword
       dropChance: 20
       timesForged: 0
-      itemFirstForged: 0
+      itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
       itemSprite: {fileID: 0}
