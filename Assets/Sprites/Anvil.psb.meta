@@ -547,8 +547,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 177
-      y: 331
+      x: 434
+      y: 361
       width: 65
       height: 71
     spriteID: 7347168fd25a2f149b492719fd54387c
@@ -989,7 +989,7 @@ ScriptedImporter:
     - {x: 37, y: 38}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -244, y: -303}
+    uvTransform: {x: 13, y: -273}
   - name: Bread
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -998,14 +998,14 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 243
+      y: 361
       width: 249
       height: 80
     spriteID: 29983a27e417e9944919662c4f7fb084
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 67.59549, y: 42.800964, z: 0}
+      position: {x: 67.59549, y: 42.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -1283,7 +1283,7 @@ ScriptedImporter:
     - {x: 22, y: 23}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -383, y: -323}
+    uvTransform: {x: -383, y: -205}
   - name: Copper Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1291,15 +1291,15 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 331
+      x: 261
+      y: 361
       width: 165
       height: 80
     spriteID: 1c55491659bf73e4eafe76ad52efe725
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -1599,7 +1599,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: -237}
+    uvTransform: {x: -168, y: -207}
   - name: Iron Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1608,14 +1608,14 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 419
+      y: 449
       width: 165
       height: 80
     spriteID: 304bb156d0dbfc54b97e8a6ad9b247e4
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -1915,7 +1915,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: -149}
+    uvTransform: {x: -425, y: -119}
   - name: Gold Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1923,15 +1923,15 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 507
+      x: 177
+      y: 449
       width: 165
       height: 80
     spriteID: 5f3c41cbc53123545b071163ad655792
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -2231,7 +2231,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: -61}
+    uvTransform: {x: -252, y: -119}
   - name: Meteorite Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2240,14 +2240,14 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 595
+      y: 537
       width: 165
       height: 80
     spriteID: 5a9408de41b0d4a4091e27496db7820b
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -2547,7 +2547,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: 27}
+    uvTransform: {x: -425, y: -31}
   - name: Mithril Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2555,15 +2555,15 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 683
+      x: 177
+      y: 537
       width: 165
       height: 80
     spriteID: 9e43fbafc1458ed4f92568ffe3d6c789
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -2863,7 +2863,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: 115}
+    uvTransform: {x: -252, y: -31}
   - name: Adamantine Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2872,14 +2872,14 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 771
+      y: 625
       width: 165
       height: 80
     spriteID: be7da84532272514f83d68e897fd9940
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
-      position: {x: 25.59549, y: 40.800964, z: 0}
+      position: {x: 25.59549, y: 40.800903, z: 0}
       rotation: {x: 0, y: 0, z: -0.02646232, w: 0.9996499}
       length: 136.05843
       parentId: -1
@@ -3179,7 +3179,7 @@ ScriptedImporter:
     - {x: 24, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -425, y: 203}
+    uvTransform: {x: -425, y: 57}
   - name: Anvil
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3197,14 +3197,14 @@ ScriptedImporter:
       guid: 3804b6453e95f58498c975b7451af0c4
       position: {x: 191.99646, y: 22.176819, z: 0}
       rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
-      length: 63.08724
+      length: 63.087177
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278190335
     - name: Anvil Bone
       guid: a3066b1e20a73084c8e27e19186ac12b
-      position: {x: 63.087208, y: -0.000019144676, z: 0}
+      position: {x: 63.087147, y: -0.000020970218, z: 0}
       rotation: {x: 0, y: 0, z: -0.0025194883, w: 0.99999684}
       length: 128.74821
       parentId: 0
@@ -3736,20 +3736,94 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -308, y: -372}
+  - name: Shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 243
+      width: 460
+      height: 110
+    spriteID: 344e6fcd89f2d85418bef989c58440ad
+    spriteBone:
+    - name: Root Bone
+      guid: 3804b6453e95f58498c975b7451af0c4
+      position: {x: 231.99646, y: 58.17682, z: 0}
+      rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
+      length: 63.087177
+      parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    spriteOutline: []
+    vertices:
+    - position: {x: 460, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 460, y: 110}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 110}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    - position: {x: 0, y: 0}
+      boneWeight:
+        weight0: 1
+        weight1: 0
+        weight2: 0
+        weight3: 0
+        boneIndex0: 0
+        boneIndex1: 0
+        boneIndex2: 0
+        boneIndex3: 0
+    spritePhysicsOutline: []
+    indices: 000000000200000001000000000000000300000002000000
+    edges:
+    - {x: 0, y: 1}
+    - {x: 0, y: 3}
+    - {x: 1, y: 2}
+    - {x: 2, y: 3}
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -268, y: -97}
   characterData:
     bones:
     - name: Root Bone
       guid: 3804b6453e95f58498c975b7451af0c4
       position: {x: 503.99646, y: 398.17682, z: 0}
       rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
-      length: 63.08724
+      length: 63.087177
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278190335
     - name: Anvil Bone
       guid: a3066b1e20a73084c8e27e19186ac12b
-      position: {x: 63.087204, y: -0.000024080611, z: 0}
+      position: {x: 63.087143, y: -0.000025906153, z: 0}
       rotation: {x: 0, y: 0, z: -0.0025194883, w: 0.99999684}
       length: 128.7482
       parentId: 0
@@ -3865,6 +3939,15 @@ ScriptedImporter:
       bones: 0000000001000000
       parentGroup: 0
       order: 0
+    - spritePosition:
+        x: 272
+        y: 340
+        width: 460
+        height: 110
+      spriteId: 344e6fcd89f2d85418bef989c58440ad
+      bones: 00000000
+      parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
     boneReadOnly: 0
@@ -3972,7 +4055,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: 7347168fd25a2f149b492719fd54387c
     layerID: 42
-    mosaicPosition: {x: 177, y: 331}
+    mosaicPosition: {x: 434, y: 361}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -3992,7 +4075,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 29983a27e417e9944919662c4f7fb084
     layerID: 57
-    mosaicPosition: {x: 4, y: 243}
+    mosaicPosition: {x: 4, y: 361}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4002,7 +4085,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 1c55491659bf73e4eafe76ad52efe725
     layerID: 56
-    mosaicPosition: {x: 4, y: 331}
+    mosaicPosition: {x: 261, y: 361}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4012,7 +4095,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 304bb156d0dbfc54b97e8a6ad9b247e4
     layerID: 55
-    mosaicPosition: {x: 4, y: 419}
+    mosaicPosition: {x: 4, y: 449}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4022,7 +4105,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 5f3c41cbc53123545b071163ad655792
     layerID: 54
-    mosaicPosition: {x: 4, y: 507}
+    mosaicPosition: {x: 177, y: 449}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4032,7 +4115,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 5a9408de41b0d4a4091e27496db7820b
     layerID: 53
-    mosaicPosition: {x: 4, y: 595}
+    mosaicPosition: {x: 4, y: 537}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4042,7 +4125,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: 9e43fbafc1458ed4f92568ffe3d6c789
     layerID: 52
-    mosaicPosition: {x: 4, y: 683}
+    mosaicPosition: {x: 177, y: 537}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4052,7 +4135,7 @@ ScriptedImporter:
     parentIndex: 4
     spriteID: be7da84532272514f83d68e897fd9940
     layerID: 51
-    mosaicPosition: {x: 4, y: 771}
+    mosaicPosition: {x: 4, y: 625}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4063,6 +4146,16 @@ ScriptedImporter:
     spriteID: 5d0e711332c1a9142853c475e7cfc124
     layerID: 33
     mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Shadow
+    spriteName: Shadow
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 344e6fcd89f2d85418bef989c58440ad
+    layerID: 63
+    mosaicPosition: {x: 4, y: 243}
     flatten: 0
     isImported: 1
     isVisible: 1
