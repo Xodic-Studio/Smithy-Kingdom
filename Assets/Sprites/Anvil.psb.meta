@@ -1916,7 +1916,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -425, y: -149}
-  - name: Gold
+  - name: Gold Ore
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -4016,8 +4016,8 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Gold
-    spriteName: Gold
+  - name: Gold Ore
+    spriteName: Gold Ore
     isGroup: 0
     parentIndex: 4
     spriteID: 5f3c41cbc53123545b071163ad655792

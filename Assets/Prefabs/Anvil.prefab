@@ -186,8 +186,8 @@ MonoBehaviour:
   - {fileID: 2355171678013793583}
   - {fileID: 9209828225843329861}
   m_Bounds:
-    m_Center: {x: -0.001529932, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 2.0034697, y: 1.1550004, z: 0}
+    m_Center: {x: -0.001529932, y: 0.00000071525574, z: 0}
+    m_Extent: {x: 2.0034697, y: 1.155, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+  m_Sprite: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -308,8 +308,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 881114786425689016}
   m_Bounds:
-    m_Center: {x: -0.00059461594, y: -0.000019937754, z: 0}
-    m_Extent: {x: 0.822855, y: 0.39964002, z: 0}
+    m_Center: {x: -0.059789598, y: 0.002945006, z: 0}
+    m_Extent: {x: 0.81795007, y: 0.39400497, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -404,8 +404,8 @@ Transform:
   m_GameObject: {fileID: 5980125912931802129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.8571429}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6325983878984680511}
   m_Father: {fileID: 0}
@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oreDatabase: {fileID: 11400000, guid: 069f2294d8501304890dde13a717c10c, type: 2}
+  tempSelectOreIndex: 0
   selectedOreIndex: 0
 --- !u!210 &955110014
 SortingGroup:
