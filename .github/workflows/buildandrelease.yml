@@ -92,6 +92,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          prerelease: true
           # Utilize extracted attributes from the previous step
           body: |
             ## Changes in this Release

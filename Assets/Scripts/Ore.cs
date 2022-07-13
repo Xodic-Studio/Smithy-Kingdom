@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ore : Singleton<Ore>
 {
-    [SerializeField] private OreDatabase oreDatabase;
+    public  OreDatabase oreDatabase;
     private UIManager _uiManager;
     private CollectionManager _collectionManager;
     
     private OreStats _thisOre;
+    
+    public int tempSelectOreIndex;
     public int selectedOreIndex;
     
-    
-
     private void Awake()
     {
         _uiManager = UIManager.Instance;
@@ -22,17 +23,15 @@ public class Ore : Singleton<Ore>
         UpdateOre();
     }
     
-    
-
     void Update()
     {
         _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
-
     //update ore
     public void UpdateOre()
     {
+        selectedOreIndex = tempSelectOreIndex;
         DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
@@ -45,27 +44,26 @@ public class Ore : Singleton<Ore>
     
     public void ModifySelectedOreIndex(int index)
     {
-        if (index == -1 && selectedOreIndex - 1 >= 0)
+        if (index == -1 && tempSelectOreIndex - 1 >= 0)
         {
-            if (oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+            if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                selectedOreIndex--;
-                _uiManager.nextOreButtonGo.SetActive(true);
+                tempSelectOreIndex--;
+                _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
-        else if (index == 1 && selectedOreIndex + 1 < oreDatabase.ores.Length)
+        else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
         {
-            if (oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+            if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                selectedOreIndex++;
-                _uiManager.previousOreButtonGo.SetActive(true);
+                tempSelectOreIndex++;
+                _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
         CheckOreIndex();
-        Debug.Log("You selected ore " + oreDatabase.ores[selectedOreIndex].oreName);
-        
+        Debug.Log("You selected ore " + oreDatabase.ores[tempSelectOreIndex].oreName);
     }
     public void ModifyHardness(int amount)
     {
@@ -75,13 +73,13 @@ public class Ore : Singleton<Ore>
     
     void DisableButtonIfNoNextOre()
     {
-        if (selectedOreIndex - 1 < 0 || !oreDatabase.ores[selectedOreIndex - 1].isUnlocked)
+        if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
         {
-            _uiManager.previousOreButtonGo.SetActive(false);
+            _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
-        else if (selectedOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[selectedOreIndex + 1].isUnlocked)
+        else if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
         {
-            _uiManager.nextOreButtonGo.SetActive(false);
+            _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
     }
     
@@ -91,15 +89,14 @@ public class Ore : Singleton<Ore>
         {
             _thisOre.currentHardness = _thisOre.defaultHardness;
             _collectionManager.DropItem();
-            
         }
     }
 
     void CheckOreIndex()
     {
-        if (selectedOreIndex >= oreDatabase.ores.Length || selectedOreIndex < 0)
+        if (tempSelectOreIndex >= oreDatabase.ores.Length || tempSelectOreIndex < 0)
         {
-            selectedOreIndex = 0;
+            tempSelectOreIndex = 0;
         }
     }
     
