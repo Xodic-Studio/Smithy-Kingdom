@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f475077e7b93074c8d32fba6c0ffa43
+guid: 3e65d606565ba4742b8ed10ee91bd83d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,22 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Board_0
+      name: Circle UI_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 29
-        width: 1190
-        height: 422
+        x: 4
+        y: 10
+        width: 471
+        height: 457
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 4, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c7a29d0a815cc04a801fa1bb1c1f1ac
-      internalID: 1679130992
+      spriteID: 8ea7a4953ed2eb747b164492efefbdc4
+      internalID: 409730758
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Board_0: 1679130992
+      Circle UI_0: 409730758
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

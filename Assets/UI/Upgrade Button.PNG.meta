@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ebdd4d7ca1336b4eaba6b6a48358fa4
+guid: bd3e84686a14ec84eb6b009b44a045ed
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 68, z: 0, w: 70}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -104,22 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Premium Button_0
+      name: Upgrade Button_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 24
-        width: 469
-        height: 396
+        x: 0
+        y: 85
+        width: 2048
+        height: 1878
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40db43516093fe743a3d7d6db92953f5
-      internalID: -1837394674
+      spriteID: c0d7ff945a8d9fa47ac564375595f716
+      internalID: 147397263
       vertices: []
       indices: 
       edges: []
@@ -128,14 +128,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Premium Button_0: -1837394674
+      Upgrade Button_0: 147397263
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

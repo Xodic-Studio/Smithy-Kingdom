@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c5b44b9d33588934bb8700d4c41e9fe7
+guid: 9a57d652192e7e84087671163d3b149f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Circle Button_0
+      name: Premium_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 330
-        height: 318
+        x: 0
+        y: 101
+        width: 2048
+        height: 1886
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c259083def0ac124b8637cd07f3cecb0
-      internalID: 1498214250
+      spriteID: 337fc6e24e662bc438d7e5c01e1d9155
+      internalID: -1619888475
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Circle Button_0: 1498214250
+      Premium_0: -1619888475
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

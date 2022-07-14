@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2f9a918da9cb0b4a8e059638b97dccf
+guid: 2f55404a7c780b744b8c9835f0095ffa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,22 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Building Button_0
+      name: Setting_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 479
-        height: 416
+        x: 0
+        y: 73
+        width: 2048
+        height: 1879
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 5, y: 0, z: 15, w: 15}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01cd62b477075fc46a6e40b9c3c29358
-      internalID: -1463026683
+      spriteID: 6bef6fcf1c4e0cd4b8b5d89afe8e187d
+      internalID: -352707465
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Building Button_0: -1463026683
+      Setting_0: -352707465
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -107,19 +107,19 @@ TextureImporter:
       name: Collection Button_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 25
-        width: 477
-        height: 398
+        x: 0
+        y: 68
+        width: 2048
+        height: 1903
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 7, y: 0, z: 6, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f96f775a108f6964c89db55195a9448e
-      internalID: -557038089
+      spriteID: 93a17ae841b29d0419bdb92fe7891566
+      internalID: -1696834110
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Collection Button_0: -557038089
+      Collection Button_0: -1696834110
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
