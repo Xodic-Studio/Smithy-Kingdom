@@ -91,14 +91,98 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Trail2
+  - name: Eyes on Fire 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 669
+      x: 798
+      y: 417
+      width: 184
+      height: 108
+    spriteID: ed2dad384ef2cb44aafc30da685e9ec1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 432, y: -133}
+  - name: Eyes on Fire 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1301
+      y: 412
+      width: 189
+      height: 123
+    spriteID: 86c9ec296644a3144810d1650c509f0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 944, y: -148}
+  - name: Eyes on Fire 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 992
+      y: 277
+      width: 197
+      height: 143
+    spriteID: 5c040d17d22b3e44aa5d7779e5b9b191
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 620, y: -318}
+  - name: Eyes on Fire 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 670
+      width: 183
+      height: 119
+    spriteID: 83f2c62d4e308164094e9b7f652a7faf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -413, y: 12}
+  - name: Trail 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 992
       y: 4
       width: 301
       height: 265
@@ -866,8 +950,8 @@ ScriptedImporter:
     - {x: 68, y: 41}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 537, y: -297}
-  - name: Trail1
+    uvTransform: {x: 860, y: -297}
+  - name: Trail 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1687,8 +1771,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 669
-      y: 485
+      x: 1735
+      y: 457
       width: 193
       height: 43
     spriteID: 09365b0ca46ce9c498d431daa1ded635
@@ -2167,7 +2251,7 @@ ScriptedImporter:
     - {x: 41, y: 11}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 253, y: -214}
+    uvTransform: {x: 1319, y: -242}
   - name: Hair
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3005,8 +3089,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 597
-      y: 810
+      x: 1150
+      y: 429
       width: 46
       height: 92
     spriteID: 6c876b207c805a74ca12534dc595da88
@@ -3433,7 +3517,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 113, y: 163}
+    uvTransform: {x: 666, y: -218}
   - name: Mustache
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3441,7 +3525,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 792
+      x: 476
       y: 544
       width: 216
       height: 111
@@ -3810,7 +3894,7 @@ ScriptedImporter:
     - {x: 0, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 390, y: -23}
+    uvTransform: {x: 74, y: -23}
   - name: Eyes Closed
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3818,8 +3902,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 651
-      y: 810
+      x: 1735
+      y: 508
       width: 148
       height: 24
     spriteID: f3be82e948eeb1944982c7871f0f3304
@@ -4122,7 +4206,7 @@ ScriptedImporter:
     - {x: 1, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 210, y: 143}
+    uvTransform: {x: 1294, y: -159}
   - name: Eyes
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4130,8 +4214,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 889
-      y: 488
+      x: 854
+      y: 544
       width: 128
       height: 27
     spriteID: 74d87506f811f12488d614ee38721456
@@ -4518,7 +4602,7 @@ ScriptedImporter:
     - {x: 33, y: 6}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 440, y: -186}
+    uvTransform: {x: 405, y: -130}
   - name: Head
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4526,8 +4610,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 669
-      y: 277
+      x: 1505
+      y: 329
       width: 212
       height: 200
     spriteID: 664462430c18bd44fa7b3eb54d345f16
@@ -4887,7 +4971,91 @@ ScriptedImporter:
     - {x: 0, y: 28}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 252, y: -329}
+    uvTransform: {x: 1088, y: -277}
+  - name: Right Hand Trail 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 669
+      y: 4
+      width: 315
+      height: 265
+    spriteID: b2087bb427675bd4bac630dee65491e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 500, y: -279}
+  - name: Right Hand Trail 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1301
+      y: 4
+      width: 196
+      height: 400
+    spriteID: 0afb47279731ab14ebfa07d6ce46c86e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1136, y: -319}
+  - name: Right Hand Trail 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1735
+      y: 4
+      width: 195
+      height: 320
+    spriteID: d1597f027e04e24459d7deea22df9a4d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1564, y: -398}
+  - name: Right Hand Trail 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1505
+      y: 4
+      width: 222
+      height: 317
+    spriteID: 15122cf2be08d254f922b4025c3a3d9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1328, y: -403}
   - name: Right Hand Front
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4895,8 +5063,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 119
-      y: 810
+      x: 1938
+      y: 4
       width: 104
       height: 149
     spriteID: 68e782764391a7f4689d76fad0402426
@@ -5234,7 +5402,7 @@ ScriptedImporter:
     - {x: 0, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -225, y: 531}
+    uvTransform: {x: 1594, y: -275}
   - name: Left Hand
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -5242,8 +5410,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 231
-      y: 810
+      x: 992
+      y: 429
       width: 150
       height: 103
     spriteID: baa01d0bda35b65498badf5d0e53c7a4
@@ -5591,7 +5759,7 @@ ScriptedImporter:
     - {x: 0, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -237, y: 420}
+    uvTransform: {x: 524, y: 39}
   - name: Left Lower Arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -5599,8 +5767,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 231
-      y: 921
+      x: 700
+      y: 544
       width: 146
       height: 85
     spriteID: e8a8465afe83da24fa1641727ba4e1b5
@@ -6067,7 +6235,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -320, y: 515}
+    uvTransform: {x: 149, y: 138}
   - name: Left Upper Arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -6076,7 +6244,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 810
+      y: 798
       width: 107
       height: 204
     spriteID: 0094c78d26632f94ba40550ade3ac1b7
@@ -6485,7 +6653,7 @@ ScriptedImporter:
     - {x: 0, y: 27}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -592, y: 399}
+    uvTransform: {x: -592, y: 387}
   - name: Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -7033,8 +7201,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 476
-      y: 544
+      x: 1735
+      y: 332
       width: 308
       height: 117
     spriteID: d9affdecee280f24b993010a258e4892
@@ -7518,7 +7686,7 @@ ScriptedImporter:
     - {x: 19, y: 35}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 120, y: 329}
+    uvTransform: {x: 1379, y: 117}
   - name: Right Hand Finger
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -7526,8 +7694,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 389
-      y: 939
+      x: 1936
+      y: 457
       width: 74
       height: 58
     spriteID: 758427f07679c7045b0681e8958acd30
@@ -7874,7 +8042,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 73, y: 660}
+    uvTransform: {x: 1620, y: 178}
   - name: Hammer
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -7882,8 +8050,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 670
+      x: 798
+      y: 277
       width: 181
       height: 132
     spriteID: 5f81b4cbd0694224381d32bb7d739bb3
@@ -8295,7 +8463,7 @@ ScriptedImporter:
     - {x: 0, y: 30}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -243, y: 392}
+    uvTransform: {x: 551, y: -1}
   - name: Right Hand
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -8303,8 +8471,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 389
-      y: 810
+      x: 1938
+      y: 161
       width: 104
       height: 121
     spriteID: 4a8083aeb251c1341bc380cc8be0ba66
@@ -8650,7 +8818,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 72, y: 531}
+    uvTransform: {x: 1621, y: -118}
   - name: Right Lower Arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -8658,8 +8826,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 501
-      y: 810
+      x: 1193
+      y: 277
       width: 88
       height: 143
     spriteID: e0ef2513dfe85aa41847f4907efb4498
@@ -9045,7 +9213,7 @@ ScriptedImporter:
     - {x: 0, y: 24}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 153, y: 461}
+    uvTransform: {x: 845, y: -72}
   - name: Right Upper Arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -9053,7 +9221,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 889
+      x: 669
       y: 277
       width: 121
       height: 203
@@ -9453,7 +9621,7 @@ ScriptedImporter:
     - {x: 0, y: 27}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 550, y: -140}
+    uvTransform: {x: 330, y: -140}
   - name: Shadow
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -9927,18 +10095,58 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
-  - name: Trail2
-    spriteName: Trail2
+  - name: Eyes on Fire 4
+    spriteName: Eyes on Fire 4
+    isGroup: 0
+    parentIndex: 0
+    spriteID: ed2dad384ef2cb44aafc30da685e9ec1
+    layerID: 52
+    mosaicPosition: {x: 798, y: 417}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Eyes on Fire 3
+    spriteName: Eyes on Fire 3
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 86c9ec296644a3144810d1650c509f0f
+    layerID: 51
+    mosaicPosition: {x: 1301, y: 412}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Eyes on Fire 2
+    spriteName: Eyes on Fire 2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 5c040d17d22b3e44aa5d7779e5b9b191
+    layerID: 50
+    mosaicPosition: {x: 992, y: 277}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Eyes on Fire 1
+    spriteName: Eyes on Fire 1
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 83f2c62d4e308164094e9b7f652a7faf
+    layerID: 49
+    mosaicPosition: {x: 4, y: 670}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Trail 2
+    spriteName: Trail 2
     isGroup: 0
     parentIndex: 0
     spriteID: bd9668d166c18e04cab78eb4222c43bb
     layerID: 30
-    mosaicPosition: {x: 669, y: 4}
+    mosaicPosition: {x: 992, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 0
-  - name: Trail1
-    spriteName: Trail1
+  - name: Trail 1
+    spriteName: Trail 1
     isGroup: 0
     parentIndex: 0
     spriteID: 8650cb617476d704ca106110b284fcce
@@ -9960,17 +10168,17 @@ ScriptedImporter:
   - name: Eyebrows
     spriteName: Eyebrows
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 09365b0ca46ce9c498d431daa1ded635
     layerID: 23
-    mosaicPosition: {x: 669, y: 485}
+    mosaicPosition: {x: 1735, y: 457}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Hair
     spriteName: Hair
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 389ac819210dc274b8fd7ba3571525e4
     layerID: 28
     mosaicPosition: {x: 410, y: 358}
@@ -9980,50 +10188,50 @@ ScriptedImporter:
   - name: Nose
     spriteName: Nose
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 6c876b207c805a74ca12534dc595da88
     layerID: 27
-    mosaicPosition: {x: 597, y: 810}
+    mosaicPosition: {x: 1150, y: 429}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Mustache
     spriteName: Mustache
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 2073fc0b1d17cb041b34ff571068205f
     layerID: 26
-    mosaicPosition: {x: 792, y: 544}
+    mosaicPosition: {x: 476, y: 544}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Eyes Closed
     spriteName: Eyes Closed
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: f3be82e948eeb1944982c7871f0f3304
     layerID: 25
-    mosaicPosition: {x: 651, y: 810}
+    mosaicPosition: {x: 1735, y: 508}
     flatten: 0
     isImported: 1
     isVisible: 0
   - name: Eyes
     spriteName: Eyes
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 74d87506f811f12488d614ee38721456
     layerID: 24
-    mosaicPosition: {x: 889, y: 488}
+    mosaicPosition: {x: 854, y: 544}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Head
     spriteName: Head
     isGroup: 0
-    parentIndex: 3
+    parentIndex: 7
     spriteID: 664462430c18bd44fa7b3eb54d345f16
     layerID: 22
-    mosaicPosition: {x: 669, y: 277}
+    mosaicPosition: {x: 1505, y: 329}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -10037,13 +10245,53 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 0
+  - name: Right Hand Trail 4
+    spriteName: Right Hand Trail 4
+    isGroup: 0
+    parentIndex: 15
+    spriteID: b2087bb427675bd4bac630dee65491e2
+    layerID: 47
+    mosaicPosition: {x: 669, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Right Hand Trail 3
+    spriteName: Right Hand Trail 3
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 0afb47279731ab14ebfa07d6ce46c86e
+    layerID: 46
+    mosaicPosition: {x: 1301, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Right Hand Trail 2
+    spriteName: Right Hand Trail 2
+    isGroup: 0
+    parentIndex: 15
+    spriteID: d1597f027e04e24459d7deea22df9a4d
+    layerID: 45
+    mosaicPosition: {x: 1735, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Right Hand Trail 1
+    spriteName: Right Hand Trail 1
+    isGroup: 0
+    parentIndex: 15
+    spriteID: 15122cf2be08d254f922b4025c3a3d9f
+    layerID: 44
+    mosaicPosition: {x: 1505, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Right Hand Front
     spriteName: Right Hand Front
     isGroup: 0
-    parentIndex: 11
+    parentIndex: 15
     spriteID: 68e782764391a7f4689d76fad0402426
     layerID: 20
-    mosaicPosition: {x: 119, y: 810}
+    mosaicPosition: {x: 1938, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -10060,30 +10308,30 @@ ScriptedImporter:
   - name: Left Hand
     spriteName: Left Hand
     isGroup: 0
-    parentIndex: 13
+    parentIndex: 21
     spriteID: baa01d0bda35b65498badf5d0e53c7a4
     layerID: 16
-    mosaicPosition: {x: 231, y: 810}
+    mosaicPosition: {x: 992, y: 429}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Left Lower Arm
     spriteName: Left Lower Arm
     isGroup: 0
-    parentIndex: 13
+    parentIndex: 21
     spriteID: e8a8465afe83da24fa1641727ba4e1b5
     layerID: 15
-    mosaicPosition: {x: 231, y: 921}
+    mosaicPosition: {x: 700, y: 544}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Left Upper Arm
     spriteName: Left Upper Arm
     isGroup: 0
-    parentIndex: 13
+    parentIndex: 21
     spriteID: 0094c78d26632f94ba40550ade3ac1b7
     layerID: 14
-    mosaicPosition: {x: 4, y: 810}
+    mosaicPosition: {x: 4, y: 798}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -10103,7 +10351,7 @@ ScriptedImporter:
     parentIndex: 0
     spriteID: d9affdecee280f24b993010a258e4892
     layerID: 11
-    mosaicPosition: {x: 476, y: 544}
+    mosaicPosition: {x: 1735, y: 332}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -10120,50 +10368,50 @@ ScriptedImporter:
   - name: Right Hand Finger
     spriteName: Right Hand Finger
     isGroup: 0
-    parentIndex: 19
+    parentIndex: 27
     spriteID: 758427f07679c7045b0681e8958acd30
     layerID: 9
-    mosaicPosition: {x: 389, y: 939}
+    mosaicPosition: {x: 1936, y: 457}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Hammer
     spriteName: Hammer
     isGroup: 0
-    parentIndex: 19
+    parentIndex: 27
     spriteID: 5f81b4cbd0694224381d32bb7d739bb3
     layerID: 8
-    mosaicPosition: {x: 4, y: 670}
+    mosaicPosition: {x: 798, y: 277}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Right Hand
     spriteName: Right Hand
     isGroup: 0
-    parentIndex: 19
+    parentIndex: 27
     spriteID: 4a8083aeb251c1341bc380cc8be0ba66
     layerID: 7
-    mosaicPosition: {x: 389, y: 810}
+    mosaicPosition: {x: 1938, y: 161}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Right Lower Arm
     spriteName: Right Lower Arm
     isGroup: 0
-    parentIndex: 19
+    parentIndex: 27
     spriteID: e0ef2513dfe85aa41847f4907efb4498
     layerID: 6
-    mosaicPosition: {x: 501, y: 810}
+    mosaicPosition: {x: 1193, y: 277}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Right Upper Arm
     spriteName: Right Upper Arm
     isGroup: 0
-    parentIndex: 19
+    parentIndex: 27
     spriteID: 49ea2402c8bf24a498527f7d3f85f697
     layerID: 5
-    mosaicPosition: {x: 889, y: 277}
+    mosaicPosition: {x: 669, y: 277}
     flatten: 0
     isImported: 1
     isVisible: 1
