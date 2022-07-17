@@ -2559,7 +2559,7 @@ ScriptedImporter:
       y: 537
       width: 165
       height: 80
-    spriteID: 9e43fbafc1458ed4f92568ffe3d6c789
+    spriteID: b57104a33884926438ddc3ee4828db0b
     spriteBone:
     - name: Ore Bone
       guid: f1ca871c5c540674993dbd0ed3918cc6
@@ -3197,14 +3197,14 @@ ScriptedImporter:
       guid: 3804b6453e95f58498c975b7451af0c4
       position: {x: 191.99646, y: 22.176819, z: 0}
       rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
-      length: 63.087177
+      length: 63.087147
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278190335
     - name: Anvil Bone
       guid: a3066b1e20a73084c8e27e19186ac12b
-      position: {x: 63.087147, y: -0.000020970218, z: 0}
+      position: {x: 63.087116, y: -0.000021882988, z: 0}
       rotation: {x: 0, y: 0, z: -0.0025194883, w: 0.99999684}
       length: 128.74821
       parentId: 0
@@ -3753,7 +3753,7 @@ ScriptedImporter:
       guid: 3804b6453e95f58498c975b7451af0c4
       position: {x: 231.99646, y: 58.17682, z: 0}
       rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
-      length: 63.087177
+      length: 63.087147
       parentId: -1
       color:
         serializedVersion: 2
@@ -3816,14 +3816,14 @@ ScriptedImporter:
       guid: 3804b6453e95f58498c975b7451af0c4
       position: {x: 503.99646, y: 398.17682, z: 0}
       rotation: {x: 0, y: 0, z: 0.69645184, w: 0.7176036}
-      length: 63.087177
+      length: 63.087147
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278190335
     - name: Anvil Bone
       guid: a3066b1e20a73084c8e27e19186ac12b
-      position: {x: 63.087143, y: -0.000025906153, z: 0}
+      position: {x: 63.087112, y: -0.000026818923, z: 0}
       rotation: {x: 0, y: 0, z: -0.0025194883, w: 0.99999684}
       length: 128.7482
       parentId: 0
@@ -3917,7 +3917,7 @@ ScriptedImporter:
         y: 568
         width: 165
         height: 80
-      spriteId: 9e43fbafc1458ed4f92568ffe3d6c789
+      spriteId: b57104a33884926438ddc3ee4828db0b
       bones: 02000000
       parentGroup: 0
       order: 0
@@ -4123,8 +4123,8 @@ ScriptedImporter:
     spriteName: Mithril Ore
     isGroup: 0
     parentIndex: 4
-    spriteID: 9e43fbafc1458ed4f92568ffe3d6c789
-    layerID: 52
+    spriteID: b57104a33884926438ddc3ee4828db0b
+    layerID: 65
     mosaicPosition: {x: 177, y: 537}
     flatten: 0
     isImported: 1

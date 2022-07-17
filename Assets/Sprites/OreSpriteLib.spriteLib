@@ -39,9 +39,9 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Mithril
       m_Hash: -1027257067
-      m_Sprite: {fileID: -4600456122807838391, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -4600456122807838391, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Adamantine
       m_Hash: -452306935
       m_Sprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
