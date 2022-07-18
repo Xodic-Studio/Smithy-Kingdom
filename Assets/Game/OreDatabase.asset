@@ -14,23 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ores:
   - oreName: Copper Ore
-    oreSprite: {fileID: 5361586052913772261, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is a copper ore least ore you wanted!
     currentHardness: 5
     isUnlocked: 1
     defaultHardness: 5
     isPremium: 0
   - oreName: Iron Ore
-    oreSprite: {fileID: 6115424208678247343, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
     currentHardness: 10
     isUnlocked: 1
     defaultHardness: 10
     isPremium: 0
   - oreName: Gold Ore
-    oreSprite: {fileID: 879830379120484350, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: 5946006425576473372, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 100
+    isUnlocked: 1
+    defaultHardness: 100
+    isPremium: 0
+  - oreName: Meteorite Ore
+    oreSprite: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreDescription: This is Gold Ore The Best ore Right Now
+    currentHardness: 98
+    isUnlocked: 1
+    defaultHardness: 100
+    isPremium: 0
+  - oreName: Mithril Ore
+    oreSprite: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreDescription: This is Gold Ore The Best ore Right Now
+    currentHardness: 100
+    isUnlocked: 1
+    defaultHardness: 100
+    isPremium: 0
+  - oreName: Adamantine Ore
+    oreSprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreDescription: This is Gold Ore The Best ore Right Now
+    currentHardness: 85
     isUnlocked: 1
     defaultHardness: 100
     isPremium: 0

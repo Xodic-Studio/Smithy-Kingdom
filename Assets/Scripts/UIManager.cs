@@ -306,13 +306,13 @@ public class UIManager : Singleton<UIManager>
         oreDescription.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreDescription;
         if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
         {
-            _confirmOreButtonImage.color = new Color(0.41f, 0.41f, 0.41f);
+            //_confirmOreButtonImage.color = new Color(0.41f, 0.41f, 0.41f);
             _confirmOreButton.interactable = false;
             _confirmOreButtonText.text = "Selected";
         }
         else
         {
-            _confirmOreButtonImage.color = new Color(0.45f, 0.69f, 1f);
+            //_confirmOreButtonImage.color = new Color(0.45f, 0.69f, 1f);
             _confirmOreButton.interactable = true;
             _confirmOreButtonText.text = "Select";
         }

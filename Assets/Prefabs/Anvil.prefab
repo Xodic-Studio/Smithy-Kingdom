@@ -186,8 +186,8 @@ MonoBehaviour:
   - {fileID: 2355171678013793583}
   - {fileID: 9209828225843329861}
   m_Bounds:
-    m_Center: {x: -0.001529932, y: 0.0000009536743, z: 0}
-    m_Extent: {x: 2.0034697, y: 1.1550002, z: 0}
+    m_Center: {x: -0.0015296936, y: 0.0000009536743, z: 0}
+    m_Extent: {x: 2.00347, y: 1.1550003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 0
   m_labelHash: 0
-  m_SpriteKey: 1.0858769e+27
+  m_SpriteKey: 4.6675474e+30
 --- !u!114 &2763734862502771646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   - {fileID: 881114786425689016}
   m_Bounds:
     m_Center: {x: -0.059789598, y: 0.0029459596, z: 0}
-    m_Extent: {x: 0.81795007, y: 0.39400497, z: 0}
+    m_Extent: {x: 0.8179502, y: 0.39400503, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -445,8 +445,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2355171678013793583}
   m_Bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 2.3000004, y: 0.55000013, z: 0}
+    m_Center: {x: 0, y: -0.00000047683716, z: 0}
+    m_Extent: {x: 2.3000007, y: 0.5500002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -549,6 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93ef0169e3768f4498fedac04ee3b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anvilSpriteResolver: {fileID: 2241764163687813391}
+  assistantSpriteResolver: {fileID: 0}
   oreDatabase: {fileID: 11400000, guid: 069f2294d8501304890dde13a717c10c, type: 2}
   tempSelectOreIndex: 0
   selectedOreIndex: 0

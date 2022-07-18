@@ -13,44 +13,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
-  - m_Name: Common Ore
-    m_Hash: -1864917716
+  - m_Name: Common
+    m_Hash: -499092121
     m_CategoryList: []
     m_OverrideEntries:
-    - m_Name: Copper
-      m_Hash: -1172078909
+    - m_Name: Copper Ore
+      m_Hash: 1978342717
       m_Sprite: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Iron
-      m_Hash: -666742878
+    - m_Name: Iron Ore
+      m_Hash: 209868910
       m_Sprite: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Gold
-      m_Hash: -409226641
+    - m_Name: Gold Ore
+      m_Hash: -752493219
       m_Sprite: {fileID: 5946006425576473372, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 5946006425576473372, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Meteorite
-      m_Hash: -99064335
+    - m_Name: Meteorite Ore
+      m_Hash: 1976880942
       m_Sprite: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Mithril
-      m_Hash: -1027257067
+    - m_Name: Mithril Ore
+      m_Hash: 100863445
       m_Sprite: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Adamantine
-      m_Hash: -452306935
+    - m_Name: Adamantine Ore
+      m_Hash: -280364413
       m_Sprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
-  - m_Name: Gacha Ore
-    m_Hash: 1094038679
+  - m_Name: Gacha
+    m_Hash: 1919624762
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: Dragonite
@@ -80,8 +80,8 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
     m_EntryOverrideCount: 5
-  - m_Name: Easter Egg
-    m_Hash: 517707766
+  - m_Name: Special
+    m_Hash: -2083125633
     m_CategoryList: []
     m_OverrideEntries:
     - m_Name: Bread

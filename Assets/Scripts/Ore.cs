@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
 
 public class Ore : Singleton<Ore>
 {
-    public  OreDatabase oreDatabase;
+    public SpriteResolver anvilSpriteResolver;
+    public SpriteResolver assistantSpriteResolver;
+    private Animator _animator;
+    public OreDatabase oreDatabase;
     private UIManager _uiManager;
     private CollectionManager _collectionManager;
     
@@ -20,6 +24,7 @@ public class Ore : Singleton<Ore>
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         UpdateOre();
     }
     
@@ -31,7 +36,13 @@ public class Ore : Singleton<Ore>
     //update ore
     public void UpdateOre()
     {
+        Debug.Log("Updating Ore");
+        _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
+        anvilSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
+        anvilSpriteResolver.ResolveSpriteToSpriteRenderer();
+        assistantSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
+        assistantSpriteResolver.ResolveSpriteToSpriteRenderer();
         DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
@@ -40,6 +51,7 @@ public class Ore : Singleton<Ore>
         _uiManager.UpdateOreNameText(_thisOre.oreName);
         _collectionManager.UpdateItemSelection();
         _collectionManager.UpdateRandomSystem();
+        _animator.enabled = true;
     }
     
     public void ModifySelectedOreIndex(int index)
@@ -49,7 +61,6 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
                 tempSelectOreIndex--;
-                _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
@@ -58,7 +69,6 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
                 tempSelectOreIndex++;
-                _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.43f, 0.63f, 1f);
                 DisableButtonIfNoNextOre();
             }
         }
