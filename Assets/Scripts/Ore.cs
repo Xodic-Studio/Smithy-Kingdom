@@ -61,6 +61,7 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
                 tempSelectOreIndex--;
+                _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
                 DisableButtonIfNoNextOre();
             }
         }
@@ -69,6 +70,7 @@ public class Ore : Singleton<Ore>
             if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
                 tempSelectOreIndex++;
+                _uiManager.previousOreButton.GetComponent<Image>().color = Color.white;
                 DisableButtonIfNoNextOre();
             }
         }

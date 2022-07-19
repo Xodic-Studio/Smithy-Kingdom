@@ -8,11 +8,9 @@ public class GameManager : Singleton<GameManager>
     private UIManager _uiManager;
     
     public GameObject damageGameObject;
-    private TMP_Text _damageText;
-    [SerializeField] Camera mainCamera;
 
     [SerializeField] private float money;
-    [SerializeField] private float gems;
+    [SerializeField] private float gems = 1000;
 
     public Animator smithy;
     public Animator anvil;
@@ -34,9 +32,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        _damageText = damageGameObject.GetComponent<TMP_Text>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
+        Debug.Log(gems);
     }
 
     private void Update()
