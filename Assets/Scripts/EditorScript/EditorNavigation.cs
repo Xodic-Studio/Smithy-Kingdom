@@ -1,6 +1,8 @@
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EditorScript
 {
@@ -29,7 +31,11 @@ namespace EditorScript
             void UINavigation()
             {
                 EditorGUILayout.Space();
-                if (GUILayout.Button("X", GUILayout.Width(20), GUILayout.Height(20))) nav.ui.CloseMenu();
+                if (GUILayout.Button("X", GUILayout.Width(20), GUILayout.Height(20)))
+                {
+                    nav.ui.CloseMenu();
+                    EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+                }
                 EditorGUILayout.Space();
             
                 EditorGUILayout.Space();
