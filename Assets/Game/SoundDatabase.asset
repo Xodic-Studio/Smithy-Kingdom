@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df77f959d6c997146b8cafbdd6e4ffd6, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: 
-  bgm: []
+  bgm:
+  - {fileID: 8300000, guid: 5f7c70f404f3f2d4b997354b67cec5d9, type: 3}
   sfx:
-  - {fileID: 8300000, guid: abea8d9462e2e564e9520f00dfe7752b, type: 3}
-  - {fileID: 8300000, guid: b78c9ef2eac8d4c43a2fd8d3e3e84c81, type: 3}
-  - {fileID: 8300000, guid: 904de46576e965445bd8d8cb943b9c7a, type: 3}
-  - {fileID: 8300000, guid: ae5e8c7cd1310de4d9eb3b4915b80433, type: 3}
-  - {fileID: 8300000, guid: c174b4e777f8ebc4fb4412a4f1ae6d5f, type: 3}
-  - {fileID: 8300000, guid: 225caab80b8eaf743b04f18b4567ca81, type: 3}
+  - name: Hammer Hit
+    clips:
+    - {fileID: 8300000, guid: 364efb77bec3924449c4230ac6398510, type: 3}
+    - {fileID: 8300000, guid: 4dcd57e8f5141274dbb467699d3288c1, type: 3}
+    - {fileID: 8300000, guid: 7b3b9f7e6bb10604c8f96f3c607389fb, type: 3}
+    - {fileID: 8300000, guid: 74f8c9fd3929d2e408f22eae773f9d99, type: 3}

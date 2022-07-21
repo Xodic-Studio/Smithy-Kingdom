@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
     private Ore _ore;
     private UIManager _uiManager;
+    private SoundManager _soundManager;
     
     public GameObject damageGameObject;
 
@@ -28,10 +32,12 @@ public class GameManager : Singleton<GameManager>
     {
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
+        _soundManager = SoundManager.Instance;
     }
 
     private void Start()
     {
+        _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
         Debug.Log(gems);
@@ -107,6 +113,24 @@ public class GameManager : Singleton<GameManager>
         smithy.SetTrigger(Hit);
         anvil.SetTrigger(Hit);
         _click +=5;
+        _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+    }
+
+    public void UpdateMusicVolume(Slider slider)
+    {
+        _soundManager.musicVolume = slider.value;
+        _soundManager.UpdateMusicVolume();
+    }
+    
+    public void UpdateMasterVolume(Slider slider)
+    {
+        _soundManager.masterVolume = slider.value;
+        _soundManager.UpdateMusicVolume();
+    }
+    
+    public void UpdateSfxVolume(Slider slider)
+    {
+        _soundManager.sfxVolume = slider.value;
     }
     
     #region Getter Setter

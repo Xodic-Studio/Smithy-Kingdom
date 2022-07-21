@@ -484,7 +484,7 @@ public class UIManager : Singleton<UIManager>
 }
 
 #if UNITY_EDITOR
-[CustomEditor(typeof(UIManager))]
+[UnityEditor.CustomEditor(typeof(UIManager))]
 public class UIManagerEditor : Editor
 {
     //TODO: Refactor this to be more readable
