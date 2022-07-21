@@ -10,12 +10,12 @@ public class GameManager : Singleton<GameManager>
     public GameObject damageGameObject;
 
     [SerializeField] private float money;
-    [SerializeField] private float gems = 1000;
+    [SerializeField] private float gems;
 
     public Animator smithy;
     public Animator anvil;
     
-    public int hammerDamage;
+    private int _hammerDamage = 1;
     private float _damageTextTimer;
     private float _cpsTimer;
     private int _clickPerSec;
@@ -102,8 +102,8 @@ public class GameManager : Singleton<GameManager>
     //Hitting Function
     private void TapTap()
     {
-        _ore.ModifyHardness(hammerDamage);
-        AddDamageText(hammerDamage.ToString());
+        _ore.ModifyHardness(_hammerDamage);
+        AddDamageText(_hammerDamage.ToString());
         smithy.SetTrigger(Hit);
         anvil.SetTrigger(Hit);
         _click +=5;
