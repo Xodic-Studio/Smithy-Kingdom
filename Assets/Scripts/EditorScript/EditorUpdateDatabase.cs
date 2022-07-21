@@ -244,5 +244,5 @@ namespace EditorScript
             #endregion
         }
     }
-#endif
 }
+#endif

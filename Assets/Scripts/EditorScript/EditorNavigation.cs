@@ -62,5 +62,5 @@ namespace EditorScript
             }
         }
     }
-#endif
 }
+#endif
