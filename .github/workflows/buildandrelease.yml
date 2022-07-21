@@ -114,9 +114,3 @@ jobs:
             ### Successful Build
 
             ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            ### Files
-
-            ```
-            ${{ steps.attrs.outputs.files }}
-            ```
