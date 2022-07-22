@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -6300,7 +6300,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8678,7 +8678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &800105213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13827,7 +13827,7 @@ MonoBehaviour:
   damageGameObject: {fileID: 9071759711258840025, guid: e3fb8a267e2d3f6418b6dcb2389fb149, type: 3}
   money: 0
   gems: 0
-  smithy: {fileID: 0}
+  smithy: {fileID: 3873260345467123758}
   anvil: {fileID: 955110012}
 --- !u!114 &1272240231
 MonoBehaviour:
@@ -17761,7 +17761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1598632604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18916,7 +18916,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -20207,7 +20207,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -23292,6 +23292,11 @@ PrefabInstance:
 --- !u!4 &3873260345467123755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5236826822653383367, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
+  m_PrefabInstance: {fileID: 9037712886743608044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3873260345467123758 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7349500977677121422, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
   m_PrefabInstance: {fileID: 9037712886743608044}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9037712886743608044
