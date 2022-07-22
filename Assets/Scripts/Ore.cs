@@ -100,6 +100,10 @@ public class Ore : Singleton<Ore>
             _thisOre.currentHardness = _thisOre.defaultHardness;
             _collectionManager.DropItem();
         }
+        if (_thisOre.isPremium)
+        {
+            ModifyOreAmount(_thisOre, -1);
+        }
     }
 
     void CheckOreIndex()
@@ -107,6 +111,21 @@ public class Ore : Singleton<Ore>
         if (tempSelectOreIndex >= oreDatabase.ores.Length || tempSelectOreIndex < 0)
         {
             tempSelectOreIndex = 0;
+        }
+    }
+    
+    public void ModifyOreAmount(OreStats ore, int amount)
+    {
+        ore.amount += amount;
+        if (ore.amount > 0)
+        {
+            ore.isUnlocked = true;
+        }
+        else
+        {
+            ore.isUnlocked = false;
+            selectedOreIndex = 0;
+            UpdateOre();
         }
     }
     

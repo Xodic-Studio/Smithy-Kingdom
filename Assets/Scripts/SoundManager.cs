@@ -1,5 +1,4 @@
 
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,7 +7,7 @@ public class SoundManager : Singleton<SoundManager>
     public SoundDatabase soundDatabase;
 
     // Volumes
-    private float fixedVolume = 0.1f;
+    private float fixedVolume = 0.05f;
     public float masterVolume = 1f;
     public float musicVolume = 1f;
     public float sfxVolume = 1f;

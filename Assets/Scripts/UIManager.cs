@@ -8,6 +8,7 @@ public class UIManager : Singleton<UIManager>
 {
     private GameManager _gameManager;
     private Ore _ore;
+    private SoundManager _soundManager;
 
     [Header("BaseUI")] public TMP_Text oreNameText;
     public TMP_Text moneyText;
@@ -18,12 +19,14 @@ public class UIManager : Singleton<UIManager>
     private void Awake()
     {
         _ore = Ore.Instance;
+        _soundManager = SoundManager.Instance;
         _gameManager = GameManager.Instance;
     }
 
     private void Start()
     {
         UpgradeStart();
+        PremiumStart();
         AddMenuButtons();
         OreSelectionStart();
         OverlayStart();
@@ -136,6 +139,7 @@ public class UIManager : Singleton<UIManager>
     {
         overrideCanvas.SetActive(false);
         baseCanvas.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
     }
 
     /// <summary>
@@ -147,6 +151,7 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         upgradeMenu.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         TapNormalUpgradePanel();
     }
 
@@ -170,6 +175,7 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         collectiblesMenu.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
     }
 
     /// <summary>
@@ -181,6 +187,8 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         premiumMenu.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        OpenGachaMenu();
     }
 
     /// <summary>
@@ -192,6 +200,7 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         settingsMenu.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
     }
 
     /// <summary>
@@ -206,6 +215,7 @@ public class UIManager : Singleton<UIManager>
         #if !UNITY_EDITOR
         _ore.tempSelectOreIndex = _ore.selectedOreIndex;
         #endif
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
     }
 
     /// <summary>
@@ -217,6 +227,7 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         prestigeMenuPanel.SetActive(true);
+        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
     }
 
     /// <summary>
@@ -342,6 +353,7 @@ public class UIManager : Singleton<UIManager>
         UpdateOreDetails();
         UpdateOreImageHead();
         UpdateOreNameText(_ore.GetOreStats().oreName);
+        _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre));
     }
 
     #endregion
@@ -407,7 +419,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     Switch to the Normal Upgrade Panel
     /// </summary>
-    public void TapNormalUpgradePanel()
+    private void TapNormalUpgradePanel()
     {
         normalUpgradePanel.SetActive(true);
         premiumUpgradePanel.SetActive(false);
@@ -417,7 +429,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     Switch to the Premium Upgrade Panel
     /// </summary>
-    public void TapPremiumUpgradePanel()
+    private void TapPremiumUpgradePanel()
     {
         normalUpgradePanel.SetActive(false);
         premiumUpgradePanel.SetActive(true);
@@ -435,7 +447,11 @@ public class UIManager : Singleton<UIManager>
         foreach (var variable in upgrade.stats)
         {
             var button = upgradeList.transform.GetChild(i).GetComponentInChildren<Button>();
-            button.onClick.AddListener(delegate { variable.upgradeEvent.Invoke();});
+            button.onClick.AddListener(delegate
+            {
+                variable.upgradeEvent.Invoke();
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            });
             i++;
         }
     }
@@ -444,15 +460,47 @@ public class UIManager : Singleton<UIManager>
 
     #region Collectibles
 
-    [Header("Collectibles Tab")] 
+    [Header("Collectibles Tab")]
     public ScrollRect collectiblesScrollRect;
-    
+
+
     #endregion
 
     #region Premium
 
-    [Header("Premium Tab")] public ScrollRect premiumScrollRect;
-
+    [Header("Premium Tab")]
+    public Button gachaMenuButton;
+    public Button packageMenuButton;
+    public GameObject gachaMenuPanel;
+    public GameObject packageMenuPanel;
+    
+    /// <summary>
+    /// Collectibles Start Method
+    /// </summary>
+    private void PremiumStart()
+    {
+        gachaMenuButton.onClick.AddListener(OpenGachaMenu);
+        packageMenuButton.onClick.AddListener(OpenPackageMenu);
+    }
+    
+    /// <summary>
+    /// open gacha menu
+    /// </summary>
+    public void OpenGachaMenu()
+    {
+        gachaMenuPanel.SetActive(true);
+        packageMenuPanel.SetActive(false);
+    }
+    
+    /// <summary>
+    /// open package menu
+    /// </summary>
+    public void OpenPackageMenu()
+    {
+        gachaMenuPanel.SetActive(false);
+        packageMenuPanel.SetActive(true);
+    }
+    
     #endregion
 
     #region Settings
