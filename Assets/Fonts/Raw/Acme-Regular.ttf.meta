@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c23e6132a065556499eddf95885582f3
+guid: f37e8491b03583245926d7813464e5d8
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Juvenoia
+  - Acme
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -8,6 +8,13 @@ public class SoundDatabase : ScriptableObject
     public enum SfxType
     {
         HammerHit,
+        ChangePage,
+        SelectOre,
+        Back,
+        RecieveCoin,
+        GetNewItem,
+        Upgrade,
+
     }
     public AudioClip[] bgm;
     public Sfx[] sfx;

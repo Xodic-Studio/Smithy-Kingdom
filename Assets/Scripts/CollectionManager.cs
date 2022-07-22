@@ -6,9 +6,9 @@ using Random = UnityEngine.Random;
 
 public class CollectionManager : Singleton<CollectionManager>
 {
-    public SpriteResolver a;
     private GameManager _gameManager;
     private UIManager _uiManager;
+    private SoundManager _soundManager;
     private Ore _ore;
 
     public ItemDatabase itemDatabase;
@@ -26,6 +26,7 @@ public class CollectionManager : Singleton<CollectionManager>
     {
         _uiManager = UIManager.Instance;
         _gameManager = GameManager.Instance;
+        _soundManager = SoundManager.Instance;
         _ore = Ore.Instance;
     }
 
@@ -116,6 +117,7 @@ public class CollectionManager : Singleton<CollectionManager>
             _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                 .GetComponent<Image>().color = Color.white;
             _itemStats.itemFirstForged = DateTime.Today.ToString("d");
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
         }
 
         itemButton.onClick.RemoveAllListeners();

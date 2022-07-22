@@ -21,3 +21,23 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4dcd57e8f5141274dbb467699d3288c1, type: 3}
     - {fileID: 8300000, guid: 7b3b9f7e6bb10604c8f96f3c607389fb, type: 3}
     - {fileID: 8300000, guid: 74f8c9fd3929d2e408f22eae773f9d99, type: 3}
+  - name: Change Page
+    clips:
+    - {fileID: 8300000, guid: 3160931fd43f74a4daa7ad522c142c5d, type: 3}
+  - name: Select Ore
+    clips:
+    - {fileID: 8300000, guid: 8aec28379ec3ba44683d565abfb60a1f, type: 3}
+    - {fileID: 8300000, guid: f5b00a9610aa49c41a5fa0336ba25d70, type: 3}
+    - {fileID: 8300000, guid: 8dbb359441e34a0489e3b97848344335, type: 3}
+  - name: Back
+    clips:
+    - {fileID: 8300000, guid: b64090609fca7a4448e70202cbbff00f, type: 3}
+  - name: Recieve Coin
+    clips:
+    - {fileID: 8300000, guid: c76201750affce54fbd54dbdbc3255a7, type: 3}
+  - name: Get New Item
+    clips:
+    - {fileID: 8300000, guid: 882713c2cfc2ca24f98bb125294c07e8, type: 3}
+  - name: Upgrade
+    clips:
+    - {fileID: 8300000, guid: 225caab80b8eaf743b04f18b4567ca81, type: 3}
