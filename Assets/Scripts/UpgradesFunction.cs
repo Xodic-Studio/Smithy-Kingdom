@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UpgradesFunction : MonoBehaviour
 {
@@ -12,11 +11,6 @@ public class UpgradesFunction : MonoBehaviour
         _ore = Ore.Instance;
     }
     
-    [Tooltip("Test Function")]
-    public void Test()
-    {
-        Debug.Log("Test");
-    }
 
     public void UpgradeOre()
     {

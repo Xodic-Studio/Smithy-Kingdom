@@ -520,9 +520,17 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenGacha(int amount)
     {
-        for (int i = 0 ; i < amount ; i++)
+        if (_gameManager.GetGems() >= amount * 100)
         {
-            _gachaSystem.RandomGacha();
+            for (int i = 0 ; i < amount ; i++)
+            {
+                _gachaSystem.RandomGacha();
+                _gameManager.ModifyGems(-100);
+            }
+        }
+        else
+        {
+            Debug.Log("Not Enough Gems");
         }
     }
     
