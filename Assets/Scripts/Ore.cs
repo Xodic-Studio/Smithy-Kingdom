@@ -124,8 +124,11 @@ public class Ore : Singleton<Ore>
         else
         {
             ore.isUnlocked = false;
-            selectedOreIndex = 0;
+            tempSelectOreIndex = 0;
             UpdateOre();
+            _uiManager.UpdateOreDetails();
+            _uiManager.UpdateOreImageHead();
+            _uiManager.UpdateOreNameText(_thisOre.oreName);
         }
     }
     

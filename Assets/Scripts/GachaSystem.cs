@@ -17,24 +17,24 @@ public class GachaSystem : Singleton<GachaSystem>
     private void Start()
     {
         _oreDatabase = _ore.oreDatabase;
+        
         int i = 0;
-        Array.Resize(ref _premiumOres, _oreDatabase.ores.Length);
-        foreach (var VARIABLE in _oreDatabase.ores)
+        Array.Resize(ref _premiumOres, _oreDatabase.premiumOres.Length);
+        foreach (var VARIABLE in _oreDatabase.premiumOres)
         {
             if (VARIABLE.isPremium)
             {
                 _premiumOres[i] = VARIABLE;
+                i++;
             }
-            i++;
         }
     }
 
     public void RandomGacha()
     {
-        Debug.Log(_premiumOres);
         if (_premiumOres.Length != 0)
         {
-            var randomNumber = Random.Range(1f,6f);
+            var randomNumber = Random.Range(1,6);
             switch (randomNumber)
             {
                 case 1:

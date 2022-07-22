@@ -61,19 +61,52 @@ MonoBehaviour:
     amount: 0
     defaultHardness: 100
     isPremium: 0
-  - oreName: Premium Ore
-    oreSprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
+  premiumOres:
+  - oreName: Premium1
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
     isUnlocked: 0
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 0
     isPremium: 1
-  - oreName: Premium Ore
-    oreSprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
+  - oreName: Premium2
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
     isUnlocked: 0
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 0
+    isPremium: 1
+  - oreName: Premium3
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
+    isUnlocked: 0
+    amount: 0
+    defaultHardness: 0
+    isPremium: 1
+  - oreName: Premium4
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
+    isUnlocked: 0
+    amount: 0
+    defaultHardness: 0
+    isPremium: 1
+  - oreName: Premium5
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
+    isUnlocked: 0
+    amount: 0
+    defaultHardness: 0
+    isPremium: 1
+  - oreName: Premium6
+    oreSprite: {fileID: 0}
+    oreDescription: 
+    currentHardness: 0
+    isUnlocked: 0
+    amount: 0
+    defaultHardness: 0
     isPremium: 1

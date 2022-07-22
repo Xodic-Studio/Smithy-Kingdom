@@ -5,6 +5,7 @@ using UnityEngine;
 public class OreDatabase : ScriptableObject
 {
         public OreStats[] ores;
+        public OreStats[] premiumOres;
 }
     
 [Serializable]

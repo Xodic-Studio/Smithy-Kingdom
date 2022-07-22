@@ -241,7 +241,9 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         prestigeMenuPanel.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
     }
 
     /// <summary>
@@ -311,7 +313,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     update the ore details(In The Selector)
     /// </summary>
-    private void UpdateOreDetails()
+    public void UpdateOreDetails()
     {
         oreImageBody.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
         oreName.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreName;
@@ -333,7 +335,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     update Currently Selected Ore Image (Outside the Selector)
     /// </summary>
-    private void UpdateOreImageHead()
+    public void UpdateOreImageHead()
     {
         oreImageHead.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
     }
