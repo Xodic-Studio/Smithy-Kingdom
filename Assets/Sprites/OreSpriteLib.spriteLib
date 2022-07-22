@@ -19,34 +19,34 @@ MonoBehaviour:
     m_OverrideEntries:
     - m_Name: Copper Ore
       m_Hash: 1978342717
-      m_Sprite: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: -7971944603763726844, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -7971944603763726844, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Iron Ore
       m_Hash: 209868910
-      m_Sprite: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: -3493072497675621609, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -3493072497675621609, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Gold Ore
       m_Hash: -752493219
-      m_Sprite: {fileID: 5946006425576473372, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: 7335791901510154770, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 5946006425576473372, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: 7335791901510154770, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Meteorite Ore
       m_Hash: 1976880942
-      m_Sprite: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: 1230744243681666068, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: 1230744243681666068, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Mithril Ore
       m_Hash: 100863445
-      m_Sprite: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: -5526838226132740138, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -5526838226132740138, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     - m_Name: Adamantine Ore
       m_Hash: -280364413
-      m_Sprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: -5734555445424563448, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -5734555445424563448, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
   - m_Name: Gacha
@@ -86,9 +86,9 @@ MonoBehaviour:
     m_OverrideEntries:
     - m_Name: Bread
       m_Hash: 1560437327
-      m_Sprite: {fileID: -875880710630914242, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_Sprite: {fileID: 5374782683179060682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -875880710630914242, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: 5374782683179060682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 1
   m_PrimaryLibraryGUID: 
