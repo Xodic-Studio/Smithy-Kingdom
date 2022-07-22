@@ -16,34 +16,34 @@ MonoBehaviour:
   - collectionName: Copper
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: b806086b38373494cb3e9bacdb0274a4, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
       dropChance: 70
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 5
+      itemFirstForged: 7/22/2022
+      isUnlocked: 1
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 1f60f87bbe4a6824aa0486cba4ebf32c, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
       dropChance: 20
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 2
+      itemFirstForged: 7/22/2022
+      isUnlocked: 1
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 5f6648eafdb54f149a7eb717aa2afec8, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
       dropChance: 7.5
-      timesForged: 0
-      itemFirstForged: 0
-      isUnlocked: 0
+      timesForged: 1
+      itemFirstForged: 7/22/2022
+      isUnlocked: 1
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 66b7c9854d4b8b9429e80fb02540e6db, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -52,7 +52,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 0e1090fb60d4eb04ea732efb1ceaba36, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -61,7 +61,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 8ad5108759c59e94999efeb591365397, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword
@@ -72,7 +72,7 @@ MonoBehaviour:
   - collectionName: Iron
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 0781f10a6605f41459ebe01515e568ab, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
@@ -81,7 +81,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: fb997367b940121438c05f605a6acbc9, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
@@ -90,7 +90,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: de6a59750c65d0f48812ac34d600dbd7, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
@@ -99,7 +99,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 1a91e8a4f696e7e48a84b6b0bab52b63, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -108,7 +108,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 383e483ddb9acc54898a7ac530763e4c, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -117,7 +117,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: b1b985ceabb43ae4cace7ab5f51864b5, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword
@@ -128,7 +128,7 @@ MonoBehaviour:
   - collectionName: Gold
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 058c6f7617691e54c923c582d12a8be1, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
@@ -137,7 +137,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 43a196f46e2762548af996a79782c55a, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
@@ -146,7 +146,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: adb51c5e380f6134e8b2023ca6af406a, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
@@ -155,7 +155,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: e173d531cc926ad439bbfd4cc80958d7, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -164,7 +164,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 4717fbf7e3f9c6c48871275d5d5e3e35, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -173,7 +173,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 3736de128a1d50140b007d4aaf0ae29e, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword
@@ -184,7 +184,7 @@ MonoBehaviour:
   - collectionName: Meteorite
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 6e6df9a7c489fa2489400a0986d2081c, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
@@ -193,7 +193,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 3fa36a36c997d664bb8b89be875b9443, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
@@ -202,7 +202,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 76bab96d44c1f82438faa2dde70b1cfe, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
@@ -211,7 +211,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: c95e5198267c7ee40a012aa9c3cdacc3, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -220,7 +220,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: a8101fe9e8705384ba09475ad8db157a, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -229,7 +229,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: e0f6aaaf60f1333428e8e98efb3b013e, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword
@@ -240,7 +240,7 @@ MonoBehaviour:
   - collectionName: Mithril
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 3143c273b07fb464c933f1c82978d42a, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
@@ -249,7 +249,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 08baaa21bb463084681af602c8b95579, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
@@ -258,7 +258,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 8eaa1e9c8ad503f499b20f7628583b09, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
@@ -267,7 +267,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 8f612bed17dbdf241a2c8eeadbf8b896, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -276,7 +276,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: af22c9d85c26f13458c6d5ae105befba, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -285,7 +285,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 4145113862515d14a9432e3893ca0ec7, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword
@@ -296,7 +296,7 @@ MonoBehaviour:
   - collectionName: Adamantine
     items:
     - itemName: Copper Sword
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
       itemPrice: 100
       itemRarity: 0
       itemDescription: Copper Sword
@@ -305,7 +305,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Scimitar
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
       itemPrice: 350
       itemRarity: 1
       itemDescription: Copper Sword
@@ -314,7 +314,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copper Katana
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
       itemPrice: 930
       itemRarity: 2
       itemDescription: Copper Sword
@@ -323,7 +323,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Blade of Urun
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
       itemPrice: 3500
       itemRarity: 3
       itemDescription: Copper Sword
@@ -332,7 +332,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: 'Copper Sword 2: Ender of all expectations'
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
       itemPrice: 17500
       itemRarity: 4
       itemDescription: Copper Sword
@@ -341,7 +341,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
     - itemName: Copperium
-      itemSprite: {fileID: 0}
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
       itemPrice: 70000
       itemRarity: 5
       itemDescription: Copper Sword

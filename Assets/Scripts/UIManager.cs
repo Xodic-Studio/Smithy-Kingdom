@@ -24,6 +24,7 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         UpgradeStart();
+        PremiumStart();
         AddMenuButtons();
         OreSelectionStart();
         OverlayStart();
@@ -181,6 +182,7 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         premiumMenu.SetActive(true);
+        OpenGachaMenu();
     }
 
     /// <summary>
@@ -407,7 +409,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     Switch to the Normal Upgrade Panel
     /// </summary>
-    public void TapNormalUpgradePanel()
+    private void TapNormalUpgradePanel()
     {
         normalUpgradePanel.SetActive(true);
         premiumUpgradePanel.SetActive(false);
@@ -417,7 +419,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     ///     Switch to the Premium Upgrade Panel
     /// </summary>
-    public void TapPremiumUpgradePanel()
+    private void TapPremiumUpgradePanel()
     {
         normalUpgradePanel.SetActive(false);
         premiumUpgradePanel.SetActive(true);
@@ -444,15 +446,47 @@ public class UIManager : Singleton<UIManager>
 
     #region Collectibles
 
-    [Header("Collectibles Tab")] 
+    [Header("Collectibles Tab")]
     public ScrollRect collectiblesScrollRect;
-    
+
+
     #endregion
 
     #region Premium
 
-    [Header("Premium Tab")] public ScrollRect premiumScrollRect;
-
+    [Header("Premium Tab")]
+    public Button gachaMenuButton;
+    public Button packageMenuButton;
+    public GameObject gachaMenuPanel;
+    public GameObject packageMenuPanel;
+    
+    /// <summary>
+    /// Collectibles Start Method
+    /// </summary>
+    private void PremiumStart()
+    {
+        gachaMenuButton.onClick.AddListener(OpenGachaMenu);
+        packageMenuButton.onClick.AddListener(OpenPackageMenu);
+    }
+    
+    /// <summary>
+    /// open gacha menu
+    /// </summary>
+    public void OpenGachaMenu()
+    {
+        gachaMenuPanel.SetActive(true);
+        packageMenuPanel.SetActive(false);
+    }
+    
+    /// <summary>
+    /// open package menu
+    /// </summary>
+    public void OpenPackageMenu()
+    {
+        gachaMenuPanel.SetActive(false);
+        packageMenuPanel.SetActive(true);
+    }
+    
     #endregion
 
     #region Settings

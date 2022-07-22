@@ -154,10 +154,8 @@ public class CollectionManager : Singleton<CollectionManager>
                         _uiManager.OpenOverlay();
                     });
                 }
-                
                 i++;
             }
-
             j++;
         }
     }
