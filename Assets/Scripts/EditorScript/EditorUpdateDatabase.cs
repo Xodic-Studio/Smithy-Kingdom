@@ -94,6 +94,8 @@ namespace EditorScript
                              upt.ui.thisVerticalLayoutGroup.spacing);
                     upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
                 }
+                
+                
             }
 
             //Update the Premium Upgrade UI
@@ -233,7 +235,6 @@ namespace EditorScript
                     upt.ui.prefabRectTransform = upt.ui.itemUIPrefab.GetComponent<RectTransform>();
                     upt.ui.thisRectTransform = listTransform.GetComponent<RectTransform>();
                     var count = listTransform.childCount;
-                    Debug.Log(Mathf.Ceil((float) count / 3));
                     var y = Mathf.Ceil((float) count / 3) *
                         (upt.ui.prefabRectTransform.rect.height + spacing.spacing.y) + spacing.padding.top;
                     upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);

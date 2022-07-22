@@ -40,7 +40,6 @@ public class GameManager : Singleton<GameManager>
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
-        Debug.Log(gems);
     }
 
     private void Update()
@@ -115,6 +114,7 @@ public class GameManager : Singleton<GameManager>
         _click +=5;
         _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
     }
+
 
     public void UpdateMusicVolume(Slider slider)
     {

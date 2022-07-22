@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,6 @@ public class UIManager : Singleton<UIManager>
     private void Start()
     {
         UpgradeStart();
-        AddUpgradeButtons();
         AddMenuButtons();
         OreSelectionStart();
         OverlayStart();
@@ -391,6 +391,8 @@ public class UIManager : Singleton<UIManager>
     {
         _normalRectTransform = normalUpgradePanel.GetComponent<RectTransform>();
         _premiumRectTransform = premiumUpgradePanel.GetComponent<RectTransform>();
+        AddUpgradeButtons();
+        AssignEventToUpgradeButton(database.upgradeDatabase);
     }
 
     /// <summary>
@@ -420,6 +422,22 @@ public class UIManager : Singleton<UIManager>
         normalUpgradePanel.SetActive(false);
         premiumUpgradePanel.SetActive(true);
         upgradesScrollRect.content = _premiumRectTransform;
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="button"></param>
+    /// <param name="upgrade"></param>
+    public void AssignEventToUpgradeButton(UpgradeDatabase upgrade)
+    {
+        var i = 0;
+        foreach (var variable in upgrade.stats)
+        {
+            var button = upgradeList.transform.GetChild(i).GetComponentInChildren<Button>();
+            button.onClick.AddListener(delegate { variable.upgradeEvent.Invoke();});
+            i++;
+        }
     }
 
     #endregion

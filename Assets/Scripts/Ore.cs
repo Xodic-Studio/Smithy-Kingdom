@@ -36,7 +36,6 @@ public class Ore : Singleton<Ore>
     //update ore
     public void UpdateOre()
     {
-        Debug.Log("Updating Ore");
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
         anvilSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
@@ -75,7 +74,6 @@ public class Ore : Singleton<Ore>
             }
         }
         CheckOreIndex();
-        Debug.Log("You selected ore " + oreDatabase.ores[tempSelectOreIndex].oreName);
     }
     public void ModifyHardness(int amount)
     {

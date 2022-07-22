@@ -60,7 +60,6 @@ public class CollectionManager : Singleton<CollectionManager>
             {
                 dropChance += item.dropChance;
                 _cumulativeDropChances[i] = dropChance;
-                Debug.Log(_cumulativeDropChances[i]);
                 i++;
             }
         }
@@ -117,17 +116,14 @@ public class CollectionManager : Singleton<CollectionManager>
             _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                 .GetComponent<Image>().color = Color.white;
             _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-            Debug.Log($"{_itemStats.itemName} has been added to your collection");
         }
 
         itemButton.onClick.RemoveAllListeners();
-        Debug.Log(_itemStats.itemName + "Assigning to button" + itemButton);
 
         itemButton.onClick.AddListener(
             delegate
             {
                 _uiManager.AssignOverlayValue(itemName, displayDescription, itemSprite);
-                Debug.Log(_itemStats.itemName);
                 _uiManager.OpenOverlay();
             });
         _gameManager.ModifyMoney(_itemStats.itemPrice);
@@ -155,12 +151,10 @@ public class CollectionManager : Singleton<CollectionManager>
                     itemButton.onClick.AddListener(delegate
                     {
                         _uiManager.AssignOverlayValue(items.itemName, displayDescription, items.itemSprite);
-                        Debug.Log(items.itemName);
                         _uiManager.OpenOverlay();
                     });
                 }
-
-                Debug.Log("Checked" + items.itemName + "from" + collection.collectionName);
+                
                 i++;
             }
 
@@ -171,7 +165,6 @@ public class CollectionManager : Singleton<CollectionManager>
     public void UpdateRandomSystem()
     {
         itemCollectionIndex = _ore.selectedOreIndex;
-        Debug.Log(_itemCollection.items.Length);
         if (_itemCollection.items.Length != 0)
         {
             CalculateCumDropRate();
