@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f55404a7c780b744b8c9835f0095ffa
+guid: eb25c04d378cf104a9f1673d7710818d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Setting_0
+      name: Premium Icon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 73
-        width: 2048
-        height: 1879
+        x: 391
+        y: 406
+        width: 1263
+        height: 1422
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bef6fcf1c4e0cd4b8b5d89afe8e187d
-      internalID: -352707465
+      spriteID: 08b98a343fd60944db6a546f5dae345e
+      internalID: 1179376695
       vertices: []
       indices: 
       edges: []
@@ -135,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Setting_0: -352707465
+      Premium Icon_0: 1179376695
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

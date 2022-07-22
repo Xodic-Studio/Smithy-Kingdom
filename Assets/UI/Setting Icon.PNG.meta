@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e65d606565ba4742b8ed10ee91bd83d
+guid: fc13bb5bb1d1e374d8d5c1e832746b0e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
@@ -100,26 +100,38 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Circle UI_0
+      name: Setting Icon_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 10
-        width: 471
-        height: 457
+        x: 396
+        y: 409
+        width: 1253
+        height: 1413
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 4, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ea7a4953ed2eb747b164492efefbdc4
-      internalID: 409730758
+      spriteID: 4ed84c1d8332f354eb813ea835d26294
+      internalID: 1509389129
       vertices: []
       indices: 
       edges: []
@@ -135,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Circle UI_0: 409730758
+      Setting Icon_0: 1509389129
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

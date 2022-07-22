@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e0f5cd2835f02949b94fc190ed80389
+guid: 2672f6db5533e2a4eb5d25e335cdf59c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,6 +100,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -107,40 +119,19 @@ TextureImporter:
       name: Box_0
       rect:
         serializedVersion: 2
-        x: 164
-        y: 79
-        width: 453
-        height: 383
+        x: 282
+        y: 143
+        width: 381
+        height: 337
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f57ea4e8c3cb714da9bb55cb7dae252
-      internalID: 867702103
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Box_1
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 80
-        width: 462
-        height: 390
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e464082a9cb87e04ca0f3146a511c7b0
-      internalID: 352711497
+      spriteID: 043ced4bf18584d48ad6904e4464e318
+      internalID: 2099614587
       vertices: []
       indices: 
       edges: []
@@ -156,8 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Box_0: 867702103
-      Box_1: 352711497
+      Box_0: 2099614587
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
