@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - upgradeName: Ore Upgrade
-    upgradeDescription: 'Upgrade the ore '
+    upgradeDescription: Upgrade the ore Price:1000
     upgradeLevels: 1
     upgradeEvent:
       m_PersistentCalls:
         m_Calls: []
   - upgradeName: Upgrade Hammer Damage
-    upgradeDescription: Upgrade The Hammer Damage by 1
+    upgradeDescription: Upgrade The Hammer Damage by 1 Price 5000
     upgradeLevels: 1
     upgradeEvent:
       m_PersistentCalls:

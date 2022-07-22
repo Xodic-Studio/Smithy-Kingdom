@@ -16,12 +16,22 @@ public class UpgradesFunction : MonoBehaviour
 
     public void UpgradeOre()
     {
-        _ore.oreDatabase.ores[_oreUpgradeLevel+1].isUnlocked = true;
-        _oreUpgradeLevel++;
+        if (_oreUpgradeLevel + 1 <= _ore.oreDatabase.ores.Length && _gameManager.GetMoney() >= 1000)
+        {
+            _ore.oreDatabase.ores[_oreUpgradeLevel+1].isUnlocked = true;
+            _oreUpgradeLevel++;
+            _gameManager.ModifyMoney(-1000);
+        } 
+
     }
     
     public void ChangeHammerDamage(int damage)
     {
-        _gameManager.ModifyHammerDamage(damage);
+        if (_gameManager.GetMoney() >= 5000)
+        {
+            _gameManager.ModifyHammerDamage(damage);
+            _gameManager.ModifyMoney(-5000);
+        }
+        
     }
 }
