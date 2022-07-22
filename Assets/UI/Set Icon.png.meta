@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98600a4a889c0b64ea493165569a2c2f
+guid: e33e367b25847d64393f87fac826bc68
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frame_0
+      name: Set Icon_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 54
-        width: 154
-        height: 78
+        x: 643
+        y: 632
+        width: 697
+        height: 748
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c42fbc4d72b6e164a82591e25dd663b6
-      internalID: -738223516
+      spriteID: 3d1c874b3820a834686db259bd9c5821
+      internalID: -1946465311
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Frame_0: -738223516
+      Set Icon_0: -1946465311
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
