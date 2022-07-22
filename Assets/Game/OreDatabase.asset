@@ -16,15 +16,17 @@ MonoBehaviour:
   - oreName: Copper Ore
     oreSprite: {fileID: -4267156873486611796, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is a copper ore least ore you wanted!
-    currentHardness: 5
+    currentHardness: 4
     isUnlocked: 1
+    amount: 0
     defaultHardness: 5
     isPremium: 0
   - oreName: Iron Ore
     oreSprite: {fileID: 7165807153606626393, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
-    currentHardness: 10
+    currentHardness: 9
     isUnlocked: 1
+    amount: 0
     defaultHardness: 10
     isPremium: 0
   - oreName: Gold Ore
@@ -32,26 +34,38 @@ MonoBehaviour:
     oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 100
     isUnlocked: 1
+    amount: 0
     defaultHardness: 100
     isPremium: 0
   - oreName: Meteorite Ore
     oreSprite: {fileID: -6972795234152532474, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 98
+    currentHardness: 72
     isUnlocked: 1
+    amount: 0
     defaultHardness: 100
     isPremium: 0
   - oreName: Mithril Ore
     oreSprite: {fileID: 3992962793132540230, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
+    currentHardness: 87
     isUnlocked: 1
+    amount: 0
     defaultHardness: 100
     isPremium: 0
   - oreName: Adamantine Ore
     oreSprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 85
+    currentHardness: 100
     isUnlocked: 1
+    amount: 0
     defaultHardness: 100
     isPremium: 0
+  - oreName: Premium Ore
+    oreSprite: {fileID: 1818347503210015158, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreDescription: This is Gold Ore The Best ore Right Now
+    currentHardness: 100
+    isUnlocked: 0
+    amount: 0
+    defaultHardness: 100
+    isPremium: 1

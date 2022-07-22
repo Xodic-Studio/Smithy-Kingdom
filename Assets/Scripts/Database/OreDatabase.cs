@@ -16,6 +16,8 @@ public class OreStats
         public string oreDescription;
         public int currentHardness;
         public bool isUnlocked;
+
+        public int amount;
     
         [Header("Default Values")]
         public int defaultHardness;
