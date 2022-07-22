@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
@@ -9,6 +10,7 @@ public class UIManager : Singleton<UIManager>
     private GameManager _gameManager;
     private Ore _ore;
     private SoundManager _soundManager;
+    private GachaSystem _gachaSystem;
 
     [Header("BaseUI")] public TMP_Text oreNameText;
     public TMP_Text moneyText;
@@ -21,6 +23,8 @@ public class UIManager : Singleton<UIManager>
         _ore = Ore.Instance;
         _soundManager = SoundManager.Instance;
         _gameManager = GameManager.Instance;
+        _gachaSystem = GachaSystem.Instance;
+        
     }
 
     private void Start()
@@ -139,7 +143,9 @@ public class UIManager : Singleton<UIManager>
     {
         overrideCanvas.SetActive(false);
         baseCanvas.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
+        #endif
     }
 
     /// <summary>
@@ -151,7 +157,9 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         upgradeMenu.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
         TapNormalUpgradePanel();
     }
 
@@ -175,7 +183,9 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         collectiblesMenu.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
     }
 
     /// <summary>
@@ -187,7 +197,9 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         premiumMenu.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
         OpenGachaMenu();
     }
 
@@ -200,7 +212,9 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         settingsMenu.SetActive(true);
+        #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
     }
 
     /// <summary>
@@ -214,8 +228,8 @@ public class UIManager : Singleton<UIManager>
         oreSelectionPanel.SetActive(true);
         #if !UNITY_EDITOR
         _ore.tempSelectOreIndex = _ore.selectedOreIndex;
-        #endif
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+        #endif
     }
 
     /// <summary>
@@ -471,6 +485,8 @@ public class UIManager : Singleton<UIManager>
     [Header("Premium Tab")]
     public Button gachaMenuButton;
     public Button packageMenuButton;
+    public Button gacha1Button;
+    public Button gacha11Button;
     public GameObject gachaMenuPanel;
     public GameObject packageMenuPanel;
     
@@ -481,6 +497,14 @@ public class UIManager : Singleton<UIManager>
     {
         gachaMenuButton.onClick.AddListener(OpenGachaMenu);
         packageMenuButton.onClick.AddListener(OpenPackageMenu);
+        gacha1Button.onClick.AddListener(delegate
+        {
+            OpenGacha(1);
+        });
+        gacha11Button.onClick.AddListener(delegate
+        {
+            OpenGacha(11);
+        });
     }
     
     /// <summary>
@@ -490,6 +514,14 @@ public class UIManager : Singleton<UIManager>
     {
         gachaMenuPanel.SetActive(true);
         packageMenuPanel.SetActive(false);
+    }
+
+    public void OpenGacha(int amount)
+    {
+        for (int i = 0 ; i < amount ; i++)
+        {
+            _gachaSystem.RandomGacha();
+        }
     }
     
     /// <summary>

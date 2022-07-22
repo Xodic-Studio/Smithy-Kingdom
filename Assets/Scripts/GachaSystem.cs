@@ -1,7 +1,9 @@
 
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GachaSystem : Singleton<GachaSystem>
 {
     private Ore _ore;
     private OreDatabase _oreDatabase;
@@ -16,17 +18,20 @@ public class NewBehaviourScript : MonoBehaviour
     {
         _oreDatabase = _ore.oreDatabase;
         int i = 0;
+        Array.Resize(ref _premiumOres, _oreDatabase.ores.Length);
         foreach (var VARIABLE in _oreDatabase.ores)
         {
             if (VARIABLE.isPremium)
             {
                 _premiumOres[i] = VARIABLE;
             }
+            i++;
         }
     }
 
     public void RandomGacha()
     {
+        Debug.Log(_premiumOres);
         if (_premiumOres.Length != 0)
         {
             var randomNumber = Random.Range(1f,6f);
