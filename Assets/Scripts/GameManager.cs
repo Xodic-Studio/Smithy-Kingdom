@@ -145,6 +145,15 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateGemText();
     }
     
+    public void ModifyHammerDamage(int amount)
+    {
+        _hammerDamage += amount;
+        if (_hammerDamage <= 1)
+        {
+            _hammerDamage = 1;
+        }
+    }
+    
     public void ModifyMoney(float amount)
     {
         money += amount;

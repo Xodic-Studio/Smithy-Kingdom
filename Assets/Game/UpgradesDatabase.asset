@@ -14,40 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
   - upgradeName: Ore Upgrade
-    upgradeDescription: Upgrade the ore count to the best of the best scale from
-      lowest cost to highest cost
+    upgradeDescription: 'Upgrade the ore '
     upgradeLevels: 1
     upgradeEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4483177263154019042, guid: 32ffd47fc1ba4864bacc2053fddb1629, type: 3}
-          m_TargetAssemblyTypeName: UpgradesFunction, Assembly-CSharp
-          m_MethodName: Test
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - upgradeName: Ore Upgrade
-    upgradeDescription: Upgrade the ore count to the best of the best scale from
-      lowest cost to highest cost
+        m_Calls: []
+  - upgradeName: Upgrade Hammer Damage
+    upgradeDescription: Upgrade The Hammer Damage by 1
     upgradeLevels: 1
     upgradeEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4483177263154019042, guid: 32ffd47fc1ba4864bacc2053fddb1629, type: 3}
-          m_TargetAssemblyTypeName: UpgradesFunction, Assembly-CSharp
-          m_MethodName: UpgradeOre
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
