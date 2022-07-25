@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public Animator anvil;
     
     private int _hammerDamage = 1;
+    private int _hammerDamageCombined;
     private float _damageTextTimer;
     private float _cpsTimer;
     private int _clickPerSec;
@@ -37,6 +38,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        _soundManager.EffectsSource = GetComponent<AudioSource>();
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
@@ -86,6 +88,7 @@ public class GameManager : Singleton<GameManager>
             goRect.SetParent(_uiManager.GetCanvas().transform, true);
             StartCoroutine(FloatDelayDestroy(goRect, goText));
             _damageTextTimer = 0;
+            _hammerDamageCombined = 0;
             goRect.localScale = new Vector3(1, 1, 1);
         }
     }
@@ -107,12 +110,21 @@ public class GameManager : Singleton<GameManager>
     //Hitting Function
     private void TapTap()
     {
-        _ore.ModifyHardness(_hammerDamage);
-        AddDamageText(_hammerDamage.ToString());
-        smithy.SetTrigger(Hit);
-        anvil.SetTrigger(Hit);
-        _click +=5;
-        _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+        if (!_ore.GetIsDroppingItem())
+        {
+            _ore.ModifyHardness(_hammerDamage);
+            _hammerDamageCombined += _hammerDamage;
+            CombineDamageText();
+            smithy.SetTrigger(Hit);
+            anvil.SetTrigger(Hit);
+            _click +=5;
+            _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+        }
+    }
+
+    private void CombineDamageText()
+    {
+        AddDamageText(_hammerDamageCombined.ToString());
     }
 
 

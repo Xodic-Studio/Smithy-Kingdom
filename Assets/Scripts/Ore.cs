@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
@@ -16,6 +17,9 @@ public class Ore : Singleton<Ore>
     public int tempSelectOreIndex;
     public int selectedOreIndex;
     
+    private float _dropItemTimer;
+    private bool _isDroppingItem;
+    
     private void Awake()
     {
         _uiManager = UIManager.Instance;
@@ -30,6 +34,7 @@ public class Ore : Singleton<Ore>
     
     void Update()
     {
+        DropItemDelay();
         _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
@@ -97,14 +102,30 @@ public class Ore : Singleton<Ore>
     {
         if (_thisOre.currentHardness <= 0)
         {
-            _thisOre.currentHardness = _thisOre.defaultHardness;
-            _collectionManager.DropItem();
+            _thisOre.currentHardness = 0;
+            _isDroppingItem = true;
         }
         if (_thisOre.isPremium)
         {
             ModifyOreAmount(_thisOre, -1);
         }
     }
+    
+    void DropItemDelay()
+    {
+        if (_isDroppingItem)
+        {
+            _dropItemTimer += Time.deltaTime;
+            if (_dropItemTimer > 1)
+            {
+                _collectionManager.DropItem();
+                _thisOre.currentHardness = _thisOre.defaultHardness;
+                _isDroppingItem = false;
+                _dropItemTimer = 0;
+            }
+        }
+    }
+    
 
     void CheckOreIndex()
     {
@@ -135,5 +156,10 @@ public class Ore : Singleton<Ore>
     public OreStats GetOreStats()
     {
         return _thisOre;
+    }
+    
+    public bool GetIsDroppingItem()
+    {
+        return _isDroppingItem;
     }
 }

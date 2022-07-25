@@ -66,7 +66,7 @@ public class SoundManager : Singleton<SoundManager>
     public void UpdateMusicVolume()
     {
         MusicSource.volume = fixedVolume * masterVolume * musicVolume;
+        
     }
-    
 }
 
