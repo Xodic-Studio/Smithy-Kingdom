@@ -113,9 +113,9 @@ public class Ore : Singleton<Ore>
     
     void DropItemDelay()
     {
+        _dropItemTimer += Time.deltaTime;
         if (_isDroppingItem)
         {
-            _dropItemTimer += Time.deltaTime;
             if (_dropItemTimer > 1)
             {
                 _collectionManager.DropItem();
