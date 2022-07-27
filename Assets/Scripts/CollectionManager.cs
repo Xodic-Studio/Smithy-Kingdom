@@ -117,6 +117,12 @@ public class CollectionManager : Singleton<CollectionManager>
             _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                 .GetComponent<Image>().color = Color.white;
             _itemStats.itemFirstForged = DateTime.Today.ToString("d");
+            displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                                     $"Rarity: {_itemStats.itemRarity}\n" +
+                                     $"First Forged: {_itemStats.itemFirstForged}\n" +
+                                     $"Times Forged: {_itemStats.timesForged}\n" +
+                                     "\n" +
+                                     $"{_itemStats.itemDescription}";
             _uiManager.AssignOverlayValue("You Forged New Item", displayDescription, _itemStats.itemSprite);
             _uiManager.OpenOverlay();
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);

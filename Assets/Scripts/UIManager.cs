@@ -1,8 +1,5 @@
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
@@ -575,7 +572,8 @@ public class UIManager : Singleton<UIManager>
     public GameObject collectionList;
     public GameObject collectionUIPrefab;
     public GameObject itemUIPrefab;
-
+    
+    public GameObject achievementsList;
     #endregion
 }
 

@@ -41,6 +41,12 @@ namespace EditorScript
                 upt.ui.OpenCollectiblesMenu();
                 UpdateCollectionUI();
             }
+            
+            if (GUILayout.Button("UpdateAchievement",GUILayout.Width(250)))
+            {
+                //upt.ui.OpenPremiumCollectiblesMenu();
+                //UpdatePremiumCollectionUI();
+            }
 
             #region UpdateUI
 
@@ -242,8 +248,62 @@ namespace EditorScript
                 }
             }
 
+            void UpdatePremiumCollectionUI()
+            {
+            var active = upt.ui.achievementsList.activeSelf;
+                upt.ui.thisVerticalLayoutGroup =
+                    upt.ui.achievementsList.GetComponent<VerticalLayoutGroup>();
+                upt.ui.prefabRectTransform = upt.ui.upgradeUIPrefab.GetComponent<RectTransform>();
+                upt.ui.parentRectTransform =
+                    upt.ui.achievementsList.transform.parent.GetComponent<RectTransform>();
+                upt.ui.thisRectTransform = upt.ui.achievementsList.GetComponent<RectTransform>();
+                if (!active) upt.ui.achievementsList.SetActive(true);
+
+                var databaseStats = upt.ui.database.premiumUpgradeDatabase.stats;
+                var listTransform = upt.ui.premiumUpgradeList.transform;
+                var i = 0;
+                foreach (var unused in databaseStats)
+                {
+                    try
+                    {
+                        listTransform.GetChild(i);
+                    }
+                    catch (UnityException)
+                    {
+                        var newUpgrade = Instantiate(upt.ui.upgradeUIPrefab, listTransform);
+                        newUpgrade.transform.SetParent(listTransform);
+                    }
+
+                    listTransform.GetChild(i).name = databaseStats[i].upgradeName;
+                    listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text =
+                        databaseStats[i].upgradeName;
+                    listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>()
+                        .text = databaseStats[i].upgradeDescription;
+                    i++;
+                }
+
+                var childCount = listTransform.childCount;
+                var needDestroy = childCount - databaseStats.Length;
+                for (i = childCount; i > childCount - needDestroy; i--)
+                    DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                if (listTransform.childCount <= 5)
+                {
+                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x,
+                        upt.ui.parentRectTransform.rect.height);
+                }
+                else
+                {
+                    var y = upt.ui.parentRectTransform.rect.height +
+                            (listTransform.childCount - 5) *
+                            (upt.ui.prefabRectTransform.rect.height +
+                             upt.ui.thisVerticalLayoutGroup.spacing);
+                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
+                }
+        }
+
             #endregion
         }
+        
     }
 }
 #endif
