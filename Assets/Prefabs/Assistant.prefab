@@ -1251,7 +1251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2982548770919517176}
   m_LocalRotation: {x: 0, y: -0, z: 0.9999905, w: -0.00436318}
-  m_LocalPosition: {x: 5.32, y: 0.01, z: 0}
+  m_LocalPosition: {x: 5.23, y: 0.01, z: 0}
   m_LocalScale: {x: -1, y: 1.0000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3023,8 +3023,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5923271845388394275}
   m_Bounds:
-    m_Center: {x: -0.030102342, y: 0.30149442, z: 0}
-    m_Extent: {x: 0.4124483, y: 0.83480334, z: 0}
+    m_Center: {x: 0.44983804, y: 0.14833325, z: 0}
+    m_Extent: {x: 0.45718825, y: 0.8234252, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
