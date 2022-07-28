@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,14 +39,14 @@ namespace EditorScript
 
             if (GUILayout.Button("UpdateCollection",GUILayout.Width(250)))
             {
-                upt.ui.OpenCollectiblesMenu();
+                upt.ui.OpenCollectionMenu();
                 UpdateCollectionUI();
             }
             
             if (GUILayout.Button("UpdateAchievement",GUILayout.Width(250)))
             {
-                //upt.ui.OpenPremiumCollectiblesMenu();
-                //UpdatePremiumCollectionUI();
+                upt.ui.OpenAchievementMenu();
+                UpdateAchievementUI();
             }
 
             #region UpdateUI
@@ -53,10 +54,6 @@ namespace EditorScript
             void UpdateUpgradeUI()
             {
                 var active = upt.ui.upgradeList.activeSelf;
-                upt.ui.thisVerticalLayoutGroup = upt.ui.upgradeList.GetComponent<VerticalLayoutGroup>();
-                upt.ui.prefabRectTransform = upt.ui.upgradeUIPrefab.GetComponent<RectTransform>();
-                upt.ui.parentRectTransform = upt.ui.upgradeList.transform.parent.GetComponent<RectTransform>();
-                upt.ui.thisRectTransform = upt.ui.upgradeList.GetComponent<RectTransform>();
                 if (!active) upt.ui.upgradeList.SetActive(true);
 
                 var databaseStats = upt.ui.database.upgradeDatabase.stats;
@@ -87,33 +84,14 @@ namespace EditorScript
 
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                if (listTransform.childCount <= 5)
-                {
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x,
-                        upt.ui.parentRectTransform.rect.height);
-                }
-                else
-                {
-                    var y = upt.ui.parentRectTransform.rect.height +
-                            (listTransform.childCount - 5) *
-                            (upt.ui.prefabRectTransform.rect.height +
-                             upt.ui.thisVerticalLayoutGroup.spacing);
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
-                }
-                
-                
+
+
             }
 
             //Update the Premium Upgrade UI
             void UpdatePremiumUpgradeUI()
             {
                 var active = upt.ui.premiumUpgradeList.activeSelf;
-                upt.ui.thisVerticalLayoutGroup =
-                    upt.ui.premiumUpgradeList.GetComponent<VerticalLayoutGroup>();
-                upt.ui.prefabRectTransform = upt.ui.upgradeUIPrefab.GetComponent<RectTransform>();
-                upt.ui.parentRectTransform =
-                    upt.ui.premiumUpgradeList.transform.parent.GetComponent<RectTransform>();
-                upt.ui.thisRectTransform = upt.ui.premiumUpgradeList.GetComponent<RectTransform>();
                 if (!active) upt.ui.premiumUpgradeList.SetActive(true);
 
                 var databaseStats = upt.ui.database.premiumUpgradeDatabase.stats;
@@ -143,29 +121,11 @@ namespace EditorScript
                 var needDestroy = childCount - databaseStats.Length;
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                if (listTransform.childCount <= 5)
-                {
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x,
-                        upt.ui.parentRectTransform.rect.height);
-                }
-                else
-                {
-                    var y = upt.ui.parentRectTransform.rect.height +
-                            (listTransform.childCount - 5) *
-                            (upt.ui.prefabRectTransform.rect.height +
-                             upt.ui.thisVerticalLayoutGroup.spacing);
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
-                }
             }
 
             void UpdateCollectionUI()
             {
                 var active = upt.ui.collectionList.activeSelf;
-                upt.ui.thisVerticalLayoutGroup = upt.ui.collectionList.GetComponent<VerticalLayoutGroup>();
-                upt.ui.prefabRectTransform = upt.ui.collectionUIPrefab.GetComponent<RectTransform>();
-                upt.ui.parentRectTransform =
-                    upt.ui.collectionList.transform.parent.GetComponent<RectTransform>();
-                upt.ui.thisRectTransform = upt.ui.collectionList.GetComponent<RectTransform>();
                 if (!active) upt.ui.collectionList.SetActive(true);
 
                 var databaseStats = upt.ui.database.itemsDatabase.collections;
@@ -192,19 +152,6 @@ namespace EditorScript
                 var needDestroy = childCount - databaseStats.Length;
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                if (listTransform.childCount <= 2)
-                {
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x,
-                        upt.ui.parentRectTransform.rect.height);
-                }
-                else
-                {
-                    var y = upt.ui.parentRectTransform.rect.height +
-                            (listTransform.childCount - 2) *
-                            (upt.ui.prefabRectTransform.rect.height +
-                             upt.ui.thisVerticalLayoutGroup.spacing);
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
-                }
 
                 var j = 0;
                 foreach (var collection in databaseStats)
@@ -219,7 +166,7 @@ namespace EditorScript
                         }
                         catch (UnityException)
                         {
-                            var gameObject = Instantiate(upt.ui.itemUIPrefab, listTransform);
+                            var gameObject = Instantiate(upt.ui.itemIconUIPrefab, listTransform);
                             gameObject.transform.SetParent(listTransform);
                         }
 
@@ -235,32 +182,16 @@ namespace EditorScript
                     needDestroy = childCount - databaseStats[j].items.Length;
                     for (i = childCount; i > childCount - needDestroy; i--)
                         DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-
-
-                    var spacing = listTransform.GetComponent<GridLayoutGroup>();
-                    upt.ui.prefabRectTransform = upt.ui.itemUIPrefab.GetComponent<RectTransform>();
-                    upt.ui.thisRectTransform = listTransform.GetComponent<RectTransform>();
-                    var count = listTransform.childCount;
-                    var y = Mathf.Ceil((float) count / 3) *
-                        (upt.ui.prefabRectTransform.rect.height + spacing.spacing.y) + spacing.padding.top;
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
-                    j++;
                 }
             }
 
-            void UpdatePremiumCollectionUI()
+            void UpdateAchievementUI()
             {
             var active = upt.ui.achievementsList.activeSelf;
-                upt.ui.thisVerticalLayoutGroup =
-                    upt.ui.achievementsList.GetComponent<VerticalLayoutGroup>();
-                upt.ui.prefabRectTransform = upt.ui.upgradeUIPrefab.GetComponent<RectTransform>();
-                upt.ui.parentRectTransform =
-                    upt.ui.achievementsList.transform.parent.GetComponent<RectTransform>();
-                upt.ui.thisRectTransform = upt.ui.achievementsList.GetComponent<RectTransform>();
-                if (!active) upt.ui.achievementsList.SetActive(true);
+            if (!active) upt.ui.achievementsList.SetActive(true);
 
-                var databaseStats = upt.ui.database.premiumUpgradeDatabase.stats;
-                var listTransform = upt.ui.premiumUpgradeList.transform;
+                var databaseStats = upt.ui.database.achievementDatabase.achievements;
+                var listTransform = upt.ui.achievementsList.transform;
                 var i = 0;
                 foreach (var unused in databaseStats)
                 {
@@ -270,15 +201,15 @@ namespace EditorScript
                     }
                     catch (UnityException)
                     {
-                        var newUpgrade = Instantiate(upt.ui.upgradeUIPrefab, listTransform);
+                        var newUpgrade = Instantiate(upt.ui.itemIconUIPrefab, listTransform);
                         newUpgrade.transform.SetParent(listTransform);
                     }
 
-                    listTransform.GetChild(i).name = databaseStats[i].upgradeName;
-                    listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeName").GetComponent<TMP_Text>().text =
-                        databaseStats[i].upgradeName;
-                    listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>()
-                        .text = databaseStats[i].upgradeDescription;
+                    listTransform.GetChild(i).name = databaseStats[i].achievementName; 
+                    listTransform.GetChild(i).GetComponentInChildren<Image>().sprite =
+                        databaseStats[i].icon;
+                    listTransform.GetChild(i).GetChild(0).GetComponentInChildren<Image>().color =
+                        new Color(0.22f, 0.22f, 0.22f);
                     i++;
                 }
 
@@ -286,21 +217,7 @@ namespace EditorScript
                 var needDestroy = childCount - databaseStats.Length;
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
-                if (listTransform.childCount <= 5)
-                {
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x,
-                        upt.ui.parentRectTransform.rect.height);
-                }
-                else
-                {
-                    var y = upt.ui.parentRectTransform.rect.height +
-                            (listTransform.childCount - 5) *
-                            (upt.ui.prefabRectTransform.rect.height +
-                             upt.ui.thisVerticalLayoutGroup.spacing);
-                    upt.ui.thisRectTransform.sizeDelta = new Vector2(upt.ui.thisRectTransform.sizeDelta.x, y);
-                }
-        }
-
+            }
             #endregion
         }
         

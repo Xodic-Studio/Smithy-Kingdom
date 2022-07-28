@@ -48,7 +48,8 @@ namespace EditorScript
                 EditorGUILayout.Space();
                 GUILayout.Label("Collections", EditorStyles.boldLabel);
                 GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
-                if (GUILayout.Button("CollectiblesMenu",GUILayout.Width(150))) nav.ui.OpenCollectiblesMenu();
+                if (GUILayout.Button("CollectionMenu",GUILayout.Width(150))) nav.ui.OpenCollectionMenu();
+                if (GUILayout.Button("AchievementMenu",GUILayout.Width(150))) nav.ui.OpenAchievementMenu();
                 GUILayout.EndHorizontal();
             
                 EditorGUILayout.Space();

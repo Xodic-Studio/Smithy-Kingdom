@@ -13,27 +13,31 @@ MonoBehaviour:
   m_Name: AchievementDatabase
   m_EditorClassIdentifier: 
   achievements:
-  - name: 1
+  - achievementName: 1
     description: 
     icon: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
-    isUnlocked: 0
+    isUnlocked: 1
+    dateAchieved: 
     progress: 0
     requirement: 0
-  - name: 2
+  - achievementName: 2
     description: 
     icon: {fileID: 21300000, guid: 484ae75aa2838184981c2faaea21aa54, type: 3}
-    isUnlocked: 0
+    isUnlocked: 1
+    dateAchieved: 
     progress: 0
     requirement: 0
-  - name: 3
+  - achievementName: 3
     description: 
     icon: {fileID: 21300000, guid: 39bacdf64a415134487b50b49c13a852, type: 3}
     isUnlocked: 0
+    dateAchieved: 
     progress: 0
     requirement: 0
-  - name: 4
+  - achievementName: 4
     description: 
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
+    dateAchieved: 
     progress: 0
     requirement: 0
