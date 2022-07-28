@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewDatabase", menuName = "Game/Database/Achievement")]
-public class AchienvementDatabase : ScriptableObject
+public class AchievementDatabase : ScriptableObject
 {
     public Achievement[] achievements;
 }
@@ -10,10 +10,11 @@ public class AchienvementDatabase : ScriptableObject
 [Serializable]
 public class Achievement
 {
-    public string name;
+    public string achievementName;
     public string description;
     public Sprite icon;
     public bool isUnlocked;
+    public string dateAchieved;
     public int progress;
     public int requirement;
 }

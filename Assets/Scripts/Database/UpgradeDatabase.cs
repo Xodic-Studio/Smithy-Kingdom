@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +6,6 @@ using UnityEngine.Events;
 public class UpgradeDatabase : ScriptableObject
 {
     public UpgradesStats[] stats;
-    
 }
 
 [Serializable]

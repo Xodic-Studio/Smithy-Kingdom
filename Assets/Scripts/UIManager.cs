@@ -31,6 +31,7 @@ public class UIManager : Singleton<UIManager>
         AddMenuButtons();
         OreSelectionStart();
         OverlayStart();
+        CollectiblesStart();
     }
 
     /// <summary>
@@ -106,7 +107,7 @@ public class UIManager : Singleton<UIManager>
     private void AddMenuButtons()
     {
         upgradeMenuButton.onClick.AddListener(OpenUpgradeMenu);
-        collectiblesMenuButton.onClick.AddListener(OpenCollectiblesMenu);
+        collectiblesMenuButton.onClick.AddListener(OpenCollectionMenu);
         premiumMenuButton.onClick.AddListener(OpenPremiumMenu);
         settingsMenuButton.onClick.AddListener(OpenSettingsMenu);
         oreSelectButton.onClick.AddListener(OpenOreMenu);
@@ -175,14 +176,26 @@ public class UIManager : Singleton<UIManager>
     ///     Open Collectibles Menu Function
     ///     Open Collectibles Menu, Close Other Menu and Close Base UI
     /// </summary>
-    public void OpenCollectiblesMenu()
+    public void OpenCollectionMenu()
     {
         CheckCanvas();
         CloseAllMenus();
         collectiblesMenu.SetActive(true);
+        TabCollectionMenu();
         #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         #endif
+    }
+ 
+    /// <summary>
+    /// open an Achievement Menu
+    /// </summary>
+    public void OpenAchievementMenu()
+    {
+        CheckCanvas();
+        CloseAllMenus();
+        collectiblesMenu.SetActive(true);
+        TabAchievementMenu();
     }
 
     /// <summary>
@@ -194,10 +207,10 @@ public class UIManager : Singleton<UIManager>
         CheckCanvas();
         CloseAllMenus();
         premiumMenu.SetActive(true);
+        OpenGachaMenu();
         #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         #endif
-        OpenGachaMenu();
     }
 
     /// <summary>
@@ -254,7 +267,7 @@ public class UIManager : Singleton<UIManager>
     /// <summary>
     /// Close All Menus
     /// </summary>
-    public void CloseAllMenus()
+    private void CloseAllMenus()
     {
         prestigeMenuPanel.SetActive(false);
         oreSelectionPanel.SetActive(false);
@@ -262,6 +275,13 @@ public class UIManager : Singleton<UIManager>
         collectiblesMenu.SetActive(false);
         premiumMenu.SetActive(false);
         settingsMenu.SetActive(false);
+        
+        normalUpgradePanel.SetActive(false);
+        premiumUpgradePanel.SetActive(false);
+        collectionMenuPanel.SetActive(false);
+        achievementMenuPanel.SetActive(false);
+        gachaMenuPanel.SetActive(false);
+        packageMenuPanel.SetActive(false);
     }
     
     
@@ -401,7 +421,7 @@ public class UIManager : Singleton<UIManager>
 
     #region Upgrades
 
-    [Header("Upgrades Tab")] public ScrollRect upgradesScrollRect;
+    [Header("Upgrades Tab")] public ScrollRect mainScrollRect;
     public Button normalUpgradeButton;
     public Button premiumUpgradeButton;
     public GameObject normalUpgradePanel;
@@ -436,7 +456,7 @@ public class UIManager : Singleton<UIManager>
     {
         normalUpgradePanel.SetActive(true);
         premiumUpgradePanel.SetActive(false);
-        upgradesScrollRect.content = _normalRectTransform;
+        mainScrollRect.content = _normalRectTransform;
     }
 
     /// <summary>
@@ -446,7 +466,7 @@ public class UIManager : Singleton<UIManager>
     {
         normalUpgradePanel.SetActive(false);
         premiumUpgradePanel.SetActive(true);
-        upgradesScrollRect.content = _premiumRectTransform;
+        mainScrollRect.content = _premiumRectTransform;
     }
     
     /// <summary>
@@ -474,7 +494,41 @@ public class UIManager : Singleton<UIManager>
     #region Collectibles
 
     [Header("Collectibles Tab")]
-    public ScrollRect collectiblesScrollRect;
+    public Button achievementButton;
+    public Button collectibleButton;
+    public GameObject achievementMenuPanel;
+    public GameObject collectionMenuPanel;
+    
+    private RectTransform _collectiblesRectTransform;
+    private RectTransform _achievementRectTransform;
+    
+    void CollectiblesStart()
+    {
+        _collectiblesRectTransform = collectionMenuPanel.GetComponent<RectTransform>();
+        _achievementRectTransform = achievementMenuPanel.GetComponent<RectTransform>();
+        AddCollectibleButtons();
+    }
+    
+    void AddCollectibleButtons()
+    {
+        collectibleButton.onClick.AddListener(TabCollectionMenu);
+        achievementButton.onClick.AddListener(TabAchievementMenu);
+    }
+    
+    
+    void TabAchievementMenu()
+    {
+        achievementMenuPanel.SetActive(true);
+        collectionMenuPanel.SetActive(false);
+        mainScrollRect.content = _achievementRectTransform;
+    }
+    
+    void TabCollectionMenu()
+    {
+        achievementMenuPanel.SetActive(false);
+        collectionMenuPanel.SetActive(true);
+        mainScrollRect.content = _collectiblesRectTransform;
+    }
 
 
     #endregion
@@ -563,15 +617,9 @@ public class UIManager : Singleton<UIManager>
     public GameObject upgradeList;
     public GameObject premiumUpgradeList;
     public GameObject upgradeUIPrefab;
-
-    public RectTransform thisRectTransform;
-    public RectTransform parentRectTransform;
-    public RectTransform prefabRectTransform;
-    public VerticalLayoutGroup thisVerticalLayoutGroup;
-
     public GameObject collectionList;
     public GameObject collectionUIPrefab;
-    public GameObject itemUIPrefab;
+    public GameObject itemIconUIPrefab;
     
     public GameObject achievementsList;
     #endregion
