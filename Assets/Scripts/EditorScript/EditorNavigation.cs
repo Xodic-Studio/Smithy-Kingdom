@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Manager;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

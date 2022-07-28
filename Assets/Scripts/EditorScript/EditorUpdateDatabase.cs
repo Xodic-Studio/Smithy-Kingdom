@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Manager;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;

@@ -1,5 +1,6 @@
 using System.Collections;
 using GameDatabase;
+using Manager;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
@@ -87,15 +88,19 @@ public class Ore : Singleton<Ore>
         CheckHardness();
     }
     
-    void DisableButtonIfNoNextOre()
+    public void DisableButtonIfNoNextOre()
     {
         if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
         {
             _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
-        else if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+        if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
         {
             _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
+        }
+        if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked && tempSelectOreIndex + 1 <= oreDatabase.ores.Length - 1)
+        {
+            _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
         }
     }
     
