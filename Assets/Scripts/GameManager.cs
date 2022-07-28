@@ -1,5 +1,5 @@
-using System;
 using System.Collections;
+using GameDatabase;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager>
     private int _clickPerSec;
     private int _click;
     
+    private static readonly int Click = Animator.StringToHash("Click");
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int Hit = Animator.StringToHash("Hit");
 
@@ -53,27 +54,32 @@ public class GameManager : Singleton<GameManager>
     {
         _cpsTimer += Time.deltaTime;
         _damageTextTimer += Time.deltaTime;
+        if (_cpsTimer > 0.1f)
+        {
+            smithy.SetFloat(Click, _click);
+        }
         if (_cpsTimer > 1)
         {
             _clickPerSec = _click;
-            _click = 0;
+            smithy.SetFloat(Speed,CpsToSpeed(_clickPerSec));
             _cpsTimer = 0;
-            if (_clickPerSec is < 10 and > 5)
-            {
-                smithy.SetFloat(Speed, 1.25f);
-                anvil.SetFloat(Speed, 1.25f);
-            } else if (_clickPerSec > 10)
-            {
-                smithy.SetFloat(Speed, 1.5f);
-                anvil.SetFloat(Speed, 1.5f);
-            }
-            else
-            {
-                smithy.SetFloat(Speed, 1f);
-                anvil.SetFloat(Speed, 1f);
-            }
         }
     }
+
+    void RemoveClicks()
+    {
+        _click--;
+    }
+    float CpsToSpeed(int cps)
+    {
+        if (cps > 3)
+        {
+            return 1.25f;
+        }
+        return 1f;
+    }
+    
+    
     
     //Instantiate Damage text
     private void AddDamageText(string text)
@@ -117,8 +123,9 @@ public class GameManager : Singleton<GameManager>
             CombineDamageText();
             smithy.SetTrigger(Hit);
             anvil.SetTrigger(Hit);
-            _click +=5;
+            _click +=1;
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+            Invoke(nameof(RemoveClicks), 1f);
         }
     }
 
