@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-public class EquipmentDropTest : MonoBehaviour
+public class EquipmentDrop : MonoBehaviour
 {
     [SerializeField] private GameObject equipmentDropPrefab;
     [SerializeField] public Transform dropZone;
@@ -12,15 +12,17 @@ public class EquipmentDropTest : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(EquipmentDropTest))]
-public class DropTest : Editor
+[CustomEditor(typeof(EquipmentDrop))]
+public class NormalDrop : Editor
 {
     public override void OnInspectorGUI()
     {
+        GUILayout.Label("Normal Drop", EditorStyles.boldLabel);
+
         DrawDefaultInspector();
-        
-        var equipment = (EquipmentDropTest) target;
-        
+
+        var equipment = (EquipmentDrop) target;
+
         if (GUILayout.Button("Spawn"))
         {
             equipment.Spawn();
