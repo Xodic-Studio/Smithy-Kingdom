@@ -212,9 +212,9 @@ namespace EditorScript
                     }
 
                     listTransform.GetChild(i).name = databaseStats[i].achievementName; 
-                    listTransform.GetChild(i).GetComponentInChildren<Image>().sprite =
+                    listTransform.GetChild(i).GetChild(0).GetComponent<Image>().sprite =
                         databaseStats[i].icon;
-                    listTransform.GetChild(i).GetChild(0).GetComponentInChildren<Image>().color =
+                    listTransform.GetChild(i).GetChild(0).GetComponent<Image>().color =
                         new Color(0.22f, 0.22f, 0.22f);
                     i++;
                 }
