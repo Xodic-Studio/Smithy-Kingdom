@@ -21,6 +21,7 @@ public class EquipmentDrop : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(EquipmentDrop))]
 public class NormalDrop : Editor
 {
@@ -42,3 +43,4 @@ public class NormalDrop : Editor
         }
     }
 }
+#endif
