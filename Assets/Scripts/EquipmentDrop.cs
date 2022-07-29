@@ -15,8 +15,8 @@ public class EquipmentDrop : MonoBehaviour
         else if (dropType == "First")
         {
             string firstDrop = "First Drop";
-            GameObject drop = Instantiate(equipmentDropPrefab, new Vector3(-0.2f,-3.27f,0), Quaternion.identity ,dropZone);
-            drop.GetComponent<Animator>().SetBool(firstDrop, true);
+            GameObject equipmentFirstDrop = Instantiate(equipmentDropPrefab, new Vector3(-0.2f,-3.27f,0), Quaternion.identity ,dropZone);
+            equipmentFirstDrop.GetComponent<Animator>().SetTrigger(firstDrop);
         }
     }
 }

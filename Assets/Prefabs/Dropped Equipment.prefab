@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 6289010515943889868}
   - component: {fileID: 1153837098662523908}
   - component: {fileID: 3870747164225213192}
+  - component: {fileID: 3231722718081860958}
   m_Layer: 0
   m_Name: Dissolve Particle
   m_TagString: Untagged
@@ -483,7 +484,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -536,7 +537,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -589,7 +590,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -807,7 +808,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -1
+      scalar: -3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -860,7 +861,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -5011,6 +5012,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!210 &3231722718081860958
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413481316674077987}
+  m_Enabled: 1
+  m_SortingLayerID: -271893035
+  m_SortingLayer: 3
+  m_SortingOrder: 8
 --- !u!1 &7346306523149529050
 GameObject:
   m_ObjectHideFlags: 0
