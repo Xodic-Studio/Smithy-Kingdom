@@ -146,8 +146,7 @@ namespace Manager
         {
             overrideCanvas.SetActive(false);
             baseCanvas.SetActive(true);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
-
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
         }
 
         /// <summary>

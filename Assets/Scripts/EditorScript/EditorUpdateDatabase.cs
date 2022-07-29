@@ -49,6 +49,11 @@ namespace EditorScript
                 upt.ui.OpenAchievementMenu();
                 UpdateAchievementUI();
             }
+            
+            if (GUILayout.Button("Reset All",GUILayout.Width(250)))
+            {
+                ResetAllDatabase();
+            }
 
             #region UpdateUI
 
@@ -219,9 +224,14 @@ namespace EditorScript
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
             }
+
+            void ResetAllDatabase()
+            {
+                upt.ui.database.itemsDatabase.ResetDatabase();
+                upt.ui.database.oresDatabase.ResetDatabase();
+            }
             #endregion
         }
-        
     }
 }
 #endif

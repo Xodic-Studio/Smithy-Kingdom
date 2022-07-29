@@ -7,6 +7,19 @@ namespace GameDatabase
     public class ItemDatabase : ScriptableObject
     {
         public ItemCollection[] collections;
+
+        public void ResetDatabase()
+        {
+            foreach (var itemCollection in collections)
+            {
+                foreach (var item in itemCollection.items)
+                {
+                    item.isUnlocked = false;
+                    item.itemFirstForged = "";
+                    item.timesForged = 0;
+                }
+            }
+        }
     }
 
     [Serializable]
