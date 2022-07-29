@@ -11,7 +11,7 @@ public class CutsceneManager : MonoBehaviour
 
     IEnumerator LoadMainGame()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.1f);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Scenes/Main Scene");
         while (!asyncLoad.isDone)
         {

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6872c737ebcc23c418cab9ea8e61b397, type: 3}
   m_Name: Database
   m_EditorClassIdentifier: 
-  databaseType: 0
   upgradeDatabase: {fileID: 11400000, guid: cdf7adc16fd89fd488bdd198c85419e7, type: 2}
   premiumUpgradeDatabase: {fileID: 11400000, guid: 137a611bb59f41f47bf0c352e1ceb47a, type: 2}
   itemsDatabase: {fileID: 11400000, guid: 95b73da35a684b64caecb0404fbeb5ac, type: 2}
+  achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   oresDatabase: {fileID: 11400000, guid: 069f2294d8501304890dde13a717c10c, type: 2}

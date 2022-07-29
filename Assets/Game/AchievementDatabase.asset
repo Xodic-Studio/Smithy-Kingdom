@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ff37604d4d84644b63387e86454bf0, type: 3}
+  m_Name: AchievementDatabase
+  m_EditorClassIdentifier: 
+  achievements:
+  - achievementName: 1
+    description: 
+    icon: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+    isUnlocked: 1
+    dateAchieved: 
+    progress: 0
+    requirement: 0
+  - achievementName: 2
+    description: 
+    icon: {fileID: 21300000, guid: 484ae75aa2838184981c2faaea21aa54, type: 3}
+    isUnlocked: 1
+    dateAchieved: 
+    progress: 0
+    requirement: 0
+  - achievementName: 3
+    description: 
+    icon: {fileID: 21300000, guid: 39bacdf64a415134487b50b49c13a852, type: 3}
+    isUnlocked: 0
+    dateAchieved: 
+    progress: 0
+    requirement: 0
+  - achievementName: 4
+    description: 
+    icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
+    isUnlocked: 0
+    dateAchieved: 
+    progress: 0
+    requirement: 0

@@ -534,6 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundDatabase: {fileID: 11400000, guid: 646daa045d5cc8447a6eb9a846968113, type: 2}
+  masterVolume: 1
+  musicVolume: 1
+  sfxVolume: 1
   EffectsSource: {fileID: 1141028025}
   MusicSource: {fileID: 1141028025}
   LowPitchRange: 0.95
@@ -558,7 +561,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

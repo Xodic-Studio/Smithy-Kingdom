@@ -1,7 +1,9 @@
-using System;
 using System.Collections;
+using GameDatabase;
+using Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -10,21 +12,24 @@ public class GameManager : Singleton<GameManager>
     private Ore _ore;
     private UIManager _uiManager;
     private SoundManager _soundManager;
-    
-    public GameObject damageGameObject;
+
+    private int _hammerDamage = 1;
+    private int _hammerDamageCombined;
+    private float _damageTextTimer;
+    private float _cpsTimer;
+    private float _cps;
+    private float _lastTime;
+    private bool _isClicking;
 
     [SerializeField] private float money;
     [SerializeField] private float gems;
+    [SerializeField] private MailDatabase mailDatabase;
 
     public Animator smithy;
     public Animator anvil;
-    
-    private int _hammerDamage = 1;
-    private float _damageTextTimer;
-    private float _cpsTimer;
-    private int _clickPerSec;
-    private int _click;
-    
+    public GameObject damageGameObject;
+
+    private static readonly int Click = Animator.StringToHash("Click");
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int Hit = Animator.StringToHash("Hit");
 
@@ -37,9 +42,12 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
+        _soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
+        Invoke(nameof(MailTimer),Random.Range(1,2));
+        ResetIsClicking();
+        _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
 
     private void Update()
@@ -53,24 +61,63 @@ public class GameManager : Singleton<GameManager>
         _damageTextTimer += Time.deltaTime;
         if (_cpsTimer > 1)
         {
-            _clickPerSec = _click;
-            _click = 0;
-            _cpsTimer = 0;
-            if (_clickPerSec is < 10 and > 5)
-            {
-                smithy.SetFloat(Speed, 1.25f);
-                anvil.SetFloat(Speed, 1.25f);
-            } else if (_clickPerSec > 10)
-            {
-                smithy.SetFloat(Speed, 1.5f);
-                anvil.SetFloat(Speed, 1.5f);
-            }
-            else
-            {
-                smithy.SetFloat(Speed, 1f);
-                anvil.SetFloat(Speed, 1f);
-            }
+            smithy.SetFloat(Speed,CpsToSpeed((int) _cps));
         }
+    }
+
+    void ResetIsClicking()
+    {
+        Debug.Log("ResetIsClicking");
+        if (!_isClicking)
+        {
+            smithy.SetFloat(Click,0);
+        }
+        _isClicking = false;
+        Invoke(nameof(ResetIsClicking),1f);
+    }
+    
+    void MailTimer()
+    {
+        _uiManager.AddNewMail(mailDatabase.GetRandomMail());
+        Invoke(nameof(MailTimer),Random.Range(180,301));
+    }
+
+    public void MailReward()
+    {
+        var rewardCurrentCoin = money * 0.15f;
+        var rewardCps = _cps * 900;
+        ModifyMoney(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin);
+    }
+    
+    float CpsToSpeed(int cps)
+    {
+        if (cps > 3)
+        {
+            return 1.25f;
+        }
+        return 1f;
+    }
+    
+    public bool HasMoney(int amount)
+    {
+        if (GetMoney() < amount)
+        {
+            _uiManager.NotEnoughMoney();
+            return false;
+        }
+        ModifyMoney(-amount);
+        return true;
+    }
+    
+    public bool HasGems(int amount)
+    {
+        if (GetGems() < amount)
+        {
+            _uiManager.NotEnoughGems();
+            return false;
+        }
+        ModifyGems(-amount);
+        return true;
     }
     
     //Instantiate Damage text
@@ -86,6 +133,7 @@ public class GameManager : Singleton<GameManager>
             goRect.SetParent(_uiManager.GetCanvas().transform, true);
             StartCoroutine(FloatDelayDestroy(goRect, goText));
             _damageTextTimer = 0;
+            _hammerDamageCombined = 0;
             goRect.localScale = new Vector3(1, 1, 1);
         }
     }
@@ -107,12 +155,26 @@ public class GameManager : Singleton<GameManager>
     //Hitting Function
     private void TapTap()
     {
-        _ore.ModifyHardness(_hammerDamage);
-        AddDamageText(_hammerDamage.ToString());
-        smithy.SetTrigger(Hit);
-        anvil.SetTrigger(Hit);
-        _click +=5;
-        _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+        if (!_ore.GetIsDroppingItem())
+        {
+            _ore.ModifyHardness(_hammerDamage);
+            _hammerDamageCombined += _hammerDamage;
+            CombineDamageText();
+            smithy.SetTrigger(Hit);
+            anvil.SetTrigger(Hit);
+            float currentTime = Time.time;
+            float diff = currentTime - _lastTime;
+            _lastTime = currentTime;
+            _cps = 1f / diff;
+            smithy.SetFloat(Click, _cps);
+            _isClicking = true;
+            _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+        }
+    }
+
+    private void CombineDamageText()
+    {
+        AddDamageText(_hammerDamageCombined.ToString());
     }
 
 
@@ -145,9 +207,18 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateGemText();
     }
     
+    public void ModifyHammerDamage(int amount)
+    {
+        _hammerDamage += amount;
+        if (_hammerDamage <= 1)
+        {
+            _hammerDamage = 1;
+        }
+    }
+    
     public void ModifyMoney(float amount)
     {
-        money += amount;
+        money += Mathf.Round(amount);
         _uiManager.UpdateMoneyText();
     }
     

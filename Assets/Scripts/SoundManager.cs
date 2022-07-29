@@ -1,4 +1,5 @@
 
+using GameDatabase;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -66,7 +67,7 @@ public class SoundManager : Singleton<SoundManager>
     public void UpdateMusicVolume()
     {
         MusicSource.volume = fixedVolume * masterVolume * musicVolume;
+        
     }
-    
 }
 

@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Manager;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -48,7 +49,8 @@ namespace EditorScript
                 EditorGUILayout.Space();
                 GUILayout.Label("Collections", EditorStyles.boldLabel);
                 GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
-                if (GUILayout.Button("CollectiblesMenu",GUILayout.Width(150))) nav.ui.OpenCollectiblesMenu();
+                if (GUILayout.Button("CollectionMenu",GUILayout.Width(150))) nav.ui.OpenCollectionMenu();
+                if (GUILayout.Button("AchievementMenu",GUILayout.Width(150))) nav.ui.OpenAchievementMenu();
                 GUILayout.EndHorizontal();
             
                 EditorGUILayout.Space();
@@ -56,7 +58,7 @@ namespace EditorScript
                 GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
                 if (GUILayout.Button("PremiumMenu")) nav.ui.OpenPremiumMenu();
                 if (GUILayout.Button("SettingsMenu")) nav.ui.OpenSettingsMenu();
-                if (GUILayout.Button("OreMenu")) nav.ui.OpenOreMenu();
+                if (GUILayout.Button("OreMenu")) nav.ui.OpenNormalOreMenu();
                 if (GUILayout.Button("PrestigeMenu")) nav.ui.OpenPrestigeMenu();
                 GUILayout.EndHorizontal();
             }
