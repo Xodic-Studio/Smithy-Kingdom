@@ -333,9 +333,9 @@ namespace Manager
         [SerializeField] public Button previousOreButton;
         [SerializeField] public Button nextOreButton;
         [SerializeField] public GameObject confirmOreButtonGo;
-        private Button _confirmOreButton;
-        private Image _confirmOreButtonImage;
-        private TMP_Text _confirmOreButtonText;
+        public Button ConfirmOreButton { get; private set; }
+        public Image ConfirmOreButtonImage { get; private set; }
+        public TMP_Text ConfirmOreButtonText { get; private set; }
         
         /// <summary>
         ///     Start Method Of the Ore Selection UI
@@ -344,10 +344,10 @@ namespace Manager
         {
             normalOreButton.onClick.AddListener(TapNormalOreMenu);
             premiumOreButton.onClick.AddListener(TapPremiumOreMenu);
-            _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
-            _confirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
-            _confirmOreButton = confirmOreButtonGo.GetComponent<Button>();
-            _confirmOreButton.onClick.AddListener(SelectOre);
+            ConfirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
+            ConfirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
+            ConfirmOreButton = confirmOreButtonGo.GetComponent<Button>();
+            ConfirmOreButton.onClick.AddListener(SelectOre);
             nextOreButton.onClick.AddListener(PreviewNextOre);
             previousOreButton.onClick.AddListener(PreviewPreviousOre);
             UpdateOreDetails();
@@ -363,12 +363,12 @@ namespace Manager
             oreDescription.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreDescription;
             if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
             {
-                _confirmOreButton.interactable = false;
-                _confirmOreButtonText.text = "Selected";
+                ConfirmOreButton.interactable = false;
+                ConfirmOreButtonText.text = "Selected";
             }
             else
             {
-                _confirmOreButtonText.text = "Select";
+                ConfirmOreButtonText.text = "Select";
             }
         }
 

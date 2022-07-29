@@ -66,14 +66,14 @@ public class Ore : Singleton<Ore>
         {
             if (!oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                _uiManager.oreImageBody.GetComponent<Image>().color = Color.gray;
-                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = false;
-                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.gray;
+                _uiManager.oreImageBody.color = Color.gray;
+                _uiManager.ConfirmOreButton.interactable = false;
+                _uiManager.ConfirmOreButtonImage.color = Color.gray;
             } else if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                _uiManager.oreImageBody.GetComponent<Image>().color = Color.white;
-                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = true;
-                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.white;
+                _uiManager.oreImageBody.color = Color.white;
+                _uiManager.ConfirmOreButton.interactable = true;
+                _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex--;
             DisableButtonIfNoNextOre();
@@ -82,14 +82,14 @@ public class Ore : Singleton<Ore>
         {
             if (!oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                _uiManager.oreImageBody.GetComponent<Image>().color = Color.gray;
-                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = false;
-                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.gray;
+                _uiManager.oreImageBody.color = Color.gray;
+                _uiManager.ConfirmOreButton.interactable = false;
+                _uiManager.ConfirmOreButtonImage.color = Color.gray;
             } else if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                _uiManager.oreImageBody.GetComponent<Image>().color = Color.white;
-                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = true;
-                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.white;
+                _uiManager.oreImageBody.color = Color.white;
+                _uiManager.ConfirmOreButton.interactable = true;
+                _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex++;
             DisableButtonIfNoNextOre();
