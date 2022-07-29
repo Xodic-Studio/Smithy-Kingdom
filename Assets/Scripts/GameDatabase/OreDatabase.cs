@@ -8,6 +8,18 @@ namespace GameDatabase
         {
                 public OreStats[] ores;
                 public OreStats[] premiumOres;
+                
+                public void ResetDatabase()
+                {
+                        foreach (var ore in ores) 
+                        {
+                                ore.isUnlocked = false;
+                        }
+                        foreach (var ore in premiumOres) 
+                        {
+                                ore.isUnlocked = false;
+                        }
+                }
         }
     
         [Serializable]
