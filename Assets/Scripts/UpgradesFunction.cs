@@ -11,7 +11,7 @@ public class UpgradesFunction : MonoBehaviour
     GameManager _gameManager;
     UIManager _uiManager;
     SoundManager _soundManager;
-    int _oreUpgradeLevel;
+    int _oreUpgradeLevel = 1;
     
     [Header("Upgrade Function Database")]
     public UpgradeFunction[] upgradeFunctionList;
@@ -50,13 +50,17 @@ public class UpgradesFunction : MonoBehaviour
 
     public void UpgradeOre()
     {
-        if (_oreUpgradeLevel + 1 <= _ore.oreDatabase.ores.Length && _gameManager.HasMoney(1000) )
+        if (_oreUpgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            _ore.oreDatabase.ores[_oreUpgradeLevel+1].isUnlocked = true;
-            _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
-            _oreUpgradeLevel++;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            if (_gameManager.HasMoney(1000) )
+            {
+                _ore.oreDatabase.ores[_oreUpgradeLevel].isUnlocked = true;
+                _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
+                _oreUpgradeLevel++;
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            }
         }
+        
     }
     
     public void ChangeHammerDamage(int damage)

@@ -242,12 +242,11 @@ namespace Manager
             CloseAllMenus();
             oreSelectionPanel.SetActive(true);
             RemoveNotification(NotificationType.Ore, oreNotificationCount);
-            _ore.DisableButtonIfNoNextOre();
             TapNormalOreMenu();
-#if !UNITY_EDITOR
-        _ore.tempSelectOreIndex = _ore.selectedOreIndex;
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _ore.tempSelectOreIndex = _ore.selectedOreIndex;
+            UpdateOreDetails();
+            _ore.DisableButtonIfNoNextOre();
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         public void OpenPremiumOreMenu()
@@ -256,8 +255,11 @@ namespace Manager
             CloseAllMenus();
             oreSelectionPanel.SetActive(true);
             RemoveNotification(NotificationType.Ore, oreNotificationCount);
-            _ore.DisableButtonIfNoNextOre();
             TapPremiumOreMenu();
+            _ore.tempSelectOreIndex = _ore.selectedOreIndex;
+            UpdateOreDetails();
+            _ore.DisableButtonIfNoNextOre();
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -335,7 +337,7 @@ namespace Manager
         [SerializeField] public GameObject confirmOreButtonGo;
         public Button ConfirmOreButton { get; private set; }
         public Image ConfirmOreButtonImage { get; private set; }
-        public TMP_Text ConfirmOreButtonText { get; private set; }
+        private TMP_Text _confirmOreButtonText;
         
         /// <summary>
         ///     Start Method Of the Ore Selection UI
@@ -344,7 +346,7 @@ namespace Manager
         {
             normalOreButton.onClick.AddListener(TapNormalOreMenu);
             premiumOreButton.onClick.AddListener(TapPremiumOreMenu);
-            ConfirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
+            _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
             ConfirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
             ConfirmOreButton = confirmOreButtonGo.GetComponent<Button>();
             ConfirmOreButton.onClick.AddListener(SelectOre);
@@ -364,11 +366,11 @@ namespace Manager
             if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
             {
                 ConfirmOreButton.interactable = false;
-                ConfirmOreButtonText.text = "Selected";
+                _confirmOreButtonText.text = "Selected";
             }
             else
             {
-                ConfirmOreButtonText.text = "Select";
+                _confirmOreButtonText.text = "Select";
             }
         }
 
