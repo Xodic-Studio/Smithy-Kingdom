@@ -25,7 +25,7 @@ MonoBehaviour:
     oreSprite: {fileID: -3493072497675621609, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
     currentHardness: 10
-    isUnlocked: 0
+    isUnlocked: 1
     amount: 0
     defaultHardness: 10
     isPremium: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     oreSprite: {fileID: 7335791901510154770, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 100
-    isUnlocked: 0
+    isUnlocked: 1
     amount: 0
     defaultHardness: 100
     isPremium: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
     oreSprite: {fileID: 1230744243681666068, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 72
-    isUnlocked: 0
+    isUnlocked: 1
     amount: 0
     defaultHardness: 100
     isPremium: 0
@@ -49,61 +49,61 @@ MonoBehaviour:
     oreSprite: {fileID: -5526838226132740138, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
     currentHardness: 87
-    isUnlocked: 0
+    isUnlocked: 1
     amount: 0
     defaultHardness: 100
     isPremium: 0
   - oreName: Adamantine Ore
     oreSprite: {fileID: -5734555445424563448, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 87
-    isUnlocked: 0
+    currentHardness: 100
+    isUnlocked: 1
     amount: 0
     defaultHardness: 100
     isPremium: 0
   premiumOres:
   - oreName: Premium1
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 10
     defaultHardness: 0
     isPremium: 1
   - oreName: Premium2
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 9
     defaultHardness: 0
     isPremium: 1
   - oreName: Premium3
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 7
     defaultHardness: 0
     isPremium: 1
   - oreName: Premium4
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 10
     defaultHardness: 0
     isPremium: 1
   - oreName: Premium5
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 8
     defaultHardness: 0
     isPremium: 1
   - oreName: Premium6
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
     oreDescription: 
     currentHardness: 0
     isUnlocked: 0

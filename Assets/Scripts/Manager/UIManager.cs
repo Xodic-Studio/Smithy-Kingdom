@@ -146,9 +146,8 @@ namespace Manager
         {
             overrideCanvas.SetActive(false);
             baseCanvas.SetActive(true);
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
+
         }
 
         /// <summary>
@@ -160,9 +159,8 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             upgradeMenu.SetActive(true);
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+
             TapNormalUpgradePanel();
         }
 
@@ -187,9 +185,8 @@ namespace Manager
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
             TapCollectionMenu();
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+
         }
  
         /// <summary>
@@ -213,9 +210,8 @@ namespace Manager
             CloseAllMenus();
             premiumMenu.SetActive(true);
             OpenGachaMenu();
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+
         }
 
         /// <summary>
@@ -227,9 +223,7 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             settingsMenu.SetActive(true);
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -271,9 +265,7 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             prestigeMenuPanel.SetActive(true);
-#if !UNITY_EDITOR
-        _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
-#endif
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -460,6 +452,35 @@ namespace Manager
         {
             AssignPopupValue("Not Enough Gems", "You don't have enough gems to buy this", denySprite);
             OpenPopup();
+        }
+        
+        [Header("GachaResults")]
+        public GameObject gachaResultsPanel;
+        public GameObject gachaResultsList;
+        public GameObject gachaResultsPrefab;
+        
+        public void AddRewardImage(Sprite sprite)
+        {
+            GameObject rewardImage = Instantiate(gachaResultsPrefab, gachaResultsList.transform);
+            rewardImage.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+        }
+        
+        public void OpenGachaResults()
+        {
+            gachaResultsPanel.SetActive(true);
+        }
+        
+        public void CloseGachaResults()
+        {
+            gachaResultsPanel.SetActive(false);
+        }
+        
+        public void RemoveGachaResults()
+        {
+            foreach (Transform child in gachaResultsList.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
 
         #endregion
@@ -735,7 +756,7 @@ namespace Manager
         public Button gachaMenuButton;
         public Button packageMenuButton;
         public Button gacha1Button;
-        public Button gacha11Button;
+        public Button gacha10Button;
         public GameObject gachaMenuPanel;
         public GameObject packageMenuPanel;
     
@@ -750,9 +771,9 @@ namespace Manager
             {
                 OpenGacha(1);
             });
-            gacha11Button.onClick.AddListener(delegate
+            gacha10Button.onClick.AddListener(delegate
             {
-                OpenGacha(11);
+                OpenGacha(10);
             });
         }
     
@@ -773,10 +794,6 @@ namespace Manager
                 {
                     _gachaSystem.RandomGacha();
                 }
-            }
-            else
-            {
-                Debug.Log("Not Enough Gems");
             }
         }
     
