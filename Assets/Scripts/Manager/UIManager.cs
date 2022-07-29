@@ -158,7 +158,7 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapNormalUpgradePanel();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapPremiumUpgradePanel();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Manager
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
             TapCollectionMenu();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
 
         }
  
