@@ -31,7 +31,7 @@ public class Ore : Singleton<Ore>
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        UpdateOre();
+        UpdateCommonOre();
     }
     
     void Update()
@@ -41,7 +41,7 @@ public class Ore : Singleton<Ore>
     }
     
     //update ore
-    public void UpdateOre()
+    public void UpdateCommonOre()
     {
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
@@ -152,7 +152,7 @@ public class Ore : Singleton<Ore>
         {
             ore.isUnlocked = false;
             tempSelectOreIndex = 0;
-            UpdateOre();
+            UpdateCommonOre();
             _uiManager.UpdateOreDetails();
             _uiManager.UpdateOreImageHead();
             _uiManager.UpdateOreNameText(_thisOre.oreName);

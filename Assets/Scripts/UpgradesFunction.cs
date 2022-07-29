@@ -48,31 +48,9 @@ public class UpgradesFunction : MonoBehaviour
         }
     }
 
-    private bool HasMoney(int amount)
-    {
-        if (_gameManager.GetMoney() < amount)
-        {
-            _uiManager.NotEnoughMoney();
-            return false;
-        }
-        _gameManager.ModifyMoney(-amount);
-        return true;
-    }
-    
-    private bool HasGems(int amount)
-    {
-        if (_gameManager.GetGems() < amount)
-        {
-            _uiManager.NotEnoughGems();
-            return false;
-        }
-        _gameManager.ModifyGems(-amount);
-        return true;
-    }
-
     public void UpgradeOre()
     {
-        if (_oreUpgradeLevel + 1 <= _ore.oreDatabase.ores.Length && HasMoney(1000) )
+        if (_oreUpgradeLevel + 1 <= _ore.oreDatabase.ores.Length && _gameManager.HasMoney(1000) )
         {
             _ore.oreDatabase.ores[_oreUpgradeLevel+1].isUnlocked = true;
             _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
@@ -83,7 +61,7 @@ public class UpgradesFunction : MonoBehaviour
     
     public void ChangeHammerDamage(int damage)
     {
-        if (HasMoney(5000))
+        if (_gameManager.HasMoney(5000))
         {
             _gameManager.ModifyHammerDamage(damage);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);

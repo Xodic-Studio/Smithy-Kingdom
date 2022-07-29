@@ -313,13 +313,15 @@ namespace Manager
         public Image oreImageBody;
         public TMP_Text oreName;
         public TMP_Text oreDescription;
+        [SerializeField] private Button normalOreButton;
+        [SerializeField] private Button premiumOreButton;
         [SerializeField] public Button previousOreButton;
         [SerializeField] public Button nextOreButton;
         [SerializeField] public GameObject confirmOreButtonGo;
         private Button _confirmOreButton;
         private Image _confirmOreButtonImage;
         private TMP_Text _confirmOreButtonText;
-
+        
         /// <summary>
         ///     Start Method Of the Ore Selection UI
         /// </summary>
@@ -389,11 +391,21 @@ namespace Manager
         /// </summary>
         private void SelectOre()
         {
-            _ore.UpdateOre();
+            _ore.UpdateCommonOre();
             UpdateOreDetails();
             UpdateOreImageHead();
             UpdateOreNameText(_ore.GetOreStats().oreName);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre));
+        }
+        
+        private void OpenNormalOreMenu()
+        {
+            
+        } 
+        
+        private void OpenPremiumOreMenu()
+        {
+            
         }
 
         #endregion
@@ -473,8 +485,6 @@ namespace Manager
             yield return new WaitForSeconds(60f);
             mailPanel.SetActive(false);
         }
-
-
 
         [Header("Notifications")] 
         public GameObject oreNotificationGo;
@@ -739,12 +749,11 @@ namespace Manager
 
         public void OpenGacha(int amount)
         {
-            if (_gameManager.GetGems() >= amount * 100)
+            if (_gameManager.HasGems(amount * 100))
             {
                 for (int i = 0 ; i < amount ; i++)
                 {
                     _gachaSystem.RandomGacha();
-                    _gameManager.ModifyGems(-100);
                 }
             }
             else

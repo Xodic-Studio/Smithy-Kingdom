@@ -84,11 +84,8 @@ public class GameManager : Singleton<GameManager>
 
     public void MailReward()
     {
-        Debug.Log("Got Reward");
         var rewardCurrentCoin = money * 0.15f;
         var rewardCps = _cps * 900;
-        Debug.Log($"RewardCurrentCoin: {rewardCurrentCoin}");
-        Debug.Log($"RewardCps: {rewardCps}");
         ModifyMoney(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin);
     }
     
@@ -101,7 +98,27 @@ public class GameManager : Singleton<GameManager>
         return 1f;
     }
     
+    public bool HasMoney(int amount)
+    {
+        if (GetMoney() < amount)
+        {
+            _uiManager.NotEnoughMoney();
+            return false;
+        }
+        ModifyMoney(-amount);
+        return true;
+    }
     
+    public bool HasGems(int amount)
+    {
+        if (GetGems() < amount)
+        {
+            _uiManager.NotEnoughGems();
+            return false;
+        }
+        ModifyGems(-amount);
+        return true;
+    }
     
     //Instantiate Damage text
     private void AddDamageText(string text)
