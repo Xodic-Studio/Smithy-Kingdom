@@ -95,7 +95,7 @@ MonoBehaviour:
     defaultHardness: 5000
     isPremium: 1
   - oreName: Astral Ore
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
     oreDescription: 
     currentHardness: 10000
     isUnlocked: 0
