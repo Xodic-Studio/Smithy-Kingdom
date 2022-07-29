@@ -19,6 +19,7 @@ namespace GameDatabase
                         {
                                 ore.isUnlocked = false;
                         }
+                        ores[0].isUnlocked = true;
                 }
         }
     
