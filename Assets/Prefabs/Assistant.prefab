@@ -1751,6 +1751,7 @@ GameObject:
   - component: {fileID: 313526965128025430}
   - component: {fileID: 258114679704781690}
   - component: {fileID: 1388930517709613884}
+  - component: {fileID: 231757781}
   m_Layer: 0
   m_Name: Assistant
   m_TagString: Untagged
@@ -1835,6 +1836,22 @@ SortingGroup:
   m_SortingLayerID: -1698548033
   m_SortingLayer: 2
   m_SortingOrder: 0
+--- !u!114 &231757781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542668749098342428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51708d5016aa3041af0867beb91a8c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assistantSweat: {fileID: 6742070576346936259}
+  assistantDepression1: {fileID: 1528220245997956360}
+  assistantDepression2: {fileID: 551781241606012310}
+  isTired: 0
 --- !u!1 &3662121844512981399
 GameObject:
   m_ObjectHideFlags: 0
