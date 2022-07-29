@@ -68,7 +68,7 @@ namespace Manager
         ///     Update the Hardness Slider Max Value and TMP text with the default hardness
         /// </summary>
         /// <param name="defaultHardness">Default hardness of an ore</param>
-        public void UpdateMaxHardnessSlider(int defaultHardness)
+        public void UpdateMaxHardnessSlider(float defaultHardness)
         {
             hardnessSlider.maxValue = defaultHardness;
             hardnessSlider.value = defaultHardness;

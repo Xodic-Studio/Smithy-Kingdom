@@ -29,13 +29,13 @@ namespace GameDatabase
                 public string oreName;
                 public Sprite oreSprite;
                 public string oreDescription;
-                public int currentHardness;
+                public float currentHardness;
                 public bool isUnlocked;
 
                 public int amount;
     
                 [Header("Default Values")]
-                public int defaultHardness;
+                public float defaultHardness;
                 public bool isPremium;
         }
 }
