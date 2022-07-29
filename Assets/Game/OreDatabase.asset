@@ -16,7 +16,7 @@ MonoBehaviour:
   - oreName: Copper Ore
     oreSprite: {fileID: -744495403, guid: 2e97a6f59fb73084aaa8d0751b5f33dd, type: 3}
     oreDescription: This is a copper ore least ore you wanted!
-    currentHardness: 5
+    currentHardness: 100
     isUnlocked: 1
     amount: 0
     defaultHardness: 100
@@ -24,81 +24,81 @@ MonoBehaviour:
   - oreName: Iron Ore
     oreSprite: {fileID: 1558799449, guid: 84943aa8e6848af49899e98a2973d49e, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
-    currentHardness: 9
+    currentHardness: 9988
     isUnlocked: 1
     amount: 0
-    defaultHardness: 1000
+    defaultHardness: 10000
     isPremium: 0
   - oreName: Gold Ore
     oreSprite: {fileID: -1850108498, guid: d2b1a391c6534c24baf3db589a88aef1, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
+    currentHardness: 1000000
     isUnlocked: 1
     amount: 0
-    defaultHardness: 1000
+    defaultHardness: 1000000
     isPremium: 0
   - oreName: Meteorite Ore
     oreSprite: {fileID: -1425733880, guid: 4e649ef4576a4854ab9b798d36b333c2, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 72
+    currentHardness: 999999987
     isUnlocked: 1
     amount: 0
-    defaultHardness: 2500
+    defaultHardness: 1000000000
     isPremium: 0
   - oreName: Mithril Ore
     oreSprite: {fileID: -349397552, guid: 69b5d14e996eeb14ca5ca6b92181f94d, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 72
+    currentHardness: 999999997
     isUnlocked: 1
     amount: 0
-    defaultHardness: 3000
+    defaultHardness: 1000000000
     isPremium: 0
   - oreName: Adamantine Ore
     oreSprite: {fileID: -1852575891, guid: 21911a80df4be9b4389e212d12400786, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
+    currentHardness: 999999959
     isUnlocked: 1
     amount: 0
-    defaultHardness: 3500
+    defaultHardness: 1000000000
     isPremium: 0
   premiumOres:
   - oreName: Dragonite Ore
     oreSprite: {fileID: 180010380, guid: 6bf9a7228f0e8934e927d3db1fb50526, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 5000
+    isUnlocked: 1
+    amount: 3
+    defaultHardness: 0
     isPremium: 1
   - oreName: Fishore Ore
     oreSprite: {fileID: -1533846725, guid: 54463fd205d1b2e4094e2cd2e1a4f0e2, type: 3}
     oreDescription: 10000
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 7
     defaultHardness: 5000
     isPremium: 1
   - oreName: Computronium Ore
     oreSprite: {fileID: -1879903167, guid: 05f680df150c41447bfe207051640ec7, type: 3}
     oreDescription: 
     currentHardness: 10000
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 5
     defaultHardness: 5000
     isPremium: 1
   - oreName: Petsnachium Ore
     oreSprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
     oreDescription: 10000
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 2
     defaultHardness: 5000
     isPremium: 1
   - oreName: Astral Ore
-    oreSprite: {fileID: 0}
+    oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
     oreDescription: 
     currentHardness: 10000
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 7
     defaultHardness: 5000
     isPremium: 1
