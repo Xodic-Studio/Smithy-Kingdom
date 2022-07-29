@@ -116,7 +116,7 @@ namespace Manager
             collectiblesMenuButton.onClick.AddListener(OpenCollectionMenu);
             premiumMenuButton.onClick.AddListener(OpenPremiumMenu);
             settingsMenuButton.onClick.AddListener(OpenSettingsMenu);
-            oreSelectButton.onClick.AddListener(OpenOreMenu);
+            oreSelectButton.onClick.AddListener(OpenNormalOreMenu);
             closeButton.onClick.AddListener(CloseMenu);
             prestigeMenuButton.onClick.AddListener(OpenPrestigeMenu);
         }
@@ -186,7 +186,7 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
-            TabCollectionMenu();
+            TapCollectionMenu();
 #if !UNITY_EDITOR
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
 #endif
@@ -200,7 +200,7 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
-            TabAchievementMenu();
+            TapAchievementMenu();
         }
 
         /// <summary>
@@ -236,17 +236,28 @@ namespace Manager
         ///     Open Ore Menu Function
         ///     Open Ore Menu, Close Other Menu and Close Base UI
         /// </summary>
-        public void OpenOreMenu()
+        public void OpenNormalOreMenu()
         {
             CheckCanvas();
             CloseAllMenus();
             oreSelectionPanel.SetActive(true);
             RemoveNotification(NotificationType.Ore, oreNotificationCount);
             _ore.DisableButtonIfNoNextOre();
+            TapNormalOreMenu();
 #if !UNITY_EDITOR
         _ore.tempSelectOreIndex = _ore.selectedOreIndex;
         _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
 #endif
+        }
+
+        public void OpenPremiumOreMenu()
+        {
+            CheckCanvas();
+            CloseAllMenus();
+            oreSelectionPanel.SetActive(true);
+            RemoveNotification(NotificationType.Ore, oreNotificationCount);
+            _ore.DisableButtonIfNoNextOre();
+            TapPremiumOreMenu();
         }
 
         /// <summary>
@@ -289,6 +300,8 @@ namespace Manager
             achievementMenuPanel.SetActive(false);
             gachaMenuPanel.SetActive(false);
             packageMenuPanel.SetActive(false);
+            normalOrePanel.SetActive(false);
+            premiumOrePanel.SetActive(false);
         }
     
     
@@ -315,6 +328,8 @@ namespace Manager
         public TMP_Text oreDescription;
         [SerializeField] private Button normalOreButton;
         [SerializeField] private Button premiumOreButton;
+        [SerializeField] private GameObject normalOrePanel;
+        [SerializeField] private GameObject premiumOrePanel;
         [SerializeField] public Button previousOreButton;
         [SerializeField] public Button nextOreButton;
         [SerializeField] public GameObject confirmOreButtonGo;
@@ -327,6 +342,8 @@ namespace Manager
         /// </summary>
         private void OreSelectionStart()
         {
+            normalOreButton.onClick.AddListener(TapNormalOreMenu);
+            premiumOreButton.onClick.AddListener(TapPremiumOreMenu);
             _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
             _confirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
             _confirmOreButton = confirmOreButtonGo.GetComponent<Button>();
@@ -346,14 +363,11 @@ namespace Manager
             oreDescription.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreDescription;
             if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
             {
-                //_confirmOreButtonImage.color = new Color(0.41f, 0.41f, 0.41f);
                 _confirmOreButton.interactable = false;
                 _confirmOreButtonText.text = "Selected";
             }
             else
             {
-                //_confirmOreButtonImage.color = new Color(0.45f, 0.69f, 1f);
-                _confirmOreButton.interactable = true;
                 _confirmOreButtonText.text = "Select";
             }
         }
@@ -398,14 +412,16 @@ namespace Manager
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre));
         }
         
-        private void OpenNormalOreMenu()
+        private void TapNormalOreMenu()
         {
-            
+            normalOrePanel.SetActive(true);
+            premiumOrePanel.SetActive(false);
         } 
         
-        private void OpenPremiumOreMenu()
+        private void TapPremiumOreMenu()
         {
-            
+            normalOrePanel.SetActive(false);
+            premiumOrePanel.SetActive(true);
         }
 
         #endregion
@@ -689,19 +705,19 @@ namespace Manager
     
         void AddCollectibleButtons()
         {
-            collectibleButton.onClick.AddListener(TabCollectionMenu);
-            achievementButton.onClick.AddListener(TabAchievementMenu);
+            collectibleButton.onClick.AddListener(TapCollectionMenu);
+            achievementButton.onClick.AddListener(TapAchievementMenu);
         }
     
     
-        void TabAchievementMenu()
+        void TapAchievementMenu()
         {
             achievementMenuPanel.SetActive(true);
             collectionMenuPanel.SetActive(false);
             mainScrollRect.content = _achievementRectTransform;
         }
     
-        void TabCollectionMenu()
+        void TapCollectionMenu()
         {
             achievementMenuPanel.SetActive(false);
             collectionMenuPanel.SetActive(true);

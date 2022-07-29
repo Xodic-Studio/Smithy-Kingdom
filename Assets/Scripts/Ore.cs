@@ -64,21 +64,35 @@ public class Ore : Singleton<Ore>
     {
         if (index == -1 && tempSelectOreIndex - 1 >= 0)
         {
-            if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+            if (!oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                tempSelectOreIndex--;
-                _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
-                DisableButtonIfNoNextOre();
+                _uiManager.oreImageBody.GetComponent<Image>().color = Color.gray;
+                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = false;
+                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.gray;
+            } else if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+            {
+                _uiManager.oreImageBody.GetComponent<Image>().color = Color.white;
+                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = true;
+                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.white;
             }
+            tempSelectOreIndex--;
+            DisableButtonIfNoNextOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
         {
-            if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+            if (!oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                tempSelectOreIndex++;
-                _uiManager.previousOreButton.GetComponent<Image>().color = Color.white;
-                DisableButtonIfNoNextOre();
+                _uiManager.oreImageBody.GetComponent<Image>().color = Color.gray;
+                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = false;
+                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.gray;
+            } else if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+            {
+                _uiManager.oreImageBody.GetComponent<Image>().color = Color.white;
+                _uiManager.confirmOreButtonGo.GetComponent<Button>().interactable = true;
+                _uiManager.confirmOreButtonGo.GetComponent<Image>().color = Color.white;
             }
+            tempSelectOreIndex++;
+            DisableButtonIfNoNextOre();
         }
         CheckOreIndex();
     }
@@ -90,17 +104,21 @@ public class Ore : Singleton<Ore>
     
     public void DisableButtonIfNoNextOre()
     {
-        if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+        if (tempSelectOreIndex - 1 < 0)
         {
             _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
-        if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+        if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1)
         {
             _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
-        if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked && tempSelectOreIndex + 1 <= oreDatabase.ores.Length - 1)
+        if (tempSelectOreIndex + 1 <= oreDatabase.ores.Length - 1)
         {
             _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
+        }
+        if (tempSelectOreIndex - 1 >= 0)
+        {
+            _uiManager.previousOreButton.GetComponent<Image>().color = Color.white;
         }
     }
     
