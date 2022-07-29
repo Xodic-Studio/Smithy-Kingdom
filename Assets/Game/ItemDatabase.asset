@@ -21,7 +21,7 @@ MonoBehaviour:
       itemRarity: 0
       itemDescription: 'A light, easy-to-use sword. Recommended for beginners. '
       dropChance: 70
-      timesForged: 29
+      timesForged: 30
       itemFirstForged: 7/22/2022
       isUnlocked: 1
     - itemName: Copper Greatsword
@@ -31,7 +31,7 @@ MonoBehaviour:
       itemDescription: A big sword made of copper that's weasy to swing. It is quiet
         despite being a greatsword.
       dropChance: 20
-      timesForged: 11
+      timesForged: 12
       itemFirstForged: 7/22/2022
       isUnlocked: 1
     - itemName: Copper Curvesword
@@ -79,7 +79,7 @@ MonoBehaviour:
     items:
     - itemName: Iron Longsword
       itemSprite: {fileID: 21300000, guid: 0781f10a6605f41459ebe01515e568ab, type: 3}
-      itemPrice: 100
+      itemPrice: 9000
       itemRarity: 0
       itemDescription: A simple longsword made with Iron. Designed for mass production
         and require low maintenance.
@@ -89,7 +89,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Iron Claymore
       itemSprite: {fileID: 21300000, guid: fb997367b940121438c05f605a6acbc9, type: 3}
-      itemPrice: 350
+      itemPrice: 31500
       itemRarity: 1
       itemDescription: A large sword forged from Iron. Not much else to say  --it's
         very straight-forward and to the point, if you get what I mean.
@@ -99,7 +99,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Iron Cutlass
       itemSprite: {fileID: 21300000, guid: de6a59750c65d0f48812ac34d600dbd7, type: 3}
-      itemPrice: 930
+      itemPrice: 83700
       itemRarity: 2
       itemDescription: An Iron sword famously carried by seafarers. Pirates preferred
         it for its design, while sailors often carry it as a good luck charm.
@@ -109,7 +109,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Zweihander
       itemSprite: {fileID: 21300000, guid: 1a91e8a4f696e7e48a84b6b0bab52b63, type: 3}
-      itemPrice: 3500
+      itemPrice: 315000
       itemRarity: 3
       itemDescription: A sword designed to be wielded with both hands. Its weight
         can easily topple the person on the receiving end of this sword.
@@ -119,7 +119,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Defender
       itemSprite: {fileID: 21300000, guid: 383e483ddb9acc54898a7ac530763e4c, type: 3}
-      itemPrice: 17500
+      itemPrice: 1580000
       itemRarity: 4
       itemDescription: A sword that acts more like shield. It has no sharp edge and
         is more well-suited to blowing foes away. Its huge size makes it easy to
@@ -130,7 +130,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Katzbalger
       itemSprite: {fileID: 21300000, guid: b1b985ceabb43ae4cace7ab5f51864b5, type: 3}
-      itemPrice: 70000
+      itemPrice: 6300000
       itemRarity: 5
       itemDescription: A large iron which is smartly designed to have an aerodynamic
         shape that makes it easy to swing. People who underestimate its speed due
@@ -144,7 +144,7 @@ MonoBehaviour:
     items:
     - itemName: Gold Scimitar
       itemSprite: {fileID: 21300000, guid: 058c6f7617691e54c923c582d12a8be1, type: 3}
-      itemPrice: 100
+      itemPrice: 810000
       itemRarity: 0
       itemDescription: A short sword with a curved blade. A good start to your decorative
         sword collection.
@@ -154,7 +154,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Gold Falchion
       itemSprite: {fileID: 21300000, guid: 43a196f46e2762548af996a79782c55a, type: 3}
-      itemPrice: 350
+      itemPrice: 2840000
       itemRarity: 1
       itemDescription: A one-handded, single-edged sword made of gold. It has the
         power of an axe and the versatility of sword, striking a perfect balace.
@@ -164,7 +164,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Gold Khopesh
       itemSprite: {fileID: 21300000, guid: adb51c5e380f6134e8b2023ca6af406a, type: 3}
-      itemPrice: 930
+      itemPrice: 7530000
       itemRarity: 2
       itemDescription: A sickle-shaped sword that originates from the land of sand.
         It has a very forward point of balance compared to other sword, making it
@@ -175,7 +175,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Corsesca
       itemSprite: {fileID: 21300000, guid: e173d531cc926ad439bbfd4cc80958d7, type: 3}
-      itemPrice: 3500
+      itemPrice: 28400000
       itemRarity: 3
       itemDescription: A sword designed for piercing rather than slashing. Its flexibility
         allows it to reach obscure position and surprise even the most advanced swordsman.
@@ -185,7 +185,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Arundale
       itemSprite: {fileID: 21300000, guid: 4717fbf7e3f9c6c48871275d5d5e3e35, type: 3}
-      itemPrice: 17500
+      itemPrice: 142000000
       itemRarity: 4
       itemDescription: "A double-bladed golden sword with a gorgeous handle. While
         it\u2019s mainly use in ceremony or as a decorative piece, its attack power
@@ -197,7 +197,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Gladius
       itemSprite: {fileID: 21300000, guid: 3736de128a1d50140b007d4aaf0ae29e, type: 3}
-      itemPrice: 70000
+      itemPrice: 567000000
       itemRarity: 5
       itemDescription: "A treasured sword forged through the years of disciplined
         smithing. Has an extravagant design that is hard to be compared. Your foes
@@ -211,7 +211,7 @@ MonoBehaviour:
     items:
     - itemName: Meteorite Sword
       itemSprite: {fileID: 21300000, guid: 6e6df9a7c489fa2489400a0986d2081c, type: 3}
-      itemPrice: 100
+      itemPrice: 729000000
       itemRarity: 0
       itemDescription: A sword forged from falling stars. Its light weight makes
         it a perfect fit for people who prefer speed over power.
@@ -221,7 +221,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Meteorite Xiphos
       itemSprite: {fileID: 21300000, guid: 3fa36a36c997d664bb8b89be875b9443, type: 3}
-      itemPrice: 350
+      itemPrice: 2.56e+9
       itemRarity: 1
       itemDescription: A double-edged sword forged from stars. A counterpart to the
         meteorite sword for those who prefer power over speed.
@@ -231,7 +231,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Meteorite Akinaka
       itemSprite: {fileID: 21300000, guid: 76bab96d44c1f82438faa2dde70b1cfe, type: 3}
-      itemPrice: 930
+      itemPrice: 6.78e+9
       itemRarity: 2
       itemDescription: An extremely pointy sword with a sharp edge. The sword can
         also be thrown in manner similar to flying daggers as well.
@@ -241,7 +241,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Brionac
       itemSprite: {fileID: 21300000, guid: c95e5198267c7ee40a012aa9c3cdacc3, type: 3}
-      itemPrice: 3500
+      itemPrice: 2.56e+10
       itemRarity: 3
       itemDescription: A long sword so strong that can pierce anything. According
         to legend, a demon king once used it to make a hole in the mountains with
@@ -252,7 +252,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Sakura
       itemSprite: {fileID: 21300000, guid: a8101fe9e8705384ba09475ad8db157a, type: 3}
-      itemPrice: 17500
+      itemPrice: 1.28e+11
       itemRarity: 4
       itemDescription: A cursed red sword forged from meteorite that killed thousands.
         Even though it has the name of flower, it s edge is coated with deadly poisons.
@@ -262,7 +262,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Tsukikage
       itemSprite: {fileID: 21300000, guid: e0f6aaaf60f1333428e8e98efb3b013e, type: 3}
-      itemPrice: 70000
+      itemPrice: 5.1e+11
       itemRarity: 5
       itemDescription: A sword that originates from the Far East. The name can be
         translated into "Moon's Shadow" Word has it that this sword appears as naught
@@ -276,7 +276,7 @@ MonoBehaviour:
     items:
     - itemName: Mithril Spatha
       itemSprite: {fileID: 21300000, guid: 3143c273b07fb464c933f1c82978d42a, type: 3}
-      itemPrice: 100
+      itemPrice: 6.56e+11
       itemRarity: 0
       itemDescription: A short sword with two sharp edges. It emanates a shiny glow
         and has an incredible amount of durability.
@@ -286,7 +286,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Mithril Slicer
       itemSprite: {fileID: 21300000, guid: 08baaa21bb463084681af602c8b95579, type: 3}
-      itemPrice: 350
+      itemPrice: 2.3e+12
       itemRarity: 1
       itemDescription: A sword with an awkward center of gravity. Requires a great
         deal of expertise to utilize properly, but once mastered is among one of
@@ -297,7 +297,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Mithril Stinger
       itemSprite: {fileID: 21300000, guid: 8eaa1e9c8ad503f499b20f7628583b09, type: 3}
-      itemPrice: 930
+      itemPrice: 6.1e+11
       itemRarity: 2
       itemDescription: A double bladed sword capable of both piercing and slicing.
         The  blades are arranged to mimic the fangs of a mythical creature.
@@ -307,7 +307,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Orino
       itemSprite: {fileID: 21300000, guid: 8f612bed17dbdf241a2c8eeadbf8b896, type: 3}
-      itemPrice: 3500
+      itemPrice: 2.3e+12
       itemRarity: 3
       itemDescription: 'A hollowed cone-shape sword with intertwined blades. The
         hollowed blade makes the sword relatively light and allow for rapid thrusts
@@ -318,7 +318,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Durandel
       itemSprite: {fileID: 21300000, guid: af22c9d85c26f13458c6d5ae105befba, type: 3}
-      itemPrice: 17500
+      itemPrice: 1.15e+13
       itemRarity: 4
       itemDescription: 'A sword with a shining blade normally wielded with two hands
         due to its size. The sword edge extends all the way to the cross-guard which
@@ -330,7 +330,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Heaven Asunder
       itemSprite: {fileID: 21300000, guid: 4145113862515d14a9432e3893ca0ec7, type: 3}
-      itemPrice: 70000
+      itemPrice: 4.59e+13
       itemRarity: 5
       itemDescription: A legendary Mithril sword that can spilt the sky and pierce
         the clouds. Despite its large size, it is light and allows for agile movement.
@@ -344,7 +344,7 @@ MonoBehaviour:
     items:
     - itemName: Adamatine Serater
       itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
-      itemPrice: 100
+      itemPrice: 5.9e+16
       itemRarity: 0
       itemDescription: A multi-purpose sword made out of Adamantine. The hook near
         the end of the blade can be used to disarm opponents and the straight edge
@@ -355,7 +355,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Adamatine Rapier
       itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
-      itemPrice: 350
+      itemPrice: 2.07e+17
       itemRarity: 1
       itemDescription: A sword specially designed to be used by nobility for dueling.
         It has a slender and sharply-shaped two edged blades and is mainly used as
@@ -366,7 +366,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Adamantine Saber
       itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
-      itemPrice: 930
+      itemPrice: 5.49e+17
       itemRarity: 2
       itemDescription: A simple yet formidable sword preferred by thoose who like
         simplicity. The blade is folded several times for extra durability and sharpened
@@ -377,7 +377,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Night's Edge
       itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
-      itemPrice: 3500
+      itemPrice: 2.07e+18
       itemRarity: 3
       itemDescription: A magicle sword said to be empowered by  the night sky itself.
         Its short blade makes it easy to carry around or hide as well as fit for
@@ -389,7 +389,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Balmung
       itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
-      itemPrice: 17500
+      itemPrice: 1.03e+19
       itemRarity: 4
       itemDescription: A long sword of imbued with the soul of a dragon. The forging
         process takes an extremely long time and exceptional care. When magic power
@@ -401,7 +401,7 @@ MonoBehaviour:
       isUnlocked: 0
     - itemName: Vendetta
       itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
-      itemPrice: 70000
+      itemPrice: 4.13e+19
       itemRarity: 5
       itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
         to enhance itself. Those who are even slightly grazed by the sword is said
