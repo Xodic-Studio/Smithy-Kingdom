@@ -15,336 +15,398 @@ MonoBehaviour:
   collections:
   - collectionName: Copper
     items:
-    - itemName: Copper Sword
+    - itemName: Copper Broadsword
       itemSprite: {fileID: 21300000, guid: b806086b38373494cb3e9bacdb0274a4, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: 'A light, easy-to-use sword. Recommended for beginners. '
       dropChance: 70
-      timesForged: 5
+      timesForged: 29
       itemFirstForged: 7/22/2022
       isUnlocked: 1
-    - itemName: Copper Scimitar
+    - itemName: Copper Greatsword
       itemSprite: {fileID: 21300000, guid: 1f60f87bbe4a6824aa0486cba4ebf32c, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A big sword made of copper that's weasy to swing. It is quiet
+        despite being a greatsword.
       dropChance: 20
-      timesForged: 2
+      timesForged: 11
       itemFirstForged: 7/22/2022
       isUnlocked: 1
-    - itemName: Copper Katana
+    - itemName: Copper Curvesword
       itemSprite: {fileID: 21300000, guid: 5f6648eafdb54f149a7eb717aa2afec8, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: A light copper sword with a curved blade. It's designed for
+        faster unsheathing as well as having more cutting area.
       dropChance: 7.5
-      timesForged: 1
+      timesForged: 2
       itemFirstForged: 7/22/2022
       isUnlocked: 1
-    - itemName: Blade of Urun
+    - itemName: Mantis
       itemSprite: {fileID: 21300000, guid: 66b7c9854d4b8b9429e80fb02540e6db, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: A sword with a blade that looks similar to an insect's claw.
+        It has exceptional slicing and piercing power.
       dropChance: 2
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+      timesForged: 1
+      itemFirstForged: 7/27/2022
+      isUnlocked: 1
+    - itemName: Earthen Blade
       itemSprite: {fileID: 21300000, guid: 0e1090fb60d4eb04ea732efb1ceaba36, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: A sword imblued with the magic power of the earth. Despite
+        having copper as it's material, the blade  doesn't chip away easily.
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Izorik
       itemSprite: {fileID: 21300000, guid: 8ad5108759c59e94999efeb591365397, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: The pinnacle of all copper swords. Legend has it that it was
+        first forged by a dwarf who now only lives in legend. The name is of Dwarfish
+        origin and means "the lord of all that is copper"
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Iron
     items:
-    - itemName: Copper Sword
+    - itemName: Iron Longsword
       itemSprite: {fileID: 21300000, guid: 0781f10a6605f41459ebe01515e568ab, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: A simple longsword made with Iron. Designed for mass production
+        and require low maintenance.
       dropChance: 70
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Scimitar
+    - itemName: Iron Claymore
       itemSprite: {fileID: 21300000, guid: fb997367b940121438c05f605a6acbc9, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A large sword forged from Iron. Not much else to say  --it's
+        very straight-forward and to the point, if you get what I mean.
       dropChance: 20
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Katana
+    - itemName: Iron Cutlass
       itemSprite: {fileID: 21300000, guid: de6a59750c65d0f48812ac34d600dbd7, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: An Iron sword famously carried by seafarers. Pirates preferred
+        it for its design, while sailors often carry it as a good luck charm.
       dropChance: 7.5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Blade of Urun
+    - itemName: Zweihander
       itemSprite: {fileID: 21300000, guid: 1a91e8a4f696e7e48a84b6b0bab52b63, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: A sword designed to be wielded with both hands. Its weight
+        can easily topple the person on the receiving end of this sword.
       dropChance: 2
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+    - itemName: Defender
       itemSprite: {fileID: 21300000, guid: 383e483ddb9acc54898a7ac530763e4c, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: A sword that acts more like shield. It has no sharp edge and
+        is more well-suited to blowing foes away. Its huge size makes it easy to
+        protect the wielder from incoming attacks.
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Katzbalger
       itemSprite: {fileID: 21300000, guid: b1b985ceabb43ae4cace7ab5f51864b5, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: A large iron which is smartly designed to have an aerodynamic
+        shape that makes it easy to swing. People who underestimate its speed due
+        to its size often get decapitated quickly, even quicker than trying to pronounce
+        the name of this sword correctly.
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Gold
     items:
-    - itemName: Copper Sword
+    - itemName: Gold Scimitar
       itemSprite: {fileID: 21300000, guid: 058c6f7617691e54c923c582d12a8be1, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: A short sword with a curved blade. A good start to your decorative
+        sword collection.
       dropChance: 70
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Scimitar
+    - itemName: Gold Falchion
       itemSprite: {fileID: 21300000, guid: 43a196f46e2762548af996a79782c55a, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A one-handded, single-edged sword made of gold. It has the
+        power of an axe and the versatility of sword, striking a perfect balace.
       dropChance: 20
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Katana
+    - itemName: Gold Khopesh
       itemSprite: {fileID: 21300000, guid: adb51c5e380f6134e8b2023ca6af406a, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: A sickle-shaped sword that originates from the land of sand.
+        It has a very forward point of balance compared to other sword, making it
+        perfect for hacking limbs.
       dropChance: 7.5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Blade of Urun
+    - itemName: Corsesca
       itemSprite: {fileID: 21300000, guid: e173d531cc926ad439bbfd4cc80958d7, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: A sword designed for piercing rather than slashing. Its flexibility
+        allows it to reach obscure position and surprise even the most advanced swordsman.
       dropChance: 2
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+    - itemName: Arundale
       itemSprite: {fileID: 21300000, guid: 4717fbf7e3f9c6c48871275d5d5e3e35, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: "A double-bladed golden sword with a gorgeous handle. While
+        it\u2019s mainly use in ceremony or as a decorative piece, its attack power
+        is second to none and its double blade is more than eager to claim the life
+        of its victim."
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Gladius
       itemSprite: {fileID: 21300000, guid: 3736de128a1d50140b007d4aaf0ae29e, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: "A treasured sword forged through the years of disciplined
+        smithing. Has an extravagant design that is hard to be compared. Your foes
+        will easily be cut down when they\u2019re captivated by Gladius\u2019 radiant
+        beauty."
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Meteorite
     items:
-    - itemName: Copper Sword
+    - itemName: Meteorite Sword
       itemSprite: {fileID: 21300000, guid: 6e6df9a7c489fa2489400a0986d2081c, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: A sword forged from falling stars. Its light weight makes
+        it a perfect fit for people who prefer speed over power.
       dropChance: 70
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Scimitar
+    - itemName: Meteorite Xiphos
       itemSprite: {fileID: 21300000, guid: 3fa36a36c997d664bb8b89be875b9443, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A double-edged sword forged from stars. A counterpart to the
+        meteorite sword for those who prefer power over speed.
       dropChance: 20
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Katana
+    - itemName: Meteorite Akinaka
       itemSprite: {fileID: 21300000, guid: 76bab96d44c1f82438faa2dde70b1cfe, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: An extremely pointy sword with a sharp edge. The sword can
+        also be thrown in manner similar to flying daggers as well.
       dropChance: 7.5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Blade of Urun
+    - itemName: Brionac
       itemSprite: {fileID: 21300000, guid: c95e5198267c7ee40a012aa9c3cdacc3, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: A long sword so strong that can pierce anything. According
+        to legend, a demon king once used it to make a hole in the mountains with
+        only one stab.
       dropChance: 2
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+    - itemName: Sakura
       itemSprite: {fileID: 21300000, guid: a8101fe9e8705384ba09475ad8db157a, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: A cursed red sword forged from meteorite that killed thousands.
+        Even though it has the name of flower, it s edge is coated with deadly poisons.
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Tsukikage
       itemSprite: {fileID: 21300000, guid: e0f6aaaf60f1333428e8e98efb3b013e, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: A sword that originates from the Far East. The name can be
+        translated into "Moon's Shadow" Word has it that this sword appears as naught
+        by shadow under the cover of night and any foe that come across it will be
+        taken down with single blow.
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Mithril
     items:
-    - itemName: Copper Sword
+    - itemName: Mithril Spatha
       itemSprite: {fileID: 21300000, guid: 3143c273b07fb464c933f1c82978d42a, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: A short sword with two sharp edges. It emanates a shiny glow
+        and has an incredible amount of durability.
       dropChance: 70
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Scimitar
+    - itemName: Mithril Slicer
       itemSprite: {fileID: 21300000, guid: 08baaa21bb463084681af602c8b95579, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A sword with an awkward center of gravity. Requires a great
+        deal of expertise to utilize properly, but once mastered is among one of
+        the fastest swords out there.
       dropChance: 20
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Katana
+    - itemName: Mithril Stinger
       itemSprite: {fileID: 21300000, guid: 8eaa1e9c8ad503f499b20f7628583b09, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: A double bladed sword capable of both piercing and slicing.
+        The  blades are arranged to mimic the fangs of a mythical creature.
       dropChance: 7.5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Blade of Urun
+    - itemName: Orino
       itemSprite: {fileID: 21300000, guid: 8f612bed17dbdf241a2c8eeadbf8b896, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: 'A hollowed cone-shape sword with intertwined blades. The
+        hollowed blade makes the sword relatively light and allow for rapid thrusts
+        which can then be followed by twist to maximize the damage. '
       dropChance: 2
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+    - itemName: Durandel
       itemSprite: {fileID: 21300000, guid: af22c9d85c26f13458c6d5ae105befba, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: 'A sword with a shining blade normally wielded with two hands
+        due to its size. The sword edge extends all the way to the cross-guard which
+        allows for an extremely deep thrust. Often used when hunting large monster
+        by high-ranked hunters. '
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Heaven Asunder
       itemSprite: {fileID: 21300000, guid: 4145113862515d14a9432e3893ca0ec7, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: A legendary Mithril sword that can spilt the sky and pierce
+        the clouds. Despite its large size, it is light and allows for agile movement.
+        Only a few of those who have seen this sword getting unsheathe live to tell
+        the tale of it.
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Adamantine
     items:
-    - itemName: Copper Sword
+    - itemName: Adamatine Serater
       itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
       itemPrice: 100
       itemRarity: 0
-      itemDescription: Copper Sword
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
       dropChance: 70
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Scimitar
+    - itemName: Adamatine Rapier
       itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
       itemPrice: 350
       itemRarity: 1
-      itemDescription: Copper Sword
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
       dropChance: 20
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copper Katana
+    - itemName: Adamantine Saber
       itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
       itemPrice: 930
       itemRarity: 2
-      itemDescription: Copper Sword
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
       dropChance: 7.5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Blade of Urun
+    - itemName: Night's Edge
       itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
       itemPrice: 3500
       itemRarity: 3
-      itemDescription: Copper Sword
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
       dropChance: 2
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: 'Copper Sword 2: Ender of all expectations'
+    - itemName: Balmung
       itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
       itemPrice: 17500
       itemRarity: 4
-      itemDescription: Copper Sword
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
       dropChance: 0.4
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
-    - itemName: Copperium
+    - itemName: Vendetta
       itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
       itemPrice: 70000
       itemRarity: 5
-      itemDescription: Copper Sword
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
       dropChance: 0.1
       timesForged: 0
       itemFirstForged: 
