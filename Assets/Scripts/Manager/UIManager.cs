@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using GameDatabase;
 using TMPro;
 using UnityEngine;
@@ -125,6 +127,7 @@ namespace Manager
         public void ClosePopup()
         {
             popup.SetActive(false);
+            okButton.onClick.RemoveListener(_gameManager.MailReward);
         }
 
         /// <summary>
@@ -403,6 +406,7 @@ namespace Manager
         public TMP_Text popupDescription;
         public Image popupImage;
         public Button okButton;
+        public Sprite denySprite;
 
         private void OverlayStart()
         {
@@ -416,6 +420,18 @@ namespace Manager
             popupImage.sprite = sprite;
         }
 
+        public void NotEnoughMoney()
+        {
+            AssignPopupValue("Not Enough Money", "You don't have enough money to buy this", denySprite);
+            OpenPopup();
+        }
+        
+        public void NotEnoughGems()
+        {
+            AssignPopupValue("Not Enough Gems", "You don't have enough gems to buy this", denySprite);
+            OpenPopup();
+        }
+
         #endregion
 
         #region Mail UI
@@ -427,28 +443,36 @@ namespace Manager
         /// <summary>
         /// Add New Mail to Screen Notification
         /// </summary>
+        /// <param name="mail"> Mail Class From MailDatabase</param>
         public void AddNewMail(Mail mail)
         {
+            Debug.Log("New Mail");
             mailPanel.SetActive(true);
             mailIcon.sprite = mail.icon;
-            mailButton.onClick.AddListener(() => OpenMail(mail.title, mail.content, mail.icon));
+            mailButton.onClick.AddListener(() => OpenMail(mail));
+            StartCoroutine(MailTimer());
         }
 
         /// <summary>
         /// Open Mail Assigned to the button
         /// </summary>
-        /// <param name="mailTitle"> Title of the mail</param>
-        /// <param name="mailDescription"> Description of the mail</param>
-        /// <param name="mailSprite">Image Use to display mail</param>
-        void OpenMail(string mailTitle, string mailDescription, Sprite mailSprite)
+        /// /// <param name="mail"> Mail Class From MailDatabase</param>
+        void OpenMail(Mail mail)
         {
-            popupTitle.text = mailTitle;
-            popupDescription.text = mailDescription;
-            popupImage.sprite = mailSprite;
+            okButton.onClick.AddListener(_gameManager.MailReward);
+            StopCoroutine(MailTimer());
+            popupTitle.text = mail.title;
+            popupDescription.text = mail.content;
+            popupImage.sprite = mail.icon;
             popup.SetActive(true);
             mailPanel.SetActive(false);
         }
 
+        IEnumerator MailTimer()
+        {
+            yield return new WaitForSeconds(60f);
+            mailPanel.SetActive(false);
+        }
 
 
 

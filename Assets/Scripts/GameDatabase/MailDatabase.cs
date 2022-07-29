@@ -10,7 +10,7 @@ namespace GameDatabase
         public Mail[] mails;
         public Mail GetRandomMail()
         {
-            int randomIndex = Random.Range(0, mails.Length + 1);
+            int randomIndex = Random.Range(0, mails.Length);
             Mail mail = mails[randomIndex];
             return mail;
         }

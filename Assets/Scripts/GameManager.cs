@@ -23,7 +23,6 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private float money;
     [SerializeField] private float gems;
-    
     [SerializeField] private MailDatabase mailDatabase;
 
     public Animator smithy;
@@ -46,7 +45,7 @@ public class GameManager : Singleton<GameManager>
         _soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
-        Invoke(nameof(MailTimer),Random.Range(120,301));
+        Invoke(nameof(MailTimer),Random.Range(1,2));
         ResetIsClicking();
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
@@ -63,7 +62,6 @@ public class GameManager : Singleton<GameManager>
         if (_cpsTimer > 1)
         {
             smithy.SetFloat(Speed,CpsToSpeed((int) _cps));
-            _cps = 0;
         }
     }
 
@@ -81,7 +79,17 @@ public class GameManager : Singleton<GameManager>
     void MailTimer()
     {
         _uiManager.AddNewMail(mailDatabase.GetRandomMail());
-        Invoke(nameof(MailTimer),Random.Range(120,301));
+        Invoke(nameof(MailTimer),Random.Range(180,301));
+    }
+
+    public void MailReward()
+    {
+        Debug.Log("Got Reward");
+        var rewardCurrentCoin = money * 0.15f;
+        var rewardCps = _cps * 900;
+        Debug.Log($"RewardCurrentCoin: {rewardCurrentCoin}");
+        Debug.Log($"RewardCps: {rewardCps}");
+        ModifyMoney(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin);
     }
     
     float CpsToSpeed(int cps)
@@ -193,7 +201,7 @@ public class GameManager : Singleton<GameManager>
     
     public void ModifyMoney(float amount)
     {
-        money += amount;
+        money += Mathf.Round(amount);
         _uiManager.UpdateMoneyText();
     }
     

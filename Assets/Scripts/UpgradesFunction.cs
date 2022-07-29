@@ -52,10 +52,21 @@ public class UpgradesFunction : MonoBehaviour
     {
         if (_gameManager.GetMoney() < amount)
         {
-            Debug.Log("Not enough money");
+            _uiManager.NotEnoughMoney();
             return false;
         }
         _gameManager.ModifyMoney(-amount);
+        return true;
+    }
+    
+    private bool HasGems(int amount)
+    {
+        if (_gameManager.GetGems() < amount)
+        {
+            _uiManager.NotEnoughGems();
+            return false;
+        }
+        _gameManager.ModifyGems(-amount);
         return true;
     }
 
