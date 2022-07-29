@@ -174,7 +174,7 @@ public class GameManager : Singleton<GameManager>
 
     private void CombineDamageText()
     {
-        AddDamageText(_hammerDamageCombined.ToString());
+        AddDamageText(_hammerDamage.ToString());
     }
 
 
