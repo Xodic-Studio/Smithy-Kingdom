@@ -53,31 +53,31 @@ MonoBehaviour:
     m_Hash: 1919624762
     m_CategoryList: []
     m_OverrideEntries:
-    - m_Name: Dragonite Ore
-      m_Hash: 2055298405
-      m_Sprite: {fileID: 7227348919840151876, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    - m_Name: Dragonite
+      m_Hash: 1109660125
+      m_Sprite: {fileID: -163459312, guid: 8cfb2a44fe5186942b8f27db5b7f1467, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: 7227348919840151876, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Fishore Ore
-      m_Hash: 592153215
-      m_Sprite: {fileID: -2341309969065179692, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -163459312, guid: 8cfb2a44fe5186942b8f27db5b7f1467, type: 3}
+    - m_Name: Fishore
+      m_Hash: -1225357598
+      m_Sprite: {fileID: -2103309178, guid: 5a9c4ad8cd23441419208dffce0360b8, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -2341309969065179692, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Astral Ore
-      m_Hash: 1820198979
-      m_Sprite: {fileID: -8794533944625663459, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -2103309178, guid: 5a9c4ad8cd23441419208dffce0360b8, type: 3}
+    - m_Name: Astral Shard
+      m_Hash: 1581068772
+      m_Sprite: {fileID: 2097637710, guid: 316d3eb5f41a27c4ea323a7748191b4e, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -8794533944625663459, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Computronium Ore
-      m_Hash: -449069119
-      m_Sprite: {fileID: -4036906184221185913, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: 2097637710, guid: 316d3eb5f41a27c4ea323a7748191b4e, type: 3}
+    - m_Name: Computronium
+      m_Hash: 1997884119
+      m_Sprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -4036906184221185913, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Petsnatchium
-      m_Hash: 788493420
-      m_Sprite: {fileID: -7808541762267795682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
+    - m_Name: Kedalium
+      m_Hash: -1462675101
+      m_Sprite: {fileID: -1678296601, guid: ae97e88b5d1f648478fdc4f5d15f46f0, type: 3}
       m_FromMain: 0
-      m_SpriteOverride: {fileID: -7808541762267795682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+      m_SpriteOverride: {fileID: -1678296601, guid: ae97e88b5d1f648478fdc4f5d15f46f0, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 5
   - m_Name: Special

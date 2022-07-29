@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Manager;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -57,7 +58,7 @@ namespace EditorScript
                 GUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
                 if (GUILayout.Button("PremiumMenu")) nav.ui.OpenPremiumMenu();
                 if (GUILayout.Button("SettingsMenu")) nav.ui.OpenSettingsMenu();
-                if (GUILayout.Button("OreMenu")) nav.ui.OpenOreMenu();
+                if (GUILayout.Button("OreMenu")) nav.ui.OpenNormalOreMenu();
                 if (GUILayout.Button("PrestigeMenu")) nav.ui.OpenPrestigeMenu();
                 GUILayout.EndHorizontal();
             }

@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using Manager;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -47,6 +48,11 @@ namespace EditorScript
             {
                 upt.ui.OpenAchievementMenu();
                 UpdateAchievementUI();
+            }
+            
+            if (GUILayout.Button("Reset All",GUILayout.Width(250)))
+            {
+                ResetAllDatabase();
             }
 
             #region UpdateUI
@@ -206,9 +212,9 @@ namespace EditorScript
                     }
 
                     listTransform.GetChild(i).name = databaseStats[i].achievementName; 
-                    listTransform.GetChild(i).GetComponentInChildren<Image>().sprite =
+                    listTransform.GetChild(i).GetChild(0).GetComponent<Image>().sprite =
                         databaseStats[i].icon;
-                    listTransform.GetChild(i).GetChild(0).GetComponentInChildren<Image>().color =
+                    listTransform.GetChild(i).GetChild(0).GetComponent<Image>().color =
                         new Color(0.22f, 0.22f, 0.22f);
                     i++;
                 }
@@ -218,9 +224,14 @@ namespace EditorScript
                 for (i = childCount; i > childCount - needDestroy; i--)
                     DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
             }
+
+            void ResetAllDatabase()
+            {
+                upt.ui.database.itemsDatabase.ResetDatabase();
+                upt.ui.database.oresDatabase.ResetDatabase();
+            }
             #endregion
         }
-        
     }
 }
 #endif

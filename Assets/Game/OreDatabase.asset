@@ -14,99 +14,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ores:
   - oreName: Copper Ore
-    oreSprite: {fileID: -7971944603763726844, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -744495403, guid: 2e97a6f59fb73084aaa8d0751b5f33dd, type: 3}
     oreDescription: This is a copper ore least ore you wanted!
-    currentHardness: 5
+    currentHardness: 100
     isUnlocked: 1
     amount: 0
-    defaultHardness: 5
+    defaultHardness: 100
     isPremium: 0
   - oreName: Iron Ore
-    oreSprite: {fileID: -3493072497675621609, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: 1558799449, guid: 84943aa8e6848af49899e98a2973d49e, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
-    currentHardness: 10
-    isUnlocked: 0
+    currentHardness: 9988
+    isUnlocked: 1
     amount: 0
-    defaultHardness: 10
+    defaultHardness: 10000
     isPremium: 0
   - oreName: Gold Ore
-    oreSprite: {fileID: 7335791901510154770, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -1850108498, guid: d2b1a391c6534c24baf3db589a88aef1, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 100
-    isUnlocked: 0
+    currentHardness: 1000000
+    isUnlocked: 1
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 1000000
     isPremium: 0
   - oreName: Meteorite Ore
-    oreSprite: {fileID: 1230744243681666068, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -1425733880, guid: 4e649ef4576a4854ab9b798d36b333c2, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 72
-    isUnlocked: 0
+    currentHardness: 999999987
+    isUnlocked: 1
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 1000000000
     isPremium: 0
   - oreName: Mithril Ore
-    oreSprite: {fileID: -5526838226132740138, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -349397552, guid: 69b5d14e996eeb14ca5ca6b92181f94d, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 87
-    isUnlocked: 0
+    currentHardness: 999999997
+    isUnlocked: 1
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 1000000000
     isPremium: 0
   - oreName: Adamantine Ore
-    oreSprite: {fileID: -5734555445424563448, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
+    oreSprite: {fileID: -1852575891, guid: 21911a80df4be9b4389e212d12400786, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 87
-    isUnlocked: 0
+    currentHardness: 999999959
+    isUnlocked: 1
     amount: 0
-    defaultHardness: 100
+    defaultHardness: 1000000000
     isPremium: 0
   premiumOres:
-  - oreName: Premium1
-    oreSprite: {fileID: 0}
+  - oreName: Dragonite Ore
+    oreSprite: {fileID: 180010380, guid: 6bf9a7228f0e8934e927d3db1fb50526, type: 3}
     oreDescription: 
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
+    isUnlocked: 1
+    amount: 3
     defaultHardness: 0
     isPremium: 1
-  - oreName: Premium2
-    oreSprite: {fileID: 0}
-    oreDescription: 
+  - oreName: Fishore Ore
+    oreSprite: {fileID: -1533846725, guid: 54463fd205d1b2e4094e2cd2e1a4f0e2, type: 3}
+    oreDescription: 10000
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 0
+    isUnlocked: 1
+    amount: 7
+    defaultHardness: 5000
     isPremium: 1
-  - oreName: Premium3
-    oreSprite: {fileID: 0}
+  - oreName: Computronium Ore
+    oreSprite: {fileID: -1879903167, guid: 05f680df150c41447bfe207051640ec7, type: 3}
     oreDescription: 
-    currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 0
+    currentHardness: 10000
+    isUnlocked: 1
+    amount: 5
+    defaultHardness: 5000
     isPremium: 1
-  - oreName: Premium4
-    oreSprite: {fileID: 0}
-    oreDescription: 
+  - oreName: Petsnachium Ore
+    oreSprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
+    oreDescription: 10000
     currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 0
+    isUnlocked: 1
+    amount: 2
+    defaultHardness: 5000
     isPremium: 1
-  - oreName: Premium5
-    oreSprite: {fileID: 0}
+  - oreName: Astral Ore
+    oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
     oreDescription: 
-    currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 0
-    isPremium: 1
-  - oreName: Premium6
-    oreSprite: {fileID: 0}
-    oreDescription: 
-    currentHardness: 0
-    isUnlocked: 0
-    amount: 0
-    defaultHardness: 0
+    currentHardness: 10000
+    isUnlocked: 1
+    amount: 7
+    defaultHardness: 5000
     isPremium: 1

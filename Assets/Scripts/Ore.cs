@@ -1,5 +1,5 @@
-using System.Collections;
 using GameDatabase;
+using Manager;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
@@ -30,7 +30,7 @@ public class Ore : Singleton<Ore>
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        UpdateOre();
+        UpdateCommonOre();
     }
     
     void Update()
@@ -40,7 +40,7 @@ public class Ore : Singleton<Ore>
     }
     
     //update ore
-    public void UpdateOre()
+    public void UpdateCommonOre()
     {
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
@@ -63,21 +63,35 @@ public class Ore : Singleton<Ore>
     {
         if (index == -1 && tempSelectOreIndex - 1 >= 0)
         {
-            if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+            if (!oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
             {
-                tempSelectOreIndex--;
-                _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
-                DisableButtonIfNoNextOre();
+                _uiManager.oreImageBody.color = Color.gray;
+                _uiManager.ConfirmOreButton.interactable = false;
+                _uiManager.ConfirmOreButtonImage.color = Color.gray;
+            } else if (oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+            {
+                _uiManager.oreImageBody.color = Color.white;
+                _uiManager.ConfirmOreButton.interactable = true;
+                _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
+            tempSelectOreIndex--;
+            DisableButtonIfNoNextOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
         {
-            if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+            if (!oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
             {
-                tempSelectOreIndex++;
-                _uiManager.previousOreButton.GetComponent<Image>().color = Color.white;
-                DisableButtonIfNoNextOre();
+                _uiManager.oreImageBody.color = Color.gray;
+                _uiManager.ConfirmOreButton.interactable = false;
+                _uiManager.ConfirmOreButtonImage.color = Color.gray;
+            } else if (oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+            {
+                _uiManager.oreImageBody.color = Color.white;
+                _uiManager.ConfirmOreButton.interactable = true;
+                _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
+            tempSelectOreIndex++;
+            DisableButtonIfNoNextOre();
         }
         CheckOreIndex();
     }
@@ -87,15 +101,23 @@ public class Ore : Singleton<Ore>
         CheckHardness();
     }
     
-    void DisableButtonIfNoNextOre()
+    public void DisableButtonIfNoNextOre()
     {
-        if (tempSelectOreIndex - 1 < 0 || !oreDatabase.ores[tempSelectOreIndex - 1].isUnlocked)
+        if (tempSelectOreIndex - 1 < 0)
         {
             _uiManager.previousOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
         }
-        else if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1 || !oreDatabase.ores[tempSelectOreIndex + 1].isUnlocked)
+        if (tempSelectOreIndex + 1 > oreDatabase.ores.Length - 1)
         {
             _uiManager.nextOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
+        }
+        if (tempSelectOreIndex + 1 <= oreDatabase.ores.Length - 1)
+        {
+            _uiManager.nextOreButton.GetComponent<Image>().color = Color.white;
+        }
+        if (tempSelectOreIndex - 1 >= 0)
+        {
+            _uiManager.previousOreButton.GetComponent<Image>().color = Color.white;
         }
     }
     
@@ -147,7 +169,7 @@ public class Ore : Singleton<Ore>
         {
             ore.isUnlocked = false;
             tempSelectOreIndex = 0;
-            UpdateOre();
+            UpdateCommonOre();
             _uiManager.UpdateOreDetails();
             _uiManager.UpdateOreImageHead();
             _uiManager.UpdateOreNameText(_thisOre.oreName);

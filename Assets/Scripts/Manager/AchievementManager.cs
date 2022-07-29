@@ -1,4 +1,5 @@
 using GameDatabase;
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,8 +39,8 @@ public class AchievementManager : Singleton<AchievementManager>
                         .color = Color.white;
                     achievementButton.onClick.AddListener(delegate
                     {
-                        _uiManager.AssignOverlayValue(achievement.achievementName, displayDescription, achievement.icon);
-                        _uiManager.OpenOverlay();
+                        _uiManager.AssignPopupValue(achievement.achievementName, displayDescription, achievement.icon);
+                        _uiManager.OpenPopup();
                     });
             }
             i++;
