@@ -52,7 +52,7 @@ public class UpgradesFunction : MonoBehaviour
     {
         if (_oreUpgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            if (_gameManager.HasMoney(1000) )
+            if (_gameManager.HasMoney(5000) )
             {
                 _ore.oreDatabase.ores[_oreUpgradeLevel].isUnlocked = true;
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
@@ -65,7 +65,7 @@ public class UpgradesFunction : MonoBehaviour
     
     public void ChangeHammerDamage(int damage)
     {
-        if (_gameManager.HasMoney(5000))
+        if (_gameManager.HasMoney(1000))
         {
             _gameManager.ModifyHammerDamage(damage);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
