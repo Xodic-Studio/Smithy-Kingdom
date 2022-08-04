@@ -76,8 +76,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     private const float FUTURE_GENERATIONS_COST = 53700000000f;
     private const float CSHARP_HAMMER_COST = 591000000000f;
     
-    private bool _hammerDamage1, _hammerDamage2, _hammerDamage3 = false;
-    public int hammerTier = 0;
+    private bool _hammerDamage1, _hammerDamage2, _hammerDamage3;
+    public int hammerTier;
     
     public void ChangeHammerDamage1()
     {
