@@ -5,12 +5,11 @@ namespace AnimationScript
 {
     /*
     Noted:
-    To use animation please use function "GetEquipmentResult(bool firstDrop, string category, string label)".
-    This function will be using sprite from EquipmentSpriteLib as reference.
+    To use animation please use function "GetEquipmentResult(bool firstDrop, Sprite Sprite)".
     
     Examples:
-    "GetEquipmentResult(false, "Copper", "Copper6")" << sprite with label "Copper6" from category "Copper" will be use in this case with normal drop animation.
-    "GetEquipmentResult(true, "Gold", "Gold1")" << sprite with label "Gold1" from category "Gold" will be use in this case with first drop animation.
+    "GetEquipmentResult(false, sprite)" << in this case normal drop animation.
+    "GetEquipmentResult(true, sprite)" << in this case first drop animation.
     */
     
     public class EquipmentDrop : Singleton<EquipmentDrop>
