@@ -3,7 +3,6 @@ using GameDatabase;
 using Manager;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,12 +11,15 @@ public class GameManager : Singleton<GameManager>
     private Ore _ore;
     private UIManager _uiManager;
     private SoundManager _soundManager;
+    private UpgradesFunction _upgradesFunction;
 
-    private int _hammerDamage = 1;
-    private int _hammerDamageCombined;
+    public int reputation;
+    private int _hammerDamageRaw = 1;
+    private float _hammerDamageCombined;
     private float _damageTextTimer;
     private float _cpsTimer;
     private float _cps;
+    private float _dps;
     private float _lastTime;
     private bool _isClicking;
 
@@ -38,6 +40,7 @@ public class GameManager : Singleton<GameManager>
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
         _soundManager = SoundManager.Instance;
+        _upgradesFunction = UpgradesFunction.Instance;
     }
 
     private void Start()
@@ -46,6 +49,7 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
         Invoke(nameof(MailTimer),Random.Range(1,2));
+        Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
@@ -65,6 +69,17 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    float _lastSecondDps;
+    void OneSecondInterval()
+    {
+        _dps += _upgradesFunction.damagePassive;
+        _ore.ModifyHardness(_upgradesFunction.damagePassive);
+        _dps -= _lastSecondDps;
+        _lastSecondDps = _dps;
+        Debug.Log(_dps);
+        Invoke("OneSecondInterval", 1f);
+    }
+    
     void ResetIsClicking()
     {
         Debug.Log("ResetIsClicking");
@@ -98,7 +113,7 @@ public class GameManager : Singleton<GameManager>
         return 1f;
     }
     
-    public bool HasMoney(int amount)
+    public bool HasMoney(float amount)
     {
         if (GetMoney() < amount)
         {
@@ -157,8 +172,12 @@ public class GameManager : Singleton<GameManager>
     {
         if (!_ore.GetIsDroppingItem())
         {
-            _ore.ModifyHardness(_hammerDamage);
-            _hammerDamageCombined += _hammerDamage;
+            _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
+                                    _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps +
+                                    _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
+                                    (1 + 0.02f * reputation));
+            _ore.ModifyHardness(_hammerDamageCombined);
+            _dps += _hammerDamageCombined;
             CombineDamageText();
             smithy.SetTrigger(Hit);
             anvil.SetTrigger(Hit);
@@ -174,7 +193,7 @@ public class GameManager : Singleton<GameManager>
 
     private void CombineDamageText()
     {
-        AddDamageText(_hammerDamage.ToString());
+        AddDamageText(_hammerDamageCombined.ToString());
     }
 
 
@@ -209,10 +228,10 @@ public class GameManager : Singleton<GameManager>
     
     public void ModifyHammerDamage(int amount)
     {
-        _hammerDamage += amount;
-        if (_hammerDamage <= 1)
+        _hammerDamageRaw += amount;
+        if (_hammerDamageRaw <= 1)
         {
-            _hammerDamage = 1;
+            _hammerDamageRaw = 1;
         }
     }
     

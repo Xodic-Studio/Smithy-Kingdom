@@ -95,7 +95,7 @@ public class Ore : Singleton<Ore>
         }
         CheckOreIndex();
     }
-    public void ModifyHardness(int amount)
+    public void ModifyHardness(float amount)
     {
         _thisOre.currentHardness -= amount;
         CheckHardness();

@@ -88,7 +88,6 @@ namespace Manager
                         CheckCollection();
                         break;
                     }
-
                     i++;
                 }
             }

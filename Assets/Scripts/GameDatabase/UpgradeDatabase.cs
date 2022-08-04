@@ -16,6 +16,5 @@ namespace GameDatabase
         public string upgradeName;
         public string upgradeDescription;
         public string upgradeLevels;
-        public UnityEvent upgradeEvent;
     }
 }
