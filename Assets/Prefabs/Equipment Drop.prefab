@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1705407278256687936}
   - component: {fileID: 6771728826052658949}
-  - component: {fileID: 492021881861467323}
   m_Layer: 0
   m_Name: Equipment
   m_TagString: Untagged
@@ -82,27 +81,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.53, y: 0.83}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &492021881861467323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553782218749279395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CategoryHash: 0
-  m_labelHash: 0
-  m_SpriteKey: -1821381.2
 --- !u!1 &2078941454192638766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5033,10 +5017,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7346306523149529051}
   - component: {fileID: 9187274258521975971}
-  - component: {fileID: 3158377553964261960}
   - component: {fileID: 1117866118}
   m_Layer: 0
-  m_Name: Dropped Equipment
+  m_Name: Equipment Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5078,20 +5061,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3158377553964261960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346306523149529050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 416cb9f042582234b819c7f5d1686e95, type: 3}
 --- !u!114 &1117866118
 MonoBehaviour:
   m_ObjectHideFlags: 0
