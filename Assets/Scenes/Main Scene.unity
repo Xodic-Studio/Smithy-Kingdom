@@ -7781,6 +7781,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251827812}
   m_CullTransparentMesh: 1
+--- !u!1 &252327141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7625181991748649516, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
+  m_PrefabInstance: {fileID: 509488652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &252392100
 GameObject:
   m_ObjectHideFlags: 0
@@ -14096,7 +14101,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7625181991748649519, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Pivot.x
@@ -14133,18 +14138,6 @@ PrefabInstance:
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_SizeDelta.y
       value: 3600
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14200,8 +14193,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7625181991897117531, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
+      propertyPath: gachaDropPrefab
+      value: 
+      objectReference: {fileID: 6435013370487773380, guid: a3c913162a3819540a9e81f832847bd8, type: 3}
+    - target: {fileID: 7625181991897117531, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
+      propertyPath: gachaResultList
+      value: 
+      objectReference: {fileID: 252327141}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
 --- !u!224 &509488653 stripped

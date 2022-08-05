@@ -1,4 +1,5 @@
 using System.Collections;
+using AnimationScript;
 using GameDatabase;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Manager
         private Ore _ore;
         private SoundManager _soundManager;
         private GachaSystem _gachaSystem;
+        private GachaDrop _gachaDrop;
 
         [Header("BaseUI")] public TMP_Text oreNameText;
         public TMP_Text moneyText;
@@ -21,6 +23,7 @@ namespace Manager
 
         private void Awake()
         {
+            _gachaDrop = GachaDrop.Instance;
             _ore = Ore.Instance;
             _soundManager = SoundManager.Instance;
             _gameManager = GameManager.Instance;
@@ -792,6 +795,10 @@ namespace Manager
                 {
                     _gachaSystem.RandomGacha();
                 }
+                _gachaDrop.OpenResult();
+                StartCoroutine(_gachaDrop.GetGachaResults(amount, _gachaSystem.resultSprites.ToArray()));
+                _gachaSystem.resultSprites.Clear();
+                Debug.Log(_gachaDrop.gameObject.activeSelf);
             }
         }
     

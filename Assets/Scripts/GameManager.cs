@@ -58,7 +58,7 @@ public class GameManager : Singleton<GameManager>
     {
         CheckTimer();
     }
-    
+    //TODO: REWORK THIS
     void CheckTimer()
     {
         _cpsTimer += Time.deltaTime;
@@ -70,6 +70,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     float _lastSecondDps;
+    //TODO: REWORK THIS
     void OneSecondInterval()
     {
         _dps += _upgradesFunction.damagePassive;
@@ -81,10 +82,9 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(_dps);
         Invoke("OneSecondInterval", 1f);
     }
-    
+    //TODO: REWORK THIS
     void ResetIsClicking()
     {
-        Debug.Log("ResetIsClicking");
         if (!_isClicking)
         {
             smithy.SetFloat(Click,0);

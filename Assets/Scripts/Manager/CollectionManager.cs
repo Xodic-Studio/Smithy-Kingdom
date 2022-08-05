@@ -1,4 +1,5 @@
 using System;
+using AnimationScript;
 using GameDatabase;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace Manager
         private UIManager _uiManager;
         private SoundManager _soundManager;
         private Ore _ore;
+        private EquipmentDrop _equipmentDrop;
 
         public ItemDatabase itemDatabase;
         private ItemCollection _itemCollection;
@@ -26,6 +28,7 @@ namespace Manager
 
         private void Awake()
         {
+            _equipmentDrop = EquipmentDrop.Instance;
             _uiManager = UIManager.Instance;
             _gameManager = GameManager.Instance;
             _soundManager = SoundManager.Instance;
@@ -124,9 +127,12 @@ namespace Manager
                                      $"Times Forged: {_itemStats.timesForged}\n" +
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
-                _uiManager.AssignPopupValue("You Forged New Item", displayDescription, _itemStats.itemSprite);
-                _uiManager.OpenPopup();
+                _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+            }
+            else
+            {
+                _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
             }
             itemButton.onClick.RemoveAllListeners();
 

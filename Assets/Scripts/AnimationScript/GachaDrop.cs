@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEditor;
@@ -22,7 +23,12 @@ namespace AnimationScript
         private bool isRolling;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
-        
+
+        private void Start()
+        {
+            CloseResult();
+        }
+
         public IEnumerator GetGachaResults(int dropCount, Sprite[] sprite)
         {
             if (isRolling)
@@ -77,6 +83,7 @@ namespace AnimationScript
         public void OpenResult()
         {
             gameObject.SetActive(true);
+            Debug.Log("GachaOpen");
         }
         
         public void CloseResult()
