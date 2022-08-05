@@ -74,8 +74,11 @@ public class GameManager : Singleton<GameManager>
     void OneSecondInterval()
     {
         _dps += _upgradesFunction.damagePassive;
-        _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.damagePassive));
-        AddDamageText(_upgradesFunction.damagePassive.ToString());
+        if (_upgradesFunction.damagePassive > 0)
+        {
+            _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.damagePassive));
+            AddDamageText(_upgradesFunction.damagePassive.ToString());
+        }
         ModifyMoney(_upgradesFunction.passiveMoney);
         _dps -= _lastSecondDps;
         _lastSecondDps = _dps;
