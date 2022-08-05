@@ -11784,7 +11784,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &800105213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23462,7 +23462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1489542805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32374,7 +32374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2100834149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33556,10 +33556,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 368343913}
     m_Modifications:
-    - target: {fileID: 7625181991748649519, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -500
-      objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -33647,10 +33643,6 @@ PrefabInstance:
     - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Name
       value: Gacha Results Zone
-      objectReference: {fileID: 0}
-    - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7625181992282200679, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
