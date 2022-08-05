@@ -93,6 +93,7 @@ namespace AnimationScript
         }
     }
 
+    #if UNITY_EDITOR
     [CustomEditor(typeof(GachaDrop))]
     public class SpawnGachaDrop : Editor
     {
@@ -127,4 +128,5 @@ namespace AnimationScript
             }
         }
     }
+    #endif
 }

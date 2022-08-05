@@ -15,6 +15,11 @@ namespace GameDatabase
     {
         public string upgradeName;
         public string upgradeDescription;
-        public string upgradeLevels;
+        public Sprite upgradeIcon;
+        public float upgradeCost;
+        public int upgradeLevels;
+        public int upgradeTier;
+        
+        public float upgradeBaseCost;
     }
 }

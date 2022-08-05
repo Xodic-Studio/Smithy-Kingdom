@@ -36,6 +36,7 @@ namespace AnimationScript
         }
     }
 
+    #if UNITY_EDITOR
     [CustomEditor(typeof(EquipmentDrop))]
     public class SpawnEquipmentDrop : Editor
     {
@@ -57,4 +58,5 @@ namespace AnimationScript
             }
         }
     }
+    #endif
 }

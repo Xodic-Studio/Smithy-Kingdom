@@ -1,8 +1,11 @@
 using System;
 using GameDatabase;
 using Manager;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UpgradesFunction : Singleton<UpgradesFunction>
 {
@@ -10,6 +13,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     GameManager _gameManager;
     UIManager _uiManager;
     SoundManager _soundManager;
+    public UpgradeDatabase upgradeDatabase;
+    
     int _oreUpgradeLevel = 1;
     public int upgradeCount = 0;
     
@@ -32,6 +37,37 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         _ore = Ore.Instance;
         _gameManager = GameManager.Instance;
     }
+
+    private void Start()
+    {
+        UpdateUpgradeButton();
+    }
+    
+    private void UpdateUpgradeButton()
+    {
+        var i = 0;
+        foreach (var function in upgradeFunctionList)
+        {
+            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(function.upgradesFunction.Invoke);
+            i++;
+        }
+    }
+
+    private void UpdateUpgradePrice(float price)
+    {
+        var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(2)
+            .GetComponent<TMP_Text>();
+        upgradePriceText.text = price.ToString("F0");
+    }
+    
+    private void UpdateUpgradeDescription (string baseDescription,string description)
+    {
+        var upgradeDescriptionText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
+        upgradeDescriptionText.text = baseDescription + "\n" +
+                                      description;
+    }
+
+
 
     public void UpgradeOre()
     {
@@ -87,9 +123,9 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             {
                 _hammerDamage1 = true;
                 _gameManager.ModifyHammerDamage(2);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                 upgradeCount++;
                 hammerTier ++;
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             }
         }
     }
@@ -102,9 +138,9 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             {
                 _hammerDamage2 = true;
                 _gameManager.ModifyHammerDamage(4);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                 upgradeCount++;
                 hammerTier ++;
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             }
         }
     }
@@ -117,177 +153,438 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             {
                 _hammerDamage3 = true;
                 _gameManager.ModifyHammerDamage(8);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                 upgradeCount++;
                 hammerTier ++;
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             }
         }
     }
 
-    public int hammerEnhancementLevel = 1;
+    public int hammerEnhancementLevel;
 
     public void HammerEnhancement()
     {
         if (_gameManager.HasMoney(HAMMER_ENHANCEMENT_COST * Mathf.Pow(100, hammerEnhancementLevel)))
         {
             hammerEnhancementLevel++;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             upgradeCount++;
+            UpdateUpgradePrice(HAMMER_ENHANCEMENT_COST * Mathf.Pow(100, hammerEnhancementLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
-    public int hammerEnvironmentLevel = 1;
+    public int hammerEnvironmentLevel;
     public void HammerEnvironment()
     {
         if (_gameManager.HasMoney(HAMMER_ENVIRONMENT_COST * Mathf.Pow(2, hammerEnvironmentLevel)))
         {
             hammerEnvironmentLevel++;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             upgradeCount++;
+            UpdateUpgradePrice(HAMMER_ENVIRONMENT_COST * Mathf.Pow(2, hammerEnvironmentLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
 
     public float damagePassive;
 
-    public int helpingHandLevel = 1;
-    public int moreHelpersLevel = 1;
-    public int lingeringFlameLevel = 1;
-    public int selfForgingHammerLevel = 1;
-    public int selfForgingAnvilLevel = 1;
-    public int selfForgingOreLevel = 1;
-    public int sentientSmithyLevel = 1;
-    public int ancestralSpiritsLevel = 1;
-    public int futureGenerationsLevel = 1;
-    public int csharpHammerLevel = 1;
+    void UpdateDamagePassive()
+    {
+        damagePassive = _helpingHandDamage + _moreHelpersDamage + _lingeringFlameDamage + _selfForgingHammerDamage + _selfForgingAnvilDamage + _selfForgingOreDamage + _sentientSmithyDamage + _ancestralSpiritsDamage + _futureGenerationsDamage + _csharpHammerDamage;
+    }
     
-    public int helpingHandTier;
-    public int moreHelpersTier;
-    public int lingeringFlameTier;
-    public int selfForgingHammerTier;
-    public int selfForgingAnvilTier;
-    public int selfForgingOreTier;
-    public int sentientSmithyTier;
-    public int ancestralSpiritsTier;
-    public int futureGenerationsTier;
-    public int csharpHammerTier;
+    private int _helpingHandLevel;
+    private int _moreHelpersLevel;
+    private int _lingeringFlameLevel;
+    private int _selfForgingHammerLevel;
+    private int _selfForgingAnvilLevel;
+    private int _selfForgingOreLevel;
+    private int _sentientSmithyLevel;
+    private int _ancestralSpiritsLevel;
+    private int _futureGenerationsLevel;
+    private int _csharpHammerLevel;
+    
+    private int _helpingHandTier;
+    private int _moreHelpersTier;
+    private int _lingeringFlameTier;
+    private int _selfForgingHammerTier;
+    private int _selfForgingAnvilTier;
+    private int _selfForgingOreTier;
+    private int _sentientSmithyTier;
+    private int _ancestralSpiritsTier;
+    private int _futureGenerationsTier;
+    private int _csharpHammerTier;
+
+    private float _helpingHandDamage;
+    private float _moreHelpersDamage;
+    private float _lingeringFlameDamage;
+    private float _selfForgingHammerDamage;
+    private float _selfForgingAnvilDamage;
+    private float _selfForgingOreDamage;
+    private float _sentientSmithyDamage;
+    private float _ancestralSpiritsDamage;
+    private float _futureGenerationsDamage;
+    private float _csharpHammerDamage;
+    
 
     public void HelpingHand()
     {
-        if (_gameManager.HasMoney(HELPING_HAND_COST * Mathf.Pow(1.15f, helpingHandLevel)))
+        if (_gameManager.HasMoney(HELPING_HAND_COST * Mathf.Pow(1.15f, _helpingHandLevel)))
         {
-            helpingHandLevel++;
-            damagePassive += HELPING_HAND_DAMAGE * helpingHandLevel * Mathf.Pow(2,helpingHandTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _helpingHandLevel++;
+            _helpingHandTier = CheckLevel(_helpingHandLevel);
+            _helpingHandDamage = HELPING_HAND_DAMAGE * _helpingHandLevel * Mathf.Pow(2,_helpingHandTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            helpingHandTier = CheckLevel(helpingHandLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {HELPING_HAND_DAMAGE} per second",$"-{_helpingHandDamage}/sec");
+            UpdateUpgradePrice(HELPING_HAND_COST * Mathf.Pow(1.15f, _helpingHandLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void MoreHelpers()
     {
-        if (_gameManager.HasMoney(MORE_HELPERS_COST * Mathf.Pow(1.15f, moreHelpersLevel)))
+        if (_gameManager.HasMoney(MORE_HELPERS_COST * Mathf.Pow(1.15f, _moreHelpersLevel)))
         {
-            moreHelpersLevel++;
-            damagePassive += MORE_HELPERS_DAMAGE * moreHelpersLevel * Mathf.Pow(2,moreHelpersTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _moreHelpersLevel++;
+            _moreHelpersTier = CheckLevel(_moreHelpersLevel);
+            _moreHelpersDamage = MORE_HELPERS_DAMAGE * _moreHelpersLevel * Mathf.Pow(2,_moreHelpersTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            moreHelpersTier = CheckLevel(moreHelpersLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {MORE_HELPERS_DAMAGE} per second",$"-{_moreHelpersDamage}/sec");
+            UpdateUpgradePrice(MORE_HELPERS_COST * Mathf.Pow(1.15f, _moreHelpersLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void LingeringFlame()
     {
-        if (_gameManager.HasMoney(LINGERING_FLAME_COST * Mathf.Pow(1.15f, lingeringFlameLevel)))
+        if (_gameManager.HasMoney(LINGERING_FLAME_COST * Mathf.Pow(1.15f, _lingeringFlameLevel)))
         {
-            lingeringFlameLevel++;
-            damagePassive += LINGERING_FLAME_DAMAGE * lingeringFlameLevel * Mathf.Pow(2,lingeringFlameTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _lingeringFlameLevel++;
+            _lingeringFlameTier = CheckLevel(_lingeringFlameLevel);
+            _lingeringFlameDamage = LINGERING_FLAME_DAMAGE * _lingeringFlameLevel * Mathf.Pow(2,_lingeringFlameTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            lingeringFlameTier = CheckLevel(lingeringFlameLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {LINGERING_FLAME_DAMAGE} per second",$"-{_lingeringFlameDamage}/sec");
+            UpdateUpgradePrice(LINGERING_FLAME_COST * Mathf.Pow(1.15f, _lingeringFlameLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void SelfForgingHammer()
     {
-        if (_gameManager.HasMoney(SELF_FORGING_HAMMER_COST * Mathf.Pow(1.15f, selfForgingHammerLevel)))
+        if (_gameManager.HasMoney(SELF_FORGING_HAMMER_COST * Mathf.Pow(1.15f, _selfForgingHammerLevel)))
         {
-            selfForgingHammerLevel++;
-            damagePassive += SELF_FORGING_HAMMER_DAMAGE * selfForgingHammerLevel * Mathf.Pow(2,selfForgingHammerTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _selfForgingHammerLevel++;
+            _selfForgingHammerTier = CheckLevel(_selfForgingHammerLevel);
+            _selfForgingHammerDamage = SELF_FORGING_HAMMER_DAMAGE * _selfForgingHammerLevel * Mathf.Pow(2,_selfForgingHammerTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            selfForgingHammerTier = CheckLevel(selfForgingHammerLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {SELF_FORGING_HAMMER_DAMAGE} per second",$"-{_selfForgingHammerDamage}/sec");
+            UpdateUpgradePrice(SELF_FORGING_HAMMER_COST * Mathf.Pow(1.15f, _selfForgingHammerLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void SelfForgingAnvil()
     {
-        if (_gameManager.HasMoney(SELF_FORGING_ANVIL_COST * Mathf.Pow(1.15f, selfForgingAnvilLevel)))
+        if (_gameManager.HasMoney(SELF_FORGING_ANVIL_COST * Mathf.Pow(1.15f, _selfForgingAnvilLevel)))
         {
-            selfForgingAnvilLevel++;
-            damagePassive += SELF_FORGING_ANVIL_DAMAGE * selfForgingAnvilLevel * Mathf.Pow(2,selfForgingAnvilTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _selfForgingAnvilLevel++;
+            _selfForgingAnvilTier = CheckLevel(_selfForgingAnvilLevel);
+            _selfForgingAnvilDamage = SELF_FORGING_ANVIL_DAMAGE * _selfForgingAnvilLevel * Mathf.Pow(2,_selfForgingAnvilTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            selfForgingAnvilTier = CheckLevel(selfForgingAnvilLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {SELF_FORGING_ANVIL_DAMAGE} per second",$"-{_selfForgingAnvilDamage}/sec");
+            UpdateUpgradePrice(SELF_FORGING_ANVIL_COST * Mathf.Pow(1.15f, _selfForgingAnvilLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void SelfForgingOre()
     {
-        if (_gameManager.HasMoney(SELF_FORGING_ORE_COST * Mathf.Pow(1.15f, selfForgingOreLevel)))
+        if (_gameManager.HasMoney(SELF_FORGING_ORE_COST * Mathf.Pow(1.15f, _selfForgingOreLevel)))
         {
-            selfForgingOreLevel++;
-            damagePassive += SELF_FORGING_ORE_DAMAGE * selfForgingOreLevel * Mathf.Pow(2,selfForgingOreTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _selfForgingOreLevel++;
+            _selfForgingOreTier = CheckLevel(_selfForgingOreLevel);
+            _selfForgingOreDamage = SELF_FORGING_ORE_DAMAGE * _selfForgingOreLevel * Mathf.Pow(2,_selfForgingOreTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            selfForgingOreTier = CheckLevel(selfForgingOreLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {SELF_FORGING_ORE_DAMAGE} per second",$"-{_selfForgingOreDamage}/sec");
+            UpdateUpgradePrice(SELF_FORGING_ORE_COST * Mathf.Pow(1.15f, _selfForgingOreLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void SentientSmithy()
     {
-        if (_gameManager.HasMoney(SENTIENT_SMITHY_COST * Mathf.Pow(1.15f, sentientSmithyLevel)))
+        if (_gameManager.HasMoney(SENTIENT_SMITHY_COST * Mathf.Pow(1.15f, _sentientSmithyLevel)))
         {
-            sentientSmithyLevel++;
-            damagePassive += SENTIENT_SMITHY_DAMAGE * sentientSmithyLevel * Mathf.Pow(2,sentientSmithyTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _sentientSmithyLevel++;
+            _sentientSmithyTier = CheckLevel(_sentientSmithyLevel);
+            _sentientSmithyDamage = SENTIENT_SMITHY_DAMAGE * _sentientSmithyLevel * Mathf.Pow(2,_sentientSmithyTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            sentientSmithyTier = CheckLevel(sentientSmithyLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {SENTIENT_SMITHY_DAMAGE} per second",$"-{_sentientSmithyDamage}/sec");
+            UpdateUpgradePrice(SENTIENT_SMITHY_COST * Mathf.Pow(1.15f, _sentientSmithyLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void AncestralSpirits()
     {
-        if (_gameManager.HasMoney(ANCESTRAL_SPIRITS_COST * Mathf.Pow(1.15f, ancestralSpiritsLevel)))
+        if (_gameManager.HasMoney(ANCESTRAL_SPIRITS_COST * Mathf.Pow(1.15f, _ancestralSpiritsLevel)))
         {
-            ancestralSpiritsLevel++;
-            damagePassive += ANCESTRAL_SPIRITS_DAMAGE * ancestralSpiritsLevel * Mathf.Pow(2,ancestralSpiritsTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _ancestralSpiritsLevel++;
+            _ancestralSpiritsTier = CheckLevel(_ancestralSpiritsLevel);
+            _ancestralSpiritsDamage = ANCESTRAL_SPIRITS_DAMAGE * _ancestralSpiritsLevel * Mathf.Pow(2,_ancestralSpiritsTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            ancestralSpiritsTier = CheckLevel(ancestralSpiritsLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {ANCESTRAL_SPIRITS_DAMAGE} per second",$"-{_ancestralSpiritsDamage}/sec");
+            UpdateUpgradePrice(ANCESTRAL_SPIRITS_COST * Mathf.Pow(1.15f, _ancestralSpiritsLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void FutureGenerations()
     {
-        if (_gameManager.HasMoney(FUTURE_GENERATIONS_COST * Mathf.Pow(1.15f, futureGenerationsLevel)))
+        if (_gameManager.HasMoney(FUTURE_GENERATIONS_COST * Mathf.Pow(1.15f, _futureGenerationsLevel)))
         {
-            futureGenerationsLevel++;
-            damagePassive += FUTURE_GENERATIONS_DAMAGE * futureGenerationsLevel * Mathf.Pow(2,futureGenerationsTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _futureGenerationsLevel++;
+            _futureGenerationsTier = CheckLevel(_futureGenerationsLevel);
+            _futureGenerationsDamage = FUTURE_GENERATIONS_DAMAGE * _futureGenerationsLevel * Mathf.Pow(2,_futureGenerationsTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            futureGenerationsTier = CheckLevel(futureGenerationsLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {FUTURE_GENERATIONS_DAMAGE} per second",$"-{_futureGenerationsDamage}/sec");
+            UpdateUpgradePrice(FUTURE_GENERATIONS_COST * Mathf.Pow(1.15f, _futureGenerationsLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
     public void CsharpHammer()
     {
-        if (_gameManager.HasMoney(CSHARP_HAMMER_COST * Mathf.Pow(1.15f, csharpHammerLevel)))
+        if (_gameManager.HasMoney(CSHARP_HAMMER_COST * Mathf.Pow(1.15f, _csharpHammerLevel)))
         {
-            csharpHammerLevel++;
-            damagePassive += CSHARP_HAMMER_DAMAGE * csharpHammerLevel * Mathf.Pow(2,csharpHammerTier) *(1 + 0.02f * _gameManager.reputation) ;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _csharpHammerLevel++;
+            _csharpHammerTier = CheckLevel(_csharpHammerLevel);
+            _csharpHammerDamage = CSHARP_HAMMER_DAMAGE * _csharpHammerLevel * Mathf.Pow(2,_csharpHammerTier) *(1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
-            csharpHammerTier = CheckLevel(csharpHammerLevel);
+            UpdateDamagePassive();
+            UpdateUpgradeDescription($"Decrease Ore Hp By {CSHARP_HAMMER_DAMAGE} per second",$"-{_csharpHammerDamage}/sec");
+            UpdateUpgradePrice(CSHARP_HAMMER_COST * Mathf.Pow(1.15f, _csharpHammerLevel));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+        }
+    }
+
+    public float passiveMoney;
+    
+    public float donationBoxMoney;
+    public float communityServiceMoney;
+    public float swordBettingMoney;
+    public float swordResellingMoney;
+    public float smithyNetworkMoney;
+    public float smithyCooperationMoney;
+    public float internationalSmithyMoney;
+    public float nonFungibleWeaponsMoney;
+    public float coinDuplicationGlitchMoney;
+    public float weaponDuplicationGlitchMoney;
+    
+    private const float DONATION_BOX_MONEY = 1f;
+    private const float COMMUNITY_SERVICE_MONEY = 8f;
+    private const float SWORD_BETTING_MONEY = 37f;
+    private const float SWORD_RESELLING_MONEY = 202f;
+    private const float SMITHY_NETWORK_MONEY = 1090f;
+    private const float SMITHY_COOPERATION_MONEY = 5850f;
+    private const float INTERNATIONAL_SMITHY_MONEY = 31400f;
+    private const float NON_FUNGIBLE_WEAPONS_MONEY = 168000f;
+    private const float COIN_DUPLICATION_GLITCH_MONEY = 904000f;
+    private const float WEAPON_DUPLICATION_GLITCH_MONEY = 4950000f;
+    
+    private const float DONATION_BOX_COST = 100f;
+    private const float COMMUNITY_SERVICE_COST = 1100f;
+    private const float SWORD_BETTING_COST = 12100f;
+    private const float SWORD_RESELLING_COST = 133000f;
+    private const float SMITHY_NETWORK_COST = 1460000f;
+    private const float SMITHY_COOPERATION_COST = 16100000f;
+    private const float INTERNATIONAL_SMITHY_COST = 177000000f;
+    private const float NON_FUNGIBLE_WEAPONS_COST = 1950000000f;
+    private const float COIN_DUPLICATION_GLITCH_COST = 21500000000f;
+    private const float WEAPON_DUPLICATION_GLITCH_COST = 236000000000f;
+    
+    private int _donationBoxLevel;
+    private int _communityServiceLevel;
+    private int _swordBettingLevel;
+    private int _swordResellingLevel;
+    private int _smithyNetworkLevel;
+    private int _smithyCooperationLevel;
+    private int _internationalSmithyLevel;
+    private int _nonFungibleWeaponsLevel;
+    private int _coinDuplicationGlitchLevel;
+    private int _weaponDuplicationGlitchLevel;
+    
+    private int _donationBoxTier;
+    private int _communityServiceTier;
+    private int _swordBettingTier;
+    private int _swordResellingTier;
+    private int _smithyNetworkTier;
+    private int _smithyCooperationTier;
+    private int _internationalSmithyTier;
+    private int _nonFungibleWeaponsTier;
+    private int _coinDuplicationGlitchTier;
+    private int _weaponDuplicationGlitchTier;
+
+    private void UpdatePassiveMoney()
+    {
+        passiveMoney = 0;
+        passiveMoney += donationBoxMoney;
+        passiveMoney += communityServiceMoney;
+        passiveMoney += swordBettingMoney;
+        passiveMoney += swordResellingMoney;
+        passiveMoney += smithyNetworkMoney;
+        passiveMoney += smithyCooperationMoney;
+        passiveMoney += internationalSmithyMoney;
+        passiveMoney += nonFungibleWeaponsMoney;
+        passiveMoney += coinDuplicationGlitchMoney;
+        passiveMoney += weaponDuplicationGlitchMoney;
+    }
+    
+    public void DonationBox()
+    {
+        if (_gameManager.HasMoney(DONATION_BOX_COST * Mathf.Pow(1.15f, _donationBoxLevel)))
+        {
+            _donationBoxLevel++;
+            _donationBoxTier = CheckLevel(_donationBoxLevel);
+            donationBoxMoney = DONATION_BOX_MONEY * _donationBoxLevel * Mathf.Pow(2,_donationBoxTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {DONATION_BOX_MONEY} per second",$"+{donationBoxMoney}/sec");
+            UpdateUpgradePrice(DONATION_BOX_COST * Mathf.Pow(1.15f, _donationBoxLevel));
+        }
+    }
+    
+    public void CommunityService()
+    {
+        if (_gameManager.HasMoney(COMMUNITY_SERVICE_COST * Mathf.Pow(1.15f, _communityServiceLevel)))
+        {
+            _communityServiceLevel++;
+            _communityServiceTier = CheckLevel(_communityServiceLevel);
+            communityServiceMoney = COMMUNITY_SERVICE_MONEY * _communityServiceLevel * Mathf.Pow(2,_communityServiceTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {COMMUNITY_SERVICE_MONEY} per second",$"+{communityServiceMoney}/sec");
+            UpdateUpgradePrice(COMMUNITY_SERVICE_COST * Mathf.Pow(1.15f, _communityServiceLevel));
+        }
+    }
+    
+    public void SwordBetting()
+    {
+        if (_gameManager.HasMoney(SWORD_BETTING_COST * Mathf.Pow(1.15f, _swordBettingLevel)))
+        {
+            _swordBettingLevel++;
+            _swordBettingTier = CheckLevel(_swordBettingLevel);
+            swordBettingMoney = SWORD_BETTING_MONEY * _swordBettingLevel * Mathf.Pow(2,_swordBettingTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {SWORD_BETTING_MONEY} per second",$"+{swordBettingMoney}/sec");
+            UpdateUpgradePrice(SWORD_BETTING_COST * Mathf.Pow(1.15f, _swordBettingLevel));
+        }
+    }
+    
+    public void SwordReselling()
+    {
+        if (_gameManager.HasMoney(SWORD_RESELLING_COST * Mathf.Pow(1.15f, _swordResellingLevel)))
+        {
+            _swordResellingLevel++;
+            _swordResellingTier = CheckLevel(_swordResellingLevel);
+            swordResellingMoney = SWORD_RESELLING_MONEY * _swordResellingLevel * Mathf.Pow(2,_swordResellingTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {SWORD_RESELLING_MONEY} per second",$"+{swordResellingMoney}/sec");
+            UpdateUpgradePrice(SWORD_RESELLING_COST * Mathf.Pow(1.15f, _swordResellingLevel));
+        }
+    }
+    
+    public void SmithyNetwork()
+    {
+        if (_gameManager.HasMoney(SMITHY_NETWORK_COST * Mathf.Pow(1.15f, _smithyNetworkLevel)))
+        {
+            _smithyNetworkLevel++;
+            _smithyNetworkTier = CheckLevel(_smithyNetworkLevel);
+            smithyNetworkMoney = SMITHY_NETWORK_MONEY * _smithyNetworkLevel * Mathf.Pow(2,_smithyNetworkTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {SMITHY_NETWORK_MONEY} per second",$"+{smithyNetworkMoney}/sec");
+            UpdateUpgradePrice(SMITHY_NETWORK_COST * Mathf.Pow(1.15f, _smithyNetworkLevel));
+        }
+    }
+    
+    public void SmithyCooperation()
+    {
+        if (_gameManager.HasMoney(SMITHY_COOPERATION_COST * Mathf.Pow(1.15f, _smithyCooperationLevel)))
+        {
+            _smithyCooperationLevel++;
+            _smithyCooperationTier = CheckLevel(_smithyCooperationLevel);
+            smithyCooperationMoney = SMITHY_COOPERATION_MONEY * _smithyCooperationLevel * Mathf.Pow(2,_smithyCooperationTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {SMITHY_COOPERATION_MONEY} per second",$"+{smithyCooperationMoney}/sec");
+            UpdateUpgradePrice(SMITHY_COOPERATION_COST * Mathf.Pow(1.15f, _smithyCooperationLevel));
+        }
+    }
+    
+    public void InternationalSmithy()
+    {
+        if (_gameManager.HasMoney(INTERNATIONAL_SMITHY_COST * Mathf.Pow(1.15f, _internationalSmithyLevel)))
+        {
+            _internationalSmithyLevel++;
+            _internationalSmithyTier = CheckLevel(_internationalSmithyLevel);
+            internationalSmithyMoney = INTERNATIONAL_SMITHY_MONEY * _internationalSmithyLevel * Mathf.Pow(2,_internationalSmithyTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {INTERNATIONAL_SMITHY_MONEY} per second",$"+{internationalSmithyMoney}/sec");
+            UpdateUpgradePrice(INTERNATIONAL_SMITHY_COST * Mathf.Pow(1.15f, _internationalSmithyLevel));
+        }
+    }
+    
+    public void NonFungibleWeapons()
+    {
+        if (_gameManager.HasMoney(NON_FUNGIBLE_WEAPONS_COST * Mathf.Pow(1.15f, _nonFungibleWeaponsLevel)))
+        {
+            _nonFungibleWeaponsLevel++;
+            _nonFungibleWeaponsTier = CheckLevel(_nonFungibleWeaponsLevel);
+            nonFungibleWeaponsMoney = NON_FUNGIBLE_WEAPONS_MONEY * _nonFungibleWeaponsLevel * Mathf.Pow(2,_nonFungibleWeaponsTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {NON_FUNGIBLE_WEAPONS_MONEY} per second",$"+{nonFungibleWeaponsMoney}/sec");
+            UpdateUpgradePrice(NON_FUNGIBLE_WEAPONS_COST * Mathf.Pow(1.15f, _nonFungibleWeaponsLevel));
+        }
+    }
+    
+    public void CoinDuplicationGlitch()
+    {
+        if (_gameManager.HasMoney(COIN_DUPLICATION_GLITCH_COST * Mathf.Pow(1.15f, _coinDuplicationGlitchLevel)))
+        {
+            _coinDuplicationGlitchLevel++;
+            _coinDuplicationGlitchTier = CheckLevel(_coinDuplicationGlitchLevel);
+            coinDuplicationGlitchMoney = COIN_DUPLICATION_GLITCH_MONEY * _coinDuplicationGlitchLevel * Mathf.Pow(2,_coinDuplicationGlitchTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {COIN_DUPLICATION_GLITCH_MONEY} per second",$"+{coinDuplicationGlitchMoney}/sec");
+            UpdateUpgradePrice(COIN_DUPLICATION_GLITCH_COST * Mathf.Pow(1.15f, _coinDuplicationGlitchLevel));
+        }
+    }
+    
+    public void WeaponDuplicationGlitch()
+    {
+        if (_gameManager.HasMoney(WEAPON_DUPLICATION_GLITCH_COST * Mathf.Pow(1.15f, _weaponDuplicationGlitchLevel)))
+        {
+            _weaponDuplicationGlitchLevel++;
+            _weaponDuplicationGlitchTier = CheckLevel(_weaponDuplicationGlitchLevel);
+            weaponDuplicationGlitchMoney = WEAPON_DUPLICATION_GLITCH_MONEY * _weaponDuplicationGlitchLevel * Mathf.Pow(2,_weaponDuplicationGlitchTier) *(1 + 0.02f * _gameManager.reputation) ;
+            upgradeCount++;
+            UpdatePassiveMoney();
+            UpdateUpgradeDescription($"Increase Passive Money By {WEAPON_DUPLICATION_GLITCH_MONEY} per second",$"+{weaponDuplicationGlitchMoney}/sec");
+            UpdateUpgradePrice(WEAPON_DUPLICATION_GLITCH_COST * Mathf.Pow(1.15f, _weaponDuplicationGlitchLevel));
         }
     }
 
@@ -320,8 +617,4 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         return 0;
     }
     
-
-
-
-
 }
