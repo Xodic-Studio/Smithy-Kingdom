@@ -228,6 +228,7 @@ namespace EditorScript
             {
                 upt.ui.database.itemsDatabase.ResetDatabase();
                 upt.ui.database.oresDatabase.ResetDatabase();
+                upt.ui.database.achievementDatabase.ResetProgress();
             }
             #endregion
         }

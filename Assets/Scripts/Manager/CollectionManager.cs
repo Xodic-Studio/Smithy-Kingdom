@@ -1,4 +1,5 @@
 using System;
+using AnimationScript;
 using GameDatabase;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,9 @@ namespace Manager
         private UIManager _uiManager;
         private SoundManager _soundManager;
         private Ore _ore;
+        private EquipmentDrop _equipmentDrop;
 
+        public AchievementDatabase achievementDatabase;
         public ItemDatabase itemDatabase;
         private ItemCollection _itemCollection;
         private ItemStats _itemStats;
@@ -26,10 +29,12 @@ namespace Manager
 
         private void Awake()
         {
+            _equipmentDrop = EquipmentDrop.Instance;
             _uiManager = UIManager.Instance;
             _gameManager = GameManager.Instance;
             _soundManager = SoundManager.Instance;
             _ore = Ore.Instance;
+            achievementDatabase = _gameManager.achievementDatabase;
         }
 
         private void Start()
@@ -86,6 +91,7 @@ namespace Manager
                         itemStatsIndex = i;
                         UpdateItemSelection();
                         CheckCollection();
+                        CheckLegendary();
                         break;
                     }
                     i++;
@@ -94,6 +100,15 @@ namespace Manager
             else
             {
                 Debug.LogWarning("No items in the item collection");
+            }
+        }
+        
+        void CheckLegendary()
+        {
+            if (_itemStats.itemRarity == ItemStats.Rarity.Legendary)
+            {
+                //_soundManager.PlaySound(SoundManager.Sound.Legendary);
+                achievementDatabase.ModifyProgress("Jackpot!", 1);
             }
         }
 
@@ -114,6 +129,7 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
@@ -124,9 +140,12 @@ namespace Manager
                                      $"Times Forged: {_itemStats.timesForged}\n" +
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
-                _uiManager.AssignPopupValue("You Forged New Item", displayDescription, _itemStats.itemSprite);
-                _uiManager.OpenPopup();
+                _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+            }
+            else
+            {
+                _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
             }
             itemButton.onClick.RemoveAllListeners();
 
