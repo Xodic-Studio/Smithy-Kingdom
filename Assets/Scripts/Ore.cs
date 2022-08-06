@@ -1,3 +1,4 @@
+using System.Collections;
 using GameDatabase;
 using Manager;
 using UnityEngine;
@@ -35,7 +36,6 @@ public class Ore : Singleton<Ore>
     
     void Update()
     {
-        DropItemDelay();
         _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
     }
     
@@ -126,7 +126,7 @@ public class Ore : Singleton<Ore>
         if (_thisOre.currentHardness <= 0)
         {
             _thisOre.currentHardness = 0;
-            _isDroppingItem = true;
+            StartCoroutine(DropItemDelay());
         }
         if (_thisOre.isPremium)
         {
@@ -134,19 +134,15 @@ public class Ore : Singleton<Ore>
         }
     }
     
-    void DropItemDelay()
+    IEnumerator DropItemDelay()
     {
-        _dropItemTimer += Time.deltaTime;
-        if (_isDroppingItem)
-        {
-            if (_dropItemTimer > 1)
-            {
-                _collectionManager.DropItem();
-                _thisOre.currentHardness = _thisOre.defaultHardness;
-                _isDroppingItem = false;
-                _dropItemTimer = 0;
-            }
-        }
+        _isDroppingItem = true;
+        _collectionManager.DropItem();
+        yield return new WaitForSeconds(1);
+        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _isDroppingItem = false;
+        _dropItemTimer = 0;
+        
     }
     
 

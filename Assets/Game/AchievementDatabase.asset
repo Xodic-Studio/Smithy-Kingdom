@@ -15,6 +15,7 @@ MonoBehaviour:
   achievements:
   - achievementName: A New Beginning
     description: Forge your first sword! This is the beginning of your long journey!
+    hint: Do your job as a blacksmith
     icon: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -24,6 +25,7 @@ MonoBehaviour:
   - achievementName: Begin Again
     description: "A critically acclaimed movi--- wait a minute, that\u2019s a different
       one. This one is for your courage to prestige and start over again!"
+    hint: "Perhaps starting over isn\u2019t as bad as it sounds?"
     icon: {fileID: 21300000, guid: 484ae75aa2838184981c2faaea21aa54, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -33,6 +35,7 @@ MonoBehaviour:
   - achievementName: Full Collection
     description: "You\u2019ve fully filled out the diagrams in a page of your collection
       book! Only a few more pages left to go!"
+    hint: Have you ever felt the urge to fully complete a page in the collection?
     icon: {fileID: 21300000, guid: 39bacdf64a415134487b50b49c13a852, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -42,6 +45,7 @@ MonoBehaviour:
   - achievementName: True Collector
     description: "You\u2019ve completely filled out your collection book! You can
       properly call yourself the legendary blacksmith now!"
+    hint: "Seems like there are still swords you haven\u2019t yet forged huh?"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -51,6 +55,7 @@ MonoBehaviour:
   - achievementName: Jackpot!
     description: Your first legendary sword! Did you know that only one in a thousand
       swords would end up like this?
+    hint: Create something that is worthy to be recorded in legends
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -60,6 +65,7 @@ MonoBehaviour:
   - achievementName: "You\u2019ve got Mail!"
     description: "You\u2019ve read a letter from the kingdom and got some money,
       someone must\u2019ve taken a liking of you huh?"
+    hint: "There\u2019s a popup that comes up once in a while, press it!"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 1
     dateAchieved: 8/6/2022 1:25:53 PM
@@ -69,6 +75,7 @@ MonoBehaviour:
   - achievementName: One small step for a man, one giant leap for the smithy
     description: "You upgraded your smithy! But don\u2019t forget that forging also
       requires a strong arm, alright?"
+    hint: "Perhaps it\u2019s time for some improvements?"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -77,6 +84,7 @@ MonoBehaviour:
     id: 6
   - achievementName: World-famous smithy
     description: You made more than 1 quadrillion coins in one run. Impressive!
+    hint: "You\u2019ve come quite awfully far for a smithy"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 1
     dateAchieved: 8/6/2022 1:23:42 PM
@@ -86,6 +94,7 @@ MonoBehaviour:
   - achievementName: Enthusiastic Helper
     description: "You\u2019ve reached a passive damage of 1 million damage per second!
       It\u2019s as if this game becomes a 2-player game!"
+    hint: At this rate, your assistant might be better than you
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -96,6 +105,7 @@ MonoBehaviour:
     description: "You unlocked the meteorite ore! You probably have to prestige and
       get the bonus to buy it, but if that\u2019s not the case, your dedication is
       seriously impressive!"
+    hint: Unlock something that seems unachievable in your first run
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -105,6 +115,7 @@ MonoBehaviour:
   - achievementName: I thought you might not come back!
     description: You came back! So, how fast will you spend all these AFK earnings,
       huh?
+    hint: "You\u2019ve leaving the smithy for a day? Good luck!"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -114,6 +125,7 @@ MonoBehaviour:
   - achievementName: Lucky!
     description: "How far in the blacksmith journey were you when you unlocked this?
       Nevertheless, you must be pretty lucky if you\u2019re reading this!"
+    hint: Just being lucky is plenty enough
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -123,6 +135,7 @@ MonoBehaviour:
   - achievementName: Worthless Regression
     description: "Oh hey, it\u2019s you again. Nice to see you start over for the
       hundredth time, were you hoping for something?"
+    hint: How many times have we gone through this together?
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -132,6 +145,7 @@ MonoBehaviour:
   - achievementName: Say No to Forging
     description: "Wait, that\u2019s illegal! How did you reach this level without
       forging?"
+    hint: "This kinda defeats the whole purpose, doesn\u2019t it?"
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -141,6 +155,7 @@ MonoBehaviour:
   - achievementName: Speed Forging
     description: "You made 1 trillion coins in 10 minutes? You must either be very
       lucky or really used to the whole process, aren\u2019t ya?"
+    hint: This much money in this amount of time, did you win a lottery or something?
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 
@@ -150,6 +165,7 @@ MonoBehaviour:
   - achievementName: "Mailman\u2019s Celebrity"
     description: "The number of letters you received is quite surprising. Stack it
       and fold it 32 times and you would\u2019ve reached the moon."
+    hint: So why is the king giving you money this time?
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
     isUnlocked: 0
     dateAchieved: 

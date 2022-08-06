@@ -65,10 +65,12 @@ namespace GameDatabase
         
         public void ResetProgress()
         {
+            Debug.Log("ResetProgress");
             foreach (var achievement in achievements)
             {
                 achievement.progress = 0;
                 achievement.isUnlocked = false;
+                achievement.dateAchieved = "";
             }
         }
     }
@@ -78,6 +80,7 @@ namespace GameDatabase
     {
         public string achievementName;
         public string description;
+        public string hint;
         public Sprite icon;
         public bool isUnlocked;
         public string dateAchieved;
