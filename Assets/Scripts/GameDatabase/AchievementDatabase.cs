@@ -85,7 +85,7 @@ namespace GameDatabase
         public bool isUnlocked;
         public string dateAchieved;
         public float progress;
-        public float requirement;
+        public float requirement; 
         public int id;
         
         public void Unlock()

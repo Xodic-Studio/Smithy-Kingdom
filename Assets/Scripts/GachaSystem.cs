@@ -25,9 +25,9 @@ public class GachaSystem : Singleton<GachaSystem>
     {
         if (PremiumOres.Length != 0)
         {
-            var randomNumber = Random.Range(1,PremiumOres.Length);
-            _ore.ModifyOreAmount(PremiumOres[randomNumber - 1], 1);
-            resultSprites.Add(PremiumOres[randomNumber - 1].oreSprite);
+            var randomNumber = Random.Range(0,PremiumOres.Length);
+            _ore.ModifyOreAmount(PremiumOres[randomNumber], 1);
+            resultSprites.Add(PremiumOres[randomNumber].oreSprite);
         }
         else
         {

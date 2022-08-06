@@ -300,8 +300,7 @@ namespace Manager
             normalOrePanel.SetActive(false);
             premiumOrePanel.SetActive(false);
         }
-    
-    
+        
         #region Getters and Setters
 
         /// <summary>
