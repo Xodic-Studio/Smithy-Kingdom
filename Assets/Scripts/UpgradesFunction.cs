@@ -14,6 +14,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     UIManager _uiManager;
     SoundManager _soundManager;
     public UpgradeDatabase upgradeDatabase;
+    public AchievementDatabase achievementDatabase;
     
     int _oreUpgradeLevel = 1;
     public int upgradeCount = 0;
@@ -36,6 +37,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
         _gameManager = GameManager.Instance;
+        achievementDatabase = _gameManager.achievementDatabase;
     }
 
     private void Start()
@@ -48,7 +50,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         var i = 0;
         foreach (var function in upgradeFunctionList)
         {
-            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(function.upgradesFunction.Invoke);
+            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
+            {
+                function.upgradesFunction.Invoke();
+                achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
+            });
             i++;
         }
     }
@@ -76,6 +82,10 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             if (_gameManager.HasMoney(5000) )
             {
                 _ore.oreDatabase.ores[_oreUpgradeLevel].isUnlocked = true;
+                if (_ore.oreDatabase.ores[_oreUpgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)
+                {
+                    achievementDatabase.ModifyProgress("Power of the Falling Star",1);
+                }
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
                 _oreUpgradeLevel++;
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
@@ -185,11 +195,12 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
     }
 
-    public float damagePassive;
+    public float passiveDamage;
 
     void UpdateDamagePassive()
     {
-        damagePassive = _helpingHandDamage + _moreHelpersDamage + _lingeringFlameDamage + _selfForgingHammerDamage + _selfForgingAnvilDamage + _selfForgingOreDamage + _sentientSmithyDamage + _ancestralSpiritsDamage + _futureGenerationsDamage + _csharpHammerDamage;
+        passiveDamage = _helpingHandDamage + _moreHelpersDamage + _lingeringFlameDamage + _selfForgingHammerDamage + _selfForgingAnvilDamage + _selfForgingOreDamage + _sentientSmithyDamage + _ancestralSpiritsDamage + _futureGenerationsDamage + _csharpHammerDamage;
+        achievementDatabase.ModifyProgress("Enthusiastic Helper", passiveDamage);
     }
     
     private int _helpingHandLevel;

@@ -14,6 +14,7 @@ namespace Manager
         private SoundManager _soundManager;
         private GachaSystem _gachaSystem;
         private GachaDrop _gachaDrop;
+        private AchievementDatabase _achievementDatabase;
 
         [Header("BaseUI")] public TMP_Text oreNameText;
         public TMP_Text moneyText;
@@ -28,7 +29,8 @@ namespace Manager
             _soundManager = SoundManager.Instance;
             _gameManager = GameManager.Instance;
             _gachaSystem = GachaSystem.Instance;
-        
+            _achievementDatabase = _gameManager.achievementDatabase;
+
         }
 
         private void Start()
@@ -511,6 +513,7 @@ namespace Manager
         /// /// <param name="mail"> Mail Class From MailDatabase</param>
         void OpenMail(Mail mail)
         {
+            _achievementDatabase.ModifyProgress("You’ve got Mail!",1);
             okButton.onClick.AddListener(_gameManager.MailReward);
             StopCoroutine(MailTimer());
             popupTitle.text = mail.title;

@@ -20,7 +20,7 @@ namespace AnimationScript
     {
         [SerializeField] public GameObject gachaDropPrefab;
         [SerializeField] public GameObject gachaResultList;
-        private bool isRolling;
+        private bool _isRolling;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
 
@@ -31,11 +31,11 @@ namespace AnimationScript
 
         public IEnumerator GetGachaResults(int dropCount, Sprite[] sprite)
         {
-            if (isRolling)
+            if (_isRolling)
             {
                 Debug.Log("Gacha is still rolling wait for it to finish first!");
             }
-            else if (!isRolling)
+            else if (!_isRolling)
             {
                 if (dropCount != sprite.Length)
                 {
@@ -46,7 +46,7 @@ namespace AnimationScript
                     if (dropCount == 1)
                     {
                         ClearList();
-                        isRolling = true;
+                        _isRolling = true;
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
                         drop.GetComponentInChildren<GachaImageController>().SetResultImage(sprite[0]);
                         yield return null;
@@ -54,7 +54,7 @@ namespace AnimationScript
                     else if (dropCount == 10)
                     {
                         ClearList();
-                        isRolling = true;
+                        _isRolling = true;
                         for (int i = 0; i < dropCount; i++)
                         {
                             GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
@@ -67,7 +67,7 @@ namespace AnimationScript
                         Debug.LogWarning("Did you just set Gacha rolls to other than 'x1' or 'x10'?");
                     }
                     yield return new WaitForSeconds(6f);
-                    isRolling = false;
+                    _isRolling = false;
                 }
             }
         }
@@ -88,12 +88,12 @@ namespace AnimationScript
         
         public void CloseResult()
         {
-            if (!isRolling)
+            if (!_isRolling)
             {
                 ClearList();
                 gameObject.SetActive(false);
             }
-            else if (isRolling)
+            else if (_isRolling)
             {
                 Debug.Log("Rolling animation is still running, closing it now would ruin the mood!");
             }

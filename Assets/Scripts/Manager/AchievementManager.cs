@@ -1,3 +1,4 @@
+using System;
 using GameDatabase;
 using Manager;
 using UnityEngine;
@@ -45,5 +46,19 @@ public class AchievementManager : Singleton<AchievementManager>
             }
             i++;
         }
+    }
+    
+    public void UnlockAchievement(Achievement achievement)
+    {
+        achievement.isUnlocked = true;
+        achievement.dateAchieved = DateTime.Now.ToString();
+        _uiManager.achievementsList.transform.GetChild(achievement.id).GetChild(0).GetComponent<Image>()
+            .color = Color.white;
+        _uiManager.achievementsList.transform.GetChild(achievement.id).GetComponent<Button>().onClick.AddListener(
+            delegate
+            {
+                _uiManager.AssignPopupValue(achievement.achievementName, achievement.description, achievement.icon);
+                _uiManager.OpenPopup();
+            });
     }
 }

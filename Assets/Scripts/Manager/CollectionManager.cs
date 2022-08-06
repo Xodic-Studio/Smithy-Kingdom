@@ -15,6 +15,7 @@ namespace Manager
         private Ore _ore;
         private EquipmentDrop _equipmentDrop;
 
+        public AchievementDatabase achievementDatabase;
         public ItemDatabase itemDatabase;
         private ItemCollection _itemCollection;
         private ItemStats _itemStats;
@@ -33,6 +34,7 @@ namespace Manager
             _gameManager = GameManager.Instance;
             _soundManager = SoundManager.Instance;
             _ore = Ore.Instance;
+            achievementDatabase = _gameManager.achievementDatabase;
         }
 
         private void Start()
@@ -89,6 +91,7 @@ namespace Manager
                         itemStatsIndex = i;
                         UpdateItemSelection();
                         CheckCollection();
+                        CheckLegendary();
                         break;
                     }
                     i++;
@@ -97,6 +100,15 @@ namespace Manager
             else
             {
                 Debug.LogWarning("No items in the item collection");
+            }
+        }
+        
+        void CheckLegendary()
+        {
+            if (_itemStats.itemRarity == ItemStats.Rarity.Legendary)
+            {
+                //_soundManager.PlaySound(SoundManager.Sound.Legendary);
+                achievementDatabase.ModifyProgress("Jackpot!", 1);
             }
         }
 
@@ -117,6 +129,7 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;

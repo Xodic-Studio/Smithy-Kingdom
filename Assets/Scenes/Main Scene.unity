@@ -35057,6 +35057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd473b05ac157c40848c5f8abb6faa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   reputation: 0
   money: 0
   gems: 0
@@ -35169,6 +35170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f73d54a4d5a1e4287e2f6d1a52bdb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   itemDatabase: {fileID: 11400000, guid: 95b73da35a684b64caecb0404fbeb5ac, type: 2}
   itemCollectionIndex: 0
   itemStatsIndex: 0
@@ -35209,6 +35211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeDatabase: {fileID: 11400000, guid: cdf7adc16fd89fd488bdd198c85419e7, type: 2}
+  achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   upgradeCount: 0
   upgradeFunctionList:
   - name: UpdateOre
@@ -35630,7 +35633,7 @@ MonoBehaviour:
   hammerTier: 0
   hammerEnhancementLevel: 0
   hammerEnvironmentLevel: 0
-  damagePassive: 0
+  passiveDamage: 0
   passiveMoney: 0
   donationBoxMoney: 0
   communityServiceMoney: 0

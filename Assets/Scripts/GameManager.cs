@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
+    public AchievementDatabase achievementDatabase;
     private Ore _ore;
     private UIManager _uiManager;
     private SoundManager _soundManager;
@@ -73,17 +74,27 @@ public class GameManager : Singleton<GameManager>
     //TODO: REWORK THIS
     void OneSecondInterval()
     {
-        _dps += _upgradesFunction.damagePassive;
-        if (_upgradesFunction.damagePassive > 0)
+        _dps += _upgradesFunction.passiveDamage;
+        if (_upgradesFunction.passiveDamage > 0)
         {
-            _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.damagePassive));
-            AddDamageText(_upgradesFunction.damagePassive.ToString());
+            _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage));
+            AddDamageText(_upgradesFunction.passiveDamage.ToString());
         }
+        LuckyAchievement();
         ModifyMoney(_upgradesFunction.passiveMoney);
         _dps -= _lastSecondDps;
         _lastSecondDps = _dps;
         Debug.Log(_dps);
         Invoke("OneSecondInterval", 1f);
+
+        void LuckyAchievement()
+        {
+            var random = Random.Range(1, 10000000);
+            if (random == 1)
+            {
+                achievementDatabase.ModifyProgress("Lucky!", 1);
+            }
+        }
     }
     //TODO: REWORK THIS
     void ResetIsClicking()
@@ -244,6 +255,7 @@ public class GameManager : Singleton<GameManager>
     {
         money += Mathf.Round(amount);
         _uiManager.UpdateMoneyText();
+        achievementDatabase.ModifyProgress("World-famous smithy",amount, true);
     }
     
     public float GetMoney()
