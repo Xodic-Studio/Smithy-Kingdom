@@ -19,7 +19,6 @@ public class Ore : Singleton<Ore>
     public int tempSelectOreIndex;
     public int selectedOreIndex;
     
-    private float _dropItemTimer;
     private bool _isDroppingItem;
     
     private void Awake()
@@ -140,8 +139,7 @@ public class Ore : Singleton<Ore>
     {
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _isDroppingItem = false;
-        _dropItemTimer = 0;
-        
+
     }
     
 
