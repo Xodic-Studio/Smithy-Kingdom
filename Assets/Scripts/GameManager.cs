@@ -74,8 +74,7 @@ public class GameManager : Singleton<GameManager>
     //TODO: REWORK THIS
     void OneSecondInterval()
     {
-        _dps += _upgradesFunction.passiveDamage;
-        if (_upgradesFunction.passiveDamage > 0)
+        if (_upgradesFunction.passiveDamage > 0 && !_ore.GetIsDroppingItem())
         {
             _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage));
             AddDamageText(_upgradesFunction.passiveDamage.ToString());
@@ -182,17 +181,13 @@ public class GameManager : Singleton<GameManager>
         }
         Destroy(goRect.gameObject);
     }
-    
+
+    private float _finalDamage;
     //Hitting Function
     private void TapTap()
     {
         if (!_ore.GetIsDroppingItem())
         {
-            _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
-                                    _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps +
-                                    _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
-                                    (1 + 0.02f * reputation));
-            _ore.ModifyHardness(_hammerDamageCombined);
             _dps += _hammerDamageCombined;
             CombineDamageText();
             smithy.SetTrigger(Hit);
@@ -203,6 +198,11 @@ public class GameManager : Singleton<GameManager>
             _cps = 1f / diff;
             smithy.SetFloat(Click, _cps);
             _isClicking = true;
+            _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
+                                                _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
+                                                (1 + 0.02f * reputation));
+            _finalDamage = _hammerDamageCombined + _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps;
+            _ore.ModifyHardness(_finalDamage);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
         }
     }
@@ -263,5 +263,38 @@ public class GameManager : Singleton<GameManager>
         return money;
     }
 
+    public string NumberToString(float number)
+    {
+        if (number < 1000)
+        {
+            return number.ToString();
+        }
+        if (number < 1000000)
+        {
+            return (number / 1000).ToString("0.0") + "k";
+        }
+        if (number < 1000000000)
+        {
+            return (number / 1000000).ToString("0.0") + "m";
+        }
+        if (number < 1000000000000)
+        {
+            return (number / 1000000000).ToString("0.0") + "b";
+        }
+        if (number < 1000000000000000)
+        {
+            return (number / 1000000000000).ToString("0.0") + "t";
+        }
+        if (number < 1000000000000000000)
+        {
+            return (number / 1000000000000000).ToString("0.0") + "q";
+        }
+        return number.ToString();
+    }
+    
+    
+    
+    
+    
     #endregion
 }

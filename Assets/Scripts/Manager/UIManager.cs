@@ -49,7 +49,7 @@ namespace Manager
         /// </summary>
         public void UpdateMoneyText()
         {
-            moneyText.text = $"$: {_gameManager.GetMoney()}";
+            moneyText.text = $"$: {_gameManager.NumberToString(_gameManager.GetMoney())}";
         }
 
         /// <summary>
