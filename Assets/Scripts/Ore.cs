@@ -126,7 +126,9 @@ public class Ore : Singleton<Ore>
         if (_thisOre.currentHardness <= 0)
         {
             _thisOre.currentHardness = 0;
-            StartCoroutine(DropItemDelay());
+            _isDroppingItem = true;
+            _collectionManager.DropItem();
+            Invoke("DropItemDelay",1f);
         }
         if (_thisOre.isPremium)
         {
@@ -134,11 +136,8 @@ public class Ore : Singleton<Ore>
         }
     }
     
-    IEnumerator DropItemDelay()
+    void DropItemDelay()
     {
-        _isDroppingItem = true;
-        _collectionManager.DropItem();
-        yield return new WaitForSeconds(1);
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _isDroppingItem = false;
         _dropItemTimer = 0;
