@@ -15,77 +15,77 @@ MonoBehaviour:
   stats:
   - upgradeName: Ore Upgrade
     upgradeDescription: Upgrade the ore Price:1000
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1793601052, guid: be1f9a758e7fc14449fcff67c46fd9c1, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 5000
   - upgradeName: 'Tier 1 Hammer '
     upgradeDescription: Tapping Power +2
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 264805477, guid: 43f458cce7fbf0d4e8152d9dceab6814, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 500
   - upgradeName: Tier 2 Hammer
     upgradeDescription: Tapping Power +4
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 248247382, guid: 6948658c12d88be4098af020cee836fb, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 25000
   - upgradeName: Tier 3 Hammer
     upgradeDescription: Tapping Power +8
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -1459192416, guid: 7a4700e160fce214192419dd2f69c06d, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 50000
   - upgradeName: Hammer  Enhancement
     upgradeDescription: Increase Tapping Power by 1% of DPS
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1655500534, guid: fbe32fd34008b3648a0b6bcc4f19573d, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 200000
   - upgradeName: 'Hammer Environment '
     upgradeDescription: 'Increase Tapping Power by 10% per upgrade '
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 461994747, guid: edb30e43e74d4b34181622bbc4df98b0, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 500000
   - upgradeName: 'Helping Hand '
     upgradeDescription: Ore HP -1/sec
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -381889886, guid: 836966abcfa86324cb283a46c44d1977, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 250
   - upgradeName: More Helpers
     upgradeDescription: Ore HP -8/sec
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -837576071, guid: c4130a14992a20b4f889af06a1e30592, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 2750
   - upgradeName: Lingering Flame
     upgradeDescription: Ore HP -37/sec
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -1879092992, guid: 729247aa2599ede4e9970cf413d949af, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 30300
   - upgradeName: Self-forging hammer
     upgradeDescription: Ore HP -202/sec
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 471666986, guid: 5f78caaa09116644488273e2192e3e6c, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 333000
   - upgradeName: 'Self-forging anvil '
     upgradeDescription: Ore HP -1.09k/sec
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -1184213988, guid: 3144c1bde6e40cd418a3a1dc5cf588aa, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     upgradeDescription: "I\u2026 you know what\u2026 I won\u2019t even question this 
       anymore. The ore helps you forge itself.  Decrease the ore HP by 5.85k per
       second."
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -2136245758, guid: 132a272c0b5d1ed4da80f1aab813f6ce, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   - upgradeName: Sentient Smithy
     upgradeDescription: The smithy itself is now sentient and is  secretly helping
       you forge. Decrease the ore  HP by 31.4k per second
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 98930816, guid: b9034eff17a174c47bd5d3c272ff5a2e, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   - upgradeName: Ancestral Spirits
     upgradeDescription: 'The spirits of your blacksmith ancestors help  you out around
       the forge. Decrease the ore  HP by 168k per second. '
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -888955207, guid: f998d89cc92a9d540bbea0c17f5b8122, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
@@ -119,85 +119,85 @@ MonoBehaviour:
     upgradeDescription: The future is unpredictable, but your future  generations
       will most likely be blacksmiths.  Knowing that, they have come to help from
       the future. Decrease the ore HP by 904k per  second.
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 559349013, guid: e4bc3c8785792224c9c6ae750acb5366, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 5.37e+10
-  - upgradeName: 'CSharp Hammer '
+  - upgradeName: 'C# Hammer '
     upgradeDescription: "You\u2019re now hammering the code that make  up this very
       game to reduce the HP of the  ore. Decrease the ore HP by 4.95M per  second. "
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 2142491352, guid: 6952c232490ff4040951925fa82fc745, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 5.91e+11
   - upgradeName: Donation Box
     upgradeDescription: Generate 1 Coin per second.
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1522753843, guid: 073e7cbbcf897be46834e3f474ffe0d1, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 100
   - upgradeName: Comunity Service
     upgradeDescription: Generate 8 Coins per second.
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 635527309, guid: 805bc2419037ed44989da58c91ffd0af, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 100
   - upgradeName: 'Sword Betting '
     upgradeDescription: Generate 37 Coins per second.
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -997967443, guid: 0a5f87dd03fb1954483588b8751bf2f4, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Sword Reselling
     upgradeDescription: Generate 202  Coins per second
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -1752166430, guid: 0ac915e99d6612d4aa5aaacb11a16aa3, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Smithy Network
     upgradeDescription: Generate 1.09k Coins per  second
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1045139385, guid: ebf3e730478766147a259b2b5915e929, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: 'Smithy Co. '
     upgradeDescription: ' Generate  5.85k Coins per second.'
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1562494901, guid: 401f32ec9cd12044a84a3e2fa339c35e, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Non-fungible  Weapons
     upgradeDescription: 'Generate 168k Coins per  second. '
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 884313224, guid: 57b94b5216dc50545bc600144ae4da27, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: 'International Smithy '
     upgradeDescription: Generate 31.4k Coins per second
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -194572276, guid: 489476738240129499a8ccde22f44dc5, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Coin Duplication  Glitch
     upgradeDescription: Generate 904k  Coins per second.
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: -836781404, guid: e2a4eefb21722294a9a8732cf73f52f4, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Weapon Duplication  Glitch
     upgradeDescription: Generate  4.95M Coins per second
-    upgradeIcon: {fileID: 0}
+    upgradeIcon: {fileID: 1694741314, guid: b89ca34db380b48488b90534ed7a1ef1, type: 3}
     upgradeCost: 0
     upgradeLevels: 0
     upgradeTier: 0
