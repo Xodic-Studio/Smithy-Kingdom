@@ -49,7 +49,7 @@ namespace Manager
         /// </summary>
         public void UpdateMoneyText()
         {
-            moneyText.text = $"$: {_gameManager.NumberToString(_gameManager.GetMoney())}";
+            moneyText.text = $"$: {_gameManager.NumberToString((decimal)_gameManager.GetMoney())}";
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Manager
         public void UpdateHardnessSlider(float hardness, float maxHardness)
         {
             hardnessSlider.value = hardness;
-            hardnessText.text = $"{hardness}/{maxHardness} ({hardness / maxHardness * 100}%)";
+            hardnessText.text = $"{_gameManager.NumberToString((decimal)hardness)}/{_gameManager.NumberToString((decimal)maxHardness)} ({hardness / maxHardness * 100:F2}%)";
         }
 
         #region MainMenu
@@ -254,8 +254,8 @@ namespace Manager
             RemoveNotification(NotificationType.Ore, oreNotificationCount);
             TapPremiumOreMenu();
             _ore.tempSelectOreIndex = _ore.selectedOreIndex;
-            UpdateOreDetails();
-            _ore.DisableButtonIfNoNextOre();
+            UpdatePremiumOreDetails();
+            _ore.DisableButtonIfNoNextPremiumOre();
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
@@ -320,18 +320,27 @@ namespace Manager
 
         [Header("Ore Selection")] public Image oreImageHead;
         public Image oreImageBody;
+        public Image premiumOreImageBody;
         public TMP_Text oreName;
+        public TMP_Text premiumOreName;
         public TMP_Text oreDescription;
+        public TMP_Text premiumOreDescription;
         [SerializeField] private Button normalOreButton;
         [SerializeField] private Button premiumOreButton;
         [SerializeField] private GameObject normalOrePanel;
         [SerializeField] private GameObject premiumOrePanel;
         [SerializeField] public Button previousOreButton;
         [SerializeField] public Button nextOreButton;
+        [SerializeField] public Button previousPremiumOreButton;
+        [SerializeField] public Button nextPremiumOreButton;
         [SerializeField] public GameObject confirmOreButtonGo;
+        [SerializeField] public GameObject confirmPremiumOreButtonGo;
         public Button ConfirmOreButton { get; private set; }
+        public Button ConfirmPremiumOreButton { get; private set; }
         public Image ConfirmOreButtonImage { get; private set; }
+        public Image ConfirmPremiumOreButtonImage { get; private set; }
         private TMP_Text _confirmOreButtonText;
+        private TMP_Text _confirmPremiumOreButtonText;
         
         /// <summary>
         ///     Start Method Of the Ore Selection UI
@@ -341,12 +350,19 @@ namespace Manager
             normalOreButton.onClick.AddListener(TapNormalOreMenu);
             premiumOreButton.onClick.AddListener(TapPremiumOreMenu);
             _confirmOreButtonText = confirmOreButtonGo.GetComponentInChildren<TMP_Text>();
+            _confirmPremiumOreButtonText = confirmPremiumOreButtonGo.GetComponentInChildren<TMP_Text>();
             ConfirmOreButtonImage = confirmOreButtonGo.GetComponent<Image>();
+            ConfirmPremiumOreButtonImage = confirmPremiumOreButtonGo.GetComponent<Image>();
             ConfirmOreButton = confirmOreButtonGo.GetComponent<Button>();
+            ConfirmPremiumOreButton = confirmPremiumOreButtonGo.GetComponent<Button>();
             ConfirmOreButton.onClick.AddListener(SelectOre);
             nextOreButton.onClick.AddListener(PreviewNextOre);
             previousOreButton.onClick.AddListener(PreviewPreviousOre);
+            nextPremiumOreButton.onClick.AddListener(PreviewNextPremiumOre);
+            previousPremiumOreButton.onClick.AddListener(PreviewPreviousPremiumOre);
+            ConfirmPremiumOreButton.onClick.AddListener(SelectPremiumOre);
             UpdateOreDetails();
+            UpdatePremiumOreDetails();
         }
 
         /// <summary>
@@ -357,7 +373,7 @@ namespace Manager
             oreImageBody.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
             oreName.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreName;
             oreDescription.text = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreDescription;
-            if (_ore.selectedOreIndex == _ore.tempSelectOreIndex)
+            if (_ore.selectedOreIndex == _ore.tempSelectOreIndex && !_ore.isPremium)
             {
                 ConfirmOreButton.interactable = false;
                 _confirmOreButtonText.text = "Selected";
@@ -367,6 +383,22 @@ namespace Manager
                 _confirmOreButtonText.text = "Select";
             }
         }
+        
+        public void UpdatePremiumOreDetails()
+        {
+            premiumOreImageBody.sprite = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreSprite;
+            premiumOreName.text = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreName;
+            premiumOreDescription.text = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreDescription;
+            if (_ore.selectedOreIndex == _ore.tempSelectOreIndex && _ore.isPremium)
+            {
+                ConfirmPremiumOreButton.interactable = false;
+                _confirmPremiumOreButtonText.text = "Selected";
+            }
+            else
+            {
+                _confirmPremiumOreButtonText.text = "Select";
+            }
+        }
 
         /// <summary>
         ///     update Currently Selected Ore Image (Outside the Selector)
@@ -374,6 +406,11 @@ namespace Manager
         public void UpdateOreImageHead()
         {
             oreImageHead.sprite = _ore.oreDatabase.ores[_ore.tempSelectOreIndex].oreSprite;
+        }
+        
+        public void UpdatePremiumOreImageHead()
+        {
+            oreImageHead.sprite = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreSprite;
         }
 
         /// <summary>
@@ -385,6 +422,13 @@ namespace Manager
             UpdateOreDetails();
             UpdateOreNameText(_ore.GetOreStats().oreName);
         }
+        
+        private void PreviewPreviousPremiumOre()
+        {
+            _ore.ModifyPremiumOreIndex(-1);
+            UpdatePremiumOreDetails();
+            UpdateOreNameText(_ore.GetOreStats().oreName);
+        }
 
         /// <summary>
         ///     Preview Next Ore and Update the Ore Details
@@ -393,6 +437,13 @@ namespace Manager
         {
             _ore.ModifySelectedOreIndex(1);
             UpdateOreDetails();
+            UpdateOreNameText(_ore.GetOreStats().oreName);
+        }
+        
+        private void PreviewNextPremiumOre()
+        {
+            _ore.ModifyPremiumOreIndex(1);
+            UpdatePremiumOreDetails();
             UpdateOreNameText(_ore.GetOreStats().oreName);
         }
 
@@ -408,16 +459,31 @@ namespace Manager
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre));
         }
         
+        private void SelectPremiumOre()
+        {
+            _ore.UpdatePremiumOre();
+            UpdatePremiumOreDetails();
+            UpdatePremiumOreImageHead();
+            UpdateOreNameText(_ore.GetOreStats().oreName);
+            _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre));
+        }
+        
         private void TapNormalOreMenu()
         {
             normalOrePanel.SetActive(true);
             premiumOrePanel.SetActive(false);
+            _ore.tempSelectOreIndex = 0;
+            UpdateOreDetails();
+            _ore.DisableButtonIfNoNextOre();
         } 
         
         private void TapPremiumOreMenu()
         {
             normalOrePanel.SetActive(false);
             premiumOrePanel.SetActive(true);
+            _ore.tempSelectOreIndex = 0;
+            UpdatePremiumOreDetails();
+            _ore.DisableButtonIfNoNextPremiumOre();
         }
 
         #endregion
@@ -454,35 +520,6 @@ namespace Manager
         {
             AssignPopupValue("Not Enough Gems", "You don't have enough gems to buy this", denySprite);
             OpenPopup();
-        }
-        
-        [Header("GachaResults")]
-        public GameObject gachaResultsPanel;
-        public GameObject gachaResultsList;
-        public GameObject gachaResultsPrefab;
-        
-        public void AddRewardImage(Sprite sprite)
-        {
-            GameObject rewardImage = Instantiate(gachaResultsPrefab, gachaResultsList.transform);
-            rewardImage.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
-        }
-        
-        public void OpenGachaResults()
-        {
-            gachaResultsPanel.SetActive(true);
-        }
-        
-        public void CloseGachaResults()
-        {
-            gachaResultsPanel.SetActive(false);
-        }
-        
-        public void RemoveGachaResults()
-        {
-            foreach (Transform child in gachaResultsList.transform)
-            {
-                Destroy(child.gameObject);
-            }
         }
 
         #endregion

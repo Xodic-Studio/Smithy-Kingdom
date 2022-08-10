@@ -63,6 +63,10 @@ namespace EditorScript
 
                 var databaseStats = upt.ui.database.upgradeDatabase.stats;
                 var listTransform = upt.ui.upgradeList.transform;
+                foreach (Transform variable in listTransform)
+                {
+                    DestroyImmediate(variable.gameObject);
+                }
                 var i = 0;
                 foreach (var unused in databaseStats)
                 {
@@ -81,6 +85,8 @@ namespace EditorScript
                         databaseStats[i].upgradeName;
                     listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>()
                         .text = databaseStats[i].upgradeDescription;
+                    listTransform.GetChild(i).GetChild(1).GetChild(0).GetComponent<Image>().sprite =
+                        databaseStats[i].upgradeIcon;
                     i++;
                 }
 
@@ -98,9 +104,13 @@ namespace EditorScript
             {
                 var active = upt.ui.premiumUpgradeList.activeSelf;
                 if (!active) upt.ui.premiumUpgradeList.SetActive(true);
-
+                
                 var databaseStats = upt.ui.database.premiumUpgradeDatabase.stats;
                 var listTransform = upt.ui.premiumUpgradeList.transform;
+                foreach (Transform variable in listTransform)
+                {
+                    DestroyImmediate(variable.gameObject);
+                }
                 var i = 0;
                 foreach (var unused in databaseStats)
                 {
@@ -119,6 +129,8 @@ namespace EditorScript
                         databaseStats[i].upgradeName;
                     listTransform.GetChild(i).Find("UpgradeTextArea/UpgradeDescription").GetComponent<TMP_Text>()
                         .text = databaseStats[i].upgradeDescription;
+                    listTransform.GetChild(i).GetChild(1).GetChild(0).GetComponent<Image>().sprite =
+                        databaseStats[i].upgradeIcon;
                     i++;
                 }
 
@@ -135,6 +147,10 @@ namespace EditorScript
 
                 var databaseStats = upt.ui.database.itemsDatabase.collections;
                 var listTransform = upt.ui.collectionList.transform;
+                foreach (Transform variable in listTransform)
+                {
+                    DestroyImmediate(variable.gameObject);
+                }
                 var i = 0;
                 foreach (var unused in databaseStats)
                 {
@@ -156,12 +172,16 @@ namespace EditorScript
                 var childCount = listTransform.childCount;
                 var needDestroy = childCount - databaseStats.Length;
                 for (i = childCount; i > childCount - needDestroy; i--)
-                    DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                    DestroyImmediate(listTransform.GetChild(i - 1).gameObject); 
 
                 var j = 0;
                 foreach (var collection in databaseStats)
                 {
                     listTransform = upt.ui.collectionList.transform.GetChild(j);
+                    foreach (Transform variable in listTransform)
+                    {
+                        DestroyImmediate(variable.gameObject);
+                    }
                     i = 0;
                     foreach (var unused in collection.items)
                     {
@@ -187,6 +207,7 @@ namespace EditorScript
                     needDestroy = childCount - databaseStats[j].items.Length;
                     for (i = childCount; i > childCount - needDestroy; i--)
                         DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                    j++;
                 }
             }
 
@@ -197,6 +218,10 @@ namespace EditorScript
 
                 var databaseStats = upt.ui.database.achievementDatabase.achievements;
                 var listTransform = upt.ui.achievementsList.transform;
+                foreach (Transform variable in listTransform)
+                {
+                    DestroyImmediate(variable.gameObject);
+                }
                 var i = 0;
                 foreach (var unused in databaseStats)
                 {

@@ -189,7 +189,6 @@ public class GameManager : Singleton<GameManager>
         if (!_ore.GetIsDroppingItem())
         {
             _dps += _hammerDamageCombined;
-            CombineDamageText();
             smithy.SetTrigger(Hit);
             anvil.SetTrigger(Hit);
             float currentTime = Time.time;
@@ -202,14 +201,10 @@ public class GameManager : Singleton<GameManager>
                                                 _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
                                                 (1 + 0.02f * reputation));
             _finalDamage = _hammerDamageCombined + _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps;
+            AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
         }
-    }
-
-    private void CombineDamageText()
-    {
-        AddDamageText(_hammerDamageCombined.ToString());
     }
 
 
@@ -263,11 +258,11 @@ public class GameManager : Singleton<GameManager>
         return money;
     }
 
-    public string NumberToString(float number)
+    public string NumberToString(decimal number)
     {
         if (number < 1000)
         {
-            return number.ToString();
+            return number.ToString("0.0");
         }
         if (number < 1000000)
         {
@@ -288,7 +283,20 @@ public class GameManager : Singleton<GameManager>
         if (number < 1000000000000000000)
         {
             return (number / 1000000000000000).ToString("0.0") + "q";
+        } 
+        if (number < 1000000000000000000000m)
+        {
+            return (number / 1000000000000000000m).ToString("0.0") + "Q";
+        } 
+        if (number < 1000000000000000000000000m)
+        {
+            return (number / 1000000000000000000000m).ToString("0.0") + "s";
         }
+        if (number < 1000000000000000000000000000m)
+        {
+            return (number / 1000000000000000000000000m).ToString("0.0") + "S";
+        }
+
         return number.ToString();
     }
     

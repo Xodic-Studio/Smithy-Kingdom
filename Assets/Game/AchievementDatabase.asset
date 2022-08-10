@@ -60,16 +60,16 @@ MonoBehaviour:
     isUnlocked: 0
     dateAchieved: 
     progress: 0
-    requirement: 0
+    requirement: 1
     id: 4
   - achievementName: "You\u2019ve got Mail!"
     description: "You\u2019ve read a letter from the kingdom and got some money,
       someone must\u2019ve taken a liking of you huh?"
     hint: "There\u2019s a popup that comes up once in a while, press it!"
     icon: {fileID: -219575875, guid: c2d6d11a64243e548b0e51a10d8e95ef, type: 3}
-    isUnlocked: 1
-    dateAchieved: 8/6/2022 1:25:53 PM
-    progress: 3
+    isUnlocked: 0
+    dateAchieved: 
+    progress: 0
     requirement: 1
     id: 5
   - achievementName: One small step for a man, one giant leap for the smithy
@@ -80,14 +80,14 @@ MonoBehaviour:
     isUnlocked: 0
     dateAchieved: 
     progress: 0
-    requirement: 0
+    requirement: 1
     id: 6
   - achievementName: World-famous smithy
     description: You made more than 1 quadrillion coins in one run. Impressive!
     hint: "You\u2019ve come quite awfully far for a smithy"
     icon: {fileID: 928295612, guid: 0773f75bd3f435b4588d3f00ab6ffb7b, type: 3}
-    isUnlocked: 1
-    dateAchieved: 8/6/2022 1:23:42 PM
+    isUnlocked: 0
+    dateAchieved: 
     progress: 0
     requirement: 1e+13
     id: 7
