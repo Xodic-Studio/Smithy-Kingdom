@@ -119,12 +119,12 @@ TextureImporter:
       name: Helping Hand_0
       rect:
         serializedVersion: 2
-        x: 575
-        y: 756
+        x: 577
+        y: 601
         width: 875
-        height: 540
+        height: 875
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

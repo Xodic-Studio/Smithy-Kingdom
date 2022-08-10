@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: MailDatabase
   m_EditorClassIdentifier: 
   mails:
-  - title: New Mail1
-    content: Hi this is yusaki the developer
+  - title: The king is celebrating his 55th birthday! Money are being given out to
+      various business within the kingdom to improve the economy in celebration!
+    content: You received 5,000 Coins
+    icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
+  - title: A patron has given you some support in order to further improve your smithy!
+    content: You received 1,000 Coins
+    icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
+  - title: Rejoice! One of your customer has achieved great feat with your weapon
+      and is sending your some money as thanks.
+    content: You received 2,500 Coins
+    icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
+  - title: Your smithy is receiving more support from the locals! It seems like you
+      have really improve their economy and they have given you some gifts for that!
+    content: You received 2,000 Coins
     icon: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}

@@ -119,12 +119,12 @@ TextureImporter:
       name: A New Beginning_0
       rect:
         serializedVersion: 2
-        x: 690
-        y: 789
-        width: 714
-        height: 563
+        x: 687
+        y: 705
+        width: 715
+        height: 715
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

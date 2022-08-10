@@ -119,12 +119,12 @@ TextureImporter:
       name: Unbelieveable Reputation_0
       rect:
         serializedVersion: 2
-        x: 758
-        y: 683
-        width: 524
-        height: 641
+        x: 693
+        y: 681
+        width: 645
+        height: 645
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

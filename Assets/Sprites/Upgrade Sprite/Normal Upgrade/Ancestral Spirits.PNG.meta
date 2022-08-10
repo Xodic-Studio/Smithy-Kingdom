@@ -119,12 +119,12 @@ TextureImporter:
       name: Ancestral Spirits_0
       rect:
         serializedVersion: 2
-        x: 502
-        y: 694
-        width: 1001
-        height: 736
+        x: 500
+        y: 592
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

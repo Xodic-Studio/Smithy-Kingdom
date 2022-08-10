@@ -119,12 +119,12 @@ TextureImporter:
       name: Sword Reselling_0
       rect:
         serializedVersion: 2
-        x: 407
-        y: 707
-        width: 1083
-        height: 836
+        x: 406
+        y: 597
+        width: 1085
+        height: 1085
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
