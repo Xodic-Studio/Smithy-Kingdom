@@ -64,8 +64,18 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(1)
             .GetComponent<TMP_Text>();
         upgradePriceText.text = _gameManager.NumberToString((decimal)price);
+        if (price > _gameManager.GetMoney())
+        {
+            var parent = EventSystem.current.currentSelectedGameObject.transform.parent;
+            var parent1 = parent.parent;
+            parent1.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
+        }
     }
-    
+
     private void UpdateUpgradeDescription (string baseDescription,string description)
     {
         var upgradeDescriptionText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
@@ -135,6 +145,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 _gameManager.ModifyHammerDamage(2);
                 upgradeCount++;
                 hammerTier ++;
+                
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
             }
         }

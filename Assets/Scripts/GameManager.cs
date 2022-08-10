@@ -77,7 +77,7 @@ public class GameManager : Singleton<GameManager>
         if (_upgradesFunction.passiveDamage > 0 && !_ore.GetIsDroppingItem())
         {
             _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage));
-            AddDamageText(_upgradesFunction.passiveDamage.ToString());
+            AddDamageText(NumberToString((decimal)_upgradesFunction.passiveDamage));
         }
         LuckyAchievement();
         ModifyMoney(_upgradesFunction.passiveMoney);
