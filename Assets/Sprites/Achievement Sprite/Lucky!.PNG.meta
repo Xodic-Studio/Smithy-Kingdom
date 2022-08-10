@@ -119,12 +119,12 @@ TextureImporter:
       name: Lucky!_0
       rect:
         serializedVersion: 2
-        x: 652
-        y: 563
-        width: 671
-        height: 957
+        x: 498
+        y: 544
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

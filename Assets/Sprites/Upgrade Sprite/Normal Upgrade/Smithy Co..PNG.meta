@@ -119,12 +119,12 @@ TextureImporter:
       name: Smithy Co._0
       rect:
         serializedVersion: 2
-        x: 503
-        y: 938
-        width: 972
-        height: 270
+        x: 505
+        y: 590
+        width: 975
+        height: 975
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

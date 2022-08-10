@@ -119,12 +119,12 @@ TextureImporter:
       name: Tier 3 Hammer_0
       rect:
         serializedVersion: 2
-        x: 652
-        y: 675
-        width: 680
-        height: 676
+        x: 651
+        y: 670
+        width: 685
+        height: 685
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

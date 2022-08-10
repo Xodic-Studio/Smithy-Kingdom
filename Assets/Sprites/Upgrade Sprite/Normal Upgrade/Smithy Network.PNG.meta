@@ -119,12 +119,12 @@ TextureImporter:
       name: Smithy Network_0
       rect:
         serializedVersion: 2
-        x: 682
-        y: 693
-        width: 683
+        x: 469
+        y: 691
+        width: 1054
         height: 1054
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
