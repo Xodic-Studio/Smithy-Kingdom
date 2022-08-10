@@ -61,9 +61,9 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     private void UpdateUpgradePrice(float price)
     {
-        var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(2)
+        var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(1)
             .GetComponent<TMP_Text>();
-        upgradePriceText.text = price.ToString("F0");
+        upgradePriceText.text = _gameManager.NumberToString((decimal)price);
     }
     
     private void UpdateUpgradeDescription (string baseDescription,string description)

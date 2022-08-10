@@ -411,3 +411,359 @@ MonoBehaviour:
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: Adamatine Serater
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 0
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamatine Rapier
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 1
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamantine Saber
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 2
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Night's Edge
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
+      itemPrice: 2.07e+18
+      itemRarity: 3
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Balmung
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
+      itemPrice: 1.03e+19
+      itemRarity: 4
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Vendetta
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+      itemPrice: 4.13e+19
+      itemRarity: 5
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: Adamatine Serater
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 0
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamatine Rapier
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 1
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamantine Saber
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 2
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Night's Edge
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
+      itemPrice: 2.07e+18
+      itemRarity: 3
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Balmung
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
+      itemPrice: 1.03e+19
+      itemRarity: 4
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Vendetta
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+      itemPrice: 4.13e+19
+      itemRarity: 5
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: Adamatine Serater
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 0
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamatine Rapier
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 1
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamantine Saber
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 2
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Night's Edge
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
+      itemPrice: 2.07e+18
+      itemRarity: 3
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Balmung
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
+      itemPrice: 1.03e+19
+      itemRarity: 4
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Vendetta
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+      itemPrice: 4.13e+19
+      itemRarity: 5
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: Adamatine Serater
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 0
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamatine Rapier
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 1
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamantine Saber
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 2
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Night's Edge
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
+      itemPrice: 2.07e+18
+      itemRarity: 3
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Balmung
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
+      itemPrice: 1.03e+19
+      itemRarity: 4
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Vendetta
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+      itemPrice: 4.13e+19
+      itemRarity: 5
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: Adamatine Serater
+      itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 0
+      itemDescription: A multi-purpose sword made out of Adamantine. The hook near
+        the end of the blade can be used to disarm opponents and the straight edge
+        can even be used as a ruler!
+      dropChance: 70
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamatine Rapier
+      itemSprite: {fileID: 21300000, guid: 72cac79e15b74d54a8469963abecd9ac, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 1
+      itemDescription: A sword specially designed to be used by nobility for dueling.
+        It has a slender and sharply-shaped two edged blades and is mainly used as
+        a thrust weapon.
+      dropChance: 20
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Adamantine Saber
+      itemSprite: {fileID: 21300000, guid: 72759357fbdfe1746892e7da6c01ac2a, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 2
+      itemDescription: A simple yet formidable sword preferred by thoose who like
+        simplicity. The blade is folded several times for extra durability and sharpened
+        to its maximum.
+      dropChance: 7.5
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Night's Edge
+      itemSprite: {fileID: 21300000, guid: 31039d536614f2a4dadeb9354490d155, type: 3}
+      itemPrice: 2.07e+18
+      itemRarity: 3
+      itemDescription: A magicle sword said to be empowered by  the night sky itself.
+        Its short blade makes it easy to carry around or hide as well as fit for
+        long range throw. This is every assassin's dream sword and those with it
+        are highly regarded.
+      dropChance: 2
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Balmung
+      itemSprite: {fileID: 21300000, guid: 1954f886e6a270a499c7577e5ad46f58, type: 3}
+      itemPrice: 1.03e+19
+      itemRarity: 4
+      itemDescription: A long sword of imbued with the soul of a dragon. The forging
+        process takes an extremely long time and exceptional care. When magic power
+        is applied to the blade, the blue core will grow in response. Unsheathing
+        it strikes fear to all, be it human or dragon.
+      dropChance: 0.4
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Vendetta
+      itemSprite: {fileID: 21300000, guid: 87d275e3bedcf8741995d790372824f2, type: 3}
+      itemPrice: 4.13e+19
+      itemRarity: 5
+      itemDescription: A uniquely-shaped magic sword that steal the soul of its victim
+        to enhance itself. Those who are even slightly grazed by the sword is said
+        to perish within a day. Legend has it that the sword itself is even capable
+        of slaying demi-gods if the user wish to do so.
+      dropChance: 0.1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  premiumCollections: []

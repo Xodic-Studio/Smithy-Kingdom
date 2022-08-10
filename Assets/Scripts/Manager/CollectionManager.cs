@@ -55,6 +55,19 @@ namespace Manager
                 Debug.LogWarning("Item Collection for This Ore Does Not Exist");
             }
         }
+        
+        public void UpdatePremiumItemSelection()
+        {
+            try
+            {
+                _itemCollection = itemDatabase.collections[itemCollectionIndex + _ore.oreDatabase.ores.Length];
+                _itemStats = _itemCollection.items[itemStatsIndex];
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Debug.LogWarning("Item Collection for This Ore Does Not Exist");
+            }
+        }
 
         //Method to get the cumulative drop rate
         private void CalculateCumDropRate()
@@ -102,6 +115,34 @@ namespace Manager
                 Debug.LogWarning("No items in the item collection");
             }
         }
+
+        public void DropItem(bool isPremium)
+        {
+            if (isPremium)
+            {
+                if (_itemCollection.items.Length != 0)
+                {
+                    var randomNumber = Random.Range(0f, 100f);
+                    var i = 0;
+                    foreach (var variable in _cumulativeDropChances)
+                    {
+                        if (randomNumber <= variable)
+                        {
+                            itemStatsIndex = i;
+                            UpdatePremiumItemSelection();
+                            CheckPremiumCollection();
+                            CheckLegendary();
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
+            else
+            {
+                DropItem();
+            }
+        }
         
         void CheckLegendary()
         {
@@ -132,6 +173,51 @@ namespace Manager
                 achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
+                    .GetComponent<Image>().color = Color.white;
+                _itemStats.itemFirstForged = DateTime.Today.ToString("d");
+                displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                                     $"Rarity: {_itemStats.itemRarity}\n" +
+                                     $"First Forged: {_itemStats.itemFirstForged}\n" +
+                                     $"Times Forged: {_itemStats.timesForged}\n" +
+                                     "\n" +
+                                     $"{_itemStats.itemDescription}";
+                _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+            }
+            else
+            {
+                _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
+            }
+            itemButton.onClick.RemoveAllListeners();
+
+            itemButton.onClick.AddListener(
+                delegate
+                {
+                    _uiManager.AssignPopupValue(itemName, displayDescription, itemSprite);
+                    _uiManager.OpenPopup();
+                });
+            _gameManager.ModifyMoney(_itemStats.itemPrice);
+        }
+
+        void CheckPremiumCollection()
+        {
+            _itemStats.timesForged++;
+            var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex)
+                .GetComponent<Button>();
+            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                                     $"Rarity: {_itemStats.itemRarity}\n" +
+                                     $"First Forged: {_itemStats.itemFirstForged}\n" +
+                                     $"Times Forged: {_itemStats.timesForged}\n" +
+                                     "\n" +
+                                     $"{_itemStats.itemDescription}";
+            var itemName = _itemStats.itemName;
+            var itemSprite = _itemStats.itemSprite;
+        
+            if (!_itemStats.isUnlocked)
+            {
+                achievementDatabase.ModifyProgress("A New Beginning", 1);
+                _itemStats.isUnlocked = true;
+                _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
                 _itemStats.itemFirstForged = DateTime.Today.ToString("d");
                 displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
