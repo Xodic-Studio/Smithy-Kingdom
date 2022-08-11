@@ -24,8 +24,8 @@ public class GameManager : Singleton<GameManager>
     private float _lastTime;
     private bool _isClicking;
 
-    [SerializeField] private float money;
-    [SerializeField] private float gems;
+    [SerializeField] public float money;
+    [SerializeField] public float gems;
     [SerializeField] private MailDatabase mailDatabase;
 
     public Animator smithy;
@@ -300,9 +300,18 @@ public class GameManager : Singleton<GameManager>
         return number.ToString();
     }
     
-    
-    
+    public int GetReputation()
+    {
+        return reputation;
+    }
+    public void SetReputation(int saveFileReputation)
+    {
+        reputation = saveFileReputation;
+    }
     
     
     #endregion
+
+
+    
 }
