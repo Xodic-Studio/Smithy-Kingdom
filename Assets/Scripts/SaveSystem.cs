@@ -20,7 +20,7 @@ public class Save
     
     public bool[] isUnlockedPremiumOre;
     public int[] oreAmountPremiumOre;
-    public int money, gems, reputation;
+    public float money, allMoney, gems, reputation;
 }
 [Serializable]
 public class CollectionSave
@@ -111,9 +111,10 @@ public class SaveSystem : Singleton<SaveSystem>
             i++;
         }
 
-        _saveFile.money = (int) GameManager.Instance.GetMoney();
-        _saveFile.gems = (int) GameManager.Instance.GetGems();
+        _saveFile.money = GameManager.Instance.GetMoney();
+        _saveFile.gems = GameManager.Instance.GetGems();
         _saveFile.reputation = GameManager.Instance.GetReputation();
+        _saveFile.allMoney = GameManager.Instance.allMoney;
         CloseSave();
         print("Saved");
     }
@@ -130,6 +131,7 @@ public class SaveSystem : Singleton<SaveSystem>
         GameManager.Instance.money = _saveFile.money;
         GameManager.Instance.gems = _saveFile.gems;
         GameManager.Instance.reputation = _saveFile.reputation;
+        GameManager.Instance.allMoney = _saveFile.allMoney;
 
         var i = 0;
         var j = 0;

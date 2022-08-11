@@ -255,7 +255,7 @@ namespace Manager
                 foreach (var items in collection.items)
                 {
                     var itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
-                    var displayDescription = $"Selling Price: {items.itemPrice}\n" +
+                    var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)items.itemPrice)}\n" +
                                              $"Rarity: {items.itemRarity}\n" +
                                              $"First Forged: {items.itemFirstForged}\n" +
                                              $"Times Forged: {items.timesForged}\n" +

@@ -19,7 +19,9 @@ namespace GameDatabase
         public float upgradeCost;
         public int upgradeLevels;
         public int upgradeTier;
+        public float float1;
         
         public float upgradeBaseCost;
+        public float baseFloat1;
     }
 }

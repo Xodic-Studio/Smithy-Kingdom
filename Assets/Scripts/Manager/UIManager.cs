@@ -57,7 +57,7 @@ namespace Manager
         /// </summary>
         public void UpdateGemText()
         {
-            gemText.text = $"{_gameManager.GetGems()}";
+            gemText.text = $"{_gameManager.NumberToString((decimal)_gameManager.GetGems())}";
         }
 
         /// <summary>
@@ -364,6 +364,7 @@ namespace Manager
             ConfirmPremiumOreButton.onClick.AddListener(SelectPremiumOre);
             UpdateOreDetails();
             UpdatePremiumOreDetails();
+            premiumOreImageBody.color = Color.gray;
         }
 
         /// <summary>
