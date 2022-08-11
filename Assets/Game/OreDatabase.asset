@@ -64,10 +64,7 @@ MonoBehaviour:
   premiumOres:
   - oreName: Dragonite
     oreSprite: {fileID: 180010380, guid: 6bf9a7228f0e8934e927d3db1fb50526, type: 3}
-    oreDescription: 'This ore is the crystalized form of what once was  the strongest
-      mythical beast, a dragon. Even in death, the remains of such beast still contains
-      unimaginable power, and these powers will be transferred to those who create
-      weapons from it. '
+    oreDescription: This ore is the crystalized form of a dragon remains.
     currentHardness: 0
     isUnlocked: 1
     amount: 64
@@ -75,10 +72,7 @@ MonoBehaviour:
     isPremium: 1
   - oreName: Fishore
     oreSprite: {fileID: -1533846725, guid: 54463fd205d1b2e4094e2cd2e1a4f0e2, type: 3}
-    oreDescription: Did you know? Fish are ancient creatures that have lived for
-      millions of years. Do you know what also live for millions of year? That's
-      right, the ores that were created with Earth. As such, it wouldn't be surprise
-      to confuse the two and use one to forge a sword, right?
+    oreDescription: 'Ever thought where swordfish comes from, it''s from this. '
     currentHardness: 4991
     isUnlocked: 1
     amount: 1
@@ -86,10 +80,8 @@ MonoBehaviour:
     isPremium: 1
   - oreName: Computronium
     oreSprite: {fileID: -1879903167, guid: 05f680df150c41447bfe207051640ec7, type: 3}
-    oreDescription: Now where do I begin with this one? Why is it even it a medieval
-      setting even? Let's just go with it being created from something known as a
-      computer substrate that has reached maximum computing power then, whatever
-      that means.
+    oreDescription: Once a computer reaches maximum computing power, this is the
+      result.
     currentHardness: 4999
     isUnlocked: 1
     amount: 0
@@ -97,10 +89,7 @@ MonoBehaviour:
     isPremium: 1
   - oreName: Beastore
     oreSprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
-    oreDescription: These ores are symbols of sacred beasts. In some foreign lands,
-      it is said to even evolve a creature into their better form. However, you are
-      no beast trainer, you're a blacksmith. If it is an ore, it only has to be forge
-      into something.
+    oreDescription: Within these are the spirits of a sacred beasts.
     currentHardness: 0
     isUnlocked: 0
     amount: 0
@@ -108,10 +97,7 @@ MonoBehaviour:
     isPremium: 1
   - oreName: Astral
     oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
-    oreDescription: They say that seeing a falling star is a sign of good luck, well,
-      getting a falling star must be an even better luck then! This ore contains
-      the secrets of the stars, having arrived from the sky above. While its exact
-      origin is still unknown, a blacksmith definitely knows what to do with it.
+    oreDescription: Fallen from the sky and contains the secrets of the stars.
     currentHardness: 0
     isUnlocked: 0
     amount: 0
