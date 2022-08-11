@@ -3,11 +3,13 @@ using GameDatabase;
 using Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Database database;
     public AchievementDatabase achievementDatabase;
     private Ore _ore;
     private UIManager _uiManager;
@@ -52,6 +54,7 @@ public class GameManager : Singleton<GameManager>
         Invoke(nameof(MailTimer),Random.Range(1,2));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
+        achievementDatabase = database.achievementDatabase;
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
 
@@ -304,14 +307,28 @@ public class GameManager : Singleton<GameManager>
     {
         return reputation;
     }
-    public void SetReputation(int saveFileReputation)
+
+    public void ModifyReputation(int amount)
     {
-        reputation = saveFileReputation;
+        reputation += amount;
     }
     
+    public void Prestige()
+    {
+        if (HasMoney(5 * 10000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3))))
+        {
+            money = 0;
+            ModifyReputation(1);
+            database.oresDatabase.ResetDatabase();
+            database.itemsDatabase.ResetDatabase();
+            _uiManager.CloseMenu();
+                    
+            CollectionManager.Instance.CheckEveryCollection();
+        }
+        
+    }
     
     #endregion
 
 
-    
 }

@@ -8,7 +8,6 @@ public class CutsceneManager : MonoBehaviour
     {
         StartCoroutine(LoadMainGame());
     }
-
     IEnumerator LoadMainGame()
     {
         yield return new WaitForSeconds(0.1f);
