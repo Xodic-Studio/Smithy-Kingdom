@@ -24,8 +24,8 @@ public class GameManager : Singleton<GameManager>
     private float _lastTime;
     private bool _isClicking;
 
-    [SerializeField] private float money;
-    [SerializeField] private float gems;
+    [SerializeField] public float money;
+    [SerializeField] public float gems;
     [SerializeField] private MailDatabase mailDatabase;
 
     public Animator smithy;
@@ -77,7 +77,7 @@ public class GameManager : Singleton<GameManager>
         if (_upgradesFunction.passiveDamage > 0 && !_ore.GetIsDroppingItem())
         {
             _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage));
-            AddDamageText(_upgradesFunction.passiveDamage.ToString());
+            AddDamageText(NumberToString((decimal)_upgradesFunction.passiveDamage));
         }
         LuckyAchievement();
         ModifyMoney(_upgradesFunction.passiveMoney);
@@ -189,7 +189,6 @@ public class GameManager : Singleton<GameManager>
         if (!_ore.GetIsDroppingItem())
         {
             _dps += _hammerDamageCombined;
-            CombineDamageText();
             smithy.SetTrigger(Hit);
             anvil.SetTrigger(Hit);
             float currentTime = Time.time;
@@ -202,14 +201,10 @@ public class GameManager : Singleton<GameManager>
                                                 _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
                                                 (1 + 0.02f * reputation));
             _finalDamage = _hammerDamageCombined + _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps;
+            AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
         }
-    }
-
-    private void CombineDamageText()
-    {
-        AddDamageText(_hammerDamageCombined.ToString());
     }
 
 
@@ -263,38 +258,60 @@ public class GameManager : Singleton<GameManager>
         return money;
     }
 
-    public string NumberToString(float number)
+    public string NumberToString(decimal number)
     {
         if (number < 1000)
         {
-            return number.ToString();
+            return number.ToString("F0");
         }
         if (number < 1000000)
         {
-            return (number / 1000).ToString("0.0") + "k";
+            return (number / 1000).ToString("F2") + "k";
         }
         if (number < 1000000000)
         {
-            return (number / 1000000).ToString("0.0") + "m";
+            return (number / 1000000).ToString("F2") + "m";
         }
         if (number < 1000000000000)
         {
-            return (number / 1000000000).ToString("0.0") + "b";
+            return (number / 1000000000).ToString("F2") + "b";
         }
         if (number < 1000000000000000)
         {
-            return (number / 1000000000000).ToString("0.0") + "t";
+            return (number / 1000000000000).ToString("F2") + "t";
         }
         if (number < 1000000000000000000)
         {
-            return (number / 1000000000000000).ToString("0.0") + "q";
+            return (number / 1000000000000000).ToString("F2") + "q";
+        } 
+        if (number < 1000000000000000000000m)
+        {
+            return (number / 1000000000000000000m).ToString("F2") + "Q";
+        } 
+        if (number < 1000000000000000000000000m)
+        {
+            return (number / 1000000000000000000000m).ToString("F2") + "s";
         }
+        if (number < 1000000000000000000000000000m)
+        {
+            return (number / 1000000000000000000000000m).ToString("F2") + "S";
+        }
+
         return number.ToString();
     }
     
-    
-    
+    public int GetReputation()
+    {
+        return reputation;
+    }
+    public void SetReputation(int saveFileReputation)
+    {
+        reputation = saveFileReputation;
+    }
     
     
     #endregion
+
+
+    
 }

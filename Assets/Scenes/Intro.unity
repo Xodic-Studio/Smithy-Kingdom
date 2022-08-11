@@ -539,8 +539,6 @@ MonoBehaviour:
   sfxVolume: 1
   EffectsSource: {fileID: 1141028025}
   MusicSource: {fileID: 1141028025}
-  LowPitchRange: 0.95
-  HighPitchRange: 1.05
 --- !u!81 &1141028024
 AudioListener:
   m_ObjectHideFlags: 0

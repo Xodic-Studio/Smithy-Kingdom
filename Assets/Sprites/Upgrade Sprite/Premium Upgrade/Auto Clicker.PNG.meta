@@ -119,12 +119,12 @@ TextureImporter:
       name: Auto Clicker_0
       rect:
         serializedVersion: 2
-        x: 775
-        y: 754
-        width: 494
-        height: 522
+        x: 748
+        y: 753
+        width: 525
+        height: 525
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

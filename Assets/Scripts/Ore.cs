@@ -17,6 +17,7 @@ public class Ore : Singleton<Ore>
     private OreStats _thisOre;
     
     public int tempSelectOreIndex;
+    public bool isPremium;
     public int selectedOreIndex;
     
     private bool _isDroppingItem;
@@ -43,6 +44,7 @@ public class Ore : Singleton<Ore>
     {
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
+        isPremium = false;
         anvilSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
         anvilSpriteResolver.ResolveSpriteToSpriteRenderer();
         assistantSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
@@ -56,6 +58,28 @@ public class Ore : Singleton<Ore>
         _collectionManager.UpdateItemSelection();
         _collectionManager.UpdateRandomSystem();
         _animator.enabled = true;
+        _uiManager.UpdateOreImageHead();
+    }
+
+    public void UpdatePremiumOre()
+    {
+        _animator.enabled = false;
+        selectedOreIndex = tempSelectOreIndex;
+        isPremium = true;
+        anvilSpriteResolver.SetCategoryAndLabel("Gacha", oreDatabase.premiumOres[selectedOreIndex].oreName);
+        anvilSpriteResolver.ResolveSpriteToSpriteRenderer();
+        assistantSpriteResolver.SetCategoryAndLabel("Gacha", oreDatabase.premiumOres[selectedOreIndex].oreName);
+        assistantSpriteResolver.ResolveSpriteToSpriteRenderer();
+        DisableButtonIfNoNextOre();
+        _thisOre = oreDatabase.premiumOres[selectedOreIndex];
+        name = _thisOre.oreName;
+        _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
+        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _uiManager.UpdateOreNameText(_thisOre.oreName);
+        _collectionManager.UpdatePremiumItemSelection();
+        _collectionManager.UpdateRandomSystem();
+        _animator.enabled = true;
+        _uiManager.UpdatePremiumOreImageHead();
     }
     
     public void ModifySelectedOreIndex(int index)
@@ -94,6 +118,43 @@ public class Ore : Singleton<Ore>
         }
         CheckOreIndex();
     }
+    
+    public void ModifyPremiumOreIndex(int index)
+    {
+        if (index == -1 && tempSelectOreIndex - 1 >= 0)
+        {
+            if (!oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked)
+            {
+                _uiManager.premiumOreImageBody.color = Color.gray;
+                _uiManager.ConfirmPremiumOreButton.interactable = false;
+                _uiManager.ConfirmPremiumOreButtonImage.color = Color.gray;
+            } else if (oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked)
+            {
+                _uiManager.premiumOreImageBody.color = Color.white;
+                _uiManager.ConfirmPremiumOreButton.interactable = true;
+                _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
+            }
+            tempSelectOreIndex--;
+            DisableButtonIfNoNextPremiumOre();
+        }
+        else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.premiumOres.Length)
+        {
+            if (!oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked)
+            {
+                _uiManager.premiumOreImageBody.color = Color.gray;
+                _uiManager.ConfirmPremiumOreButton.interactable = false;
+                _uiManager.ConfirmPremiumOreButtonImage.color = Color.gray;
+            } else if (oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked)
+            {
+                _uiManager.premiumOreImageBody.color = Color.white;
+                _uiManager.ConfirmPremiumOreButton.interactable = true;
+                _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
+            }
+            tempSelectOreIndex++;
+            DisableButtonIfNoNextPremiumOre();
+        }
+        CheckPremiumOreIndex();
+    }
     public void ModifyHardness(float amount)
     {
         _thisOre.currentHardness -= amount;
@@ -120,18 +181,37 @@ public class Ore : Singleton<Ore>
         }
     }
     
+    public void DisableButtonIfNoNextPremiumOre()
+    {
+        if (tempSelectOreIndex - 1 < 0)
+        {
+            _uiManager.previousPremiumOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
+        }
+        if (tempSelectOreIndex + 1 > oreDatabase.premiumOres.Length - 1)
+        {
+            _uiManager.nextPremiumOreButton.GetComponent<Image>().color = new Color(0.38f, 0.38f, 0.38f);
+        }
+        if (tempSelectOreIndex + 1 <= oreDatabase.premiumOres.Length - 1)
+        {
+            _uiManager.nextPremiumOreButton.GetComponent<Image>().color = Color.white;
+        }
+        if (tempSelectOreIndex - 1 >= 0)
+        {
+            _uiManager.previousPremiumOreButton.GetComponent<Image>().color = Color.white;
+        }
+    }
     void CheckHardness()
     {
         if (_thisOre.currentHardness <= 0)
         {
             _thisOre.currentHardness = 0;
             _isDroppingItem = true;
-            _collectionManager.DropItem();
+            _collectionManager.DropItem(isPremium);
+            if (_thisOre.isPremium)
+            {
+                ModifyOreAmount(_thisOre, -1);
+            }
             Invoke("DropItemDelay",1f);
-        }
-        if (_thisOre.isPremium)
-        {
-            ModifyOreAmount(_thisOre, -1);
         }
     }
     
@@ -139,13 +219,20 @@ public class Ore : Singleton<Ore>
     {
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _isDroppingItem = false;
-
     }
     
 
     void CheckOreIndex()
     {
         if (tempSelectOreIndex >= oreDatabase.ores.Length || tempSelectOreIndex < 0)
+        {
+            tempSelectOreIndex = 0;
+        }
+    }
+    
+    void CheckPremiumOreIndex()
+    {
+        if (tempSelectOreIndex >= oreDatabase.premiumOres.Length || tempSelectOreIndex < 0)
         {
             tempSelectOreIndex = 0;
         }
@@ -161,10 +248,10 @@ public class Ore : Singleton<Ore>
         else
         {
             ore.isUnlocked = false;
+            ore.amount = 0;
             tempSelectOreIndex = 0;
             UpdateCommonOre();
             _uiManager.UpdateOreDetails();
-            _uiManager.UpdateOreImageHead();
             _uiManager.UpdateOreNameText(_thisOre.oreName);
         }
     }

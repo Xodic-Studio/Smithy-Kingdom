@@ -119,12 +119,12 @@ TextureImporter:
       name: True Collector_0
       rect:
         serializedVersion: 2
-        x: 639
+        x: 636
         y: 632
-        width: 737
-        height: 767
+        width: 770
+        height: 770
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

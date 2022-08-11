@@ -119,12 +119,12 @@ TextureImporter:
       name: VIP Mail Service_0
       rect:
         serializedVersion: 2
-        x: 700
-        y: 752
+        x: 699
+        y: 678
         width: 650
-        height: 487
+        height: 650
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

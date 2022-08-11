@@ -21,25 +21,21 @@ MonoBehaviour:
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Amazing Luck
-    upgradeDescription: 'Improves the odds of getting mythical and legendary swords.
-      Effect:  Mythical Chance: 0.4% -> 0.6% Legendary Chance: 0.1% -> 0.15% Common
-      Chance: 70% -> 69.75%'
+    upgradeDescription: Improves the odds of getting mythical and legendary swords.
     upgradeIcon: {fileID: -159204324, guid: b73e97b363a25594d89b43a48adcd543, type: 3}
     upgradeCost: 0
     upgradeLevels: 1
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: VIP Mail Service
-    upgradeDescription: "Shortens the time that mail takes to arrive.  Effect: \U0001D447\U0001D440\U0001D434\U0001D44B
-      in the mail system reduce by 10% of the current value."
+    upgradeDescription: Shortens the time that mail takes to arrive.
     upgradeIcon: {fileID: -1980538674, guid: 1cdd5590db17d4c4096b0d19848ef8c5, type: 3}
     upgradeCost: 0
     upgradeLevels: 1
     upgradeTier: 0
     upgradeBaseCost: 0
   - upgradeName: Unbelievable  Reputation
-    upgradeDescription: 'Gain More Reputation per Prestige Effect: Reduce the 3 in
-      the Reputation formula to 2.9'
+    upgradeDescription: Gain More Reputation per Prestige.
     upgradeIcon: {fileID: 1316327686, guid: 31d4be7a41a7d334c99a9d6deaa80537, type: 3}
     upgradeCost: 0
     upgradeLevels: 1

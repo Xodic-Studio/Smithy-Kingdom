@@ -119,12 +119,12 @@ TextureImporter:
       name: World-famous smithy_0
       rect:
         serializedVersion: 2
-        x: 734
-        y: 718
-        width: 589
-        height: 618
+        x: 718
+        y: 714
+        width: 620
+        height: 620
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

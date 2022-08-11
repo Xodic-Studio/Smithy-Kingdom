@@ -411,3 +411,184 @@ MonoBehaviour:
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
+  - collectionName: Dragonite
+    items:
+    - itemName: Terrador
+      itemSprite: {fileID: 21300000, guid: 8a13967969f432b4eb777f85625c88be, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 3
+      itemDescription: "A giant sword named after the mightiest Earth Dragon to \r\never
+        lived. The blade resembles a rock formation and \r\nmakes it acts more like
+        a blunt weapon rather than a \r\nslashing one. "
+      dropChance: 55
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Nieves
+      itemSprite: {fileID: 21300000, guid: 7241889febc257d4597a6853bd79d4bb, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 4
+      itemDescription: "The name means \u201CThe Lady of the Snow\u201D and is also
+        the \r\nname of the dragon that rules the snowy lands. The blade \r\nis enchanted
+        with ice magic and is said to freeze anything \r\nit touches."
+      dropChance: 30
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Fiersome
+      itemSprite: {fileID: 21300000, guid: 80a44c9c87ba9b44ba8251277ee2bfb2, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 5
+      itemDescription: "Names after the dragon of fire and destruction that comes
+        \r\nto lay waste to the world. This sword grants the feeling of \r\nomnipotence
+        to the wielder. The fiery blade is said to burn \r\nthe whole continent if
+        plunged into the earth."
+      dropChance: 15
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Fishore
+    items:
+    - itemName: Fishy Rapier
+      itemSprite: {fileID: 21300000, guid: be36a88144bdf594a8dc90a48eb06ed0, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 3
+      itemDescription: "A rapier with a shape similar to fishbone. The cross guard
+        \r\nis exaggerated into the shape of a fish. This is one of the \r\nfinest
+        swords out there that will raise doubt or suspicion."
+      dropChance: 55
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Fishsword
+      itemSprite: {fileID: 21300000, guid: a33cac545131d124bb394868f2896708, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 4
+      itemDescription: "Not to be confused with its counterpart that lives in the
+        \r\nsea, swordfish. This one is more dead than alive and its \r\nbony structure
+        shows that much."
+      dropChance: 30
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: King of the Sea
+      itemSprite: {fileID: 21300000, guid: 21d7f724f495d074b9674fc3106a34dc, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 5
+      itemDescription: "A sword modeled after the legendary fish that rules the \r\nsea.
+        It radiates a magnificent aura of perfection and it \r\nstrikes terror to
+        all who comes from the sea."
+      dropChance: 15
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Computronium
+    items:
+    - itemName: Cyber Butcher
+      itemSprite: {fileID: 21300000, guid: f44f6b31c3a98df4cbc4ff43acdba110, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 3
+      itemDescription: "This greenish sword has more to offer than you regular \r\noversized
+        butcher knife. Through the use of cutting-edge \r\ntechnology, it even leaves
+        a green trail after every swing!"
+      dropChance: 55
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Core i-19
+      itemSprite: {fileID: 21300000, guid: d95641a09d86ec24abef7ada836b6464, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 4
+      itemDescription: "This blue sword was created with more cores than you \r\ncould
+        ever imagines. In addition to its usual cutting and \r\nslashing function,
+        it also supports hyper-threading and \r\ncomes with a built-in graphics chip."
+      dropChance: 30
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: OT-42
+      itemSprite: {fileID: 21300000, guid: 6695de9861933984fa4c6d282769e7bf, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 5
+      itemDescription: "Stands for Deep Thought-42, and is named after the most \r\npowerful
+        computer in existence. The selling point of this \r\nsword is that it is,
+        without a doubt, the answer to life, the \r\nuniverse, and everything."
+      dropChance: 15
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Beastore
+    items:
+    - itemName: Hare-ris
+      itemSprite: {fileID: 21300000, guid: c98156ac5be802e459bd6c62b08bc8b7, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 3
+      itemDescription: "While its name is often heard as Harris, as in Harris the
+        \r\nhuman, this sword actually is called Hare-ris and features \r\nan actual
+        hare. Once stabbed into its target, it doesn\u2019t let \r\ngo, perhaps there
+        are some deeply rooted issues."
+      dropChance: 55
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Paws-itive
+      itemSprite: {fileID: 21300000, guid: 38cb1b32bccfa574a85c4d238062e611, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 4
+      itemDescription: "An extremely loyal sword with a mind of its own. This sword
+        \r\nis said to return to its owner no matter how far it was \r\nthrown. The
+        cute design also brings an unbelievable \r\namount of joy and positivity
+        to all, even those on the \r\nreceiving end.\r"
+      dropChance: 30
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Nyanmare
+      itemSprite: {fileID: 21300000, guid: 3dae93f0f78f3444a80ee76b06c562c4, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 5
+      itemDescription: "A sword created with the reference to the ultimate lifeform
+        \r\nthat rules all others. In exchange to food and care, it \r\nbrought upon
+        destructive power that can\u2019t be easily \r\ncontrolled. Surely, this
+        sword must\u2019ve pushed at least a \r\nhundred cups off the table."
+      dropChance: 15
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+  - collectionName: Astral
+    items:
+    - itemName: The Void
+      itemSprite: {fileID: 21300000, guid: 484ae75aa2838184981c2faaea21aa54, type: 3}
+      itemPrice: 5.9e+16
+      itemRarity: 3
+      itemDescription: "This oddly-shaped sword with a colorful blade exist as an
+        \r\nexample that if something remotely looks like a rock, it can \r\nbe forged
+        into a sword. Embed with a floating magic stone, \r\nthis sword boasts great
+        slashing power for its shape.\r"
+      dropChance: 55
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Star Piecer
+      itemSprite: {fileID: 21300000, guid: 39bacdf64a415134487b50b49c13a852, type: 3}
+      itemPrice: 2.07e+17
+      itemRarity: 4
+      itemDescription: "Often times, ores from space often comes with \r\nextraordinary
+        property. The one used to make this sword \r\nseems to levitate at all times,
+        making it extremely swift for \r\npiercing unsuspecting target.\r"
+      dropChance: 30
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
+    - itemName: Voyager
+      itemSprite: {fileID: 21300000, guid: aa33d7ff9393d9f4eb2da1ca8657542e, type: 3}
+      itemPrice: 5.49e+17
+      itemRarity: 5
+      itemDescription: "This sword represents mankind dream to travel across the
+        \r\nvast space. Forged from astral shards of the highest\r\nquality, it exudes
+        power beyond comprehension, and the \r\nmemory of when it once travel across
+        the galaxy is still \r\nkept within."
+      dropChance: 15
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0

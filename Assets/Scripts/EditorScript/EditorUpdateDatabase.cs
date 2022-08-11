@@ -172,7 +172,7 @@ namespace EditorScript
                 var childCount = listTransform.childCount;
                 var needDestroy = childCount - databaseStats.Length;
                 for (i = childCount; i > childCount - needDestroy; i--)
-                    DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                    DestroyImmediate(listTransform.GetChild(i - 1).gameObject); 
 
                 var j = 0;
                 foreach (var collection in databaseStats)
@@ -207,6 +207,7 @@ namespace EditorScript
                     needDestroy = childCount - databaseStats[j].items.Length;
                     for (i = childCount; i > childCount - needDestroy; i--)
                         DestroyImmediate(listTransform.GetChild(i - 1).gameObject);
+                    j++;
                 }
             }
 

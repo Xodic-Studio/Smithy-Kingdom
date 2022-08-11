@@ -121,10 +121,10 @@ TextureImporter:
         serializedVersion: 2
         x: 751
         y: 729
-        width: 589
-        height: 591
+        width: 595
+        height: 595
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

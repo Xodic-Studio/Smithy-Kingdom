@@ -24,7 +24,7 @@ MonoBehaviour:
   - oreName: Iron Ore
     oreSprite: {fileID: 1558799449, guid: 84943aa8e6848af49899e98a2973d49e, type: 3}
     oreDescription: This is Iron Ore A bit Better Ore
-    currentHardness: 9988
+    currentHardness: 9860
     isUnlocked: 1
     amount: 0
     defaultHardness: 10000
@@ -40,65 +40,66 @@ MonoBehaviour:
   - oreName: Meteorite Ore
     oreSprite: {fileID: -1425733880, guid: 4e649ef4576a4854ab9b798d36b333c2, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 999999987
+    currentHardness: 1e+9
     isUnlocked: 1
     amount: 0
-    defaultHardness: 1000000000
+    defaultHardness: 1e+9
     isPremium: 0
   - oreName: Mithril Ore
     oreSprite: {fileID: -349397552, guid: 69b5d14e996eeb14ca5ca6b92181f94d, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 999999997
+    currentHardness: 1e+9
     isUnlocked: 1
     amount: 0
-    defaultHardness: 1000000000
+    defaultHardness: 1e+9
     isPremium: 0
   - oreName: Adamantine Ore
     oreSprite: {fileID: -1852575891, guid: 21911a80df4be9b4389e212d12400786, type: 3}
     oreDescription: This is Gold Ore The Best ore Right Now
-    currentHardness: 999999959
+    currentHardness: 1e+9
     isUnlocked: 1
     amount: 0
-    defaultHardness: 1000000000
+    defaultHardness: 1e+9
     isPremium: 0
   premiumOres:
-  - oreName: Dragonite Ore
+  - oreName: Dragonite
     oreSprite: {fileID: 180010380, guid: 6bf9a7228f0e8934e927d3db1fb50526, type: 3}
-    oreDescription: 
+    oreDescription: This ore is the crystalized form of a dragon remains.
     currentHardness: 0
     isUnlocked: 1
-    amount: 3
-    defaultHardness: 0
+    amount: 64
+    defaultHardness: 5000
     isPremium: 1
-  - oreName: Fishore Ore
+  - oreName: Fishore
     oreSprite: {fileID: -1533846725, guid: 54463fd205d1b2e4094e2cd2e1a4f0e2, type: 3}
-    oreDescription: 10000
-    currentHardness: 0
+    oreDescription: 'Ever thought where swordfish comes from, it''s from this. '
+    currentHardness: 4991
     isUnlocked: 1
-    amount: 7
+    amount: 1
     defaultHardness: 5000
     isPremium: 1
-  - oreName: Computronium Ore
+  - oreName: Computronium
     oreSprite: {fileID: -1879903167, guid: 05f680df150c41447bfe207051640ec7, type: 3}
-    oreDescription: 
-    currentHardness: 10000
+    oreDescription: Once a computer reaches maximum computing power, this is the
+      result.
+    currentHardness: 4999
     isUnlocked: 1
-    amount: 5
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
-  - oreName: Petsnachium Ore
+  - oreName: Beastore
     oreSprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
-    oreDescription: 10000
+    oreDescription: Within these are the spirits of a sacred beasts.
     currentHardness: 0
-    isUnlocked: 1
-    amount: 2
+    isUnlocked: 0
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
-  - oreName: Astral Ore
+  - oreName: Astral
     oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
-    oreDescription: 
-    currentHardness: 10000
-    isUnlocked: 1
-    amount: 7
+    oreDescription: Fallen from the sky and contains the secrets of the stars.
+    currentHardness: 0
+    isUnlocked: 0
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
