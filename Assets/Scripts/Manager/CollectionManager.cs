@@ -170,6 +170,7 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                _uiManager.AddNotification(UIManager.NotificationType.Collectible,1);
                 achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
@@ -215,6 +216,7 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                _uiManager.AddNotification(UIManager.NotificationType.Collectible,1);
                 achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex).GetChild(0)
@@ -244,7 +246,7 @@ namespace Manager
             _gameManager.ModifyMoney(_itemStats.itemPrice);
         }
 
-        private void CheckEveryCollection()
+        public void CheckEveryCollection()
         {
             var j = 0;
             foreach (var collection in itemDatabase.collections)
@@ -253,7 +255,7 @@ namespace Manager
                 foreach (var items in collection.items)
                 {
                     var itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
-                    var displayDescription = $"Selling Price: {items.itemPrice}\n" +
+                    var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)items.itemPrice)}\n" +
                                              $"Rarity: {items.itemRarity}\n" +
                                              $"First Forged: {items.itemFirstForged}\n" +
                                              $"Times Forged: {items.timesForged}\n" +
@@ -268,6 +270,12 @@ namespace Manager
                             _uiManager.AssignPopupValue(items.itemName, displayDescription, items.itemSprite);
                             _uiManager.OpenPopup();
                         });
+                    }
+                    else
+                    {
+                        _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>()
+                            .color = new Color(0.22f, 0.22f, 0.22f);
+                        itemButton.onClick.RemoveAllListeners();
                     }
                     i++;
                 }

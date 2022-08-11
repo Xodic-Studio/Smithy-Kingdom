@@ -8,13 +8,14 @@ using Random = UnityEngine.Random;
 
 public class GameManager : Singleton<GameManager>
 {
+    public Database database;
     public AchievementDatabase achievementDatabase;
     private Ore _ore;
     private UIManager _uiManager;
     private SoundManager _soundManager;
     private UpgradesFunction _upgradesFunction;
 
-    public int reputation;
+    public float reputation;
     private int _hammerDamageRaw = 1;
     private float _hammerDamageCombined;
     private float _damageTextTimer;
@@ -25,6 +26,7 @@ public class GameManager : Singleton<GameManager>
     private bool _isClicking;
 
     [SerializeField] public float money;
+    [SerializeField] public float allMoney;
     [SerializeField] public float gems;
     [SerializeField] private MailDatabase mailDatabase;
 
@@ -52,6 +54,7 @@ public class GameManager : Singleton<GameManager>
         Invoke(nameof(MailTimer),Random.Range(1,2));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
+        achievementDatabase = database.achievementDatabase;
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
 
@@ -249,6 +252,7 @@ public class GameManager : Singleton<GameManager>
     public void ModifyMoney(float amount)
     {
         money += Mathf.Round(amount);
+        allMoney += Mathf.Round(amount);
         _uiManager.UpdateMoneyText();
         achievementDatabase.ModifyProgress("World-famous smithy",amount, true);
     }
@@ -300,18 +304,40 @@ public class GameManager : Singleton<GameManager>
         return number.ToString();
     }
     
-    public int GetReputation()
+    public float GetReputation()
     {
         return reputation;
     }
-    public void SetReputation(int saveFileReputation)
+
+    public void ModifyReputation(float amount)
     {
-        reputation = saveFileReputation;
+        reputation += amount;
     }
     
+    public void Prestige()
+    {
+        if (allMoney >= 50000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3)))
+        {
+            money = 0;
+            var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3));
+            Debug.Log(result);
+            ModifyReputation(result);
+            database.oresDatabase.ResetDatabase();
+            database.itemsDatabase.ResetDatabase();
+            _uiManager.CloseMenu();
+            
+            CollectionManager.Instance.CheckEveryCollection();
+            allMoney = 0;
+        }
+        else
+        {
+            _uiManager.AssignPopupValue("Can't Prestige Yet", "You need to make at least 50M to prestige", _uiManager.denySprite);
+            _uiManager.OpenPopup();
+        }
+        
+    }
     
     #endregion
 
 
-    
 }

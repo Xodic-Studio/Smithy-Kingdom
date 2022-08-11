@@ -11,5 +11,11 @@ namespace GameDatabase
         public AchievementDatabase achievementDatabase;
         public OreDatabase oresDatabase;
     
+        public void ResetAllDatabase()
+        {
+            itemsDatabase.ResetDatabase();
+            oresDatabase.ResetDatabase();
+            achievementDatabase.ResetProgress();
+        }
     }
 }

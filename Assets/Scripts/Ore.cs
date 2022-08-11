@@ -1,4 +1,3 @@
-using System.Collections;
 using GameDatabase;
 using Manager;
 using UnityEngine;
@@ -45,6 +44,7 @@ public class Ore : Singleton<Ore>
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
         isPremium = false;
+        //_uiManager.ConfirmPremiumOreButton.interactable = true;
         anvilSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
         anvilSpriteResolver.ResolveSpriteToSpriteRenderer();
         assistantSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
@@ -80,6 +80,7 @@ public class Ore : Singleton<Ore>
         _collectionManager.UpdateRandomSystem();
         _animator.enabled = true;
         _uiManager.UpdatePremiumOreImageHead();
+        _uiManager.ConfirmOreButton.interactable = false;
     }
     
     public void ModifySelectedOreIndex(int index)

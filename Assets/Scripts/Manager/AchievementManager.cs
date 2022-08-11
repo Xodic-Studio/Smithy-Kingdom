@@ -24,7 +24,7 @@ public class AchievementManager : Singleton<AchievementManager>
     /// <summary>
     /// Check If Achievement Is Unlocked at Game Start
     /// </summary>
-    private void CheckEveryAchievement()
+    public void CheckEveryAchievement()
     {
         var i = 0;
         foreach (var achievement in achievementDatabase.achievements)
@@ -46,6 +46,10 @@ public class AchievementManager : Singleton<AchievementManager>
             }
             else
             {
+               
+                _uiManager.achievementsList.transform.GetChild(i).GetChild(0).GetComponent<Image>()
+                    .color = new Color(0.22f, 0.22f, 0.22f);
+                achievementButton.onClick.RemoveAllListeners();
                 achievementButton.onClick.AddListener(delegate
                 {
                     _uiManager.AssignPopupValue("???", "Hint: " + achievement.hint, achievement.icon);

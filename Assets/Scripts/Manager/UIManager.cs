@@ -57,7 +57,7 @@ namespace Manager
         /// </summary>
         public void UpdateGemText()
         {
-            gemText.text = $"{_gameManager.GetGems()}";
+            gemText.text = $"{_gameManager.NumberToString((decimal)_gameManager.GetGems())}";
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapNormalUpgradePanel();
-            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapPremiumUpgradePanel();
-            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -188,7 +188,8 @@ namespace Manager
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
             TapCollectionMenu();
-            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            RemoveNotification(NotificationType.Collectible, oreNotificationCount);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
 
         }
  
@@ -238,11 +239,11 @@ namespace Manager
             CheckCanvas();
             CloseAllMenus();
             oreSelectionPanel.SetActive(true);
-            RemoveNotification(NotificationType.Ore, oreNotificationCount);
             TapNormalOreMenu();
             _ore.tempSelectOreIndex = _ore.selectedOreIndex;
             UpdateOreDetails();
             _ore.DisableButtonIfNoNextOre();
+            RemoveNotification(NotificationType.Ore, oreNotificationCount);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
@@ -363,6 +364,7 @@ namespace Manager
             ConfirmPremiumOreButton.onClick.AddListener(SelectPremiumOre);
             UpdateOreDetails();
             UpdatePremiumOreDetails();
+            premiumOreImageBody.color = Color.gray;
         }
 
         /// <summary>
