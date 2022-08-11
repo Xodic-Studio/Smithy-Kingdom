@@ -1,9 +1,7 @@
 using System.IO;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
-using GameDatabase;
 using Manager;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -40,8 +38,8 @@ public class SaveSystem : Singleton<SaveSystem>
     private Save _saveFile;
     private void Awake()
     {
-        // saveFolder = Path.GetDirectoryName(Application.dataPath) + "/Save"; // BUILD USE THIS!!!
-        _saveFolder = @"C:\Users\puree\Desktop\TempSave";
+        _saveFolder = Path.GetDirectoryName(Application.persistentDataPath) + "/Save"; // BUILD USE THIS!!!
+        //_saveFolder = @"C:\Users\puree\Desktop\TempSave";
         _saveName = _saveFolder + "/SaveFile";
         if (!Directory.Exists(_saveFolder))
         {
@@ -57,7 +55,13 @@ public class SaveSystem : Singleton<SaveSystem>
         LoadGame();
         Debug.Log("3");
     }
-    
+
+    private void Start()
+    {
+        Debug.Log(Application.dataPath);
+
+    }
+
     private void CloseSave()
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -68,8 +72,6 @@ public class SaveSystem : Singleton<SaveSystem>
     
     public void SaveGame()
     {
-        _saveFile = new Save();
-
         var j = 0;
         var i = 0;
         foreach (var VARIABLE in AchievementManager.Instance.achievementDatabase.achievements)
@@ -80,9 +82,9 @@ public class SaveSystem : Singleton<SaveSystem>
             i++;
         }
         
-        i = 0;
         foreach (var collection in CollectionManager.Instance.itemDatabase.collections)
         {
+            i = 0;
             foreach (var item in collection.items)
             {
                 _saveFile.collectionSaves[j].isUnlockedItem[i] = item.isUnlocked;
@@ -112,7 +114,7 @@ public class SaveSystem : Singleton<SaveSystem>
         _saveFile.gems = (int) GameManager.Instance.GetGems();
         _saveFile.reputation = GameManager.Instance.GetReputation();
         CloseSave();
-        // print("Saved");
+        print("Saved");
     }
     
     public void LoadGame()
@@ -136,8 +138,17 @@ public class SaveSystem : Singleton<SaveSystem>
             _saveFile.isUnlockedAchievements = new bool[AchievementManager.Instance.achievementDatabase.achievements.Length];
             _saveFile.progressAchievements = new float[AchievementManager.Instance.achievementDatabase.achievements.Length];
             _saveFile.dateAchievements = new string[AchievementManager.Instance.achievementDatabase.achievements.Length];
+            foreach (var VARIABLE in _saveFile.isUnlockedAchievements)
+            {
+                _saveFile.isUnlockedAchievements[i] = false;
+                _saveFile.progressAchievements[i] = 0;
+                _saveFile.dateAchievements[i] = "";
+                i++;
+            }
             _save = true;
         }
+
+        i = 0;
         foreach (var VARIABLE in _saveFile.isUnlockedAchievements)
         {
             AchievementManager.Instance.achievementDatabase.achievements[i].isUnlocked = VARIABLE;
@@ -151,21 +162,38 @@ public class SaveSystem : Singleton<SaveSystem>
         {
             print("SAVE: New Collections");
             _saveFile.collectionSaves = new CollectionSave[CollectionManager.Instance.itemDatabase.collections.Length];
-            Debug.Log(_saveFile.collectionSaves.Length);
-            foreach (var VARIABLE in _saveFile.collectionSaves)
+            foreach (var variable in _saveFile.collectionSaves)
             {
-                VARIABLE.dateItem = new string[CollectionManager.Instance.itemDatabase.collections[i].items.Length];
-                VARIABLE.timesForgedItem = new int[CollectionManager.Instance.itemDatabase.collections[i].items.Length];
-                VARIABLE.isUnlockedItem = new bool[CollectionManager.Instance.itemDatabase.collections[i].items.Length];
-                i++;
+                
+                _saveFile.collectionSaves[j] = new CollectionSave
+                {
+                    dateItem = new string[CollectionManager.Instance.itemDatabase.collections[j].items.Length],
+                    timesForgedItem = new int[CollectionManager.Instance.itemDatabase.collections[j].items.Length],
+                    isUnlockedItem = new bool[CollectionManager.Instance.itemDatabase.collections[j].items.Length]
+                };
+                i = 0;
+                foreach (var VARIABLE in _saveFile.collectionSaves[j].isUnlockedItem)
+                {
+                    Debug.Log(_saveFile.collectionSaves[j].isUnlockedItem.Length);
+                    Debug.Log(_saveFile.collectionSaves[j].isUnlockedItem[i]);
+                    _saveFile.collectionSaves[j].isUnlockedItem[i] = false;
+                    _saveFile.collectionSaves[j].timesForgedItem[i] = 0;
+                    _saveFile.collectionSaves[j].dateItem[i] = "";
+                    i++;
+                }
+                j++;
             }
             _save = true;
         }
-        i = 0;
+
+        j = 0;
         foreach (var variable in _saveFile.collectionSaves)
         {
+            i = 0;
+            Debug.Log("Collection: " + j);
             foreach (var item in variable.isUnlockedItem)
             {
+                Debug.Log("Item: " + i);
                 CollectionManager.Instance.itemDatabase.collections[j].items[i].isUnlocked = _saveFile.collectionSaves[j].isUnlockedItem[i];
                 CollectionManager.Instance.itemDatabase.collections[j].items[i].timesForged = _saveFile.collectionSaves[j].timesForgedItem[i];
                 CollectionManager.Instance.itemDatabase.collections[j].items[i].itemFirstForged = _saveFile.collectionSaves[j].dateItem[i];
@@ -179,8 +207,16 @@ public class SaveSystem : Singleton<SaveSystem>
         {
             print("SAVE: New Ores");
             _saveFile.isUnlockedOre = new bool[Ore.Instance.oreDatabase.ores.Length];
+            foreach (var VARIABLE in _saveFile.isUnlockedOre)
+            {
+                _saveFile.isUnlockedOre[i] = false;
+                i++;
+            }
+            _saveFile.isUnlockedOre[0] = true;
             _save = true;
         }
+
+        i = 0;
         foreach (var VARIABLE in _saveFile.isUnlockedOre)
         {
             Ore.Instance.oreDatabase.ores[i].isUnlocked = VARIABLE;
@@ -193,8 +229,16 @@ public class SaveSystem : Singleton<SaveSystem>
             print("SAVE: New Premium Ores");
             _saveFile.isUnlockedPremiumOre = new bool[Ore.Instance.oreDatabase.premiumOres.Length];
             _saveFile.oreAmountPremiumOre = new int[Ore.Instance.oreDatabase.premiumOres.Length];
+            foreach (var VARIABLE in _saveFile.isUnlockedPremiumOre)
+            {
+                _saveFile.isUnlockedPremiumOre[i] = false;
+                _saveFile.oreAmountPremiumOre[i] = 0;
+                i++;
+            }
             _save = true;
         }
+
+        i = 0;
         foreach (var VARIABLE in _saveFile.isUnlockedPremiumOre)
         {
             Ore.Instance.oreDatabase.premiumOres[i].isUnlocked = VARIABLE;
@@ -208,9 +252,20 @@ public class SaveSystem : Singleton<SaveSystem>
         }
         print("Loaded");
     }
-
-    private void OnApplicationQuit()
-    { 
-        SaveGame();
+    
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            Debug.Log("Paused");
+            SaveGame();
+        }
+        else
+        {
+            Debug.Log("resumed");
+            LoadGame();
+        }
     }
+    
+    
 }
