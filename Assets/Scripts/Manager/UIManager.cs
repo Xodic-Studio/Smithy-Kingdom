@@ -132,6 +132,7 @@ namespace Manager
         {
             popup.SetActive(false);
             okButton.onClick.RemoveListener(_gameManager.MailReward);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -140,6 +141,7 @@ namespace Manager
         public void OpenPopup()
         {
             popup.SetActive(true);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.OpenPopup)[0]);
         }
 
         /// <summary>
@@ -150,7 +152,7 @@ namespace Manager
         {
             overrideCanvas.SetActive(false);
             baseCanvas.SetActive(true);
-            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Back)[0]);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -163,7 +165,6 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapNormalUpgradePanel();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -175,7 +176,6 @@ namespace Manager
             CloseAllMenus();
             upgradeMenu.SetActive(true);
             TapPremiumUpgradePanel();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -214,7 +214,6 @@ namespace Manager
             CloseAllMenus();
             premiumMenu.SetActive(true);
             OpenGachaMenu();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
 
         }
 
@@ -244,7 +243,6 @@ namespace Manager
             UpdateOreDetails();
             _ore.DisableButtonIfNoNextOre();
             RemoveNotification(NotificationType.Ore, oreNotificationCount);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         public void OpenPremiumOreMenu()
@@ -257,7 +255,6 @@ namespace Manager
             _ore.tempSelectOreIndex = _ore.selectedOreIndex;
             UpdatePremiumOreDetails();
             _ore.DisableButtonIfNoNextPremiumOre();
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -477,6 +474,7 @@ namespace Manager
             _ore.tempSelectOreIndex = 0;
             UpdateOreDetails();
             _ore.DisableButtonIfNoNextOre();
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         } 
         
         private void TapPremiumOreMenu()
@@ -486,6 +484,7 @@ namespace Manager
             _ore.tempSelectOreIndex = 0;
             UpdatePremiumOreDetails();
             _ore.DisableButtonIfNoNextPremiumOre();
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         #endregion
@@ -542,6 +541,7 @@ namespace Manager
             mailPanel.SetActive(true);
             mailIcon.sprite = mail.icon;
             mailButton.onClick.AddListener(() => OpenMail(mail));
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.MailPopup)[0]);
             StartCoroutine(MailTimer());
         }
 
@@ -559,6 +559,7 @@ namespace Manager
             popupImage.sprite = mail.icon;
             popup.SetActive(true);
             mailPanel.SetActive(false);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.MailRead)[0]);
         }
 
         IEnumerator MailTimer()
@@ -736,6 +737,7 @@ namespace Manager
             normalUpgradePanel.SetActive(true);
             premiumUpgradePanel.SetActive(false);
             mainScrollRect.content = _normalRectTransform;
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -746,6 +748,7 @@ namespace Manager
             normalUpgradePanel.SetActive(false);
             premiumUpgradePanel.SetActive(true);
             mainScrollRect.content = _premiumRectTransform;
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         #endregion
@@ -780,6 +783,7 @@ namespace Manager
             achievementMenuPanel.SetActive(true);
             collectionMenuPanel.SetActive(false);
             mainScrollRect.content = _achievementRectTransform;
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
     
         void TapCollectionMenu()
@@ -787,6 +791,7 @@ namespace Manager
             achievementMenuPanel.SetActive(false);
             collectionMenuPanel.SetActive(true);
             mainScrollRect.content = _collectiblesRectTransform;
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
 
@@ -826,6 +831,7 @@ namespace Manager
         {
             gachaMenuPanel.SetActive(true);
             packageMenuPanel.SetActive(false);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         public void OpenGacha(int amount)
@@ -850,6 +856,7 @@ namespace Manager
         {
             gachaMenuPanel.SetActive(false);
             packageMenuPanel.SetActive(true);
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
     
         #endregion

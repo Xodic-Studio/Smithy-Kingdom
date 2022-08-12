@@ -41,3 +41,27 @@ MonoBehaviour:
   - name: Upgrade
     clips:
     - {fileID: 8300000, guid: 225caab80b8eaf743b04f18b4567ca81, type: 3}
+  - name: Gems
+    clips:
+    - {fileID: 8300000, guid: b249fa1876859e64ab955a1694ec779d, type: 3}
+  - name: SmithVoice
+    clips:
+    - {fileID: 8300000, guid: d6b26ffce64b409408d9e635f0e21b14, type: 3}
+    - {fileID: 8300000, guid: cc72b0f658f193c409440b0fedb19815, type: 3}
+    - {fileID: 8300000, guid: 53a9eaf699417f0439c0a5ae116a3cc3, type: 3}
+    - {fileID: 8300000, guid: a3d85ad94e9f60f41be8c0d3b22b3c17, type: 3}
+  - name: Open Popup
+    clips:
+    - {fileID: 8300000, guid: 3a04fe6443988c64781480708008232f, type: 3}
+  - name: MailPopup
+    clips:
+    - {fileID: 8300000, guid: d71aa958dc2d2494b87009b724e204aa, type: 3}
+  - name: MailRead
+    clips:
+    - {fileID: 8300000, guid: 2e853989bcb203948a8b51c287b51213, type: 3}
+  - name: Prestige
+    clips:
+    - {fileID: 8300000, guid: d41ac766a323bbc4f9f119c8023bbbe7, type: 3}
+  - name: AchievementUnlock
+    clips:
+    - {fileID: 8300000, guid: f3fef9afb84468949a372af920658d58, type: 3}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Ore : Singleton<Ore>
 {
+    private SoundManager soundManager;
     public SpriteResolver anvilSpriteResolver;
     public SpriteResolver assistantSpriteResolver;
     private Animator _animator;
@@ -23,6 +24,7 @@ public class Ore : Singleton<Ore>
     
     private void Awake()
     {
+        soundManager = SoundManager.Instance;
         _uiManager = UIManager.Instance;
         _collectionManager = CollectionManager.Instance;
     }
@@ -99,6 +101,7 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex--;
+            soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
             DisableButtonIfNoNextOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
@@ -115,6 +118,7 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex++;
+            soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
             DisableButtonIfNoNextOre();
         }
         CheckOreIndex();
@@ -136,6 +140,7 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex--;
+            soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
             DisableButtonIfNoNextPremiumOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.premiumOres.Length)
@@ -152,6 +157,7 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex++;
+            soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
             DisableButtonIfNoNextPremiumOre();
         }
         CheckPremiumOreIndex();

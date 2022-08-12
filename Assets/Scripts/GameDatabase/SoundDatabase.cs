@@ -15,6 +15,13 @@ namespace GameDatabase
             RecieveCoin,
             GetNewItem,
             Upgrade,
+            Gems,
+            SmithVoice,
+            OpenPopup,
+            MailPopup,
+            MailRead,
+            Prestige,
+            AchievementUnlock
 
         }
         public AudioClip[] bgm;

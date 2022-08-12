@@ -207,6 +207,11 @@ public class GameManager : Singleton<GameManager>
             AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+            var random = Random.Range(1, 10);
+            if (random == 1)
+            {
+                _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SmithVoice));
+            }
         }
     }
 
@@ -328,6 +333,7 @@ public class GameManager : Singleton<GameManager>
             
             CollectionManager.Instance.CheckEveryCollection();
             allMoney = 0;
+            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Prestige)[0]);
         }
         else
         {
