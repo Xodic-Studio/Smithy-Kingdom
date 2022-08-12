@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15.880005}
+  m_AnchoredPosition: {x: 0, y: 14.5}
   m_SizeDelta: {x: 783.48, y: 73.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8845039455603610484
@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 335}
-  m_SizeDelta: {x: 500, y: 140}
+  m_AnchoredPosition: {x: 0, y: 175}
+  m_SizeDelta: {x: 700, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1853867699513817545
 CanvasRenderer:
@@ -195,14 +195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8981207, b: 0.4481132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -815795013, guid: 1949975e5ed406a4fb786a379aa836f0, type: 3}
+  m_Sprite: {fileID: -697273695, guid: a6e8b7f1ebe0ec84ea4a0ffa529ca813, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -419,6 +419,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gachaDropPrefab: {fileID: 6435013370487773380, guid: a3c913162a3819540a9e81f832847bd8, type: 3}
   gachaResultList: {fileID: 7625181991748649516}
+  mainAreaUiTrans: {fileID: 7625181992470235555}
+  gachaHeaderTrans: {fileID: 802133491518967235}
+  currentHeight: 700
+  isRolling: 0
   dummySprite1:
   - {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
   dummySprite2:
@@ -633,7 +637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -761643782, guid: f18ac8d807c633b49b3ca884b7deb128, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8245f07ae4af6648b3540ee11bcd1b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
