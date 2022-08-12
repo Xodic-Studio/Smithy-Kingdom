@@ -13372,6 +13372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 368343913}
     m_Modifications:
+    - target: {fileID: 7625181991748649519, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1330
+      objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13459,6 +13463,10 @@ PrefabInstance:
     - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Name
       value: Gacha Results Zone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
@@ -40723,14 +40731,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 161774217}
     m_Modifications:
-    - target: {fileID: 533778590393604631, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.074807644
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645565626289006280, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.00000026822087
-      objectReference: {fileID: 0}
     - target: {fileID: 5236826822653383367, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -40775,17 +40775,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7406275043337345702, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.2761199
-      objectReference: {fileID: 0}
     - target: {fileID: 8404651596048821749, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_Name
       value: Smithy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8566605235799667324, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.026411925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
