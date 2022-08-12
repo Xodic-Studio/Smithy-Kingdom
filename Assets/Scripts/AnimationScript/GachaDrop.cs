@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneTemplate;
 
 namespace AnimationScript
 {
@@ -20,7 +22,10 @@ namespace AnimationScript
     {
         [SerializeField] public GameObject gachaDropPrefab;
         [SerializeField] public GameObject gachaResultList;
-        public bool isRolling;
+        [SerializeField] public RectTransform mainAreaUiTrans;
+        [SerializeField] public RectTransform gachaHeaderTrans;
+        [HideInInspector] public float currentHeight = 700f;
+        [HideInInspector] public bool isRolling;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
 
@@ -45,6 +50,7 @@ namespace AnimationScript
                 {
                     if (dropCount == 1)
                     {
+                        SetNewSize(mainAreaUiTrans, 700f);
                         ClearList();
                         isRolling = true;
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
@@ -53,6 +59,7 @@ namespace AnimationScript
                     }
                     else if (dropCount == 10)
                     {
+                        SetNewSize(mainAreaUiTrans, 1400f);
                         ClearList();
                         isRolling = true;
                         for (int i = 0; i < dropCount; i++)
@@ -97,6 +104,39 @@ namespace AnimationScript
             {
                 Debug.Log("Rolling animation is still running, closing it now would ruin the mood!");
             }
+        }
+
+        private void SetNewSize(RectTransform gachaBackgroundTrans, float newHeight)
+        {
+            float oldHeight = currentHeight;
+            float newY = 200f; //Y Pos: 1 Roll = 175f, 10 Roll = 375f
+            
+            gachaBackgroundTrans.sizeDelta = new Vector2(gachaBackgroundTrans.rect.width, newHeight);
+            
+            if (oldHeight - newHeight == 0)
+            {
+                // Do nothing
+            }
+            else if (oldHeight - newHeight != 0)
+            {
+                float result = Mathf.Sign(oldHeight - newHeight);
+                int resultInt = result.ConvertTo<int>();
+                
+                if (resultInt == -1)
+                {
+                    //Got Bigger then Move Up
+                    gachaHeaderTrans.offsetMin += new Vector2(0, newY);
+                    gachaHeaderTrans.offsetMax -= new Vector2(0, -newY);
+                }
+                else if (resultInt == 1)
+                {
+                    //Got Smaller then Move Down
+                    gachaHeaderTrans.offsetMin += new Vector2(0, -newY);
+                    gachaHeaderTrans.offsetMax -= new Vector2(0, newY);
+                }
+            }
+            
+            currentHeight = newHeight;
         }
     }
 
