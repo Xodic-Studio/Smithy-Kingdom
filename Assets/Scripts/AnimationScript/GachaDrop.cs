@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 namespace AnimationScript
 {
@@ -20,10 +21,11 @@ namespace AnimationScript
     {
         [SerializeField] public GameObject gachaDropPrefab;
         [SerializeField] public GameObject gachaResultList;
-        [SerializeField] public RectTransform mainAreaUiTrans;
+        [SerializeField] public GameObject mainAreaUi;
         [SerializeField] public RectTransform gachaHeaderTrans;
         [HideInInspector] public float currentHeight = 700f;
         [HideInInspector] public bool isRolling;
+        [SerializeField] private Sprite[] gachaBackgroundSprite;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
 
@@ -48,7 +50,7 @@ namespace AnimationScript
                 {
                     if (dropCount == 1)
                     {
-                        SetNewSize(mainAreaUiTrans, 700f);
+                        SetNewSize(/*mainAreaUi.GetComponent<RectTransform>(),*/ 700f);
                         ClearList();
                         isRolling = true;
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
@@ -57,7 +59,7 @@ namespace AnimationScript
                     }
                     else if (dropCount == 10)
                     {
-                        SetNewSize(mainAreaUiTrans, 1400f);
+                        SetNewSize(/*mainAreaUi.GetComponent<RectTransform>(),*/ 1400f);
                         ClearList();
                         isRolling = true;
                         for (int i = 0; i < dropCount; i++)
@@ -104,12 +106,15 @@ namespace AnimationScript
             }
         }
 
-        private void SetNewSize(RectTransform gachaBackgroundTrans, float newHeight)
+        private void SetNewSize(/*RectTransform gachaBackgroundTrans,*/ float newHeight)
         {
             float oldHeight = currentHeight;
-            float newY = 200f; //Y Pos: 1 Roll = 175f, 10 Roll = 375f
+            float newY = 140f;
+            //Old Y Pos: 1 Roll = 175f, 10 Roll = 375f (+-200)
+            //New Y Pos: 1 Roll = 235f, 10 Roll = 375f (+-140)
             
-            gachaBackgroundTrans.sizeDelta = new Vector2(gachaBackgroundTrans.rect.width, newHeight);
+            //For size changing of MainAreaUI rect width & height
+            //gachaBackgroundTrans.sizeDelta = new Vector2(gachaBackgroundTrans.rect.width, newHeight);
             
             if (oldHeight - newHeight == 0)
             {
@@ -123,12 +128,14 @@ namespace AnimationScript
                 if (resultInt == -1)
                 {
                     //Got Bigger then Move Up
+                    mainAreaUi.GetComponent<Image>().sprite = gachaBackgroundSprite[1];
                     gachaHeaderTrans.offsetMin += new Vector2(0, newY);
                     gachaHeaderTrans.offsetMax -= new Vector2(0, -newY);
                 }
                 else if (resultInt == 1)
                 {
                     //Got Smaller then Move Down
+                    mainAreaUi.GetComponent<Image>().sprite = gachaBackgroundSprite[0];
                     gachaHeaderTrans.offsetMin += new Vector2(0, -newY);
                     gachaHeaderTrans.offsetMax -= new Vector2(0, newY);
                 }
