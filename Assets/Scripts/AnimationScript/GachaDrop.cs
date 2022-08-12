@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneTemplate;
 
 namespace AnimationScript
 {
