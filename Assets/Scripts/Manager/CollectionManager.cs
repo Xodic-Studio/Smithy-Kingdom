@@ -188,6 +188,7 @@ namespace Manager
             else
             {
                 _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
+                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
             }
             itemButton.onClick.RemoveAllListeners();
 

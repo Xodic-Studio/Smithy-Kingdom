@@ -51,7 +51,7 @@ public class GameManager : Singleton<GameManager>
         _soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
-        Invoke(nameof(MailTimer),Random.Range(1,2));
+        Invoke(nameof(MailTimer),Random.Range(120,300));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
         achievementDatabase = database.achievementDatabase;
