@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     private float _cps;
     private float _dps;
     private float _lastTime;
-    private bool _isClicking;
+    //private bool _isClicking;
 
     [SerializeField] public float money;
     [SerializeField] public float gems;
@@ -51,11 +51,11 @@ public class GameManager : Singleton<GameManager>
         _uiManager.UpdateGemText();
         Invoke(nameof(MailTimer),Random.Range(1,2));
         Invoke("OneSecondInterval", 1f);
-        ResetIsClicking();
+        //ResetIsClicking();
         _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
     }
 
-    private void Update()
+    /*private void Update()
     {
         CheckTimer();
     }
@@ -68,7 +68,7 @@ public class GameManager : Singleton<GameManager>
         {
             smithy.SetFloat(Speed,CpsToSpeed((int) _cps));
         }
-    }
+    }*/
 
     float _lastSecondDps;
     //TODO: REWORK THIS
@@ -83,7 +83,7 @@ public class GameManager : Singleton<GameManager>
         ModifyMoney(_upgradesFunction.passiveMoney);
         _dps -= _lastSecondDps;
         _lastSecondDps = _dps;
-        Debug.Log(_dps);
+        //Debug.Log(_dps);
         Invoke("OneSecondInterval", 1f);
 
         void LuckyAchievement()
@@ -96,7 +96,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
     //TODO: REWORK THIS
-    void ResetIsClicking()
+    /*void ResetIsClicking()
     {
         if (!_isClicking)
         {
@@ -104,7 +104,7 @@ public class GameManager : Singleton<GameManager>
         }
         _isClicking = false;
         Invoke(nameof(ResetIsClicking),1f);
-    }
+    }*/
     
     void MailTimer()
     {
@@ -196,7 +196,7 @@ public class GameManager : Singleton<GameManager>
             _lastTime = currentTime;
             _cps = 1f / diff;
             smithy.SetFloat(Click, _cps);
-            _isClicking = true;
+            //_isClicking = true;
             _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
                                                 _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
                                                 (1 + 0.02f * reputation));
