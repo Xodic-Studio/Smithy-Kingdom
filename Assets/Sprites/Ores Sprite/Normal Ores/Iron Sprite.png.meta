@@ -119,12 +119,12 @@ TextureImporter:
       name: Iron Sprite_0
       rect:
         serializedVersion: 2
-        x: 694
-        y: 879
-        width: 679
-        height: 351
+        x: 664
+        y: 689
+        width: 720
+        height: 720
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -119,12 +119,12 @@ TextureImporter:
       name: Copper Sprite_0
       rect:
         serializedVersion: 2
-        x: 696
-        y: 881
-        width: 670
-        height: 347
+        x: 674
+        y: 690
+        width: 720
+        height: 720
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
