@@ -119,10 +119,10 @@ TextureImporter:
       name: Enthusiastic Helper_0
       rect:
         serializedVersion: 2
-        x: 658
-        y: 771
-        width: 680
-        height: 680
+        x: 532
+        y: 658
+        width: 885
+        height: 885
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

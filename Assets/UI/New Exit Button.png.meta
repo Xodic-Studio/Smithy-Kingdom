@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d13109fcdbbc0004d9c26be247fda5c7
+guid: 6329b19b19fe2de49bea79a54541e7e4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
@@ -116,22 +116,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Worthless Regression_0
+      name: New Exit Button_0
       rect:
         serializedVersion: 2
-        x: 274
-        y: 368
-        width: 1400
-        height: 1400
+        x: 0
+        y: 0
+        width: 2048
+        height: 2048
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c78443e4b5eb99e44a34ee8c385cb4be
-      internalID: -1995524928
+      spriteID: 83ddc4134e8c1de4cab0140a4698990f
+      internalID: -1048230332
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Worthless Regression_0: -1995524928
+      New Exit Button_0: -1048230332
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
