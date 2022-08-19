@@ -28,7 +28,7 @@ public class Save
     public float[] upgradeFloat1;
     public int upgradeCount;
 
-    public float money, allMoney, gems, reputation;
+    public float money, allMoney, gems, reputation, passiveDamage, passiveMoney;
 }
 [Serializable]
 public class CollectionSave
@@ -117,7 +117,7 @@ public class SaveSystem : Singleton<SaveSystem>
         {
 
             _saveFile.upgradeCost[i] = upgradeDatabaseStat.upgradeCost;
-            _saveFile.upgradeLevels[i] = upgradeDatabaseStat.upgradeLevels;
+            _saveFile.upgradeLevels[i] = upgradeDatabaseStat.upgradeLevel;
             _saveFile.upgradeTier[i] = upgradeDatabaseStat.upgradeTier;
             _saveFile.upgradeFloat1[i] = upgradeDatabaseStat.float1;
             i++;
@@ -129,6 +129,9 @@ public class SaveSystem : Singleton<SaveSystem>
         _saveFile.gems = GameManager.Instance.GetGems();
         _saveFile.reputation = GameManager.Instance.GetReputation();
         _saveFile.allMoney = GameManager.Instance.allMoney;
+        _saveFile.passiveDamage = UpgradesFunction.Instance.passiveDamage;
+        _saveFile.passiveMoney = UpgradesFunction.Instance.passiveMoney;
+        
         CloseSave();
         print("Saved");
     }
@@ -147,6 +150,8 @@ public class SaveSystem : Singleton<SaveSystem>
         GameManager.Instance.reputation = _saveFile.reputation;
         GameManager.Instance.allMoney = _saveFile.allMoney;
         UpgradesFunction.Instance.upgradeCount = _saveFile.upgradeCount;
+        UpgradesFunction.Instance.passiveDamage = _saveFile.passiveDamage;
+        UpgradesFunction.Instance.passiveMoney = _saveFile.passiveMoney;
 
         var i = 0;
         var j = 0;
@@ -253,6 +258,12 @@ public class SaveSystem : Singleton<SaveSystem>
             print ("SAVE: New Upgrades");
             _saveFile.upgradeCost = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
             _saveFile.upgradeLevels = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
+            i = 0;
+            foreach (var VARIABLE in _saveFile.upgradeLevels)
+            {
+                _saveFile.upgradeLevels[i] = 1;
+                i++;
+            }
             _saveFile.upgradeTier = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
             _saveFile.upgradeFloat1 = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
             save = true;
@@ -262,7 +273,7 @@ public class SaveSystem : Singleton<SaveSystem>
         foreach (var VARIABLE in _saveFile.upgradeCost)
         {
             UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeCost = _saveFile.upgradeCost[i];
-            UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeLevels = (int) _saveFile.upgradeLevels[i];
+            UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeLevel = (int) _saveFile.upgradeLevels[i];
             UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeTier = (int) _saveFile.upgradeTier[i];
             UpgradesFunction.Instance.upgradeDatabase.stats[i].float1 = _saveFile.upgradeFloat1[i];
             i++;
@@ -272,6 +283,7 @@ public class SaveSystem : Singleton<SaveSystem>
         {
             SaveGame();
         }
+        Debug.Log("Loaded");
     }
 
     void OnApplicationPause(bool pauseStatus)

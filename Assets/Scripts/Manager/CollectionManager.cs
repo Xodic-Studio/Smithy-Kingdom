@@ -159,7 +159,7 @@ namespace Manager
             _itemStats.timesForged++;
             var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex)
                 .GetComponent<Button>();
-            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+            var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
@@ -176,7 +176,7 @@ namespace Manager
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
                 _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-                displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
@@ -206,7 +206,7 @@ namespace Manager
             _itemStats.timesForged++;
             var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex)
                 .GetComponent<Button>();
-            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+            var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
@@ -223,7 +223,7 @@ namespace Manager
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
                 _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-                displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +

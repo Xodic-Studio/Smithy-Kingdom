@@ -201,9 +201,9 @@ public class GameManager : Singleton<GameManager>
             smithy.SetFloat(Click, _cps);
             _isClicking = true;
             _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
-                                                _upgradesFunction.hammerEnvironmentLevel * 0.1f * _upgradesFunction.upgradeCount *
+                                                _upgradesFunction.upgradeDatabase.stats[5].upgradeLevel * 0.1f * _upgradesFunction.upgradeCount *
                                                 (1 + 0.02f * reputation));
-            _finalDamage = _hammerDamageCombined + _upgradesFunction.hammerEnhancementLevel * 0.01f * _dps;
+            _finalDamage = _hammerDamageCombined + _upgradesFunction.upgradeDatabase.stats[4].upgradeLevel * 0.01f * _dps;
             AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
             _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
@@ -259,7 +259,26 @@ public class GameManager : Singleton<GameManager>
         money += Mathf.Round(amount);
         allMoney += Mathf.Round(amount);
         _uiManager.UpdateMoneyText();
+        CheckMoneyForUpgrades();
         achievementDatabase.ModifyProgress("World-famous smithy",amount, true);
+    }
+
+    public void CheckMoneyForUpgrades()
+    {
+        var i = 0;
+        foreach (Transform upgrade in _uiManager.upgradeList.transform)
+        {
+            if (money > _upgradesFunction.upgradeDatabase.stats[i].upgradeCost)
+            {
+                upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
+                upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = true;
+            } else
+            {
+                upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.red;
+                upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = false;
+            }
+            i++;
+        }
     }
     
     public float GetMoney()
@@ -329,6 +348,9 @@ public class GameManager : Singleton<GameManager>
             ModifyReputation(result);
             database.oresDatabase.ResetDatabase();
             database.itemsDatabase.ResetDatabase();
+            database.upgradeDatabase.ResetDatabase();
+            _upgradesFunction.passiveDamage = 0;
+            _upgradesFunction.passiveMoney = 0;
             _uiManager.CloseMenu();
             
             CollectionManager.Instance.CheckEveryCollection();

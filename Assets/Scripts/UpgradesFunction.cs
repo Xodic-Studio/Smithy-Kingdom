@@ -44,6 +44,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     private void Start()
     {
         UpdateUpgradeButton();
+        UpdatePriceStart();
     }
     
     private void UpdateUpgradeButton()
@@ -60,25 +61,61 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
     }
 
+    private void UpdatePriceStart()
+    {
+        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[_oreUpgradeLevel + 1];
+        upgradeDatabase.stats[1].upgradeCost = upgradeDatabase.stats[1].upgradeBaseCost;
+        upgradeDatabase.stats[2].upgradeCost = upgradeDatabase.stats[2].upgradeBaseCost;
+        upgradeDatabase.stats[3].upgradeCost = upgradeDatabase.stats[3].upgradeBaseCost;
+        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel + 1);
+        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel + 1);
+        upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel + 1);
+        upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel + 1);
+        upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel + 1);
+        upgradeDatabase.stats[9].upgradeCost = upgradeDatabase.stats[9].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevel + 1);
+        upgradeDatabase.stats[10].upgradeCost = upgradeDatabase.stats[10].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevel + 1);
+        upgradeDatabase.stats[11].upgradeCost = upgradeDatabase.stats[11].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevel + 1);
+        upgradeDatabase.stats[12].upgradeCost = upgradeDatabase.stats[12].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevel + 1);
+        upgradeDatabase.stats[13].upgradeCost = upgradeDatabase.stats[13].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevel + 1);
+        upgradeDatabase.stats[14].upgradeCost = upgradeDatabase.stats[14].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevel + 1);
+        upgradeDatabase.stats[15].upgradeCost = upgradeDatabase.stats[15].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevel + 1);
+        upgradeDatabase.stats[16].upgradeCost = upgradeDatabase.stats[16].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevel + 1);
+        upgradeDatabase.stats[17].upgradeCost = upgradeDatabase.stats[17].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevel + 1);
+        upgradeDatabase.stats[18].upgradeCost = upgradeDatabase.stats[18].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevel + 1);
+        upgradeDatabase.stats[19].upgradeCost = upgradeDatabase.stats[19].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevel + 1);
+        upgradeDatabase.stats[20].upgradeCost = upgradeDatabase.stats[20].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevel + 1);
+        upgradeDatabase.stats[21].upgradeCost = upgradeDatabase.stats[21].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevel + 1);
+        upgradeDatabase.stats[22].upgradeCost = upgradeDatabase.stats[22].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevel + 1);
+        upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel + 1);
+        upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel + 1);
+        upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel + 1);
+        
+        foreach (var upgrade in upgradeDatabase.stats)
+        {
+            var upgradePriceText = _uiManager.upgradeList.transform.GetChild(upgrade.id).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+            upgradePriceText.text = _gameManager.NumberToString((decimal) upgrade.upgradeCost);
+        }
+
+        foreach (Transform upgrade in _uiManager.upgradeList.transform)
+        {
+            upgrade.GetChild(2).GetChild(0).GetComponent<ButtonHold>().onHold = upgradeFunctionList[upgrade.GetSiblingIndex()].upgradesFunction;
+        }
+        
+        _gameManager.CheckMoneyForUpgrades();
+    }
+    
+    
     private void UpdateUpgradePrice(float price)
     {
         var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(1)
             .GetComponent<TMP_Text>();
         upgradePriceText.text = _gameManager.NumberToString((decimal)price);
-        if (price > _gameManager.GetMoney())
-        {
-            var parent = EventSystem.current.currentSelectedGameObject.transform.parent;
-            var parent1 = parent.parent;
-            parent1.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.red;
-        }
-        else
-        {
-            EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
-        }
+        _gameManager.CheckMoneyForUpgrades();
     }
 
     private void UpdateUpgradeDescription (string baseDescription,string description)
     {
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
         var upgradeDescriptionText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
         upgradeDescriptionText.text = baseDescription + "\n" +
                                       description;
@@ -90,7 +127,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     {
         if (_oreUpgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            if (_gameManager.HasMoney(_oreUpgradeCost[_oreUpgradeLevel - 1]) )
+            if (_gameManager.HasMoney(_oreUpgradeCost[_oreUpgradeLevel]) )
             {
                 _ore.oreDatabase.ores[_oreUpgradeLevel].isUnlocked = true;
                 if (_ore.oreDatabase.ores[_oreUpgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)
@@ -98,7 +135,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                     achievementDatabase.ModifyProgress("Power of the Falling Star",1);
                 }
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
-                UpdateUpgradePrice(_oreUpgradeCost[_oreUpgradeLevel - 1]);
+                UpdateUpgradePrice(_oreUpgradeCost[_oreUpgradeLevel]);
                 _oreUpgradeLevel++;
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                 upgradeCount++;
@@ -157,29 +194,26 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
     }
 
-    public int hammerEnhancementLevel;
-
     public void HammerEnhancement()
     {
-        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, hammerEnhancementLevel);
+        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[4].upgradeCost))
         {
-            hammerEnhancementLevel++; 
+            upgradeDatabase.stats[4].upgradeLevel++; 
             upgradeCount++;
             UpdateUpgradePrice(upgradeDatabase.stats[4].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
     
-    public int hammerEnvironmentLevel;
     public void HammerEnvironment()
     {
-        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, hammerEnvironmentLevel);
-        if (_gameManager.HasMoney(upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, hammerEnvironmentLevel)))
+        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel);
+        if (_gameManager.HasMoney(upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel)))
         {
-            hammerEnvironmentLevel++;
+            upgradeDatabase.stats[5].upgradeLevel++;
             upgradeCount++;
-            UpdateUpgradePrice(upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, hammerEnvironmentLevel));
+            UpdateUpgradePrice(upgradeDatabase.stats[5].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
@@ -201,16 +235,16 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void HelpingHand()
     {
         upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost *
-                                               Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevels);
+                                               Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[6].upgradeCost))
         {
-            upgradeDatabase.stats[6].upgradeLevels++;
-            upgradeDatabase.stats[6].upgradeTier = CheckLevel(upgradeDatabase.stats[6].upgradeLevels);
-            upgradeDatabase.stats[6].float1 = upgradeDatabase.stats[6].baseFloat1 * upgradeDatabase.stats[6].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[6].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
-            upgradeCount++;
+            upgradeDatabase.stats[6].upgradeLevel++;
+            upgradeDatabase.stats[6].upgradeTier = CheckLevel(upgradeDatabase.stats[6].upgradeLevel);
+            upgradeDatabase.stats[6].float1 = upgradeDatabase.stats[6].baseFloat1 * upgradeDatabase.stats[6].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[6].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Decrease Ore Hp By {upgradeDatabase.stats[6].baseFloat1} per second",$"-{upgradeDatabase.stats[6].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[6].baseFloat1)} per second",$"-{_gameManager.NumberToString((decimal)upgradeDatabase.stats[6].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[6].upgradeCost);
+            upgradeCount++;
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
@@ -218,15 +252,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void MoreHelpers()
     {
         upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost *
-                                               Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevels);
+                                               Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[7].upgradeCost))
         {
-            upgradeDatabase.stats[7].upgradeLevels++;
-            upgradeDatabase.stats[7].upgradeTier = CheckLevel(upgradeDatabase.stats[7].upgradeLevels);
-            upgradeDatabase.stats[7].float1 = upgradeDatabase.stats[7].baseFloat1 * upgradeDatabase.stats[7].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[7].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[7].upgradeLevel++;
+            upgradeDatabase.stats[7].upgradeTier = CheckLevel(upgradeDatabase.stats[7].upgradeLevel);
+            upgradeDatabase.stats[7].float1 = upgradeDatabase.stats[7].baseFloat1 * upgradeDatabase.stats[7].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[7].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Helping Hand Damage By {upgradeDatabase.stats[7].baseFloat1} per second",$"+{upgradeDatabase.stats[7].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[7].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[7].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[7].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -235,15 +269,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void LingeringFlame()
     {
         upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost *
-                                               Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevels);
+                                               Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[8].upgradeCost))
         {
-            upgradeDatabase.stats[8].upgradeLevels++;
-            upgradeDatabase.stats[8].upgradeTier = CheckLevel(upgradeDatabase.stats[8].upgradeLevels);
-            upgradeDatabase.stats[8].float1 = upgradeDatabase.stats[8].baseFloat1 * upgradeDatabase.stats[8].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[8].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[8].upgradeLevel++;
+            upgradeDatabase.stats[8].upgradeTier = CheckLevel(upgradeDatabase.stats[8].upgradeLevel);
+            upgradeDatabase.stats[8].float1 = upgradeDatabase.stats[8].baseFloat1 * upgradeDatabase.stats[8].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[8].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Lingering Flame Damage By {upgradeDatabase.stats[8].baseFloat1} per second",$"+{upgradeDatabase.stats[8].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[8].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[8].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[8].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -252,15 +286,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SelfForgingHammer()
     {
         upgradeDatabase.stats[9].upgradeCost = upgradeDatabase.stats[9].upgradeBaseCost *
-                                               Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevels);
+                                               Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[9].upgradeCost))
         {
-            upgradeDatabase.stats[9].upgradeLevels++;
-            upgradeDatabase.stats[9].upgradeTier = CheckLevel(upgradeDatabase.stats[9].upgradeLevels);
-            upgradeDatabase.stats[9].float1 = upgradeDatabase.stats[9].baseFloat1 * upgradeDatabase.stats[9].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[9].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[9].upgradeLevel++;
+            upgradeDatabase.stats[9].upgradeTier = CheckLevel(upgradeDatabase.stats[9].upgradeLevel);
+            upgradeDatabase.stats[9].float1 = upgradeDatabase.stats[9].baseFloat1 * upgradeDatabase.stats[9].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[9].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Self Forging Hammer Damage By {upgradeDatabase.stats[9].baseFloat1} per second",$"+{upgradeDatabase.stats[9].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[9].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[9].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[9].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -269,15 +303,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SelfForgingAnvil()
     {
         upgradeDatabase.stats[10].upgradeCost = upgradeDatabase.stats[10].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[10].upgradeCost))
         {
-            upgradeDatabase.stats[10].upgradeLevels++;
-            upgradeDatabase.stats[10].upgradeTier = CheckLevel(upgradeDatabase.stats[10].upgradeLevels);
-            upgradeDatabase.stats[10].float1 = upgradeDatabase.stats[10].baseFloat1 * upgradeDatabase.stats[10].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[10].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[10].upgradeLevel++;
+            upgradeDatabase.stats[10].upgradeTier = CheckLevel(upgradeDatabase.stats[10].upgradeLevel);
+            upgradeDatabase.stats[10].float1 = upgradeDatabase.stats[10].baseFloat1 * upgradeDatabase.stats[10].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[10].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Self Forging Anvil Damage By {upgradeDatabase.stats[10].baseFloat1} per second",$"+{upgradeDatabase.stats[10].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[10].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[10].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[10].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -286,15 +320,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SelfForgingOre()
     {
         upgradeDatabase.stats[11].upgradeCost = upgradeDatabase.stats[11].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[11].upgradeCost))
         {
-            upgradeDatabase.stats[11].upgradeLevels++;
-            upgradeDatabase.stats[11].upgradeTier = CheckLevel(upgradeDatabase.stats[11].upgradeLevels);
-            upgradeDatabase.stats[11].float1 = upgradeDatabase.stats[11].baseFloat1 * upgradeDatabase.stats[11].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[11].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[11].upgradeLevel++;
+            upgradeDatabase.stats[11].upgradeTier = CheckLevel(upgradeDatabase.stats[11].upgradeLevel);
+            upgradeDatabase.stats[11].float1 = upgradeDatabase.stats[11].baseFloat1 * upgradeDatabase.stats[11].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[11].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Self Forging Ore Damage By {upgradeDatabase.stats[11].baseFloat1} per second",$"+{upgradeDatabase.stats[11].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[11].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[11].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[11].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -303,15 +337,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SentientSmithy()
     {
         upgradeDatabase.stats[12].upgradeCost = upgradeDatabase.stats[12].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[12].upgradeCost))
         {
-            upgradeDatabase.stats[12].upgradeLevels++;
-            upgradeDatabase.stats[12].upgradeTier = CheckLevel(upgradeDatabase.stats[12].upgradeLevels);
-            upgradeDatabase.stats[12].float1 = upgradeDatabase.stats[12].baseFloat1 * upgradeDatabase.stats[12].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[12].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[12].upgradeLevel++;
+            upgradeDatabase.stats[12].upgradeTier = CheckLevel(upgradeDatabase.stats[12].upgradeLevel);
+            upgradeDatabase.stats[12].float1 = upgradeDatabase.stats[12].baseFloat1 * upgradeDatabase.stats[12].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[12].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Sentient Smithy Damage By {upgradeDatabase.stats[12].baseFloat1} per second",$"+{upgradeDatabase.stats[12].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[12].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[12].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[12].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -320,15 +354,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void AncestralSpirits()
     {
         upgradeDatabase.stats[13].upgradeCost = upgradeDatabase.stats[13].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[13].upgradeCost))
         {
-            upgradeDatabase.stats[13].upgradeLevels++;
-            upgradeDatabase.stats[13].upgradeTier = CheckLevel(upgradeDatabase.stats[13].upgradeLevels);
-            upgradeDatabase.stats[13].float1 = upgradeDatabase.stats[13].baseFloat1 * upgradeDatabase.stats[13].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[13].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[13].upgradeLevel++;
+            upgradeDatabase.stats[13].upgradeTier = CheckLevel(upgradeDatabase.stats[13].upgradeLevel);
+            upgradeDatabase.stats[13].float1 = upgradeDatabase.stats[13].baseFloat1 * upgradeDatabase.stats[13].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[13].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Ancestral Spirits Damage By {upgradeDatabase.stats[13].baseFloat1} per second",$"+{upgradeDatabase.stats[13].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[13].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[13].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[13].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -337,15 +371,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void FutureGenerations()
     {
         upgradeDatabase.stats[14].upgradeCost = upgradeDatabase.stats[14].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[14].upgradeCost))
         {
-            upgradeDatabase.stats[14].upgradeLevels++;
-            upgradeDatabase.stats[14].upgradeTier = CheckLevel(upgradeDatabase.stats[14].upgradeLevels);
-            upgradeDatabase.stats[14].float1 = upgradeDatabase.stats[14].baseFloat1 * upgradeDatabase.stats[14].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[14].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[14].upgradeLevel++;
+            upgradeDatabase.stats[14].upgradeTier = CheckLevel(upgradeDatabase.stats[14].upgradeLevel);
+            upgradeDatabase.stats[14].float1 = upgradeDatabase.stats[14].baseFloat1 * upgradeDatabase.stats[14].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[14].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Future Generations Damage By {upgradeDatabase.stats[14].baseFloat1} per second",$"+{upgradeDatabase.stats[14].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[14].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[14].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[14].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -354,15 +388,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void CsharpHammer()
     {
         upgradeDatabase.stats[15].upgradeCost = upgradeDatabase.stats[15].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[15].upgradeCost))
         {
-            upgradeDatabase.stats[15].upgradeLevels++;
-            upgradeDatabase.stats[15].upgradeTier = CheckLevel(upgradeDatabase.stats[15].upgradeLevels);
-            upgradeDatabase.stats[15].float1 = upgradeDatabase.stats[15].baseFloat1 * upgradeDatabase.stats[15].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[15].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[15].upgradeLevel++;
+            upgradeDatabase.stats[15].upgradeTier = CheckLevel(upgradeDatabase.stats[15].upgradeLevel);
+            upgradeDatabase.stats[15].float1 = upgradeDatabase.stats[15].baseFloat1 * upgradeDatabase.stats[15].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[15].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdateDamagePassive();
-            UpdateUpgradeDescription($"Increase Csharp Hammer Damage By {upgradeDatabase.stats[15].baseFloat1} per second",$"+{upgradeDatabase.stats[15].float1}/sec");
+            UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[15].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[15].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[15].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -382,15 +416,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void DonationBox()
     {
         upgradeDatabase.stats[16].upgradeCost = upgradeDatabase.stats[16].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[16].upgradeCost))
         {
-            upgradeDatabase.stats[16].upgradeLevels++;
-            upgradeDatabase.stats[16].upgradeTier = CheckLevel(upgradeDatabase.stats[16].upgradeLevels);
-            upgradeDatabase.stats[16].float1 = upgradeDatabase.stats[16].baseFloat1 * upgradeDatabase.stats[16].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[16].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[16].upgradeLevel++;
+            upgradeDatabase.stats[16].upgradeTier = CheckLevel(upgradeDatabase.stats[16].upgradeLevel);
+            upgradeDatabase.stats[16].float1 = upgradeDatabase.stats[16].baseFloat1 * upgradeDatabase.stats[16].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[16].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[16].baseFloat1} per second",$"+{upgradeDatabase.stats[16].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[16].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[16].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[16].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -399,15 +433,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void CommunityService()
     {
         upgradeDatabase.stats[17].upgradeCost = upgradeDatabase.stats[17].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[17].upgradeCost))
         {
-            upgradeDatabase.stats[17].upgradeLevels++;
-            upgradeDatabase.stats[17].upgradeTier = CheckLevel(upgradeDatabase.stats[17].upgradeLevels);
-            upgradeDatabase.stats[17].float1 = upgradeDatabase.stats[17].baseFloat1 * upgradeDatabase.stats[17].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[17].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[17].upgradeLevel++;
+            upgradeDatabase.stats[17].upgradeTier = CheckLevel(upgradeDatabase.stats[17].upgradeLevel);
+            upgradeDatabase.stats[17].float1 = upgradeDatabase.stats[17].baseFloat1 * upgradeDatabase.stats[17].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[17].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[17].baseFloat1} per second",$"+{upgradeDatabase.stats[17].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[17].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[17].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[17].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -416,15 +450,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SwordBetting()
     {
         upgradeDatabase.stats[18].upgradeCost = upgradeDatabase.stats[18].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[18].upgradeCost))
         {
-            upgradeDatabase.stats[18].upgradeLevels++;
-            upgradeDatabase.stats[18].upgradeTier = CheckLevel(upgradeDatabase.stats[18].upgradeLevels);
-            upgradeDatabase.stats[18].float1 = upgradeDatabase.stats[18].baseFloat1 * upgradeDatabase.stats[18].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[18].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[18].upgradeLevel++;
+            upgradeDatabase.stats[18].upgradeTier = CheckLevel(upgradeDatabase.stats[18].upgradeLevel);
+            upgradeDatabase.stats[18].float1 = upgradeDatabase.stats[18].baseFloat1 * upgradeDatabase.stats[18].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[18].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[18].baseFloat1} per second",$"+{upgradeDatabase.stats[18].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[18].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[18].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[18].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -433,15 +467,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SwordReselling()
     {
         upgradeDatabase.stats[19].upgradeCost = upgradeDatabase.stats[19].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[19].upgradeCost))
         {
-            upgradeDatabase.stats[19].upgradeLevels++;
-            upgradeDatabase.stats[19].upgradeTier = CheckLevel(upgradeDatabase.stats[19].upgradeLevels);
-            upgradeDatabase.stats[19].float1 = upgradeDatabase.stats[19].baseFloat1 * upgradeDatabase.stats[19].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[19].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[19].upgradeLevel++;
+            upgradeDatabase.stats[19].upgradeTier = CheckLevel(upgradeDatabase.stats[19].upgradeLevel);
+            upgradeDatabase.stats[19].float1 = upgradeDatabase.stats[19].baseFloat1 * upgradeDatabase.stats[19].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[19].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[19].baseFloat1} per second",$"+{upgradeDatabase.stats[19].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[19].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[19].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[19].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -450,15 +484,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SmithyNetwork()
     {
         upgradeDatabase.stats[20].upgradeCost = upgradeDatabase.stats[20].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[20].upgradeCost))
         {
-            upgradeDatabase.stats[20].upgradeLevels++;
-            upgradeDatabase.stats[20].upgradeTier = CheckLevel(upgradeDatabase.stats[20].upgradeLevels);
-            upgradeDatabase.stats[20].float1 = upgradeDatabase.stats[20].baseFloat1 * upgradeDatabase.stats[20].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[20].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[20].upgradeLevel++;
+            upgradeDatabase.stats[20].upgradeTier = CheckLevel(upgradeDatabase.stats[20].upgradeLevel);
+            upgradeDatabase.stats[20].float1 = upgradeDatabase.stats[20].baseFloat1 * upgradeDatabase.stats[20].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[20].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[20].baseFloat1} per second",$"+{upgradeDatabase.stats[20].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[20].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[20].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[20].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -467,15 +501,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void SmithyCooperation()
     {
         upgradeDatabase.stats[21].upgradeCost = upgradeDatabase.stats[21].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[21].upgradeCost))
         {
-            upgradeDatabase.stats[21].upgradeLevels++;
-            upgradeDatabase.stats[21].upgradeTier = CheckLevel(upgradeDatabase.stats[21].upgradeLevels);
-            upgradeDatabase.stats[21].float1 = upgradeDatabase.stats[21].baseFloat1 * upgradeDatabase.stats[21].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[21].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[21].upgradeLevel++;
+            upgradeDatabase.stats[21].upgradeTier = CheckLevel(upgradeDatabase.stats[21].upgradeLevel);
+            upgradeDatabase.stats[21].float1 = upgradeDatabase.stats[21].baseFloat1 * upgradeDatabase.stats[21].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[21].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[21].baseFloat1} per second",$"+{upgradeDatabase.stats[21].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[21].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[21].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[21].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -484,15 +518,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void InternationalSmithy()
     {
         upgradeDatabase.stats[22].upgradeCost = upgradeDatabase.stats[22].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[22].upgradeCost))
         {
-            upgradeDatabase.stats[22].upgradeLevels++;
-            upgradeDatabase.stats[22].upgradeTier = CheckLevel(upgradeDatabase.stats[22].upgradeLevels);
-            upgradeDatabase.stats[22].float1 = upgradeDatabase.stats[22].baseFloat1 * upgradeDatabase.stats[22].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[22].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[22].upgradeLevel++;
+            upgradeDatabase.stats[22].upgradeTier = CheckLevel(upgradeDatabase.stats[22].upgradeLevel);
+            upgradeDatabase.stats[22].float1 = upgradeDatabase.stats[22].baseFloat1 * upgradeDatabase.stats[22].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[22].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[22].baseFloat1} per second",$"+{upgradeDatabase.stats[22].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[22].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[22].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[22].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -501,15 +535,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void NonFungibleWeapons()
     {
         upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[23].upgradeCost))
         {
-            upgradeDatabase.stats[23].upgradeLevels++;
-            upgradeDatabase.stats[23].upgradeTier = CheckLevel(upgradeDatabase.stats[23].upgradeLevels);
-            upgradeDatabase.stats[23].float1 = upgradeDatabase.stats[23].baseFloat1 * upgradeDatabase.stats[23].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[23].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[23].upgradeLevel++;
+            upgradeDatabase.stats[23].upgradeTier = CheckLevel(upgradeDatabase.stats[23].upgradeLevel);
+            upgradeDatabase.stats[23].float1 = upgradeDatabase.stats[23].baseFloat1 * upgradeDatabase.stats[23].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[23].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[23].baseFloat1} per second",$"+{upgradeDatabase.stats[23].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[23].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[23].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[23].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -518,15 +552,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void CoinDuplicationGlitch()
     {
         upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[24].upgradeCost))
         {
-            upgradeDatabase.stats[24].upgradeLevels++;
-            upgradeDatabase.stats[24].upgradeTier = CheckLevel(upgradeDatabase.stats[24].upgradeLevels);
-            upgradeDatabase.stats[24].float1 = upgradeDatabase.stats[24].baseFloat1 * upgradeDatabase.stats[24].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[24].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[24].upgradeLevel++;
+            upgradeDatabase.stats[24].upgradeTier = CheckLevel(upgradeDatabase.stats[24].upgradeLevel);
+            upgradeDatabase.stats[24].float1 = upgradeDatabase.stats[24].baseFloat1 * upgradeDatabase.stats[24].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[24].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[24].baseFloat1} per second",$"+{upgradeDatabase.stats[24].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[24].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[24].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[24].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -535,15 +569,15 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     public void WeaponDuplicationGlitch()
     {
         upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost *
-                                                Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevels);
+                                                Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[25].upgradeCost))
         {
-            upgradeDatabase.stats[25].upgradeLevels++;
-            upgradeDatabase.stats[25].upgradeTier = CheckLevel(upgradeDatabase.stats[25].upgradeLevels);
-            upgradeDatabase.stats[25].float1 = upgradeDatabase.stats[25].baseFloat1 * upgradeDatabase.stats[25].upgradeLevels * Mathf.Pow(2,upgradeDatabase.stats[25].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
+            upgradeDatabase.stats[25].upgradeLevel++;
+            upgradeDatabase.stats[25].upgradeTier = CheckLevel(upgradeDatabase.stats[25].upgradeLevel);
+            upgradeDatabase.stats[25].float1 = upgradeDatabase.stats[25].baseFloat1 * upgradeDatabase.stats[25].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[25].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
             UpdatePassiveMoney();
-            UpdateUpgradeDescription($"Increase Passive Money By {upgradeDatabase.stats[25].baseFloat1} per second",$"+{upgradeDatabase.stats[25].float1}/sec");
+            UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[25].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[25].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[25].upgradeCost);
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
@@ -559,19 +593,19 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             return 2;
         }
-        if (level is >= 50 and 100)
+        if (level is >= 50 and < 100)
         {
             return 3;
         }
-        if (level is >= 100 and 250)
+        if (level is >= 100 and < 250)
         {
             return 4;
         }
-        if (level is >= 250 and 500)
+        if (level is >= 250 and < 500)
         {
             return 5;
         }
-        if (level is >= 500 and 1000)
+        if (level is >= 500 and < 1000)
         {
             return 6;
         }

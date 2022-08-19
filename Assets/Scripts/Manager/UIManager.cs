@@ -152,7 +152,7 @@ namespace Manager
         {
             overrideCanvas.SetActive(false);
             baseCanvas.SetActive(true);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -737,7 +737,7 @@ namespace Manager
             normalUpgradePanel.SetActive(true);
             premiumUpgradePanel.SetActive(false);
             mainScrollRect.content = _normalRectTransform;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         /// <summary>
@@ -748,7 +748,7 @@ namespace Manager
             normalUpgradePanel.SetActive(false);
             premiumUpgradePanel.SetActive(true);
             mainScrollRect.content = _premiumRectTransform;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
         }
 
         #endregion
