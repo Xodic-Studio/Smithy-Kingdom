@@ -51,7 +51,7 @@ public class GameManager : Singleton<GameManager>
         _soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
-        Invoke(nameof(MailTimer),Random.Range(120,300));
+        Invoke(nameof(MailTimer),Random.Range(180,301));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
         achievementDatabase = database.achievementDatabase;
@@ -114,14 +114,21 @@ public class GameManager : Singleton<GameManager>
         _uiManager.AddNewMail(mailDatabase.GetRandomMail());
         Invoke(nameof(MailTimer),Random.Range(180,301));
     }
-
+    
     public void MailReward()
     {
-        var rewardCurrentCoin = money * 0.15f;
-        var rewardCps = _cps * 900;
-        ModifyMoney(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin);
+        var rewardCurrentCoin = 1000 + money * 0.15f;
+        var rewardCps = 1000 + _upgradesFunction.passiveDamage * 900;
+
+        mailReward = Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin).ToString();
+        ModifyMoney(Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin));
     }
-    
+
+    private string mailReward;
+    public string GetMailReward()
+    {
+        return mailReward;
+    }
     float CpsToSpeed(int cps)
     {
         if (cps > 3)
@@ -257,7 +264,10 @@ public class GameManager : Singleton<GameManager>
     public void ModifyMoney(float amount)
     {
         money += Mathf.Round(amount);
-        allMoney += Mathf.Round(amount);
+        if(amount > 0)
+        {
+            allMoney += Mathf.Round(amount);
+        }
         _uiManager.UpdateMoneyText();
         CheckMoneyForUpgrades();
         achievementDatabase.ModifyProgress("World-famous smithy",amount, true);
@@ -342,6 +352,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (allMoney >= 50000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3)))
         {
+            ModifyMoney(-money);
             money = 0;
             var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3));
             Debug.Log(result);

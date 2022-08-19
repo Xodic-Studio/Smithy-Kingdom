@@ -551,11 +551,11 @@ namespace Manager
         /// /// <param name="mail"> Mail Class From MailDatabase</param>
         void OpenMail(Mail mail)
         {
+            _gameManager.MailReward();
             _achievementDatabase.ModifyProgress("You’ve got Mail!",1);
-            okButton.onClick.AddListener(_gameManager.MailReward);
             StopCoroutine(MailTimer());
             popupTitle.text = mail.title;
-            popupDescription.text = mail.content;
+            popupDescription.text = mail.content + "\n\n" + $"You Received: {_gameManager.GetMailReward()} Coins";
             popupImage.sprite = mail.icon;
             popup.SetActive(true);
             mailPanel.SetActive(false);
