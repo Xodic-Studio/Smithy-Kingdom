@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.735, y: 79.16943}
-  m_SizeDelta: {x: 482.53, y: 85.6611}
+  m_AnchoredPosition: {x: -43.019, y: 79.16943}
+  m_SizeDelta: {x: 459.96, y: 85.6611}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6668434168180725819
 CanvasRenderer:
@@ -203,7 +203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110.5, y: 0}
+  m_AnchoredPosition: {x: -157, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7421366163512307353
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 394.68, y: -16}
+  m_AnchoredPosition: {x: 424, y: -16}
   m_SizeDelta: {x: 234.0455, y: 78.2424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1064725946637258964
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 69.97205, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -415,8 +415,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.735, y: -40.7556}
-  m_SizeDelta: {x: 482.53, y: 131.5112}
+  m_AnchoredPosition: {x: -43.0193, y: -40.7556}
+  m_SizeDelta: {x: 459.9613, y: 131.5112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3899323577914378337
 CanvasRenderer:
@@ -920,6 +920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTime: 0.5
+  allowDelay: 0
   onHold:
     m_PersistentCalls:
       m_Calls: []

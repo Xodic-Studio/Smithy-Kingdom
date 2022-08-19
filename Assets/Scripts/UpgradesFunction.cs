@@ -15,10 +15,9 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     SoundManager _soundManager;
     public UpgradeDatabase upgradeDatabase;
     public AchievementDatabase achievementDatabase;
-    
-    int _oreUpgradeLevel = 1;
-    float[] _oreUpgradeCost = new float[5] { 50000, 5000000, 5000000000, 5000000000000, 5000000000000000};
-    public int upgradeCount = 0;
+
+    readonly float[] _oreUpgradeCost = new float[5] { 50000, 5000000, 5000000000, 5000000000000, 5000000000000000};
+    public int upgradeCount;
     
     [Header("Upgrade Function Database")]
     public UpgradeFunction[] upgradeFunctionList;
@@ -63,7 +62,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     private void UpdatePriceStart()
     {
-        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[_oreUpgradeLevel + 1];
+        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel - 1];
         upgradeDatabase.stats[1].upgradeCost = upgradeDatabase.stats[1].upgradeBaseCost;
         upgradeDatabase.stats[2].upgradeCost = upgradeDatabase.stats[2].upgradeBaseCost;
         upgradeDatabase.stats[3].upgradeCost = upgradeDatabase.stats[3].upgradeBaseCost;
@@ -125,18 +124,18 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void UpgradeOre()
     {
-        if (_oreUpgradeLevel < _ore.oreDatabase.ores.Length)
+        if (upgradeDatabase.stats[0].upgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            if (_gameManager.HasMoney(_oreUpgradeCost[_oreUpgradeLevel]) )
+            if (_gameManager.HasMoney(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel - 1]) )
             {
-                _ore.oreDatabase.ores[_oreUpgradeLevel].isUnlocked = true;
-                if (_ore.oreDatabase.ores[_oreUpgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)
+                _ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].isUnlocked = true;
+                if (_ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)
                 {
                     achievementDatabase.ModifyProgress("Power of the Falling Star",1);
                 }
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
-                UpdateUpgradePrice(_oreUpgradeCost[_oreUpgradeLevel]);
-                _oreUpgradeLevel++;
+                upgradeDatabase.stats[0].upgradeLevel++;
+                UpdateUpgradePrice(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]);
                 _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                 upgradeCount++;
             }

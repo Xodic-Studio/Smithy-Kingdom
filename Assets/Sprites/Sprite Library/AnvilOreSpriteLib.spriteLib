@@ -73,8 +73,8 @@ MonoBehaviour:
       m_Sprite: {fileID: -4036906184221185913, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -4036906184221185913, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
-    - m_Name: Petsnatchium Ore
-      m_Hash: -1214558986
+    - m_Name: Beastore Ore
+      m_Hash: -922986027
       m_Sprite: {fileID: -7808541762267795682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -7808541762267795682, guid: 1bde6953a05809641844d7fdbc4bdc25, type: 3}

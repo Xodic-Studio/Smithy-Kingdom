@@ -304,35 +304,35 @@ public class GameManager : Singleton<GameManager>
         }
         if (number < 1000000)
         {
-            return (number / 1000).ToString("F2") + "k";
+            return (number / 1000).ToString("0.##") + "k";
         }
         if (number < 1000000000)
         {
-            return (number / 1000000).ToString("F2") + "m";
+            return (number / 1000000).ToString("0.##") + "m";
         }
         if (number < 1000000000000)
         {
-            return (number / 1000000000).ToString("F2") + "b";
+            return (number / 1000000000).ToString("0.##") + "b";
         }
         if (number < 1000000000000000)
         {
-            return (number / 1000000000000).ToString("F2") + "t";
+            return (number / 1000000000000).ToString("0.##") + "t";
         }
         if (number < 1000000000000000000)
         {
-            return (number / 1000000000000000).ToString("F2") + "q";
+            return (number / 1000000000000000).ToString("0.##") + "q";
         } 
         if (number < 1000000000000000000000m)
         {
-            return (number / 1000000000000000000m).ToString("F2") + "Q";
+            return (number / 1000000000000000000m).ToString("0.##") + "Q";
         } 
         if (number < 1000000000000000000000000m)
         {
-            return (number / 1000000000000000000000m).ToString("F2") + "s";
+            return (number / 1000000000000000000000m).ToString("0.##") + "s";
         }
         if (number < 1000000000000000000000000000m)
         {
-            return (number / 1000000000000000000000000m).ToString("F2") + "S";
+            return (number / 1000000000000000000000000m).ToString("0.##") + "S";
         }
 
         return number.ToString();
