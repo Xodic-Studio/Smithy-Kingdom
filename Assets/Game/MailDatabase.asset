@@ -16,17 +16,17 @@ MonoBehaviour:
   - title: You got new Mail
     content: The king is celebrating his 55th birthday! Money are being given out
       to various business within the kingdom to improve the economy in celebration!
-    icon: {fileID: -2119237070, guid: 6d6927485ab6bca4195d33ddf50316ea, type: 3}
+    icon: {fileID: 1658162616, guid: b6f0c3a26c9fcc8488f34800d38d0a8c, type: 3}
   - title: You got new Mail
     content: A patron has given you some support in order to further improve your
       smithy!
-    icon: {fileID: -2119237070, guid: 6d6927485ab6bca4195d33ddf50316ea, type: 3}
+    icon: {fileID: -2043122372, guid: 270b858d4b1d9974ab6d0e4dc4ffbd04, type: 3}
   - title: You got new Mail
     content: Rejoice! One of your customer has achieved great feat with your weapon
       and is sending your some money as thanks.
-    icon: {fileID: -2119237070, guid: 6d6927485ab6bca4195d33ddf50316ea, type: 3}
+    icon: {fileID: 323695974, guid: 0b8c4e6d9d91f3f40b4ecae8dd247491, type: 3}
   - title: You got new Mail
     content: Your smithy is receiving more support from the locals! It seems like
       you have really improve their economy and they have given you some gifts for
       that!
-    icon: {fileID: -2119237070, guid: 6d6927485ab6bca4195d33ddf50316ea, type: 3}
+    icon: {fileID: 652099181, guid: e36771c54eb202b41915a2d4026f69f1, type: 3}

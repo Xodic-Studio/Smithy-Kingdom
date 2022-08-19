@@ -119,10 +119,10 @@ TextureImporter:
       name: Say No to Forging_0
       rect:
         serializedVersion: 2
-        x: 682
-        y: 665
-        width: 685
-        height: 685
+        x: 557
+        y: 587
+        width: 885
+        height: 885
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
