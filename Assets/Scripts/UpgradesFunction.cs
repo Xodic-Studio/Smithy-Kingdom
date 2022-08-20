@@ -21,6 +21,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     [Header("Upgrade Function Database")]
     public UpgradeFunction[] upgradeFunctionList;
+    public UpgradeFunction[] premiumUpgradeFunctionList;
 
 
     [Serializable]
@@ -57,6 +58,16 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
             });
             i++;
+        }
+
+        i = 0;
+        foreach (var function in premiumUpgradeFunctionList)
+        {
+            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
+            {
+                function.upgradesFunction.Invoke();
+                achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
+            });
         }
     }
 
@@ -119,9 +130,38 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         upgradeDescriptionText.text = baseDescription + "\n" +
                                       description;
     }
+    
+    private int CheckLevel(int level)
+    {
+        if (level is >= 10 and < 25)
+        {
+            return 1;
+        }
+        if (level is >= 25 and < 50)
+        {
+            return 2;
+        }
+        if (level is >= 50 and < 100)
+        {
+            return 3;
+        }
+        if (level is >= 100 and < 250)
+        {
+            return 4;
+        }
+        if (level is >= 250 and < 500)
+        {
+            return 5;
+        }
+        if (level is >= 500 and < 1000)
+        {
+            return 6;
+        }
+        return 0;
+    }
 
 
-
+    #region NormalUpgrade
     public void UpgradeOre()
     {
         if (upgradeDatabase.stats[0].upgradeLevel < _ore.oreDatabase.ores.Length)
@@ -581,34 +621,33 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
         }
     }
+    
+    #endregion
 
-    private int CheckLevel(int level)
+    #region Premium Upgrades
+
+    public void AutoClicker()
     {
-        if (level is >= 10 and < 25)
-        {
-            return 1;
-        }
-        if (level is >= 25 and < 50)
-        {
-            return 2;
-        }
-        if (level is >= 50 and < 100)
-        {
-            return 3;
-        }
-        if (level is >= 100 and < 250)
-        {
-            return 4;
-        }
-        if (level is >= 250 and < 500)
-        {
-            return 5;
-        }
-        if (level is >= 500 and < 1000)
-        {
-            return 6;
-        }
-        return 0;
+        
     }
+
+    public void AmazingLuck()
+    {
+        
+    }
+
+    public void VipMailService()
+    {
+        
+    }
+
+    public void UnbelievableReputation()
+    {
+        
+    }
+    
+
+    #endregion
+    
     
 }
