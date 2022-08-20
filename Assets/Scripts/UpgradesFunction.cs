@@ -61,14 +61,14 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
 
         i = 0;
-        foreach (var function in premiumUpgradeFunctionList)
-        {
-            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
-            {
-                function.upgradesFunction.Invoke();
-                achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
-            });
-        }
+        // foreach (var function in premiumUpgradeFunctionList)
+        // {
+        //     _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
+        //     {
+        //         function.upgradesFunction.Invoke();
+        //         achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
+        //     });
+        // }
     }
 
     private void UpdatePriceStart()

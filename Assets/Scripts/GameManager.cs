@@ -285,7 +285,7 @@ public class GameManager : Singleton<GameManager>
             } else
             {
                 upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.red;
-                upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = false;
+                //upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = false;
             }
             i++;
         }
