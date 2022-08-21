@@ -13374,7 +13374,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7625181991748649519, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1330
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117528, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_Pivot.x
@@ -13466,7 +13466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}

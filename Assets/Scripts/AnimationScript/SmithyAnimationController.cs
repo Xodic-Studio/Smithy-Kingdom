@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEditor;
 
@@ -7,119 +8,74 @@ namespace AnimationScript
 {
     public class SmithyAnimationController : Singleton<SmithyAnimationController>
     {
-        //[SerializeField] public int currentCps;
-        //[SerializeField] public int oldCps;
-        //[SerializeField] public int cpsRate;
-        //[SerializeField] public int deltaCps;
+        private string _hitString = "Hit";
+        private string _tiredString = "Tired";
+        private string _resetString = "Reset";
+        public int phase;
+        public bool timerActive;
+        [SerializeField] public float hit1, hit2, hit3;
         
         [SerializeField] public GameObject smithy;
-        private Animator smithyAnimator;
-        //private bool phase1, phase2, phase3;
-        //private int currentCpsRate;
+        private Animator _smithyAnimator;
 
         private void Start()
         {
-            /*oldCps = 0;
-            currentCps = 0;
-            deltaCps = 0;
-            phase1 = true;*/
-            smithyAnimator = smithy.GetComponent<Animator>();
-            //StartCoroutine(Initialize());
+            phase = 0;
+            timerActive = false;
+            _smithyAnimator = smithy.GetComponent<Animator>();
         }
 
-        private void CheckPhase()
+        private void StartTimer(float timer)
         {
-            if (currentCps <= 2)
+            var tempTimer = CountdownTimer(timer);
+            if (!timerActive)
             {
-                phase1 = true;
-                phase2 = false;
-                phase3 = false;
+                timerActive = true;
+                StartCoroutine(tempTimer);
             }
-            else if (currentCps >= 3 && currentCps <= 6)
+            else if (timerActive)
             {
-                phase1 = false;
-                phase2 = true;
-                phase3 = false;
-            }
-            else if (currentCps > 6)
-            {
-                phase1 = false;
-                phase2 = false;
-                phase3 = true;
+                tempTimer.Reset();
+                StartCoroutine(tempTimer);
             }
         }
 
-        private IEnumerator Initialize()
+        private IEnumerator CountdownTimer(float timer)
         {
-            string resetString = "Reset";
-            string phase1String = "Phase1";
-            string phase2String = "Phase2";
-            string phase3String = "Phase3";
-            
-            while (true)
+            yield return new WaitForSeconds(timer);
+            timerActive = false;
+            _smithyAnimator.SetTrigger(_resetString);
+            /*if ()
             {
-                CheckPhase();
-                
-                if (oldCps != currentCps)
-                {
-                    if (oldCps > currentCps)
-                    {
-                        deltaCps = oldCps - currentCps;
-                    }
-                    else if (currentCps > oldCps)
-                    {
-                        deltaCps = currentCps - oldCps;
-                    }
-                }
-                
-                if (deltaCps == 0)
-                {
-                    smithyAnimator.SetTrigger(resetString);
-                }
-                else if (deltaCps != 0)
-                {
-                    if (phase1)
-                    {
-                        smithyAnimator.SetBool(phase1String, true);
-                        smithyAnimator.SetBool(phase2String, false);
-                        smithyAnimator.SetBool(phase3String, false);
-                        yield return new WaitForSeconds(1f);
-                    }
-                    else if (phase2)
-                    {
-                        smithyAnimator.SetBool(phase1String, false);
-                        smithyAnimator.SetBool(phase2String, true);
-                        smithyAnimator.SetBool(phase3String, false);
-                        yield return new WaitForSeconds(1f);
-                    }
-                    else if (phase3)
-                    {
-                        smithyAnimator.SetBool(phase1String, false);
-                        smithyAnimator.SetBool(phase2String, false);
-                        smithyAnimator.SetBool(phase3String, true);
-                        yield return new WaitForSeconds(1f);
-                    }
-                }
-                
-                oldCps = currentCps;
-                currentCps = 0;
-            }
+                timerActive = false;
+            }*/
         }
 
         public void Tired()
         {
-            string tiredString = "Tired";
-            smithyAnimator.SetTrigger(tiredString);
+            _smithyAnimator.SetTrigger(_tiredString);
         }
 
         public void Hit()
         {
-            string hitString = "Hit";
-            if (phase1)
+            switch (phase)
             {
-                smithyAnimator.SetTrigger(hitString);
+                case (0):
+                    phase = 1;
+                    _smithyAnimator.SetTrigger(_hitString);
+                    StartTimer(hit1);
+                    break;
+                case (1):
+                    _smithyAnimator.SetTrigger(_hitString);
+                    StartTimer(hit1);
+                    break;
+                case (2):
+                    StartTimer(hit2);
+                    break;
+                case (3):
+                    StartTimer(hit3);
+                    break;
             }
-            currentCps++;
         }
     }
     
@@ -137,6 +93,17 @@ namespace AnimationScript
             
             if (GUILayout.Button("Hit"))
             {
+                smithyController.Hit();
+            }
+            else if (GUILayout.Button("Hit x2"))
+            {
+                smithyController.Hit();
+                smithyController.Hit();
+            }
+            else if (GUILayout.Button("Hit x3"))
+            {
+                smithyController.Hit();
+                smithyController.Hit();
                 smithyController.Hit();
             }
             else if (GUILayout.Button("Tired"))
