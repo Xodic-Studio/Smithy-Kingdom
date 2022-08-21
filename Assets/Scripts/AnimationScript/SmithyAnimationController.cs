@@ -27,10 +27,6 @@ namespace AnimationScript
             smithyAnimator = smithy.GetComponent<Animator>();
         }
 
-        private void Update()
-        {
-        }
-
         private void StartTimer(float timer)
         {
             var tempTimer = CountdownTimer(timer);
@@ -105,6 +101,7 @@ namespace AnimationScript
                         smithyAnimator.SetTrigger(_hitString);
                         break;
                     case (3):
+                        SetPhase(3);
                         StartTimer(hit3);
                         smithyAnimator.SetTrigger(_hitString);
                         break;
