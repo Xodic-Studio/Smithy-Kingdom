@@ -48646,23 +48646,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Color: {r: 3.2443413e+11, g: 7.83e-43, b: 3.24431e+11, a: 7.83e-43}
+  m_RaycastTarget: 151
+  m_RaycastPadding: {x: 7.83e-43, y: 3.244247e+11, z: 7.83e-43, w: 3.2441998e+11}
+  m_Maskable: 45
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -761643782, guid: f18ac8d807c633b49b3ca884b7deb128, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 1385638912
+  m_PreserveAspect: 47
+  m_FillCenter: 2
+  m_FillMethod: 1385638768
+  m_FillAmount: 7.83e-43
+  m_FillClockwise: 16
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_UseSpriteMesh: 2
+  m_PixelsPerUnitMultiplier: 3.246234e+11
 --- !u!222 &1694783155
 CanvasRenderer:
   m_ObjectHideFlags: 0

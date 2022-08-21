@@ -17,15 +17,14 @@ namespace AnimationScript
         [SerializeField] public bool isTired;
         
         [SerializeField] public GameObject smithy;
-        [SerializeField] private Animator _smithyAnimator;
-        
+        [SerializeField] private Animator smithyAnimator;
         
         private void Start()
         {
             SetPhase(0);
             hit = 0;
             timerActive = false;
-            _smithyAnimator = smithy.GetComponent<Animator>();
+            smithyAnimator = smithy.GetComponent<Animator>();
         }
 
         private void Update()
@@ -35,7 +34,7 @@ namespace AnimationScript
         private void StartTimer(float timer)
         {
             var tempTimer = CountdownTimer(timer);
-            
+
             if (!timerActive)
             {
                 timerActive = true;
@@ -58,7 +57,7 @@ namespace AnimationScript
         public IEnumerator Tired()
         {
             isTired = true;
-            _smithyAnimator.SetTrigger(_tiredString);
+            smithyAnimator.SetTrigger(_tiredString);
             yield return new WaitForSeconds(1f);
             isTired = false;
         }
@@ -77,7 +76,7 @@ namespace AnimationScript
                     case (0):
                         SetPhase(1);
                         StartTimer(hit1);
-                        _smithyAnimator.SetTrigger(_hitString);
+                        smithyAnimator.SetTrigger(_hitString);
                         break;
                     case (1):
                         if (hit >= 2)
@@ -90,7 +89,7 @@ namespace AnimationScript
                             SetPhase(1);
                             StartTimer(hit1);
                         }
-                        _smithyAnimator.SetTrigger(_hitString);
+                        smithyAnimator.SetTrigger(_hitString);
                         break;
                     case (2):
                         if (hit >= 4)
@@ -103,11 +102,11 @@ namespace AnimationScript
                             SetPhase(2);
                             StartTimer(hit2);
                         }
-                        _smithyAnimator.SetTrigger(_hitString);
+                        smithyAnimator.SetTrigger(_hitString);
                         break;
                     case (3):
                         StartTimer(hit3);
-                        _smithyAnimator.SetTrigger(_hitString);
+                        smithyAnimator.SetTrigger(_hitString);
                         break;
                 }
             }
@@ -116,7 +115,7 @@ namespace AnimationScript
         private void SetPhase(int number)
         {
             phase = number;
-            _smithyAnimator.SetInteger(_phaseString, number);
+            smithyAnimator.SetInteger(_phaseString, number);
         }
 
         public void Reset()
@@ -124,7 +123,7 @@ namespace AnimationScript
             timerActive = false;
             if (phase != 1)
             {
-                _smithyAnimator.SetTrigger(_resetString);
+                smithyAnimator.SetTrigger(_resetString);
             }
             hit = 0;
             SetPhase(0);
