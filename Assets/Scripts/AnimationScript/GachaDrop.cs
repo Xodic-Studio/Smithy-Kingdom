@@ -28,6 +28,7 @@ namespace AnimationScript
         [SerializeField] private Sprite[] gachaBackgroundSprite;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
+        private int roll = 1;
 
         private void Start()
         {
@@ -50,6 +51,7 @@ namespace AnimationScript
                 {
                     if (dropCount == 1)
                     {
+                        roll = 1;
                         SetNewSize(700f);
                         ClearList();
                         isRolling = true;
@@ -60,6 +62,7 @@ namespace AnimationScript
                     }
                     else if (dropCount == 10)
                     {
+                        roll = 10;
                         SetNewSize(1400f);
                         ClearList();
                         isRolling = true;
@@ -101,6 +104,11 @@ namespace AnimationScript
             gameObject.SetActive(true);
             Debug.Log("GachaOpen");
         }
+
+        public void CloseResultFunction()
+        {
+            StartCoroutine(CloseResult());
+        }
         
         public IEnumerator CloseResult()
         {
@@ -123,9 +131,19 @@ namespace AnimationScript
                         gachaResultList.transform.GetChild(i).GetChild(1).GetComponent<GachaImageController>().Skip();
                         yield return new WaitForSeconds(0.07f);
                     }
+                    
                     StopCoroutine("GetGachaResults");
-                    yield return new WaitForSeconds(1.33f);
-                    isRolling = false;
+                    
+                    if (roll == 1)
+                    {
+                        yield return new WaitForSeconds(1.33f);
+                        isRolling = false;
+                    }
+                    else if (roll == 10)
+                    {
+                        yield return new WaitForSeconds(2f);
+                        isRolling = false;
+                    }
                 }
                 else
                 {

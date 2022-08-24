@@ -423,6 +423,7 @@ MonoBehaviour:
   gachaHeaderTrans: {fileID: 802133491518967235}
   currentHeight: 700
   isRolling: 0
+  skippable: 0
   gachaBackgroundSprite:
   - {fileID: 21300000, guid: 2fb9c82007127ff4c8f5217a6a3e57a5, type: 3}
   - {fileID: 21300000, guid: fef39d0c9ee45de48b71ed39607a7e93, type: 3}
@@ -562,7 +563,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7625181991897117531}
         m_TargetAssemblyTypeName: AnimationScript.GachaDrop, Assembly-CSharp
-        m_MethodName: CloseResult
+        m_MethodName: CloseResultFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

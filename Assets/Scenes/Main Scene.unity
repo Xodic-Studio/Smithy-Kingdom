@@ -13464,10 +13464,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gacha Results Zone
       objectReference: {fileID: 0}
-    - target: {fileID: 7625181991897117529, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d68dee55b577014089d6ed3339a2bcd, type: 3}
 --- !u!224 &509488653 stripped
