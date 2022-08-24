@@ -24,14 +24,14 @@ namespace AnimationScript
         [SerializeField] public GameObject mainAreaUi;
         [SerializeField] public RectTransform gachaHeaderTrans;
         [HideInInspector] public float currentHeight = 700f;
-        [HideInInspector] public bool isRolling;
+        [HideInInspector] public bool isRolling, skippable;
         [SerializeField] private Sprite[] gachaBackgroundSprite;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
 
         private void Start()
         {
-            CloseResult();
+            StartCoroutine(CloseResult());
         }
 
         public IEnumerator GetGachaResults(int dropCount, Sprite[] sprite)
@@ -50,16 +50,17 @@ namespace AnimationScript
                 {
                     if (dropCount == 1)
                     {
-                        SetNewSize(/*mainAreaUi.GetComponent<RectTransform>(),*/ 700f);
+                        SetNewSize(700f);
                         ClearList();
                         isRolling = true;
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
                         drop.GetComponentInChildren<GachaImageController>().SetResultImage(sprite[0]);
+                        skippable = true;
                         yield return null;
                     }
                     else if (dropCount == 10)
                     {
-                        SetNewSize(/*mainAreaUi.GetComponent<RectTransform>(),*/ 1400f);
+                        SetNewSize(1400f);
                         ClearList();
                         isRolling = true;
                         for (int i = 0; i < dropCount; i++)
@@ -68,6 +69,7 @@ namespace AnimationScript
                             drop.GetComponentInChildren<GachaImageController>().SetResultImage(sprite[i]);
                             yield return new WaitForSeconds(0.07f);
                         }
+                        skippable = true;
                     }
                     else
                     {
@@ -81,10 +83,17 @@ namespace AnimationScript
 
         public void ClearList()
         {
+            skippable = false;
+            isRolling = false;
             foreach (Transform child in gachaResultList.transform)
             {
                 Destroy(child.gameObject);
             }
+        }
+
+        public void ResetSize()
+        {
+            SetNewSize(700f);
         }
         
         public void OpenResult()
@@ -93,7 +102,7 @@ namespace AnimationScript
             Debug.Log("GachaOpen");
         }
         
-        public void CloseResult()
+        public IEnumerator CloseResult()
         {
             if (!isRolling)
             {
@@ -102,19 +111,36 @@ namespace AnimationScript
             }
             else if (isRolling)
             {
-                Debug.Log("Rolling animation is still running, closing it now would ruin the mood!");
+                //Skipping
+
+                if (skippable)
+                {
+                    skippable = false;
+                    int iMax = gachaResultList.transform.childCount;
+
+                    for (int i = 0; i < iMax; i++)
+                    {
+                        gachaResultList.transform.GetChild(i).GetChild(1).GetComponent<GachaImageController>().Skip();
+                        yield return new WaitForSeconds(0.07f);
+                    }
+                    StopCoroutine("GetGachaResults");
+                    yield return new WaitForSeconds(1.33f);
+                    isRolling = false;
+                }
+                else
+                {
+                    //Do nothing
+                }
             }
         }
 
-        private void SetNewSize(/*RectTransform gachaBackgroundTrans,*/ float newHeight)
+        private void SetNewSize(float newHeight)
         {
             float oldHeight = currentHeight;
             float newY = 140f;
-            //Old Y Pos: 1 Roll = 175f, 10 Roll = 375f (+-200)
             //New Y Pos: 1 Roll = 235f, 10 Roll = 375f (+-140)
             
             //For size changing of MainAreaUI rect width & height
-            //gachaBackgroundTrans.sizeDelta = new Vector2(gachaBackgroundTrans.rect.width, newHeight);
             
             if (oldHeight - newHeight == 0)
             {
@@ -161,9 +187,9 @@ namespace AnimationScript
             {
                 gachaResult.OpenResult();
             }
-            else if (GUILayout.Button("Close Gacha Result"))
+            else if (GUILayout.Button("Close Gacha Result (Skip if rolling)"))
             {
-                gachaResult.CloseResult();
+                gachaResult.StartCoroutine(gachaResult.CloseResult());
             }
 
             if (GUILayout.Button("Spawn (x1)"))
@@ -176,7 +202,7 @@ namespace AnimationScript
             }
             else if (GUILayout.Button("Clear List"))
             {
-                gachaResult.isRolling = false;
+                gachaResult.ResetSize();
                 gachaResult.ClearList();
             }
         }
