@@ -17,6 +17,7 @@ namespace AnimationScript
         [SerializeField] public GameObject equipmentDropPrefab;
         [SerializeField] public Transform dropZone;
         public Sprite dummySprite;
+        private bool _leftRight;
     
         public void GetEquipmentResult(bool firstDrop, Sprite sprite)
         {
@@ -24,6 +25,16 @@ namespace AnimationScript
             {
                 GameObject equipmentNormalDrop = Instantiate(equipmentDropPrefab, new Vector3(-0.2f, -3.27f, 0), Quaternion.identity, dropZone);
                 equipmentNormalDrop.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
+                if (!_leftRight)
+                {
+                    _leftRight = true;
+                }
+                else
+                {
+                    string normalDropTrigger = "Normal Right";
+                    _leftRight = false;
+                    equipmentNormalDrop.GetComponent<Animator>().SetTrigger(normalDropTrigger);
+                }
             }
             else
             {

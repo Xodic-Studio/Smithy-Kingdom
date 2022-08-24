@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentDropPrefab: {fileID: 7346306523149529050, guid: dfe49b506b1036443a41fd2e7747477a, type: 3}
   dropZone: {fileID: 683554012918680252}
-  dummySprite: {fileID: 0}
+  dummySprite: {fileID: 21300000, guid: b806086b38373494cb3e9bacdb0274a4, type: 3}
