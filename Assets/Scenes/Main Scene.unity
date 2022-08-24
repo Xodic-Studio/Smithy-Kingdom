@@ -11896,7 +11896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1697439896, guid: 2f8ab7366765ea74993359b08701a63c, type: 3}
+  m_Sprite: {fileID: 1568051311, guid: 42b14764531925f4aacc32a73fd59b9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16872,7 +16872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &630356519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22747,7 +22747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -132534282, guid: d8391a17a9313304a88dfc4cfbe294c1, type: 3}
+  m_Sprite: {fileID: 566160362, guid: ae6665458153bc646a8948add89cf248, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36824,9 +36824,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd473b05ac157c40848c5f8abb6faa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  database: {fileID: 0}
   achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   reputation: 0
   money: 0
+  allMoney: 0
   gems: 0
   mailDatabase: {fileID: 11400000, guid: e3ea779731d6acd49a10407fb5ee35c4, type: 2}
   smithy: {fileID: 1415891164}
@@ -42804,7 +42806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1489542805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43447,7 +43449,7 @@ RectTransform:
   m_GameObject: {fileID: 1513689583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -15157.898}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 960468328}
@@ -43523,7 +43525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -132534282, guid: d8391a17a9313304a88dfc4cfbe294c1, type: 3}
+  m_Sprite: {fileID: 566160362, guid: ae6665458153bc646a8948add89cf248, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -44573,7 +44575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1226378304, guid: 931adfc00b1c7d2429c25b299791cd1e, type: 3}
+  m_Sprite: {fileID: 566160362, guid: ae6665458153bc646a8948add89cf248, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -58182,7 +58184,7 @@ RectTransform:
   m_GameObject: {fileID: 2074068639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -15157.898}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1621063990}
@@ -58258,7 +58260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1226378304, guid: 931adfc00b1c7d2429c25b299791cd1e, type: 3}
+  m_Sprite: {fileID: 566160362, guid: ae6665458153bc646a8948add89cf248, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -58759,7 +58761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1568051311, guid: 42b14764531925f4aacc32a73fd59b9f, type: 3}
+  m_Sprite: {fileID: -1697439896, guid: 2f8ab7366765ea74993359b08701a63c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
