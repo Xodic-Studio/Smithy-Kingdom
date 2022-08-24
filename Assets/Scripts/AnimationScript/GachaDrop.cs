@@ -136,7 +136,7 @@ namespace AnimationScript
                     
                     if (roll == 1)
                     {
-                        yield return new WaitForSeconds(1.33f);
+                        yield return new WaitForSeconds(1.5f);
                         isRolling = false;
                     }
                     else if (roll == 10)
@@ -144,10 +144,6 @@ namespace AnimationScript
                         yield return new WaitForSeconds(2f);
                         isRolling = false;
                     }
-                }
-                else
-                {
-                    //Do nothing
                 }
             }
         }
