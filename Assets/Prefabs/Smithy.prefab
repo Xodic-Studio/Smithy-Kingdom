@@ -4062,8 +4062,8 @@ MonoBehaviour:
   hit3: 0.13
   hit: 0
   isTired: 0
-  smithy: {fileID: 8404651596048821749}
   smithyAnimator: {fileID: 7349500977677121422}
+  anvilAnimator: {fileID: 0}
 --- !u!1 &8443804885633574969
 GameObject:
   m_ObjectHideFlags: 0

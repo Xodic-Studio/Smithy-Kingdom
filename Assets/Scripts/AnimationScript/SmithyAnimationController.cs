@@ -10,21 +10,20 @@ namespace AnimationScript
         private string _tiredString = "Tired";
         private string _resetString = "Reset";
         private string _phaseString = "Phase";
+        private string _speedString = "Speed";
         public int phase;
         public bool timerActive;
         [SerializeField] public float hit1, hit2, hit3;
         [SerializeField] public int hit;
         [SerializeField] public bool isTired;
-        
-        [SerializeField] public GameObject smithy;
         [SerializeField] private Animator smithyAnimator;
-        
+        [SerializeField] private Animator anvilAnimator;
+
         private void Start()
         {
             SetPhase(0);
             hit = 0;
             timerActive = false;
-            smithyAnimator = smithy.GetComponent<Animator>();
         }
 
         private void StartTimer(float timer)
@@ -52,8 +51,12 @@ namespace AnimationScript
 
         public IEnumerator Tired()
         {
-            isTired = true;
-            smithyAnimator.SetTrigger(_tiredString);
+            if (!isTired)
+            {
+                isTired = true;
+                smithyAnimator.SetTrigger(_tiredString);
+            }
+
             yield return new WaitForSeconds(1f);
             isTired = false;
         }
@@ -72,43 +75,60 @@ namespace AnimationScript
                     case (0):
                         SetPhase(1);
                         StartTimer(hit1);
+                        SetAnvilSpeed(1f);
                         smithyAnimator.SetTrigger(_hitString);
+                        anvilAnimator.SetTrigger(_hitString);
                         break;
                     case (1):
                         if (hit >= 2)
                         {
                             SetPhase(2);
                             StartTimer(hit2);
+                            SetAnvilSpeed(2f);
                         }
                         else
                         {
                             SetPhase(1);
                             StartTimer(hit1);
+                            SetAnvilSpeed(1f);
                         }
+
                         smithyAnimator.SetTrigger(_hitString);
+                        anvilAnimator.SetTrigger(_hitString);
                         break;
                     case (2):
                         if (hit >= 4)
                         {
                             SetPhase(3);
                             StartTimer(hit3);
+                            SetAnvilSpeed(2f);
                         }
                         else
                         {
                             SetPhase(2);
                             StartTimer(hit2);
+                            SetAnvilSpeed(2f);
                         }
+
                         smithyAnimator.SetTrigger(_hitString);
+                        anvilAnimator.SetTrigger(_hitString);
                         break;
                     case (3):
                         SetPhase(3);
                         StartTimer(hit3);
+                        SetAnvilSpeed(2f);
                         smithyAnimator.SetTrigger(_hitString);
+                        anvilAnimator.SetTrigger(_hitString);
                         break;
                 }
             }
         }
-
+        
+        private void SetAnvilSpeed(float number)
+        {
+            anvilAnimator.SetFloat(_speedString, number);
+        }
+        
         private void SetPhase(int number)
         {
             phase = number;
@@ -124,6 +144,7 @@ namespace AnimationScript
             }
             hit = 0;
             SetPhase(0);
+            SetAnvilSpeed(1f);
         }
         
         // For testing button x4 for timing press

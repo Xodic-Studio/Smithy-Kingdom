@@ -40731,6 +40731,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 161774217}
     m_Modifications:
+    - target: {fileID: 1961526078977481639, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
+      propertyPath: anvilAnimator
+      value: 
+      objectReference: {fileID: 955110012}
     - target: {fileID: 5236826822653383367, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_RootOrder
       value: 2
