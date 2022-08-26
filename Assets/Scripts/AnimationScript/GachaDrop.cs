@@ -8,13 +8,17 @@ namespace AnimationScript
 {
     /*
     Noted:
-    To use animation please use function "StartCoroutine(GetGachaResults(int dropCount, Sprite[] sprite))".
+    To use animation please use function "Roll(int dropCount, Sprite[] sprite)".
     dropCount could only be "1" or "10", also sprite argument need to be in array maximum of 10.
-    IEnumerator function will not work if this GameObject is inactive.
     
     Examples:
-    "StartCoroutine(GetGachaResults(1, spriteArray))" << sprite[0] will be use in this case.
-    "StartCoroutine(GetGachaResults(10, spriteArray))" << sprite[0]...[9] will be use in this case.
+    "Roll(1, spriteArray)" << sprite[0] will be use in this case.
+    "Roll(10, spriteArray)" << sprite[0]...[9] will be use in this case.
+    
+    Bugs:
+    Skipping function is broken, if "Roll(both 1 and 10, spriteArray)" function is called right after spinning wheel finished spinning.
+    To not encounter these bugs please use "CloseResult()" before start a new "Roll(both 1 and 10, spriteArray)" function.
+    As example from SpawnGachaDrop class >> SpawnExample region.
     */
     
     public class GachaDrop : Singleton<GachaDrop>
@@ -28,18 +32,27 @@ namespace AnimationScript
         [SerializeField] private Sprite[] gachaBackgroundSprite;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
-        private int roll = 1;
+        private int rolls = 1;
 
         private void Start()
         {
-            StartCoroutine(CloseResult());
+            ClearList();
+            CloseResult();
         }
 
-        public IEnumerator GetGachaResults(int dropCount, Sprite[] sprite)
+        public void Roll(int dropCount, Sprite[] sprite)
+        {
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(GetGachaResults(dropCount, sprite));
+            }
+        }
+        
+        private IEnumerator GetGachaResults(int dropCount, Sprite[] sprite)
         {
             if (isRolling)
             {
-                Debug.Log("Gacha is still rolling wait for it to finish first!");
+                Debug.Log("Gacha's Spinning Wheel is still rolling wait for it to finish first to start a new rolls!");
             }
             else if (!isRolling)
             {
@@ -49,22 +62,29 @@ namespace AnimationScript
                 }
                 else
                 {
+                    StopCoroutine("CloseResult");
+                    isRolling = false;
+                    skippable = false;
+                    
                     if (dropCount == 1)
                     {
-                        roll = 1;
+                        Debug.Log("Spawning 1 roll");
                         SetNewSize(700f);
                         ClearList();
+                        rolls = 1;
                         isRolling = true;
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
                         drop.GetComponentInChildren<GachaImageController>().SetResultImage(sprite[0]);
                         skippable = true;
-                        yield return null;
+                        yield return new WaitForSeconds(6f);
+                        isRolling = false;
                     }
                     else if (dropCount == 10)
                     {
-                        roll = 10;
+                        Debug.Log("Spawning 10 rolls");
                         SetNewSize(1400f);
                         ClearList();
+                        rolls = 10;
                         isRolling = true;
                         for (int i = 0; i < dropCount; i++)
                         {
@@ -73,21 +93,25 @@ namespace AnimationScript
                             yield return new WaitForSeconds(0.07f);
                         }
                         skippable = true;
+                        yield return new WaitForSeconds(6f);
+                        isRolling = false;
                     }
                     else
                     {
                         Debug.LogWarning("Did you just set Gacha rolls to other than 'x1' or 'x10'?");
                     }
-                    yield return new WaitForSeconds(6f);
-                    isRolling = false;
+                    /*if (isRolling)
+                    {
+                        yield return new WaitForSeconds(6f);
+                        isRolling = false;
+                    }*/
                 }
             }
         }
 
         public void ClearList()
         {
-            skippable = false;
-            isRolling = false;
+            //Debug.Log("Gacha list cleared");
             foreach (Transform child in gachaResultList.transform)
             {
                 Destroy(child.gameObject);
@@ -96,33 +120,44 @@ namespace AnimationScript
 
         public void ResetSize()
         {
+            //Debug.Log("Gacha panel size reset");
             SetNewSize(700f);
         }
         
         public void OpenResult()
         {
-            gameObject.SetActive(true);
-            Debug.Log("GachaOpen");
+            if (!gameObject.activeSelf)
+            {
+                gameObject.SetActive(true);
+                //Debug.Log("Opening Gacha Panel");
+            }
         }
 
-        public void CloseResultFunction()
+        public void CloseResult()
         {
-            StartCoroutine(CloseResult());
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(CloseResultOrSkip());
+            }
         }
         
-        public IEnumerator CloseResult()
+        private IEnumerator CloseResultOrSkip()
         {
             if (!isRolling)
             {
+                //Debug.Log("Closing Gacha Panel");
+                StopCoroutine("GetGachaResults");
+                ResetSize();
                 ClearList();
                 gameObject.SetActive(false);
             }
             else if (isRolling)
             {
-                //Skipping
+                //Skipping Function
 
                 if (skippable)
                 {
+                    Debug.Log("Skipping Gacha Animation");
                     skippable = false;
                     int iMax = gachaResultList.transform.childCount;
 
@@ -133,15 +168,15 @@ namespace AnimationScript
                     }
                     
                     StopCoroutine("GetGachaResults");
-                    
-                    if (roll == 1)
+
+                    if (rolls == 1)
                     {
-                        yield return new WaitForSeconds(1.5f);
+                        yield return new WaitForSeconds(2.5f);
                         isRolling = false;
                     }
-                    else if (roll == 10)
+                    else if (rolls == 10)
                     {
-                        yield return new WaitForSeconds(2f);
+                        yield return new WaitForSeconds(3f);
                         isRolling = false;
                     }
                 }
@@ -180,7 +215,6 @@ namespace AnimationScript
                     gachaHeaderTrans.offsetMax -= new Vector2(0, newY);
                 }
             }
-            
             currentHeight = newHeight;
         }
     }
@@ -197,24 +231,43 @@ namespace AnimationScript
 
             var gachaResult = (GachaDrop) target;
             
-            if (GUILayout.Button("Open Gacha Result"))
+            //Unity GUI Area
+            
+            if (GUILayout.Button("Close Gacha Result (Skip if rolling)"))
             {
-                gachaResult.OpenResult();
+                gachaResult.CloseResult();
             }
-            else if (GUILayout.Button("Close Gacha Result (Skip if rolling)"))
-            {
-                gachaResult.StartCoroutine(gachaResult.CloseResult());
-            }
-
+            
+            #region SpawnExample
+            
+            /*
+             Here is "Roll(x1 or x10)" spawning example.
+             Yes.. I know it's still not 100% bugs-proof if "Roll(x1 or x10)" is called again while spinning wheel still spinning.
+             Just hope there isn't gonna be someone calling "Roll(x1 or x10)" function without "CloseResult()" function.
+             */
+            
             if (GUILayout.Button("Spawn (x1)"))
             {
-                gachaResult.StartCoroutine(gachaResult.GetGachaResults(1, gachaResult.dummySprite1));
+                if (gachaResult.gameObject.activeSelf)
+                {
+                    gachaResult.CloseResult();
+                }
+                gachaResult.OpenResult();
+                gachaResult.Roll(1, gachaResult.dummySprite1);
             }
-            else if (GUILayout.Button("Spawn (x10)"))
+            if (GUILayout.Button("Spawn (x10)"))
             {
-                gachaResult.StartCoroutine(gachaResult.GetGachaResults(10, gachaResult.dummySprite2));
+                if (gachaResult.gameObject.activeSelf)
+                {
+                    gachaResult.CloseResult();
+                }
+                gachaResult.OpenResult();
+                gachaResult.Roll(10, gachaResult.dummySprite2);
             }
-            else if (GUILayout.Button("Clear List"))
+            
+            #endregion
+            
+            if (GUILayout.Button("Clear List"))
             {
                 gachaResult.ResetSize();
                 gachaResult.ClearList();

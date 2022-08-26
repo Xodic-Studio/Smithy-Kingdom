@@ -835,7 +835,7 @@ namespace Manager
                     _gachaSystem.RandomGacha();
                 }
                 _gachaDrop.OpenResult();
-                StartCoroutine(_gachaDrop.GetGachaResults(amount, _gachaSystem.resultSprites.ToArray()));
+                _gachaDrop.Roll(amount, _gachaSystem.resultSprites.ToArray());
                 _gachaSystem.resultSprites.Clear();
                 Debug.Log(_gachaDrop.gameObject.activeSelf);
             }

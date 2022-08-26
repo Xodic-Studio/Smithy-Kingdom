@@ -58,7 +58,7 @@ namespace AnimationScript
             }
         }
      
-        public void ReRollImage()
+        private void ReRollImage()
         {
             int randomNumber = Random.Range(0, oreDatabase.premiumOres.Length);
             
