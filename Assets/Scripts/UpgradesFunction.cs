@@ -12,7 +12,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     Ore _ore;
     GameManager _gameManager;
     UIManager _uiManager;
-    SoundManager _soundManager;
+    SoundManagerr _soundManager;
     public UpgradeDatabase upgradeDatabase;
     public AchievementDatabase achievementDatabase;
 
@@ -34,7 +34,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     private void Awake()
     {
-        _soundManager = SoundManager.Instance;
+        _soundManager = SoundManagerr.Instance;
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
         _gameManager = GameManager.Instance;
@@ -176,7 +176,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
                 upgradeDatabase.stats[0].upgradeLevel++;
                 UpdateUpgradePrice(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+                _soundManager.PlaySound("Upgrade");
                 upgradeCount++;
             }
         }
@@ -196,7 +196,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 upgradeCount++;
                 hammerTier ++;
                 EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+               // _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+               _soundManager.PlaySound("Upgrade");
             }
         }
     }
@@ -212,7 +213,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 upgradeCount++;
                 hammerTier ++;
                 EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+                _soundManager.PlaySound("Upgrade");
             }
         }
     }
@@ -228,7 +229,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 upgradeCount++;
                 hammerTier ++;
                 EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+                _soundManager.PlaySound("Upgrade");
             }
         }
     }
@@ -241,7 +242,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             upgradeDatabase.stats[4].upgradeLevel++; 
             upgradeCount++;
             UpdateUpgradePrice(upgradeDatabase.stats[4].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -253,7 +254,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             upgradeDatabase.stats[5].upgradeLevel++;
             upgradeCount++;
             UpdateUpgradePrice(upgradeDatabase.stats[5].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
 
@@ -284,7 +285,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[6].baseFloat1)} per second",$"-{_gameManager.NumberToString((decimal)upgradeDatabase.stats[6].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[6].upgradeCost);
             upgradeCount++;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -301,7 +302,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[7].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[7].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[7].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -318,7 +319,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[8].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[8].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[8].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -335,7 +336,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[9].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[9].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[9].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -352,7 +353,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[10].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[10].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[10].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -369,7 +370,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[11].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[11].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[11].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -386,7 +387,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[12].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[12].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[12].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -403,7 +404,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[13].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[13].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[13].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -420,7 +421,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[14].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[14].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[14].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -437,7 +438,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdateDamagePassive();
             UpdateUpgradeDescription($"Decrease Ore Hp By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[15].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[15].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[15].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
 
@@ -465,7 +466,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[16].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[16].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[16].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -482,7 +483,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[17].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[17].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[17].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -499,7 +500,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[18].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[18].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[18].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -516,7 +517,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[19].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[19].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[19].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -533,7 +534,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[20].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[20].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[20].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -550,7 +551,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[21].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[21].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[21].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -567,7 +568,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[22].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[22].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[22].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -584,7 +585,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[23].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[23].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[23].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -601,7 +602,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[24].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[24].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[24].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     
@@ -618,7 +619,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             UpdatePassiveMoney();
             UpdateUpgradeDescription($"Increase Passive Money By {_gameManager.NumberToString((decimal)upgradeDatabase.stats[25].baseFloat1)} per second",$"+{_gameManager.NumberToString((decimal)upgradeDatabase.stats[25].float1)}/sec");
             UpdateUpgradePrice(upgradeDatabase.stats[25].upgradeCost);
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
+            _soundManager.PlaySound("Upgrade");
         }
     }
     

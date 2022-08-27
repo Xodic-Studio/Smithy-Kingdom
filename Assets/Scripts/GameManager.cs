@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     public AchievementDatabase achievementDatabase;
     private Ore _ore;
     private UIManager _uiManager;
-    private SoundManager _soundManager;
+    private SoundManagerr _soundManager;
     private UpgradesFunction _upgradesFunction;
 
     public float reputation;
@@ -42,20 +42,21 @@ public class GameManager : Singleton<GameManager>
     {
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
-        _soundManager = SoundManager.Instance;
+        _soundManager = SoundManagerr.Instance;
         _upgradesFunction = UpgradesFunction.Instance;
     }
 
     private void Start()
     {
-        _soundManager.EffectsSource = GetComponent<AudioSource>();
+        //_soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
         Invoke(nameof(MailTimer),Random.Range(180,301));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
         achievementDatabase = database.achievementDatabase;
-        _soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
+        //_soundManager.PlayMusic(_soundManager.soundDatabase.bgm[0]);
+        _soundManager.PlaySound("bgm");
     }
 
     private void Update()
@@ -213,32 +214,19 @@ public class GameManager : Singleton<GameManager>
             _finalDamage = _hammerDamageCombined + _upgradesFunction.upgradeDatabase.stats[4].upgradeLevel * 0.01f * _dps;
             AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
-            _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+            
+            //_soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
+            _soundManager.PlaySound("Hammer");
+            
             var random = Random.Range(1, 10);
             if (random == 1)
             {
-                _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SmithVoice));
+               // _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SmithVoice));
             }
         }
     }
 
-
-    public void UpdateMusicVolume(Slider slider)
-    {
-        _soundManager.musicVolume = slider.value;
-        _soundManager.UpdateMusicVolume();
-    }
     
-    public void UpdateMasterVolume(Slider slider)
-    {
-        _soundManager.masterVolume = slider.value;
-        _soundManager.UpdateMusicVolume();
-    }
-    
-    public void UpdateSfxVolume(Slider slider)
-    {
-        _soundManager.sfxVolume = slider.value;
-    }
     
     #region Getter Setter
     public float GetGems()
@@ -366,7 +354,8 @@ public class GameManager : Singleton<GameManager>
             
             CollectionManager.Instance.CheckEveryCollection();
             allMoney = 0;
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Prestige)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Prestige)[0]);
+            _soundManager.PlaySound("Prestige");
         }
         else
         {

@@ -11,7 +11,7 @@ namespace Manager
     {
         private GameManager _gameManager;
         private UIManager _uiManager;
-        private SoundManager _soundManager;
+        private SoundManagerr _soundManager;
         private Ore _ore;
         private EquipmentDrop _equipmentDrop;
 
@@ -32,7 +32,7 @@ namespace Manager
             _equipmentDrop = EquipmentDrop.Instance;
             _uiManager = UIManager.Instance;
             _gameManager = GameManager.Instance;
-            _soundManager = SoundManager.Instance;
+            _soundManager = SoundManagerr.Instance;
             _ore = Ore.Instance;
             achievementDatabase = _gameManager.achievementDatabase;
         }
@@ -183,12 +183,15 @@ namespace Manager
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
                 _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                _soundManager.PlaySound("GetNewItem");
             }
             else
             {
                 _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                _soundManager.PlaySound("RecieveCoin");
+
             }
             itemButton.onClick.RemoveAllListeners();
 
@@ -230,12 +233,15 @@ namespace Manager
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
                 _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                _soundManager.PlaySound("GetNewItem");
             }
             else
             {
                 _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                _soundManager.PlaySound("RecieveCoin");
+
             }
             itemButton.onClick.RemoveAllListeners();
 

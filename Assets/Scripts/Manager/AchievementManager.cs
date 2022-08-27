@@ -8,14 +8,14 @@ namespace Manager
     public class AchievementManager : Singleton<AchievementManager>
     {
         private UIManager _uiManager;
-        private SoundManager _soundManager;
+        private SoundManagerr _soundManager;
     
     
         public AchievementDatabase achievementDatabase;
 
         private void Awake()
         {
-            _soundManager = SoundManager.Instance;
+            _soundManager = SoundManagerr.Instance;
             _uiManager = UIManager.Instance;
         }
 
@@ -76,7 +76,8 @@ namespace Manager
                     _uiManager.AssignPopupValue(achievement.achievementName, achievement.description, achievement.icon);
                     _uiManager.OpenPopup();
                 });
-            _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.AchievementUnlock)[0]);
+            //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.AchievementUnlock)[0]);
+            _soundManager.PlaySound("_soundManager");
         }
     }
 }
