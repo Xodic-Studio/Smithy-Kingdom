@@ -2728,6 +2728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 98003658}
+  - component: {fileID: 98003659}
   m_Layer: 5
   m_Name: PremiumMenu
   m_TagString: Untagged
@@ -2758,6 +2759,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &98003659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98003657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e299d050110744094bd907de9953f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gachaButton: {fileID: 287610057}
+  packagesButton: {fileID: 1519534515}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &98955630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4101,7 +4118,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 140555633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100834150}
+        m_TargetAssemblyTypeName: OreSubMenuColor, Assembly-CSharp
+        m_MethodName: PremiumOreCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &140555633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8019,7 +8048,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8037,7 +8066,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287610058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 98003659}
+        m_TargetAssemblyTypeName: PremiumSubMenuColor, Assembly-CSharp
+        m_MethodName: GachaCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &287610058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20464,13 +20505,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 800105213}
+  - component: {fileID: 800105214}
   m_Layer: 5
   m_Name: CollectiblesMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &800105213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20478,7 +20520,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800105212}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20494,6 +20536,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &800105214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800105212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2dfd2c2e897804b88cf22c8b064227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionButton: {fileID: 1780778620}
+  achievementButton: {fileID: 818907187}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &802695506
 GameObject:
   m_ObjectHideFlags: 0
@@ -20752,7 +20810,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -20770,7 +20828,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818907188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800105214}
+        m_TargetAssemblyTypeName: CollectionSubMenuColor, Assembly-CSharp
+        m_MethodName: AchievementCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &818907188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24065,11 +24135,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -24087,7 +24157,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911276985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1904456709}
+        m_TargetAssemblyTypeName: SubMenuColor, Assembly-CSharp
+        m_MethodName: PremiumCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &912442714
 GameObject:
   m_ObjectHideFlags: 0
@@ -26054,15 +26136,19 @@ PrefabInstance:
       objectReference: {fileID: 231757779}
     - target: {fileID: 257343716450961912, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9625
+      value: 1.4672294
       objectReference: {fileID: 0}
     - target: {fileID: 257343716450961912, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.4240937
+      value: 1.4816581
+      objectReference: {fileID: 0}
+    - target: {fileID: 257343716450961912, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 257343716450961912, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.64
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 2560423941534238268, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: m_IsActive
@@ -26206,11 +26292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932920544630854541, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 10000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4932920544630854541, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4932920544630854541, guid: e3811bba071f35143bbc6e28ac33b066, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -27597,11 +27683,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -27619,7 +27705,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965166650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1904456709}
+        m_TargetAssemblyTypeName: SubMenuColor, Assembly-CSharp
+        m_MethodName: NormalCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &970919980
 GameObject:
   m_ObjectHideFlags: 0
@@ -44102,7 +44200,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -44120,7 +44218,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1519534516}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 98003659}
+        m_TargetAssemblyTypeName: PremiumSubMenuColor, Assembly-CSharp
+        m_MethodName: PackagesCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1519534516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46120,7 +46230,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598632603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51115,7 +51225,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -51133,7 +51243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1780778621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800105214}
+        m_TargetAssemblyTypeName: CollectionSubMenuColor, Assembly-CSharp
+        m_MethodName: CollectionCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1780778621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54016,6 +54138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904456708}
+  - component: {fileID: 1904456709}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -54046,6 +54169,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1904456709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904456707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fb2d7224635ca429ac569e1974295f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalUpgrade: {fileID: 965166652}
+  premiumUpgrade: {fileID: 911276987}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1906488941
 GameObject:
   m_ObjectHideFlags: 0
@@ -59199,13 +59338,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2100834149}
+  - component: {fileID: 2100834150}
   m_Layer: 5
   m_Name: OreMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2100834149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59229,6 +59369,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2100834150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100834148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e11094d20d49254ba56cf361581cc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalOreButton: {fileID: 2131949147}
+  premiumOreButton: {fileID: 140555632}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2102596911
 GameObject:
   m_ObjectHideFlags: 0
@@ -59883,7 +60039,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2131949148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100834150}
+        m_TargetAssemblyTypeName: OreSubMenuColor, Assembly-CSharp
+        m_MethodName: NormalOreCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2131949148
 MonoBehaviour:
   m_ObjectHideFlags: 0
