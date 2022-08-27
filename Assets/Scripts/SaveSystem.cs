@@ -20,7 +20,15 @@ public class Save
     
     public bool[] isUnlockedPremiumOre;
     public int[] oreAmountPremiumOre;
-    public int money, gems, reputation;
+    
+    //upgrade
+    public float[] upgradeCost;
+    public float[] upgradeLevels;
+    public float[] upgradeTier;
+    public float[] upgradeFloat1;
+    public int upgradeCount;
+
+    public float money, allMoney, gems, reputation, passiveDamage, passiveMoney;
 }
 [Serializable]
 public class CollectionSave
@@ -36,6 +44,7 @@ public class SaveSystem : Singleton<SaveSystem>
 {
     private string _saveFolder, _saveName;
     private Save _saveFile;
+
     private void Awake()
     {
         _saveFolder = Path.GetDirectoryName(Application.persistentDataPath) + "/Save"; // BUILD USE THIS!!!
@@ -45,21 +54,14 @@ public class SaveSystem : Singleton<SaveSystem>
         {
             Directory.CreateDirectory(_saveFolder);
         }
+
         if (!File.Exists(_saveName))
         {
             _saveFile = new Save();
-            Debug.Log("1");
             CloseSave();
-            Debug.Log("2");
         }
+
         LoadGame();
-        Debug.Log("3");
-    }
-
-    private void Start()
-    {
-        Debug.Log(Application.dataPath);
-
     }
 
     private void CloseSave()
@@ -69,7 +71,7 @@ public class SaveSystem : Singleton<SaveSystem>
         bf.Serialize(file, _saveFile);
         file.Close();
     }
-    
+
     public void SaveGame()
     {
         var j = 0;
@@ -81,7 +83,7 @@ public class SaveSystem : Singleton<SaveSystem>
             _saveFile.dateAchievements[i] = VARIABLE.dateAchieved;
             i++;
         }
-        
+
         foreach (var collection in CollectionManager.Instance.itemDatabase.collections)
         {
             i = 0;
@@ -92,16 +94,17 @@ public class SaveSystem : Singleton<SaveSystem>
                 _saveFile.collectionSaves[j].dateItem[i] = item.itemFirstForged;
                 i++;
             }
+
             j++;
         }
-        
+
         i = 0;
         foreach (var ore in Ore.Instance.oreDatabase.ores)
         {
             _saveFile.isUnlockedOre[i] = ore.isUnlocked;
             i++;
         }
-        
+
         i = 0;
         foreach (var ore in Ore.Instance.oreDatabase.premiumOres)
         {
@@ -109,111 +112,118 @@ public class SaveSystem : Singleton<SaveSystem>
             _saveFile.oreAmountPremiumOre[i] = ore.amount;
             i++;
         }
-        
-        _saveFile.money = (int) GameManager.Instance.GetMoney();
-        _saveFile.gems = (int) GameManager.Instance.GetGems();
+        i = 0;
+        foreach (var upgradeDatabaseStat in UpgradesFunction.Instance.upgradeDatabase.stats)
+        {
+
+            _saveFile.upgradeCost[i] = upgradeDatabaseStat.upgradeCost;
+            _saveFile.upgradeLevels[i] = upgradeDatabaseStat.upgradeLevel;
+            _saveFile.upgradeTier[i] = upgradeDatabaseStat.upgradeTier;
+            _saveFile.upgradeFloat1[i] = upgradeDatabaseStat.float1;
+            i++;
+        }
+
+
+        _saveFile.upgradeCount = UpgradesFunction.Instance.upgradeCount;
+        _saveFile.money = GameManager.Instance.GetMoney();
+        _saveFile.gems = GameManager.Instance.GetGems();
         _saveFile.reputation = GameManager.Instance.GetReputation();
+        _saveFile.allMoney = GameManager.Instance.allMoney;
+        _saveFile.passiveDamage = UpgradesFunction.Instance.passiveDamage;
+        _saveFile.passiveMoney = UpgradesFunction.Instance.passiveMoney;
+        
         CloseSave();
         print("Saved");
     }
-    
+
     public void LoadGame()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Open(_saveName, FileMode.Open);
-        _saveFile = (Save)bf.Deserialize(file);
+        _saveFile = (Save) bf.Deserialize(file);
         file.Close();
 
-        bool _save = false;
-        
+        bool save = false;
+
         GameManager.Instance.money = _saveFile.money;
         GameManager.Instance.gems = _saveFile.gems;
         GameManager.Instance.reputation = _saveFile.reputation;
+        GameManager.Instance.allMoney = _saveFile.allMoney;
+        UpgradesFunction.Instance.upgradeCount = _saveFile.upgradeCount;
+        UpgradesFunction.Instance.passiveDamage = _saveFile.passiveDamage;
+        UpgradesFunction.Instance.passiveMoney = _saveFile.passiveMoney;
 
         var i = 0;
         var j = 0;
-        if(_saveFile.isUnlockedAchievements == null || _saveFile.progressAchievements == null || _saveFile.dateAchievements == null)
+        if (_saveFile.isUnlockedAchievements == null || _saveFile.progressAchievements == null ||
+            _saveFile.dateAchievements == null)
         {
             print("SAVE: New Achievements");
-            _saveFile.isUnlockedAchievements = new bool[AchievementManager.Instance.achievementDatabase.achievements.Length];
-            _saveFile.progressAchievements = new float[AchievementManager.Instance.achievementDatabase.achievements.Length];
-            _saveFile.dateAchievements = new string[AchievementManager.Instance.achievementDatabase.achievements.Length];
-            foreach (var VARIABLE in _saveFile.isUnlockedAchievements)
-            {
-                _saveFile.isUnlockedAchievements[i] = false;
-                _saveFile.progressAchievements[i] = 0;
-                _saveFile.dateAchievements[i] = "";
-                i++;
-            }
-            _save = true;
+            _saveFile.isUnlockedAchievements =
+                new bool[AchievementManager.Instance.achievementDatabase.achievements.Length];
+            _saveFile.progressAchievements =
+                new float[AchievementManager.Instance.achievementDatabase.achievements.Length];
+            _saveFile.dateAchievements =
+                new string[AchievementManager.Instance.achievementDatabase.achievements.Length];
+
+            save = true;
         }
 
         i = 0;
         foreach (var VARIABLE in _saveFile.isUnlockedAchievements)
         {
             AchievementManager.Instance.achievementDatabase.achievements[i].isUnlocked = VARIABLE;
-            AchievementManager.Instance.achievementDatabase.achievements[i].dateAchieved = _saveFile.dateAchievements[i];
-            AchievementManager.Instance.achievementDatabase.achievements[i].progress = _saveFile.progressAchievements[i];
+            AchievementManager.Instance.achievementDatabase.achievements[i].dateAchieved =
+                _saveFile.dateAchievements[i];
+            AchievementManager.Instance.achievementDatabase.achievements[i].progress =
+                _saveFile.progressAchievements[i];
             i++;
         }
         
-        i = 0;
-        if(_saveFile.collectionSaves == null)
+        if (_saveFile.collectionSaves == null)
         {
             print("SAVE: New Collections");
             _saveFile.collectionSaves = new CollectionSave[CollectionManager.Instance.itemDatabase.collections.Length];
             foreach (var variable in _saveFile.collectionSaves)
             {
-                
+
                 _saveFile.collectionSaves[j] = new CollectionSave
                 {
                     dateItem = new string[CollectionManager.Instance.itemDatabase.collections[j].items.Length],
                     timesForgedItem = new int[CollectionManager.Instance.itemDatabase.collections[j].items.Length],
                     isUnlockedItem = new bool[CollectionManager.Instance.itemDatabase.collections[j].items.Length]
                 };
-                i = 0;
-                foreach (var VARIABLE in _saveFile.collectionSaves[j].isUnlockedItem)
-                {
-                    Debug.Log(_saveFile.collectionSaves[j].isUnlockedItem.Length);
-                    Debug.Log(_saveFile.collectionSaves[j].isUnlockedItem[i]);
-                    _saveFile.collectionSaves[j].isUnlockedItem[i] = false;
-                    _saveFile.collectionSaves[j].timesForgedItem[i] = 0;
-                    _saveFile.collectionSaves[j].dateItem[i] = "";
-                    i++;
-                }
                 j++;
             }
-            _save = true;
+
+            save = true;
         }
 
         j = 0;
         foreach (var variable in _saveFile.collectionSaves)
         {
             i = 0;
-            Debug.Log("Collection: " + j);
             foreach (var item in variable.isUnlockedItem)
             {
-                Debug.Log("Item: " + i);
-                CollectionManager.Instance.itemDatabase.collections[j].items[i].isUnlocked = _saveFile.collectionSaves[j].isUnlockedItem[i];
-                CollectionManager.Instance.itemDatabase.collections[j].items[i].timesForged = _saveFile.collectionSaves[j].timesForgedItem[i];
-                CollectionManager.Instance.itemDatabase.collections[j].items[i].itemFirstForged = _saveFile.collectionSaves[j].dateItem[i];
+                CollectionManager.Instance.itemDatabase.collections[j].items[i].isUnlocked =
+                    _saveFile.collectionSaves[j].isUnlockedItem[i];
+                CollectionManager.Instance.itemDatabase.collections[j].items[i].timesForged =
+                    _saveFile.collectionSaves[j].timesForgedItem[i];
+                CollectionManager.Instance.itemDatabase.collections[j].items[i].itemFirstForged =
+                    _saveFile.collectionSaves[j].dateItem[i];
                 i++;
             }
+
             j++;
         }
         
-        i = 0;
-        if( _saveFile.isUnlockedOre == null)
+        if (_saveFile.isUnlockedOre == null)
         {
             print("SAVE: New Ores");
             _saveFile.isUnlockedOre = new bool[Ore.Instance.oreDatabase.ores.Length];
-            foreach (var VARIABLE in _saveFile.isUnlockedOre)
-            {
-                _saveFile.isUnlockedOre[i] = false;
-                i++;
-            }
+            
             _saveFile.isUnlockedOre[0] = true;
-            _save = true;
+            save = true;
         }
 
         i = 0;
@@ -223,19 +233,15 @@ public class SaveSystem : Singleton<SaveSystem>
             i++;
         }
         
-        i = 0;
-        if(_saveFile.isUnlockedPremiumOre == null || _saveFile.oreAmountPremiumOre == null)
+        if (_saveFile.isUnlockedPremiumOre == null || _saveFile.oreAmountPremiumOre == null)
         {
             print("SAVE: New Premium Ores");
             _saveFile.isUnlockedPremiumOre = new bool[Ore.Instance.oreDatabase.premiumOres.Length];
             _saveFile.oreAmountPremiumOre = new int[Ore.Instance.oreDatabase.premiumOres.Length];
-            foreach (var VARIABLE in _saveFile.isUnlockedPremiumOre)
-            {
-                _saveFile.isUnlockedPremiumOre[i] = false;
-                _saveFile.oreAmountPremiumOre[i] = 0;
-                i++;
-            }
-            _save = true;
+            
+           
+
+            save = true;
         }
 
         i = 0;
@@ -246,26 +252,45 @@ public class SaveSystem : Singleton<SaveSystem>
             i++;
         }
         
-        if(_save)
+        if (_saveFile.upgradeCost == null || _saveFile.upgradeLevels == null || _saveFile.upgradeTier == null ||
+            _saveFile.upgradeFloat1 == null)
+        {
+            print ("SAVE: New Upgrades");
+            _saveFile.upgradeCost = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
+            _saveFile.upgradeLevels = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
+            i = 0;
+            foreach (var VARIABLE in _saveFile.upgradeLevels)
+            {
+                _saveFile.upgradeLevels[i] = 1;
+                i++;
+            }
+            _saveFile.upgradeTier = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
+            _saveFile.upgradeFloat1 = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
+            save = true;
+        }
+        
+        i = 0;
+        foreach (var VARIABLE in _saveFile.upgradeCost)
+        {
+            UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeCost = _saveFile.upgradeCost[i];
+            UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeLevel = (int) _saveFile.upgradeLevels[i];
+            UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeTier = (int) _saveFile.upgradeTier[i];
+            UpgradesFunction.Instance.upgradeDatabase.stats[i].float1 = _saveFile.upgradeFloat1[i];
+            i++;
+        }
+
+        if (save)
         {
             SaveGame();
         }
-        print("Loaded");
+        Debug.Log("Loaded");
     }
-    
+
     void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus)
         {
-            Debug.Log("Paused");
             SaveGame();
         }
-        else
-        {
-            Debug.Log("resumed");
-            LoadGame();
-        }
     }
-    
-    
 }

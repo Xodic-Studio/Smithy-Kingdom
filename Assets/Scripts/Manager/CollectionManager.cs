@@ -11,7 +11,7 @@ namespace Manager
     {
         private GameManager _gameManager;
         private UIManager _uiManager;
-        private SoundManager _soundManager;
+        private SoundManagerr _soundManager;
         private Ore _ore;
         private EquipmentDrop _equipmentDrop;
 
@@ -32,7 +32,7 @@ namespace Manager
             _equipmentDrop = EquipmentDrop.Instance;
             _uiManager = UIManager.Instance;
             _gameManager = GameManager.Instance;
-            _soundManager = SoundManager.Instance;
+            _soundManager = SoundManagerr.Instance;
             _ore = Ore.Instance;
             achievementDatabase = _gameManager.achievementDatabase;
         }
@@ -159,7 +159,7 @@ namespace Manager
             _itemStats.timesForged++;
             var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex)
                 .GetComponent<Button>();
-            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+            var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
@@ -170,23 +170,28 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                _uiManager.AddNotification(UIManager.NotificationType.Collectible,1);
                 achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
                 _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-                displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
                 _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                _soundManager.PlaySound("GetNewItem");
             }
             else
             {
                 _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                _soundManager.PlaySound("RecieveCoin");
+
             }
             itemButton.onClick.RemoveAllListeners();
 
@@ -204,7 +209,7 @@ namespace Manager
             _itemStats.timesForged++;
             var itemButton = _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex)
                 .GetComponent<Button>();
-            var displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+            var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
@@ -215,23 +220,28 @@ namespace Manager
         
             if (!_itemStats.isUnlocked)
             {
+                _uiManager.AddNotification(UIManager.NotificationType.Collectible,1);
                 achievementDatabase.ModifyProgress("A New Beginning", 1);
                 _itemStats.isUnlocked = true;
                 _uiManager.collectionList.transform.GetChild(itemCollectionIndex + _ore.oreDatabase.ores.Length).GetChild(itemStatsIndex).GetChild(0)
                     .GetComponent<Image>().color = Color.white;
                 _itemStats.itemFirstForged = DateTime.Today.ToString("d");
-                displayDescription = $"Selling Price: {_itemStats.itemPrice}\n" +
+                displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)_itemStats.itemPrice)}\n" +
                                      $"Rarity: {_itemStats.itemRarity}\n" +
                                      $"First Forged: {_itemStats.itemFirstForged}\n" +
                                      $"Times Forged: {_itemStats.timesForged}\n" +
                                      "\n" +
                                      $"{_itemStats.itemDescription}";
                 _equipmentDrop.GetEquipmentResult(true, _itemStats.itemSprite);
-                _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.GetNewItem)[0]);
+                _soundManager.PlaySound("GetNewItem");
             }
             else
             {
                 _equipmentDrop.GetEquipmentResult(false, _itemStats.itemSprite);
+                //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.RecieveCoin)[0]);
+                _soundManager.PlaySound("RecieveCoin");
+
             }
             itemButton.onClick.RemoveAllListeners();
 
@@ -244,7 +254,7 @@ namespace Manager
             _gameManager.ModifyMoney(_itemStats.itemPrice);
         }
 
-        private void CheckEveryCollection()
+        public void CheckEveryCollection()
         {
             var j = 0;
             foreach (var collection in itemDatabase.collections)
@@ -253,7 +263,7 @@ namespace Manager
                 foreach (var items in collection.items)
                 {
                     var itemButton = _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetComponent<Button>();
-                    var displayDescription = $"Selling Price: {items.itemPrice}\n" +
+                    var displayDescription = $"Selling Price: {_gameManager.NumberToString((decimal)items.itemPrice)}\n" +
                                              $"Rarity: {items.itemRarity}\n" +
                                              $"First Forged: {items.itemFirstForged}\n" +
                                              $"Times Forged: {items.timesForged}\n" +
@@ -268,6 +278,12 @@ namespace Manager
                             _uiManager.AssignPopupValue(items.itemName, displayDescription, items.itemSprite);
                             _uiManager.OpenPopup();
                         });
+                    }
+                    else
+                    {
+                        _uiManager.collectionList.transform.GetChild(j).GetChild(i).GetChild(0).GetComponent<Image>()
+                            .color = new Color(0.22f, 0.22f, 0.22f);
+                        itemButton.onClick.RemoveAllListeners();
                     }
                     i++;
                 }

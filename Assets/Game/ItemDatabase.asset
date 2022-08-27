@@ -420,7 +420,7 @@ MonoBehaviour:
       itemDescription: "A giant sword named after the mightiest Earth Dragon to \r\never
         lived. The blade resembles a rock formation and \r\nmakes it acts more like
         a blunt weapon rather than a \r\nslashing one. "
-      dropChance: 55
+      dropChance: 80
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
       itemDescription: "The name means \u201CThe Lady of the Snow\u201D and is also
         the \r\nname of the dragon that rules the snowy lands. The blade \r\nis enchanted
         with ice magic and is said to freeze anything \r\nit touches."
-      dropChance: 30
+      dropChance: 15
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
         \r\nto lay waste to the world. This sword grants the feeling of \r\nomnipotence
         to the wielder. The fiery blade is said to burn \r\nthe whole continent if
         plunged into the earth."
-      dropChance: 15
+      dropChance: 5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
       itemDescription: "A rapier with a shape similar to fishbone. The cross guard
         \r\nis exaggerated into the shape of a fish. This is one of the \r\nfinest
         swords out there that will raise doubt or suspicion."
-      dropChance: 55
+      dropChance: 80
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
       itemDescription: "Not to be confused with its counterpart that lives in the
         \r\nsea, swordfish. This one is more dead than alive and its \r\nbony structure
         shows that much."
-      dropChance: 30
+      dropChance: 15
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -478,7 +478,7 @@ MonoBehaviour:
       itemDescription: "A sword modeled after the legendary fish that rules the \r\nsea.
         It radiates a magnificent aura of perfection and it \r\nstrikes terror to
         all who comes from the sea."
-      dropChance: 15
+      dropChance: 5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
       itemDescription: "This greenish sword has more to offer than you regular \r\noversized
         butcher knife. Through the use of cutting-edge \r\ntechnology, it even leaves
         a green trail after every swing!"
-      dropChance: 55
+      dropChance: 80
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -502,7 +502,7 @@ MonoBehaviour:
       itemDescription: "This blue sword was created with more cores than you \r\ncould
         ever imagines. In addition to its usual cutting and \r\nslashing function,
         it also supports hyper-threading and \r\ncomes with a built-in graphics chip."
-      dropChance: 30
+      dropChance: 15
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
       itemDescription: "Stands for Deep Thought-42, and is named after the most \r\npowerful
         computer in existence. The selling point of this \r\nsword is that it is,
         without a doubt, the answer to life, the \r\nuniverse, and everything."
-      dropChance: 15
+      dropChance: 5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
         \r\nhuman, this sword actually is called Hare-ris and features \r\nan actual
         hare. Once stabbed into its target, it doesn\u2019t let \r\ngo, perhaps there
         are some deeply rooted issues."
-      dropChance: 55
+      dropChance: 80
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -539,7 +539,7 @@ MonoBehaviour:
         \r\nis said to return to its owner no matter how far it was \r\nthrown. The
         cute design also brings an unbelievable \r\namount of joy and positivity
         to all, even those on the \r\nreceiving end.\r"
-      dropChance: 30
+      dropChance: 15
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
         \r\nthat rules all others. In exchange to food and care, it \r\nbrought upon
         destructive power that can\u2019t be easily \r\ncontrolled. Surely, this
         sword must\u2019ve pushed at least a \r\nhundred cups off the table."
-      dropChance: 15
+      dropChance: 5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
         \r\nexample that if something remotely looks like a rock, it can \r\nbe forged
         into a sword. Embed with a floating magic stone, \r\nthis sword boasts great
         slashing power for its shape.\r"
-      dropChance: 55
+      dropChance: 80
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
       itemDescription: "Often times, ores from space often comes with \r\nextraordinary
         property. The one used to make this sword \r\nseems to levitate at all times,
         making it extremely swift for \r\npiercing unsuspecting target.\r"
-      dropChance: 30
+      dropChance: 15
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
         \r\nvast space. Forged from astral shards of the highest\r\nquality, it exudes
         power beyond comprehension, and the \r\nmemory of when it once travel across
         the galaxy is still \r\nkept within."
-      dropChance: 15
+      dropChance: 5
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0

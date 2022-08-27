@@ -119,10 +119,10 @@ TextureImporter:
       name: Worthless Regression_0
       rect:
         serializedVersion: 2
-        x: 425
-        y: 481
-        width: 1112
-        height: 1112
+        x: 274
+        y: 368
+        width: 1400
+        height: 1400
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

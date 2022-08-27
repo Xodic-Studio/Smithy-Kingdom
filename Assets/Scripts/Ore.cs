@@ -1,4 +1,3 @@
-using System.Collections;
 using GameDatabase;
 using Manager;
 using UnityEngine;
@@ -7,6 +6,7 @@ using UnityEngine.UI;
 
 public class Ore : Singleton<Ore>
 {
+    private SoundManagerr soundManager;
     public SpriteResolver anvilSpriteResolver;
     public SpriteResolver assistantSpriteResolver;
     private Animator _animator;
@@ -24,6 +24,7 @@ public class Ore : Singleton<Ore>
     
     private void Awake()
     {
+        soundManager = SoundManagerr.Instance;
         _uiManager = UIManager.Instance;
         _collectionManager = CollectionManager.Instance;
     }
@@ -45,6 +46,7 @@ public class Ore : Singleton<Ore>
         _animator.enabled = false;
         selectedOreIndex = tempSelectOreIndex;
         isPremium = false;
+        //_uiManager.ConfirmPremiumOreButton.interactable = true;
         anvilSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
         anvilSpriteResolver.ResolveSpriteToSpriteRenderer();
         assistantSpriteResolver.SetCategoryAndLabel("Common", oreDatabase.ores[selectedOreIndex].oreName);
@@ -80,6 +82,7 @@ public class Ore : Singleton<Ore>
         _collectionManager.UpdateRandomSystem();
         _animator.enabled = true;
         _uiManager.UpdatePremiumOreImageHead();
+        _uiManager.ConfirmOreButton.interactable = false;
     }
     
     public void ModifySelectedOreIndex(int index)
@@ -98,6 +101,8 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex--;
+            //soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
+            soundManager.PlaySound("SelectOre");
             DisableButtonIfNoNextOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.ores.Length)
@@ -114,6 +119,9 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex++;
+            //soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
+            soundManager.PlaySound("SelectOre");
+
             DisableButtonIfNoNextOre();
         }
         CheckOreIndex();
@@ -135,6 +143,9 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex--;
+            //soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
+            soundManager.PlaySound("SelectOre");
+
             DisableButtonIfNoNextPremiumOre();
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.premiumOres.Length)
@@ -151,6 +162,9 @@ public class Ore : Singleton<Ore>
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
             }
             tempSelectOreIndex++;
+            //soundManager.PlayOneShot(soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SelectOre)[0]);
+            soundManager.PlaySound("SelectOre");
+
             DisableButtonIfNoNextPremiumOre();
         }
         CheckPremiumOreIndex();
