@@ -70,7 +70,7 @@ public class GameManager : Singleton<GameManager>
         _damageTextTimer += Time.deltaTime;
         if (_cpsTimer > 1)
         {
-            smithy.SetFloat(Speed,CpsToSpeed((int) _cps));
+            //smithy.SetFloat(Speed,CpsToSpeed((int) _cps));
         }
     }
 
@@ -104,7 +104,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (!_isClicking)
         {
-            smithy.SetFloat(Click,0);
+            //smithy.SetFloat(Click,0);
         }
         _isClicking = false;
         Invoke(nameof(ResetIsClicking),1f);
@@ -206,7 +206,7 @@ public class GameManager : Singleton<GameManager>
             float diff = currentTime - _lastTime;
             _lastTime = currentTime;
             _cps = 1f / diff;
-            smithy.SetFloat(Click, _cps);
+            //smithy.SetFloat(Click, _cps);
             _isClicking = true;
             _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
                                                 _upgradesFunction.upgradeDatabase.stats[5].upgradeLevel * 0.1f * _upgradesFunction.upgradeCount *

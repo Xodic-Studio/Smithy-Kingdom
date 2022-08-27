@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEditor;
@@ -18,6 +19,12 @@ namespace AnimationScript
         [SerializeField] public bool isTired;
         [SerializeField] private Animator smithyAnimator;
         [SerializeField] private Animator anvilAnimator;
+        private SoundManagerr _soundManager;
+
+        private void Awake()
+        {
+            _soundManager = SoundManagerr.Instance;
+        }
 
         private void Start()
         {
@@ -69,6 +76,7 @@ namespace AnimationScript
             }
             else
             {
+                _soundManager.PlaySound("Hammer");
                 hit++;
                 switch (phase)
                 {

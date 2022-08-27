@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -33,6 +34,12 @@ namespace AnimationScript
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
         private int rolls = 1;
+        private SoundManagerr _soundManager;
+
+        private void Awake()
+        {
+            _soundManager = SoundManagerr.Instance;
+        }
 
         private void Start()
         {
@@ -68,6 +75,7 @@ namespace AnimationScript
                     
                     if (dropCount == 1)
                     {
+                        _soundManager.PlaySound("Rollx1");
                         Debug.Log("Spawning 1 roll");
                         SetNewSize(700f);
                         ClearList();
@@ -81,6 +89,7 @@ namespace AnimationScript
                     }
                     else if (dropCount == 10)
                     {
+                        _soundManager.PlaySound("Rollx10");
                         Debug.Log("Spawning 10 rolls");
                         SetNewSize(1400f);
                         ClearList();

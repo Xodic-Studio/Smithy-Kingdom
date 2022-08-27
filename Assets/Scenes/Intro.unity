@@ -414,6 +414,22 @@ MonoBehaviour:
     IsRandom: 0
     Pan: 0
     AudioSource: {fileID: 0}
+  - SoundName: Rollx1
+    _AudioClip:
+    - {fileID: 8300000, guid: 4e3ca9200ec44b940831e488086cc5fc, type: 3}
+    mixerGroup: {fileID: 7079391689236035202, guid: 31cfff4a85ad42d44b5848beee091ef6, type: 2}
+    Loop: 0
+    IsRandom: 0
+    Pan: 0
+    AudioSource: {fileID: 0}
+  - SoundName: Rollx10
+    _AudioClip:
+    - {fileID: 8300000, guid: 5e71d9163d2693c4fa875cb9be8de340, type: 3}
+    mixerGroup: {fileID: 7079391689236035202, guid: 31cfff4a85ad42d44b5848beee091ef6, type: 2}
+    Loop: 0
+    IsRandom: 0
+    Pan: 0
+    AudioSource: {fileID: 0}
 --- !u!4 &483336551
 Transform:
   m_ObjectHideFlags: 0
