@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,5 +41,14 @@ public class UpgradeSubMenuColor : MonoBehaviour
             normalUpgrade.GetComponent<Image>().color = normalColor;
             premiumUpgrade.GetComponent<Image>().color = selectColor;
         }
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("Right now upgrade sub menu is disabled");
+        selectedNormal = true;
+        selectedPremium = false;
+        normalUpgrade.GetComponent<Image>().color = selectColor;
+        premiumUpgrade.GetComponent<Image>().color = normalColor;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,5 +45,12 @@ public class OreSubMenuColor : MonoBehaviour
             premiumOreButton.GetComponent<Image>().color = selectColor;
         }
     }
-    
+
+    private void OnDisable()
+    {
+        selectedNormal = true;
+        selectedPremium = false;
+        normalOreButton.GetComponent<Image>().color = selectColor;
+        premiumOreButton.GetComponent<Image>().color = normalColor;
+    }
 }

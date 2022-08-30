@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,4 +44,11 @@ public class PremiumSubMenuColor : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        selectedGacha = true;
+        selectedPackages = false;
+        gachaButton.GetComponent<Image>().color = selectColor;
+        packagesButton.GetComponent<Image>().color = normalColor;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,4 +45,13 @@ public class CollectionSubMenuColor : MonoBehaviour
             achievementButton.GetComponent<Image>().color = selectColor;
         }
     }
+
+    private void OnDisable()
+    {
+        selectedCollection = true;
+        selectedAchievement = false;
+        collectionButton.GetComponent<Image>().color = selectColor;
+        achievementButton.GetComponent<Image>().color = normalColor;
+    }
+    
 }
