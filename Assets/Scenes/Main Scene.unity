@@ -2287,6 +2287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 98003658}
+  - component: {fileID: 98003659}
   m_Layer: 5
   m_Name: PremiumMenu
   m_TagString: Untagged
@@ -2317,6 +2318,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &98003659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98003657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8c7791e083f984eb1b3d407ba8443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gachaButton: {fileID: 287610057}
+  packagesButton: {fileID: 1519534515}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &98435873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,7 +3429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 140555633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100834150}
+        m_TargetAssemblyTypeName: OreSubMenuColor, Assembly-CSharp
+        m_MethodName: PremiumOreCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &140555633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8819,7 +8848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287610058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 98003659}
+        m_TargetAssemblyTypeName: PremiumSubMenuColor, Assembly-CSharp
+        m_MethodName: GachaCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &287610058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21911,6 +21952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 800105213}
+  - component: {fileID: 800105214}
   m_Layer: 5
   m_Name: CollectiblesMenu
   m_TagString: Untagged
@@ -21941,6 +21983,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &800105214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800105212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759d77f2c53eed0439528fd6a0f909e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionButton: {fileID: 1780778620}
+  achievementButton: {fileID: 818907187}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &809883338
 GameObject:
   m_ObjectHideFlags: 0
@@ -22212,7 +22270,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 818907188}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800105214}
+        m_TargetAssemblyTypeName: CollectionSubMenuColor, Assembly-CSharp
+        m_MethodName: AchievementCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &818907188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25759,7 +25829,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -25781,7 +25851,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911276985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1904456709}
+        m_TargetAssemblyTypeName: UpgradeSubMenuColor, Assembly-CSharp
+        m_MethodName: PremiumCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &913444967
 GameObject:
   m_ObjectHideFlags: 0
@@ -27327,7 +27409,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -27349,7 +27431,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 965166650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1904456709}
+        m_TargetAssemblyTypeName: UpgradeSubMenuColor, Assembly-CSharp
+        m_MethodName: NormalCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &968020030
 GameObject:
   m_ObjectHideFlags: 0
@@ -45140,7 +45234,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1519534516}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 98003659}
+        m_TargetAssemblyTypeName: PremiumSubMenuColor, Assembly-CSharp
+        m_MethodName: PackagesCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1519534516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52098,7 +52204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1780778621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 800105214}
+        m_TargetAssemblyTypeName: CollectionSubMenuColor, Assembly-CSharp
+        m_MethodName: CollectionCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1780778621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56350,6 +56468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904456708}
+  - component: {fileID: 1904456709}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -56380,6 +56499,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1904456709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904456707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6211af1a2f66d439df7b9f5a77b1c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalUpgrade: {fileID: 965166652}
+  premiumUpgrade: {fileID: 911276987}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1908036547
 GameObject:
   m_ObjectHideFlags: 0
@@ -60381,6 +60516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2100834149}
+  - component: {fileID: 2100834150}
   m_Layer: 5
   m_Name: OreMenu
   m_TagString: Untagged
@@ -60411,6 +60547,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2100834150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100834148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0340e1e9e34b8aa4980f49a2764d4db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalOreButton: {fileID: 2131949147}
+  premiumOreButton: {fileID: 140555632}
+  normalColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  selectColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2103766599
 GameObject:
   m_ObjectHideFlags: 0
@@ -61060,7 +61212,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2131949148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2100834150}
+        m_TargetAssemblyTypeName: OreSubMenuColor, Assembly-CSharp
+        m_MethodName: NormalOreCheckPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2131949148
 MonoBehaviour:
   m_ObjectHideFlags: 0
