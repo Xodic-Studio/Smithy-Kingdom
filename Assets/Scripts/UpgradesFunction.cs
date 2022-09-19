@@ -4,11 +4,11 @@ using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UpgradesFunction : Singleton<UpgradesFunction>
 {
+    public GameObject selectedButton;
     Ore _ore;
     GameManager _gameManager;
     UIManager _uiManager;
@@ -52,11 +52,14 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         var i = 0;
         foreach (var function in upgradeFunctionList)
         {
-            _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
+            var _button = _uiManager.upgradeList.transform.GetChild(i);
+            _button.GetComponentInChildren<Button>().onClick.AddListener(delegate {SelectButton(_button.gameObject); });
+            _button.GetComponentInChildren<Button>().onClick.AddListener(delegate
             {
                 function.upgradesFunction.Invoke();
                 achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
             });
+
             i++;
         }
 
@@ -69,6 +72,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         //         achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
         //     });
         // }
+    }
+
+    private void SelectButton(GameObject button)
+    {
+        selectedButton = button;
     }
 
     private void UpdatePriceStart()
@@ -117,7 +125,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     private void UpdateUpgradePrice(float price)
     {
-        var upgradePriceText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(2).GetChild(1)
+        var upgradePriceText = selectedButton.transform.GetChild(2).GetChild(1)
             .GetComponent<TMP_Text>();
         upgradePriceText.text = _gameManager.NumberToString((decimal)price);
         _gameManager.CheckMoneyForUpgrades();
@@ -125,8 +133,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     private void UpdateUpgradeDescription (string baseDescription,string description)
     {
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
-        var upgradeDescriptionText = EventSystem.current.currentSelectedGameObject.transform.parent.parent.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
+        Debug.Log(selectedButton);
+        var upgradeDescriptionText = selectedButton.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
         upgradeDescriptionText.text = baseDescription + "\n" +
                                       description;
     }
@@ -195,7 +203,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 _gameManager.ModifyHammerDamage(2);
                 upgradeCount++;
                 hammerTier ++;
-                EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
+                selectedButton.transform.gameObject.SetActive(false);
                // _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                _soundManager.PlaySound("Upgrade");
             }
@@ -212,7 +220,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 _gameManager.ModifyHammerDamage(4);
                 upgradeCount++;
                 hammerTier ++;
-                EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
+                selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
         }
@@ -228,7 +236,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 _gameManager.ModifyHammerDamage(8);
                 upgradeCount++;
                 hammerTier ++;
-                EventSystem.current.currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
+                selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
         }
