@@ -501,8 +501,6 @@ namespace Manager
             _ore.DisableButtonIfNoNextPremiumOre();
             //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
             _soundManager.PlaySound("ChangePage");
-            if(_ore.oreDatabase.premiumOres[0].amount == 0)
-                ConfirmPremiumOreButton.interactable = false;
 
             _ore.FirstPremiumOreIndex();
 
