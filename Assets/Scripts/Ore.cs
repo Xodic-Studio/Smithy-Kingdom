@@ -169,6 +169,22 @@ public class Ore : Singleton<Ore>
         }
         CheckPremiumOreIndex();
     }
+
+    public void FirstPremiumOreIndex()
+    {
+        if (!oreDatabase.premiumOres[0].isUnlocked || oreDatabase.premiumOres[0].amount == 0)
+        {
+            _uiManager.premiumOreImageBody.color = Color.gray;
+            _uiManager.ConfirmPremiumOreButton.interactable = false;
+            _uiManager.ConfirmPremiumOreButtonImage.color = Color.gray;
+        }
+        else
+        {
+            _uiManager.premiumOreImageBody.color = Color.white;
+            _uiManager.ConfirmPremiumOreButton.interactable = true;
+            _uiManager.ConfirmPremiumOreButtonImage.color = Color.white;
+        }
+    }
     public void ModifyHardness(float amount)
     {
         _thisOre.currentHardness -= amount;

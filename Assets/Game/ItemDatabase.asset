@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collections:
   - collectionName: Copper
+    isPremium: 0
     items:
     - itemName: Copper Broadsword
       itemSprite: {fileID: 21300000, guid: b806086b38373494cb3e9bacdb0274a4, type: 3}
@@ -21,8 +22,8 @@ MonoBehaviour:
       itemRarity: 0
       itemDescription: 'A light, easy-to-use sword. Recommended for beginners. '
       dropChance: 70
-      timesForged: 30
-      itemFirstForged: 7/22/2022
+      timesForged: 10
+      itemFirstForged: 9/19/2022
       isUnlocked: 1
     - itemName: Copper Greatsword
       itemSprite: {fileID: 21300000, guid: 1f60f87bbe4a6824aa0486cba4ebf32c, type: 3}
@@ -31,8 +32,8 @@ MonoBehaviour:
       itemDescription: A big sword made of copper that's weasy to swing. It is quiet
         despite being a greatsword.
       dropChance: 20
-      timesForged: 12
-      itemFirstForged: 7/22/2022
+      timesForged: 2
+      itemFirstForged: 9/19/2022
       isUnlocked: 1
     - itemName: Copper Curvesword
       itemSprite: {fileID: 21300000, guid: 5f6648eafdb54f149a7eb717aa2afec8, type: 3}
@@ -41,8 +42,8 @@ MonoBehaviour:
       itemDescription: A light copper sword with a curved blade. It's designed for
         faster unsheathing as well as having more cutting area.
       dropChance: 7.5
-      timesForged: 2
-      itemFirstForged: 7/22/2022
+      timesForged: 1
+      itemFirstForged: 9/19/2022
       isUnlocked: 1
     - itemName: Mantis
       itemSprite: {fileID: 21300000, guid: 66b7c9854d4b8b9429e80fb02540e6db, type: 3}
@@ -51,9 +52,9 @@ MonoBehaviour:
       itemDescription: A sword with a blade that looks similar to an insect's claw.
         It has exceptional slicing and piercing power.
       dropChance: 2
-      timesForged: 1
-      itemFirstForged: 7/27/2022
-      isUnlocked: 1
+      timesForged: 0
+      itemFirstForged: 
+      isUnlocked: 0
     - itemName: Earthen Blade
       itemSprite: {fileID: 21300000, guid: 0e1090fb60d4eb04ea732efb1ceaba36, type: 3}
       itemPrice: 17500
@@ -76,6 +77,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Iron
+    isPremium: 0
     items:
     - itemName: Iron Longsword
       itemSprite: {fileID: 21300000, guid: 0781f10a6605f41459ebe01515e568ab, type: 3}
@@ -141,6 +143,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Gold
+    isPremium: 0
     items:
     - itemName: Gold Scimitar
       itemSprite: {fileID: 21300000, guid: 058c6f7617691e54c923c582d12a8be1, type: 3}
@@ -208,6 +211,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Meteorite
+    isPremium: 0
     items:
     - itemName: Meteorite Sword
       itemSprite: {fileID: 21300000, guid: 6e6df9a7c489fa2489400a0986d2081c, type: 3}
@@ -273,6 +277,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Mithril
+    isPremium: 0
     items:
     - itemName: Mithril Spatha
       itemSprite: {fileID: 21300000, guid: 3143c273b07fb464c933f1c82978d42a, type: 3}
@@ -341,6 +346,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Adamantine
+    isPremium: 0
     items:
     - itemName: Adamatine Serater
       itemSprite: {fileID: 21300000, guid: 9edda7d70581d384f8019a42d0e8dad9, type: 3}
@@ -412,6 +418,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Dragonite
+    isPremium: 1
     items:
     - itemName: Terrador
       itemSprite: {fileID: 21300000, guid: 8a13967969f432b4eb777f85625c88be, type: 3}
@@ -448,6 +455,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Fishore
+    isPremium: 1
     items:
     - itemName: Fishy Rapier
       itemSprite: {fileID: 21300000, guid: be36a88144bdf594a8dc90a48eb06ed0, type: 3}
@@ -483,6 +491,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Computronium
+    isPremium: 1
     items:
     - itemName: Cyber Butcher
       itemSprite: {fileID: 21300000, guid: f44f6b31c3a98df4cbc4ff43acdba110, type: 3}
@@ -518,6 +527,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Beastore
+    isPremium: 1
     items:
     - itemName: Hare-ris
       itemSprite: {fileID: 21300000, guid: c98156ac5be802e459bd6c62b08bc8b7, type: 3}
@@ -556,6 +566,7 @@ MonoBehaviour:
       itemFirstForged: 
       isUnlocked: 0
   - collectionName: Astral
+    isPremium: 1
     items:
     - itemName: The Void
       itemSprite: {fileID: 21300000, guid: 484ae75aa2838184981c2faaea21aa54, type: 3}

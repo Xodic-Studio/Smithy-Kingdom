@@ -12,11 +12,14 @@ namespace GameDatabase
         {
             foreach (var itemCollection in collections)
             {
-                foreach (var item in itemCollection.items)
+                if(!itemCollection.isPremium)
                 {
-                    item.isUnlocked = false;
-                    item.itemFirstForged = "";
-                    item.timesForged = 0;
+                    foreach (var item in itemCollection.items)
+                    {
+                        item.isUnlocked = false;
+                        item.itemFirstForged = "";
+                        item.timesForged = 0;
+                    }
                 }
             }
         }
@@ -26,6 +29,7 @@ namespace GameDatabase
     public class ItemCollection
     {
         public string collectionName;
+        public bool isPremium;
         public ItemStats[] items;
     }
 

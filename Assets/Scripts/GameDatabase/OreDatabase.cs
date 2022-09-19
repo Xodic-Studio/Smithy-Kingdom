@@ -15,10 +15,6 @@ namespace GameDatabase
                         {
                                 ore.isUnlocked = false;
                         }
-                        foreach (var ore in premiumOres) 
-                        {
-                                ore.isUnlocked = false;
-                        }
                         ores[0].isUnlocked = true;
                 }
         }

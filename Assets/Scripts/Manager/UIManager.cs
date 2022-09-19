@@ -504,6 +504,8 @@ namespace Manager
             if(_ore.oreDatabase.premiumOres[0].amount == 0)
                 ConfirmPremiumOreButton.interactable = false;
 
+            _ore.FirstPremiumOreIndex();
+
         }
 
         #endregion
