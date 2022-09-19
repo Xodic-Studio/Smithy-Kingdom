@@ -119,12 +119,12 @@ TextureImporter:
       name: Meteorite Sprite_0
       rect:
         serializedVersion: 2
-        x: 696
-        y: 880
-        width: 670
-        height: 348
+        x: 630
+        y: 700
+        width: 750
+        height: 750
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

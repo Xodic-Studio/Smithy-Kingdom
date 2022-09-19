@@ -73,7 +73,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     private void UpdatePriceStart()
     {
-        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel - 1];
+        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel];
         upgradeDatabase.stats[1].upgradeCost = upgradeDatabase.stats[1].upgradeBaseCost;
         upgradeDatabase.stats[2].upgradeCost = upgradeDatabase.stats[2].upgradeBaseCost;
         upgradeDatabase.stats[3].upgradeCost = upgradeDatabase.stats[3].upgradeBaseCost;
@@ -166,7 +166,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     {
         if (upgradeDatabase.stats[0].upgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            if (_gameManager.HasMoney(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel - 1]) )
+            if (_gameManager.HasMoney(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]) )
             {
                 _ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].isUnlocked = true;
                 if (_ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)

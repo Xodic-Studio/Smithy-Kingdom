@@ -33,6 +33,7 @@ namespace AnimationScript
         [SerializeField] private Sprite[] gachaBackgroundSprite;
         public Sprite[] dummySprite1;
         public Sprite[] dummySprite2;
+        public GameObject gachaUI;
         private int rolls = 1;
         private SoundManagerr _soundManager;
 
@@ -81,11 +82,13 @@ namespace AnimationScript
                         ClearList();
                         rolls = 1;
                         isRolling = true;
+                        gachaUI.SetActive(true);
                         GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
                         drop.GetComponentInChildren<GachaImageController>().SetResultImage(sprite[0]);
                         skippable = true;
                         yield return new WaitForSeconds(6f);
                         isRolling = false;
+                        gachaUI.SetActive(false);
                     }
                     else if (dropCount == 10)
                     {
@@ -95,6 +98,7 @@ namespace AnimationScript
                         ClearList();
                         rolls = 10;
                         isRolling = true;
+                        gachaUI.SetActive(true);
                         for (int i = 0; i < dropCount; i++)
                         {
                             GameObject drop = Instantiate(gachaDropPrefab, gachaResultList.transform);
@@ -104,6 +108,7 @@ namespace AnimationScript
                         skippable = true;
                         yield return new WaitForSeconds(6f);
                         isRolling = false;
+                        gachaUI.SetActive(false);
                     }
                     else
                     {
@@ -137,7 +142,7 @@ namespace AnimationScript
         {
             if (!gameObject.activeSelf)
             {
-                gameObject.SetActive(true);
+                gachaUI.SetActive(true);
                 //Debug.Log("Opening Gacha Panel");
             }
         }
@@ -158,7 +163,7 @@ namespace AnimationScript
                 StopCoroutine("GetGachaResults");
                 ResetSize();
                 ClearList();
-                gameObject.SetActive(false);
+                gachaUI.SetActive(false);
             }
             else if (isRolling)
             {
