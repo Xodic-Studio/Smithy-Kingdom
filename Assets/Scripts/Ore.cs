@@ -37,7 +37,7 @@ public class Ore : Singleton<Ore>
     
     void Update()
     {
-        _uiManager.UpdateHardnessSlider(_thisOre.currentHardness, _thisOre.defaultHardness);
+        _uiManager.UpdateHardnessSlider((float)_thisOre.currentHardness, (float)_thisOre.defaultHardness);
     }
     
     //update ore
@@ -54,7 +54,7 @@ public class Ore : Singleton<Ore>
         DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
-        _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
+        _uiManager.UpdateMaxHardnessSlider((float)_thisOre.defaultHardness);
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
         _collectionManager.UpdateItemSelection();
@@ -75,7 +75,7 @@ public class Ore : Singleton<Ore>
         DisableButtonIfNoNextOre();
         _thisOre = oreDatabase.premiumOres[selectedOreIndex];
         name = _thisOre.oreName;
-        _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
+        _uiManager.UpdateMaxHardnessSlider((float)_thisOre.defaultHardness);
         _thisOre.currentHardness = _thisOre.defaultHardness;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
         _collectionManager.UpdatePremiumItemSelection();
@@ -187,7 +187,7 @@ public class Ore : Singleton<Ore>
     }
     public void ModifyHardness(float amount)
     {
-        _thisOre.currentHardness -= amount;
+        _thisOre.currentHardness -= (decimal)amount;
         CheckHardness();
     }
     

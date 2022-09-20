@@ -80,11 +80,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (_upgradesFunction.passiveDamage > 0 && !_ore.GetIsDroppingItem())
         {
-            _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage));
-            AddDamageText(NumberToString((decimal)_upgradesFunction.passiveDamage));
+            _ore.ModifyHardness(Mathf.Floor(_upgradesFunction.passiveDamage * CollectionManager.Instance.dpsPremiumMultiplier));
+            AddDamageText(NumberToString((decimal)(_upgradesFunction.passiveDamage * CollectionManager.Instance.dpsPremiumMultiplier)));
         }
         LuckyAchievement();
-        ModifyMoney(_upgradesFunction.passiveMoney);
+        ModifyMoney(_upgradesFunction.passiveMoney * CollectionManager.Instance.cpsPremiumMultiplier);
         _dps -= _lastSecondDps;
         _lastSecondDps = _dps;
         Debug.Log(_dps);
@@ -211,7 +211,7 @@ public class GameManager : Singleton<GameManager>
             _hammerDamageCombined = Mathf.Round(Mathf.Pow(2, _upgradesFunction.hammerTier) +
                                                 _upgradesFunction.upgradeDatabase.stats[5].upgradeLevel * 0.1f * _upgradesFunction.upgradeCount *
                                                 (1 + 0.02f * reputation));
-            _finalDamage = _hammerDamageCombined + _upgradesFunction.upgradeDatabase.stats[4].upgradeLevel * 0.01f * _dps;
+            _finalDamage = (_hammerDamageCombined + _upgradesFunction.upgradeDatabase.stats[4].upgradeLevel * 0.01f * _dps) * CollectionManager.Instance.tapPremiumMultiplier;
             AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
             
@@ -344,13 +344,14 @@ public class GameManager : Singleton<GameManager>
             money = 0;
             var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3));
             Debug.Log(result);
-            ModifyReputation(result);
+            ModifyReputation(result * CollectionManager.Instance.prestigePremiumMultiplier);
             database.oresDatabase.ResetDatabase();
             database.itemsDatabase.ResetDatabase();
             database.upgradeDatabase.ResetDatabase();
             _upgradesFunction.passiveDamage = 0;
             _upgradesFunction.passiveMoney = 0;
             _uiManager.CloseMenu();
+            _upgradesFunction.UpdatePriceStart();
             
             CollectionManager.Instance.CheckEveryCollection();
             allMoney = 0;

@@ -79,7 +79,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         selectedButton = button;
     }
 
-    private void UpdatePriceStart()
+    public void UpdatePriceStart()
     {
         upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel];
         upgradeDatabase.stats[1].upgradeCost = upgradeDatabase.stats[1].upgradeBaseCost;

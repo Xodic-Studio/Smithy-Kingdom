@@ -1,6 +1,7 @@
 using System;
 using AnimationScript;
 using GameDatabase;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -41,6 +42,7 @@ namespace Manager
         {
             UpdateItemSelection();
             CheckEveryCollection();
+            CheckPremiumWeapon();
         }
 
         public void UpdateItemSelection()
@@ -132,6 +134,7 @@ namespace Manager
                             UpdatePremiumItemSelection();
                             CheckPremiumCollection();
                             CheckLegendary();
+                            CheckPremiumWeapon();
                             break;
                         }
                         i++;
@@ -142,6 +145,87 @@ namespace Manager
             {
                 DropItem();
             }
+        }
+
+        public float tapPremiumMultiplier = 1;
+        public float dpsPremiumMultiplier = 1;
+        public float sellPremiumMultiplier = 1;
+        public float cpsPremiumMultiplier = 1;
+        public float prestigePremiumMultiplier = 1;
+        
+        
+        void CheckPremiumWeapon()
+        {
+            Debug.Log("Checking Premium Weapon");
+            if (itemDatabase.collections[6].items[0].isUnlocked)
+            { 
+                tapPremiumMultiplier += 1 + 0.1f * itemDatabase.collections[6].items[0].timesForged;
+                Debug.Log(tapPremiumMultiplier + itemDatabase.collections[6].items[0].timesForged);
+            }
+            if (itemDatabase.collections[6].items[1].isUnlocked)
+            {
+                tapPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[6].items[1].timesForged;
+            }
+            if (itemDatabase.collections[6].items[2].isUnlocked)
+            {
+                tapPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[6].items[2].timesForged;
+            }
+            if (itemDatabase.collections[7].items[0].isUnlocked)
+            {
+                dpsPremiumMultiplier += 1 + 0.1f * itemDatabase.collections[7].items[0].timesForged;
+                Debug.Log(dpsPremiumMultiplier + itemDatabase.collections[7].items[0].timesForged);
+            }
+            if (itemDatabase.collections[7].items[1].isUnlocked)
+            {
+                dpsPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[7].items[1].timesForged;
+            }
+            if (itemDatabase.collections[7].items[2].isUnlocked)
+            {
+                dpsPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[7].items[2].timesForged;
+            }
+            if (itemDatabase.collections[8].items[0].isUnlocked)
+            {
+                sellPremiumMultiplier += 1 + 0.1f * itemDatabase.collections[8].items[0].timesForged;
+            }
+            if (itemDatabase.collections[8].items[1].isUnlocked)
+            {
+                sellPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[8].items[1].timesForged;
+            }
+            if (itemDatabase.collections[8].items[2].isUnlocked)
+            {
+                sellPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[8].items[2].timesForged;
+            }
+            if (itemDatabase.collections[9].items[0].isUnlocked)
+            {
+                cpsPremiumMultiplier += 1 + 0.1f * itemDatabase.collections[9].items[0].timesForged;
+            }
+            if (itemDatabase.collections[9].items[1].isUnlocked)
+            {
+                cpsPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[9].items[1].timesForged;
+            }
+            if (itemDatabase.collections[9].items[2].isUnlocked)
+            {
+                cpsPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[9].items[2].timesForged;
+            }
+            if (itemDatabase.collections[10].items[0].isUnlocked)
+            {
+                prestigePremiumMultiplier += 1 + 0.1f * itemDatabase.collections[10].items[0].timesForged;
+            }
+            if (itemDatabase.collections[10].items[1].isUnlocked)
+            {
+                prestigePremiumMultiplier += 2 + 0.2f * itemDatabase.collections[10].items[1].timesForged;
+            }
+            if (itemDatabase.collections[10].items[2].isUnlocked)
+            {
+                prestigePremiumMultiplier += 4 + 0.4f * itemDatabase.collections[10].items[2].timesForged;
+            }
+
+            tapPremiumMultiplier = Mathf.Round(tapPremiumMultiplier + 100f )/ 100f;
+            dpsPremiumMultiplier = Mathf.Round(dpsPremiumMultiplier + 100f )/ 100f;
+            sellPremiumMultiplier = Mathf.Round(sellPremiumMultiplier + 100f )/ 100f;
+            cpsPremiumMultiplier = Mathf.Round(cpsPremiumMultiplier + 100f )/ 100f;
+            prestigePremiumMultiplier = Mathf.Round(prestigePremiumMultiplier + 100f )/ 100f;
+
         }
         
         void CheckLegendary()
@@ -201,7 +285,7 @@ namespace Manager
                     _uiManager.AssignPopupValue(itemName, displayDescription, itemSprite);
                     _uiManager.OpenPopup();
                 });
-            _gameManager.ModifyMoney(_itemStats.itemPrice);
+            _gameManager.ModifyMoney(_itemStats.itemPrice * sellPremiumMultiplier);
         }
 
         void CheckPremiumCollection()
@@ -251,7 +335,7 @@ namespace Manager
                     _uiManager.AssignPopupValue(itemName, displayDescription, itemSprite);
                     _uiManager.OpenPopup();
                 });
-            _gameManager.ModifyMoney(_itemStats.itemPrice);
+            //_gameManager.ModifyMoney(_itemStats.itemPrice);
         }
 
         public void CheckEveryCollection()

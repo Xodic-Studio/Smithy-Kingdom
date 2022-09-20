@@ -133,7 +133,7 @@ public class SaveSystem : Singleton<SaveSystem>
         _saveFile.passiveMoney = UpgradesFunction.Instance.passiveMoney;
         
         CloseSave();
-        print("Saved");
+        Debug.Log("Saved");
     }
 
     public void LoadGame()

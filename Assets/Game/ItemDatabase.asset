@@ -22,8 +22,8 @@ MonoBehaviour:
       itemRarity: 0
       itemDescription: 'A light, easy-to-use sword. Recommended for beginners. '
       dropChance: 70
-      timesForged: 10
-      itemFirstForged: 9/19/2022
+      timesForged: 196
+      itemFirstForged: 9/20/2022
       isUnlocked: 1
     - itemName: Copper Greatsword
       itemSprite: {fileID: 21300000, guid: 1f60f87bbe4a6824aa0486cba4ebf32c, type: 3}
@@ -32,8 +32,8 @@ MonoBehaviour:
       itemDescription: A big sword made of copper that's weasy to swing. It is quiet
         despite being a greatsword.
       dropChance: 20
-      timesForged: 2
-      itemFirstForged: 9/19/2022
+      timesForged: 48
+      itemFirstForged: 9/20/2022
       isUnlocked: 1
     - itemName: Copper Curvesword
       itemSprite: {fileID: 21300000, guid: 5f6648eafdb54f149a7eb717aa2afec8, type: 3}
@@ -42,8 +42,8 @@ MonoBehaviour:
       itemDescription: A light copper sword with a curved blade. It's designed for
         faster unsheathing as well as having more cutting area.
       dropChance: 7.5
-      timesForged: 1
-      itemFirstForged: 9/19/2022
+      timesForged: 20
+      itemFirstForged: 9/20/2022
       isUnlocked: 1
     - itemName: Mantis
       itemSprite: {fileID: 21300000, guid: 66b7c9854d4b8b9429e80fb02540e6db, type: 3}
@@ -52,9 +52,9 @@ MonoBehaviour:
       itemDescription: A sword with a blade that looks similar to an insect's claw.
         It has exceptional slicing and piercing power.
       dropChance: 2
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 6
+      itemFirstForged: 9/20/2022
+      isUnlocked: 1
     - itemName: Earthen Blade
       itemSprite: {fileID: 21300000, guid: 0e1090fb60d4eb04ea732efb1ceaba36, type: 3}
       itemPrice: 17500
@@ -62,9 +62,9 @@ MonoBehaviour:
       itemDescription: A sword imblued with the magic power of the earth. Despite
         having copper as it's material, the blade  doesn't chip away easily.
       dropChance: 0.4
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 4
+      itemFirstForged: 9/20/2022
+      isUnlocked: 1
     - itemName: Izorik
       itemSprite: {fileID: 21300000, guid: 8ad5108759c59e94999efeb591365397, type: 3}
       itemPrice: 70000
@@ -465,9 +465,9 @@ MonoBehaviour:
         \r\nis exaggerated into the shape of a fish. This is one of the \r\nfinest
         swords out there that will raise doubt or suspicion."
       dropChance: 80
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 999999
+      itemFirstForged: 9/20/2022
+      isUnlocked: 1
     - itemName: Fishsword
       itemSprite: {fileID: 21300000, guid: a33cac545131d124bb394868f2896708, type: 3}
       itemPrice: 2.07e+17
@@ -501,9 +501,9 @@ MonoBehaviour:
         butcher knife. Through the use of cutting-edge \r\ntechnology, it even leaves
         a green trail after every swing!"
       dropChance: 80
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 5
+      itemFirstForged: 9/20/2022
+      isUnlocked: 1
     - itemName: Core i-19
       itemSprite: {fileID: 21300000, guid: d95641a09d86ec24abef7ada836b6464, type: 3}
       itemPrice: 2.07e+17
