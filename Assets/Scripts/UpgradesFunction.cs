@@ -14,6 +14,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     UIManager _uiManager;
     SoundManagerr _soundManager;
     public UpgradeDatabase upgradeDatabase;
+    public UpgradeDatabase premiumUpgradeDatabase;
     public AchievementDatabase achievementDatabase;
 
     readonly float[] _oreUpgradeCost = new float[5] { 50000, 5000000, 5000000000, 5000000000000, 5000000000000000};
@@ -637,7 +638,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void AutoClicker()
     {
-        
+        if (_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[0].upgradeCost)))
+        {
+            premiumUpgradeDatabase.stats[0].upgradeLevel++;
+            UpdateUpgradeDescription(premiumUpgradeDatabase.stats[0].upgradeDescription, $"{premiumUpgradeDatabase.stats[0].upgradeLevel} hit /sec");
+        }
     }
 
     public void AmazingLuck()

@@ -87,7 +87,7 @@ namespace Manager
         public void UpdateHardnessSlider(float hardness, float maxHardness)
         {
             hardnessSlider.value = hardness;
-            hardnessText.text = $"{_gameManager.NumberToString((decimal)hardness)}/{_gameManager.NumberToString((decimal)maxHardness)} ({hardness / maxHardness * 100:F2}%)";
+            hardnessText.text = $"{_gameManager.NumberToString((decimal)hardness)}/{_gameManager.NumberToString((decimal)maxHardness)} ({Mathf.Round(hardness / maxHardness * 100):F2}%)";
         }
 
         #region MainMenu

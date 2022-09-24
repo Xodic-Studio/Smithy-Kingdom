@@ -195,7 +195,7 @@ public class GameManager : Singleton<GameManager>
 
     private float _finalDamage;
     //Hitting Function
-    private void TapTap()
+    public void TapTap()
     {
         if (!_ore.GetIsDroppingItem())
         {

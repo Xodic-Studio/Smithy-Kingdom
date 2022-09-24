@@ -10053,6 +10053,7 @@ GameObject:
   - component: {fileID: 321607807}
   - component: {fileID: 321607806}
   - component: {fileID: 321607805}
+  - component: {fileID: 321607808}
   m_Layer: 5
   m_Name: Click Space
   m_TagString: Untagged
@@ -10174,6 +10175,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321607803}
   m_CullTransparentMesh: 1
+--- !u!114 &321607808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321607803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5eb4555a8de2445b90056c8bad43d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &322867672
 GameObject:
   m_ObjectHideFlags: 0
@@ -36677,6 +36690,11 @@ MonoBehaviour:
   itemDatabase: {fileID: 11400000, guid: 95b73da35a684b64caecb0404fbeb5ac, type: 2}
   itemCollectionIndex: 0
   itemStatsIndex: 0
+  tapPremiumMultiplier: 1
+  dpsPremiumMultiplier: 1
+  sellPremiumMultiplier: 1
+  cpsPremiumMultiplier: 1
+  prestigePremiumMultiplier: 1
 --- !u!114 &1272240234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36715,6 +36733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedButton: {fileID: 0}
   upgradeDatabase: {fileID: 11400000, guid: cdf7adc16fd89fd488bdd198c85419e7, type: 2}
+  premiumUpgradeDatabase: {fileID: 11400000, guid: 137a611bb59f41f47bf0c352e1ceb47a, type: 2}
   achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   upgradeCount: 0
   upgradeFunctionList:
@@ -41177,7 +41196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 533778590393604631, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.074807644
+      value: 0.07480767
       objectReference: {fileID: 0}
     - target: {fileID: 1961526078977481639, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: anvilAnimator
@@ -41185,7 +41204,7 @@ PrefabInstance:
       objectReference: {fileID: 955110012}
     - target: {fileID: 4645565626289006280, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000026822087
+      value: -0.00000044703472
       objectReference: {fileID: 0}
     - target: {fileID: 5236826822653383367, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_RootOrder
@@ -41233,7 +41252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7406275043337345702, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2761199
+      value: 0.27612007
       objectReference: {fileID: 0}
     - target: {fileID: 8404651596048821749, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_Name
@@ -41241,7 +41260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8566605235799667324, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.026411925
+      value: -0.026411902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 594e7a9b0e541dc44a19eca39a08b72e, type: 3}
