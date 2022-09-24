@@ -347,7 +347,7 @@ public class GameManager : Singleton<GameManager>
         {
             ModifyMoney(-money);
             money = 0;
-            var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3));
+            var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3 - _upgradesFunction.premiumUpgradeDatabase.stats[3].upgradeLevel * 0.1f));
             Debug.Log(result);
             ModifyReputation(result * CollectionManager.Instance.prestigePremiumMultiplier);
             database.oresDatabase.ResetDatabase();

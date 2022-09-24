@@ -65,14 +65,17 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
 
         i = 0;
-        // foreach (var function in premiumUpgradeFunctionList)
-        // {
-        //     _uiManager.upgradeList.transform.GetChild(i).GetComponentInChildren<Button>().onClick.AddListener(delegate
-        //     {
-        //         function.upgradesFunction.Invoke();
-        //         achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
-        //     });
-        // }
+        foreach (var function in premiumUpgradeFunctionList)
+        {
+            var _button = _uiManager.premiumUpgradeList.transform.GetChild(i);
+            _button.GetComponentInChildren<Button>().onClick.AddListener(delegate {SelectButton(_button.gameObject); });
+            _button.GetComponentInChildren<Button>().onClick.AddListener(delegate
+            {
+                function.upgradesFunction.Invoke();
+                achievementDatabase.ModifyProgress("One small step for a man, one giant leap for the smithy",1);
+            });
+            i++;
+        }
     }
 
     private void SelectButton(GameObject button)
@@ -115,6 +118,12 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
             upgradePriceText.text = _gameManager.NumberToString((decimal) upgrade.upgradeCost);
         }
 
+        foreach (var upgrade in premiumUpgradeDatabase.stats)
+        {
+            var upgradePriceText = _uiManager.premiumUpgradeList.transform.GetChild(upgrade.id).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+            upgradePriceText.text = _gameManager.NumberToString((decimal) upgrade.upgradeCost);
+        }
+
         foreach (Transform upgrade in _uiManager.upgradeList.transform)
         {
             upgrade.GetChild(2).GetChild(0).GetComponent<ButtonHold>().onHold = upgradeFunctionList[upgrade.GetSiblingIndex()].upgradesFunction;
@@ -134,7 +143,6 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     private void UpdateUpgradeDescription (string baseDescription,string description)
     {
-        Debug.Log(selectedButton);
         var upgradeDescriptionText = selectedButton.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>();
         upgradeDescriptionText.text = baseDescription + "\n" +
                                       description;
@@ -642,6 +650,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             premiumUpgradeDatabase.stats[0].upgradeLevel++;
             UpdateUpgradeDescription(premiumUpgradeDatabase.stats[0].upgradeDescription, $"{premiumUpgradeDatabase.stats[0].upgradeLevel} hit /sec");
+            _soundManager.PlaySound("Upgrade");
         }
     }
 
@@ -655,13 +664,19 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if(_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[2].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[2].upgradeLevel++;
-            UpdateUpgradeDescription(premiumUpgradeDatabase.stats[2].upgradeDescription, $"{premiumUpgradeDatabase.stats[2].upgradeLevel} hit /sec");
+            UpdateUpgradeDescription(premiumUpgradeDatabase.stats[2].upgradeDescription, $"-{premiumUpgradeDatabase.stats[2].upgradeLevel * 10} %");
+            _soundManager.PlaySound("Upgrade");
         }
     }
 
     public void UnbelievableReputation()
     {
-        
+        if( _gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[3].upgradeCost)))
+        {
+            premiumUpgradeDatabase.stats[3].upgradeLevel++;
+            UpdateUpgradeDescription(premiumUpgradeDatabase.stats[3].upgradeDescription, $"+{premiumUpgradeDatabase.stats[3].upgradeLevel} rep");
+            _soundManager.PlaySound("Upgrade");
+        }
     }
     
 
