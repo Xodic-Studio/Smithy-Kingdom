@@ -10187,6 +10187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5eb4555a8de2445b90056c8bad43d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPressed: 0
 --- !u!1 &322867672
 GameObject:
   m_ObjectHideFlags: 0
@@ -36571,6 +36572,8 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: b4fa56fae25d9514a8762f654e385b07, type: 2}
   achievementDatabase: {fileID: 11400000, guid: 503c742c7b0b0ee45a8e558fa8ab8f7c, type: 2}
   reputation: 0
+  TMin: 180
+  TMax: 301
   money: 0
   allMoney: 0
   gems: 0

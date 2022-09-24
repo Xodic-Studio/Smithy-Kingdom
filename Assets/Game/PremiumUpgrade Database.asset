@@ -37,7 +37,7 @@ MonoBehaviour:
     upgradeDescription: Shortens the time that mail takes to arrive.
     upgradeIcon: {fileID: -1980538674, guid: 1cdd5590db17d4c4096b0d19848ef8c5, type: 3}
     upgradeCost: 0
-    upgradeLevel: 0
+    upgradeLevel: 10
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 0

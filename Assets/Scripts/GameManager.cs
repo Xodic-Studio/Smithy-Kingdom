@@ -25,6 +25,9 @@ public class GameManager : Singleton<GameManager>
     private float _lastTime;
     private bool _isClicking;
 
+    public float TMin;
+    public float TMax;
+
     [SerializeField] public float money;
     [SerializeField] public float allMoney;
     [SerializeField] public float gems;
@@ -51,7 +54,7 @@ public class GameManager : Singleton<GameManager>
         //_soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
-        Invoke(nameof(MailTimer),Random.Range(180,301));
+        Invoke(nameof(MailTimer),Random.Range(TMin * Mathf.Pow(0.9f,_upgradesFunction.premiumUpgradeDatabase.stats[2].upgradeLevel),TMax* Mathf.Pow(0.9f,_upgradesFunction.premiumUpgradeDatabase.stats[2].upgradeLevel)));
         Invoke("OneSecondInterval", 1f);
         ResetIsClicking();
         achievementDatabase = database.achievementDatabase;
@@ -109,17 +112,19 @@ public class GameManager : Singleton<GameManager>
         _isClicking = false;
         Invoke(nameof(ResetIsClicking),1f);
     }
-    
+
     void MailTimer()
     {
         _uiManager.AddNewMail(mailDatabase.GetRandomMail());
-        Invoke(nameof(MailTimer),Random.Range(180,301));
+        Invoke(nameof(MailTimer),
+            Random.Range(TMin * Mathf.Pow(0.9f, _upgradesFunction.premiumUpgradeDatabase.stats[2].upgradeLevel),
+                TMax * Mathf.Pow(0.9f, _upgradesFunction.premiumUpgradeDatabase.stats[2].upgradeLevel)));
     }
-    
+
     public void MailReward()
     {
         var rewardCurrentCoin = 100 + money * 0.15f;
-        var rewardCps = 100 + _upgradesFunction.passiveDamage * 900;
+        var rewardCps = 100 + _upgradesFunction.passiveMoney * 900;
 
         mailReward = Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin).ToString();
         ModifyMoney(Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin));

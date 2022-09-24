@@ -652,7 +652,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void VipMailService()
     {
-        
+        if(_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[2].upgradeCost)))
+        {
+            premiumUpgradeDatabase.stats[2].upgradeLevel++;
+            UpdateUpgradeDescription(premiumUpgradeDatabase.stats[2].upgradeDescription, $"{premiumUpgradeDatabase.stats[2].upgradeLevel} hit /sec");
+        }
     }
 
     public void UnbelievableReputation()
