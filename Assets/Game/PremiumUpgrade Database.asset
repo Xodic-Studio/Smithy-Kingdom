@@ -17,27 +17,39 @@ MonoBehaviour:
     upgradeDescription: Automatically clicks twice per second for you.
     upgradeIcon: {fileID: 2045754303, guid: 073e1f1da2bb69943873231f61d86c26, type: 3}
     upgradeCost: 0
-    upgradeLevels: 1
+    upgradeLevel: 0
     upgradeTier: 0
+    float1: 0
     upgradeBaseCost: 0
+    baseFloat1: 0
+    id: 0
   - upgradeName: Amazing Luck
     upgradeDescription: Improves the odds of getting mythical and legendary swords.
     upgradeIcon: {fileID: -159204324, guid: b73e97b363a25594d89b43a48adcd543, type: 3}
     upgradeCost: 0
-    upgradeLevels: 1
+    upgradeLevel: 0
     upgradeTier: 0
+    float1: 0
     upgradeBaseCost: 0
+    baseFloat1: 0
+    id: 1
   - upgradeName: VIP Mail Service
     upgradeDescription: Shortens the time that mail takes to arrive.
     upgradeIcon: {fileID: -1980538674, guid: 1cdd5590db17d4c4096b0d19848ef8c5, type: 3}
     upgradeCost: 0
-    upgradeLevels: 1
+    upgradeLevel: 0
     upgradeTier: 0
+    float1: 0
     upgradeBaseCost: 0
+    baseFloat1: 0
+    id: 2
   - upgradeName: Unbelievable  Reputation
     upgradeDescription: Gain More Reputation per Prestige.
     upgradeIcon: {fileID: 1316327686, guid: 31d4be7a41a7d334c99a9d6deaa80537, type: 3}
     upgradeCost: 0
-    upgradeLevels: 1
+    upgradeLevel: 0
     upgradeTier: 0
+    float1: 0
     upgradeBaseCost: 0
+    baseFloat1: 0
+    id: 3
