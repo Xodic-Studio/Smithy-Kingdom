@@ -26,7 +26,6 @@ public class GachaSystem : Singleton<GachaSystem>
             var randomNumber = Random.Range(0,PremiumOres.Length);
             _ore.ModifyOreAmount(PremiumOres[randomNumber], 1);
             resultSprites.Add(PremiumOres[randomNumber].oreSprite);
-            _uiManager.AddNotification(UIManager.NotificationType.Ore,1);
         }
         else
         {

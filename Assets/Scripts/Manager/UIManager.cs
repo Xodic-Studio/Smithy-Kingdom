@@ -190,7 +190,7 @@ namespace Manager
             CloseAllMenus();
             collectiblesMenu.SetActive(true);
             TapCollectionMenu();
-            RemoveNotification(NotificationType.Collectible, oreNotificationCount);
+            RemoveNotification(NotificationType.Collectible, collectibleNotificationCount);
             //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
             _soundManager.PlaySound("ChangePage");
 
@@ -889,6 +889,7 @@ namespace Manager
         {
             gachaMenuPanel.SetActive(false);
             packageMenuPanel.SetActive(true);
+            mainScrollRect.content = packageMenuPanel.GetComponent<RectTransform>();
            // _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
            _soundManager.PlaySound("ChangePage");
 

@@ -27,6 +27,15 @@ public class Save
     public float[] upgradeTier;
     public float[] upgradeFloat1;
     public int upgradeCount;
+    public bool hammerDamage1;
+    public bool hammerDamage2;
+    public bool hammerDamage3;
+
+    //premiumupgrade 
+    public float[] premiumUpgradeCost;
+    public float[] premiumUpgradeLevels;
+    public float[] premiumUpgradeTier;
+    public float[] premiumUpgradeFloat1;
 
     public float money, allMoney, gems, reputation, passiveDamage, passiveMoney;
 }
@@ -122,8 +131,20 @@ public class SaveSystem : Singleton<SaveSystem>
             _saveFile.upgradeFloat1[i] = upgradeDatabaseStat.float1;
             i++;
         }
+        i =0;
+        foreach (var upgradeDatabaseStat in UpgradesFunction.Instance.premiumUpgradeDatabase.stats)
+        {
+            _saveFile.premiumUpgradeCost[i] = upgradeDatabaseStat.upgradeCost;
+            _saveFile.premiumUpgradeLevels[i] = upgradeDatabaseStat.upgradeLevel;
+            _saveFile.premiumUpgradeTier[i] = upgradeDatabaseStat.upgradeTier;
+            _saveFile.premiumUpgradeFloat1[i] = upgradeDatabaseStat.float1;
+            i++;
+        }
 
 
+        _saveFile.hammerDamage1 = UpgradesFunction.Instance.hammerDamage1;
+        _saveFile.hammerDamage2 = UpgradesFunction.Instance.hammerDamage2;
+        _saveFile.hammerDamage3 = UpgradesFunction.Instance.hammerDamage3;
         _saveFile.upgradeCount = UpgradesFunction.Instance.upgradeCount;
         _saveFile.money = GameManager.Instance.GetMoney();
         _saveFile.gems = GameManager.Instance.GetGems();
@@ -152,6 +173,9 @@ public class SaveSystem : Singleton<SaveSystem>
         UpgradesFunction.Instance.upgradeCount = _saveFile.upgradeCount;
         UpgradesFunction.Instance.passiveDamage = _saveFile.passiveDamage;
         UpgradesFunction.Instance.passiveMoney = _saveFile.passiveMoney;
+        UpgradesFunction.Instance.hammerDamage1 = _saveFile.hammerDamage1;
+        UpgradesFunction.Instance.hammerDamage2 = _saveFile.hammerDamage2;
+        UpgradesFunction.Instance.hammerDamage3 = _saveFile.hammerDamage3;
 
         var i = 0;
         var j = 0;
@@ -269,6 +293,23 @@ public class SaveSystem : Singleton<SaveSystem>
             save = true;
         }
         
+        if (_saveFile.premiumUpgradeCost == null || _saveFile.premiumUpgradeLevels == null ||
+            _saveFile.premiumUpgradeTier == null || _saveFile.premiumUpgradeFloat1 == null)
+        {
+            print ("SAVE: New Premium Upgrades");
+            _saveFile.premiumUpgradeCost = new float[UpgradesFunction.Instance.premiumUpgradeDatabase.stats.Length];
+            _saveFile.premiumUpgradeLevels = new float[UpgradesFunction.Instance.premiumUpgradeDatabase.stats.Length];
+            i = 0;
+            foreach (var VARIABLE in _saveFile.premiumUpgradeLevels)
+            {
+                _saveFile.premiumUpgradeLevels[i] = 1;
+                i++;
+            }
+            _saveFile.premiumUpgradeTier = new float[UpgradesFunction.Instance.premiumUpgradeDatabase.stats.Length];
+            _saveFile.premiumUpgradeFloat1 = new float[UpgradesFunction.Instance.premiumUpgradeDatabase.stats.Length];
+            save = true;
+        }
+
         i = 0;
         foreach (var VARIABLE in _saveFile.upgradeCost)
         {
@@ -276,6 +317,16 @@ public class SaveSystem : Singleton<SaveSystem>
             UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeLevel = (int) _saveFile.upgradeLevels[i];
             UpgradesFunction.Instance.upgradeDatabase.stats[i].upgradeTier = (int) _saveFile.upgradeTier[i];
             UpgradesFunction.Instance.upgradeDatabase.stats[i].float1 = _saveFile.upgradeFloat1[i];
+            i++;
+        }
+
+        i = 0;
+        foreach (var VARIABLE in _saveFile.premiumUpgradeCost)
+        {
+            UpgradesFunction.Instance.premiumUpgradeDatabase.stats[i].upgradeCost = _saveFile.premiumUpgradeCost[i];
+            UpgradesFunction.Instance.premiumUpgradeDatabase.stats[i].upgradeLevel = (int) _saveFile.premiumUpgradeLevels[i];
+            UpgradesFunction.Instance.premiumUpgradeDatabase.stats[i].upgradeTier = (int) _saveFile.premiumUpgradeTier[i];
+            UpgradesFunction.Instance.premiumUpgradeDatabase.stats[i].float1 = _saveFile.premiumUpgradeFloat1[i];
             i++;
         }
 

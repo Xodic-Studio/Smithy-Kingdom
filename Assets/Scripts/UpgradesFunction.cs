@@ -13,6 +13,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     GameManager _gameManager;
     UIManager _uiManager;
     SoundManagerr _soundManager;
+    CollectionManager _collectionManager;
     public UpgradeDatabase upgradeDatabase;
     public UpgradeDatabase premiumUpgradeDatabase;
     public AchievementDatabase achievementDatabase;
@@ -35,6 +36,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     private void Awake()
     {
+        _collectionManager = CollectionManager.Instance;
         _soundManager = SoundManagerr.Instance;
         _uiManager = UIManager.Instance;
         _ore = Ore.Instance;
@@ -111,6 +113,22 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel + 1);
         upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel + 1);
         upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel + 1);
+
+        if (hammerDamage1)
+        {
+            selectedButton = _uiManager.upgradeList.transform.GetChild(1).gameObject;
+            selectedButton.SetActive(false);
+        }
+        if (hammerDamage2)
+        {
+            selectedButton = _uiManager.upgradeList.transform.GetChild(2).gameObject;
+            selectedButton.SetActive(false);
+        }
+        if (hammerDamage3)
+        {
+            selectedButton = _uiManager.upgradeList.transform.GetChild(3).gameObject;
+            selectedButton.SetActive(false);
+        }
         
         foreach (var upgrade in upgradeDatabase.stats)
         {
@@ -199,19 +217,18 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         }
     }
 
-    private bool _hammerDamage1, _hammerDamage2, _hammerDamage3;
+    public bool hammerDamage1, hammerDamage2, hammerDamage3;
     public int hammerTier;
     
     public void ChangeHammerDamage1()
     {
-        if (!_hammerDamage1)
+        if (!hammerDamage1)
         {
             if (_gameManager.HasMoney(upgradeDatabase.stats[1].upgradeBaseCost))
             {
-                _hammerDamage1 = true;
+                hammerDamage1 = true;
                 _gameManager.ModifyHammerDamage(2);
                 upgradeCount++;
-                hammerTier ++;
                 selectedButton.transform.gameObject.SetActive(false);
                // _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                _soundManager.PlaySound("Upgrade");
@@ -221,14 +238,13 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     public void ChangeHammerDamage2()
     {
-        if (!_hammerDamage2)
+        if (!hammerDamage2)
         {
             if (_gameManager.HasMoney(upgradeDatabase.stats[2].upgradeBaseCost))
             {
-                _hammerDamage2 = true;
+                hammerDamage2 = true;
                 _gameManager.ModifyHammerDamage(4);
                 upgradeCount++;
-                hammerTier ++;
                 selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
@@ -237,14 +253,13 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     public void ChangeHammerDamage3()
     {
-        if (!_hammerDamage3)
+        if (!hammerDamage3)
         {
             if (_gameManager.HasMoney(upgradeDatabase.stats[3].upgradeBaseCost))
             {
-                _hammerDamage3 = true;
+                hammerDamage3 = true;
                 _gameManager.ModifyHammerDamage(8);
                 upgradeCount++;
-                hammerTier ++;
                 selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
@@ -656,7 +671,10 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void AmazingLuck()
     {
-        
+        if( _gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[1].upgradeCost)))
+        {
+            _soundManager.PlaySound("Upgrade");
+        }
     }
 
     public void VipMailService()

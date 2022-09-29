@@ -270,19 +270,20 @@ public class Ore : Singleton<Ore>
     
     public void ModifyOreAmount(OreStats ore, int amount)
     {
-        ore.amount += amount;
-        if (ore.amount > 0)
+        if (!ore.isUnlocked)
         {
-            ore.isUnlocked = true;
-        }
-        else
-        {
-            ore.isUnlocked = false;
             ore.amount = 0;
             tempSelectOreIndex = 0;
             UpdateCommonOre();
             _uiManager.UpdateOreDetails();
             _uiManager.UpdateOreNameText(_thisOre.oreName);
+        }
+        ore.amount += amount;
+        if (ore.amount > 0 && ore.isUnlocked == false)
+        {
+            ore.isUnlocked = true;
+            Debug.Log("Why?");
+            _uiManager.AddNotification(UIManager.NotificationType.Ore,1);
         }
     }
     
