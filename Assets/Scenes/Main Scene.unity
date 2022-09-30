@@ -5906,8 +5906,8 @@ MonoBehaviour:
 
     100 Gems'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6065,20 +6065,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 1818490456}
   m_HandleRect: {fileID: 1435108485}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272240230}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: UpdateSfxVolume
-        m_Mode: 2
+      - m_Target: {fileID: 2108811650}
+        m_TargetAssemblyTypeName: SoundManagerr, Assembly-CSharp
+        m_MethodName: UpdateSFXVolume
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 208919492}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19276,8 +19276,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Gem:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19301,7 +19301,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.7
+  m_fontSize: 76.75
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -25135,8 +25135,8 @@ MonoBehaviour:
 
     1k Gems'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -36800,6 +36800,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  hammerDamage1: 0
+  hammerDamage2: 0
+  hammerDamage3: 0
   hammerTier: 0
   passiveDamage: 0
   passiveMoney: 0
@@ -37952,20 +37955,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 79655802}
   m_HandleRect: {fileID: 2103766600}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272240230}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2108811650}
+        m_TargetAssemblyTypeName: SoundManagerr, Assembly-CSharp
         m_MethodName: UpdateMasterVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1309358722}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -43676,8 +43679,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -46690,20 +46693,20 @@ MonoBehaviour:
   m_FillRect: {fileID: 1832262231}
   m_HandleRect: {fileID: 167333675}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1272240230}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2108811650}
+        m_TargetAssemblyTypeName: SoundManagerr, Assembly-CSharp
         m_MethodName: UpdateMusicVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1568021278}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -52021,8 +52024,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ore 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -54008,8 +54011,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '$:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
-  m_sharedMaterial: {fileID: 3978221227419703007, guid: 49baa06ea8ee5c24491c78078f8fa035, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 81891ecd252e98c45bce37feed6825d8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -54033,7 +54036,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 88.2
+  m_fontSize: 100
   m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -59780,6 +59783,10 @@ MonoBehaviour:
     IsRandom: 0
     Pan: 0
     AudioSource: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 31cfff4a85ad42d44b5848beee091ef6, type: 2}
+  masterSlider: {fileID: 1309358722}
+  musicSlider: {fileID: 1568021278}
+  sfxSlider: {fileID: 208919492}
 --- !u!4 &2108811651
 Transform:
   m_ObjectHideFlags: 0

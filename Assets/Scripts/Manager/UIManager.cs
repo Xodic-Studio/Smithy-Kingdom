@@ -245,7 +245,7 @@ namespace Manager
             CloseAllMenus();
             oreSelectionPanel.SetActive(true);
             TapNormalOreMenu();
-            _ore.tempSelectOreIndex = _ore.selectedOreIndex;
+            _ore.tempSelectOreIndex = 0;
             UpdateOreDetails();
             _ore.DisableButtonIfNoNextOre();
             RemoveNotification(NotificationType.Ore, oreNotificationCount);

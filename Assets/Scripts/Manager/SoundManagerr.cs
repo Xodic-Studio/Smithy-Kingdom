@@ -4,17 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundManagerr : Singleton<SoundManagerr>
 {
     [SerializeField] private Sound[] sounds;
-    
+
+    [SerializeField] AudioMixer audioMixer;
     private void Awake()
     {
         DontDestroyOnLoad(this);
 
     }
     
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
+
+    public void UpdateMasterVolume()
+    {
+        float sliderValue = masterSlider.value;
+        audioMixer.SetFloat("Master", Mathf.Log10(sliderValue) * 20);
+    }
+    
+    public void UpdateMusicVolume()
+    {
+        float sliderValue = musicSlider.value;
+        audioMixer.SetFloat("Music", Mathf.Log10(sliderValue) * 20);
+    }
+    
+    public void UpdateSFXVolume()
+    {
+        float sliderValue = sfxSlider.value;
+        audioMixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+    }
     
     [Serializable]
     struct Sound
