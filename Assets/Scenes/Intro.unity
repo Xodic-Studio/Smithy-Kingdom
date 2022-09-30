@@ -430,6 +430,10 @@ MonoBehaviour:
     IsRandom: 0
     Pan: 0
     AudioSource: {fileID: 0}
+  audioMixer: {fileID: 0}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!4 &483336551
 Transform:
   m_ObjectHideFlags: 0

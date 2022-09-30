@@ -16,11 +16,11 @@ MonoBehaviour:
   - upgradeName: Auto Clicker
     upgradeDescription: Automatically clicks twice per second for you.
     upgradeIcon: {fileID: 2045754303, guid: 073e1f1da2bb69943873231f61d86c26, type: 3}
-    upgradeCost: 500
+    upgradeCost: 21000
     upgradeLevel: 1
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 0
+    upgradeBaseCost: 500
     baseFloat1: 0
     id: 0
   - upgradeName: Amazing Luck
@@ -30,17 +30,17 @@ MonoBehaviour:
     upgradeLevel: 1
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 0
+    upgradeBaseCost: 1500
     baseFloat1: 0
     id: 1
   - upgradeName: VIP Mail Service
     upgradeDescription: Shortens the time that mail takes to arrive.
     upgradeIcon: {fileID: -1980538674, guid: 1cdd5590db17d4c4096b0d19848ef8c5, type: 3}
-    upgradeCost: 500
+    upgradeCost: 12500
     upgradeLevel: 1
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 0
+    upgradeBaseCost: 250
     baseFloat1: 0
     id: 2
   - upgradeName: Unbelievable  Reputation
@@ -50,6 +50,6 @@ MonoBehaviour:
     upgradeLevel: 1
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 0
+    upgradeBaseCost: 500
     baseFloat1: 0
     id: 3

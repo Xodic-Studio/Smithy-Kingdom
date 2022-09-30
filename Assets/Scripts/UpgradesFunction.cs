@@ -93,26 +93,30 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         upgradeDatabase.stats[3].upgradeCost = upgradeDatabase.stats[3].upgradeBaseCost;
         upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel - 1);
         upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel - 1);
-        upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel + 1);
-        upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel + 1);
-        upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel + 1);
-        upgradeDatabase.stats[9].upgradeCost = upgradeDatabase.stats[9].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevel + 1);
-        upgradeDatabase.stats[10].upgradeCost = upgradeDatabase.stats[10].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevel + 1);
-        upgradeDatabase.stats[11].upgradeCost = upgradeDatabase.stats[11].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevel + 1);
-        upgradeDatabase.stats[12].upgradeCost = upgradeDatabase.stats[12].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevel + 1);
-        upgradeDatabase.stats[13].upgradeCost = upgradeDatabase.stats[13].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevel + 1);
-        upgradeDatabase.stats[14].upgradeCost = upgradeDatabase.stats[14].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevel + 1);
-        upgradeDatabase.stats[15].upgradeCost = upgradeDatabase.stats[15].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevel + 1);
-        upgradeDatabase.stats[16].upgradeCost = upgradeDatabase.stats[16].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevel + 1);
-        upgradeDatabase.stats[17].upgradeCost = upgradeDatabase.stats[17].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevel + 1);
-        upgradeDatabase.stats[18].upgradeCost = upgradeDatabase.stats[18].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevel + 1);
-        upgradeDatabase.stats[19].upgradeCost = upgradeDatabase.stats[19].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevel + 1);
-        upgradeDatabase.stats[20].upgradeCost = upgradeDatabase.stats[20].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevel + 1);
-        upgradeDatabase.stats[21].upgradeCost = upgradeDatabase.stats[21].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevel + 1);
-        upgradeDatabase.stats[22].upgradeCost = upgradeDatabase.stats[22].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevel + 1);
-        upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel + 1);
-        upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel + 1);
-        upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel + 1);
+        upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel);
+        upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel);
+        upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel);
+        upgradeDatabase.stats[9].upgradeCost = upgradeDatabase.stats[9].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevel);
+        upgradeDatabase.stats[10].upgradeCost = upgradeDatabase.stats[10].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevel);
+        upgradeDatabase.stats[11].upgradeCost = upgradeDatabase.stats[11].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevel);
+        upgradeDatabase.stats[12].upgradeCost = upgradeDatabase.stats[12].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevel);
+        upgradeDatabase.stats[13].upgradeCost = upgradeDatabase.stats[13].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevel);
+        upgradeDatabase.stats[14].upgradeCost = upgradeDatabase.stats[14].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevel);
+        upgradeDatabase.stats[15].upgradeCost = upgradeDatabase.stats[15].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevel);
+        upgradeDatabase.stats[16].upgradeCost = upgradeDatabase.stats[16].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevel);
+        upgradeDatabase.stats[17].upgradeCost = upgradeDatabase.stats[17].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevel);
+        upgradeDatabase.stats[18].upgradeCost = upgradeDatabase.stats[18].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevel);
+        upgradeDatabase.stats[19].upgradeCost = upgradeDatabase.stats[19].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevel);
+        upgradeDatabase.stats[20].upgradeCost = upgradeDatabase.stats[20].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevel);
+        upgradeDatabase.stats[21].upgradeCost = upgradeDatabase.stats[21].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevel);
+        upgradeDatabase.stats[22].upgradeCost = upgradeDatabase.stats[22].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevel);
+        upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel);
+        upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel);
+        upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel);
+        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost * premiumUpgradeDatabase.stats[0].upgradeLevel;
+        //premiumUpgradeDatabase.stats[1].upgradeCost = premiumUpgradeDatabase.stats[1].upgradeBaseCost * premiumUpgradeDatabase.stats[1].upgradeLevel;
+        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost * premiumUpgradeDatabase.stats[2].upgradeLevel;
+        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * premiumUpgradeDatabase.stats[3].upgradeLevel;
 
         if (hammerDamage1)
         {
@@ -664,9 +668,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void AutoClicker()
     {
+        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost * premiumUpgradeDatabase.stats[0].upgradeLevel;
         if (_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[0].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[0].upgradeLevel++;
+            UpdateUpgradePrice(premiumUpgradeDatabase.stats[0].upgradeBaseCost * premiumUpgradeDatabase.stats[0].upgradeLevel);
             UpdateUpgradeDescription(premiumUpgradeDatabase.stats[0].upgradeDescription, $"{premiumUpgradeDatabase.stats[0].upgradeLevel} hit /sec");
             _soundManager.PlaySound("Upgrade");
         }
@@ -677,14 +683,17 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if( _gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[1].upgradeCost)))
         {
             _soundManager.PlaySound("Upgrade");
+            //UpdateUpgradePrice();
         }
     }
 
     public void VipMailService()
     {
+        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost * premiumUpgradeDatabase.stats[2].upgradeLevel;
         if(_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[2].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[2].upgradeLevel++;
+            UpdateUpgradePrice(premiumUpgradeDatabase.stats[2].upgradeBaseCost * premiumUpgradeDatabase.stats[2].upgradeLevel);
             UpdateUpgradeDescription(premiumUpgradeDatabase.stats[2].upgradeDescription, $"-{premiumUpgradeDatabase.stats[2].upgradeLevel * 10} %");
             _soundManager.PlaySound("Upgrade");
         }
@@ -692,9 +701,11 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void UnbelievableReputation()
     {
+        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * premiumUpgradeDatabase.stats[3].upgradeLevel;
         if( _gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[3].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[3].upgradeLevel++;
+            UpdateUpgradePrice(premiumUpgradeDatabase.stats[3].upgradeBaseCost * premiumUpgradeDatabase.stats[3].upgradeLevel);
             UpdateUpgradeDescription(premiumUpgradeDatabase.stats[3].upgradeDescription, $"+{premiumUpgradeDatabase.stats[3].upgradeLevel} rep");
             _soundManager.PlaySound("Upgrade");
         }

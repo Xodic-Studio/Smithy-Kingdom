@@ -16,7 +16,7 @@ MonoBehaviour:
   - oreName: Copper Ore
     oreSprite: {fileID: -744495403, guid: 2e97a6f59fb73084aaa8d0751b5f33dd, type: 3}
     oreDescription: This is a copper ore least ore you wanted!
-    currentHardness: 8
+    currentHardness: 38
     isUnlocked: 1
     amount: 0
     defaultHardness: 100
@@ -51,7 +51,7 @@ MonoBehaviour:
     currentHardness: 1e+9
     isUnlocked: 0
     amount: 0
-    defaultHardness: 1e+9
+    defaultHardness: 1e+12
     isPremium: 0
   - oreName: Adamantine Ore
     oreSprite: {fileID: -1852575891, guid: 21911a80df4be9b4389e212d12400786, type: 3}
@@ -59,23 +59,23 @@ MonoBehaviour:
     currentHardness: 1e+9
     isUnlocked: 0
     amount: 0
-    defaultHardness: 1e+9
+    defaultHardness: 1e+15
     isPremium: 0
   premiumOres:
   - oreName: Dragonite Ore
     oreSprite: {fileID: 180010380, guid: 6bf9a7228f0e8934e927d3db1fb50526, type: 3}
     oreDescription: This ore is the crystalized form of a dragon remains.
-    currentHardness: 4986
+    currentHardness: 4868
     isUnlocked: 0
-    amount: 1
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
   - oreName: Fishore Ore
     oreSprite: {fileID: -1533846725, guid: 54463fd205d1b2e4094e2cd2e1a4f0e2, type: 3}
     oreDescription: 'Ever thought where swordfish comes from, it''s from this. '
-    currentHardness: 4991
+    currentHardness: 4977
     isUnlocked: 0
-    amount: 1
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
   - oreName: Computronium Ore
@@ -84,13 +84,13 @@ MonoBehaviour:
       result.
     currentHardness: 4999
     isUnlocked: 0
-    amount: 1
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
   - oreName: Beastore Ore
     oreSprite: {fileID: -616224494, guid: 8874035ff87ab4e4bbfd64c9b54c678d, type: 3}
     oreDescription: Within these are the spirits of a sacred beasts.
-    currentHardness: 0
+    currentHardness: 4954
     isUnlocked: 0
     amount: 0
     defaultHardness: 5000
@@ -98,8 +98,8 @@ MonoBehaviour:
   - oreName: Astral Ore
     oreSprite: {fileID: -1182091150, guid: cdb1f37f40d30ac49bc5586387d53f14, type: 3}
     oreDescription: Fallen from the sky and contains the secrets of the stars.
-    currentHardness: 0
+    currentHardness: 4977
     isUnlocked: 0
-    amount: 1
+    amount: 0
     defaultHardness: 5000
     isPremium: 1
