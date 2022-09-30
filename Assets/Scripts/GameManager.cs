@@ -125,9 +125,20 @@ public class GameManager : Singleton<GameManager>
     {
         var rewardCurrentCoin = 100 + money * 0.15f;
         var rewardCps = 100 + _upgradesFunction.passiveMoney * 900;
-
-        mailReward = Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin).ToString();
-        ModifyMoney(Mathf.Floor(rewardCurrentCoin > rewardCps ? rewardCps : rewardCurrentCoin));
+        float mailMoney;
+        if (rewardCurrentCoin > rewardCps) 
+        {
+            mailMoney = rewardCps;
+            Debug.Log("CPS");
+        }
+        else
+        {
+            mailMoney = rewardCurrentCoin;
+            Debug.Log("Coin");
+        }
+        
+        mailReward = Mathf.Floor(mailMoney).ToString();
+        ModifyMoney(Mathf.Floor(mailMoney));
     }
 
     private string mailReward;

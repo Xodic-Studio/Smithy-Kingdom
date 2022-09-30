@@ -556,6 +556,7 @@ namespace Manager
         /// <param name="mail"> Mail Class From MailDatabase</param>
         public void AddNewMail(Mail mail)
         {
+            mailButton.onClick.RemoveAllListeners();
             Debug.Log("New Mail");
             mailPanel.SetActive(true);
             mailIcon.sprite = mail.icon;

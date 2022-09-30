@@ -30,6 +30,7 @@ public class Save
     public bool hammerDamage1;
     public bool hammerDamage2;
     public bool hammerDamage3;
+    public float hammerTier;
 
     //premiumupgrade 
     public float[] premiumUpgradeCost;
@@ -152,7 +153,8 @@ public class SaveSystem : Singleton<SaveSystem>
         _saveFile.allMoney = GameManager.Instance.allMoney;
         _saveFile.passiveDamage = UpgradesFunction.Instance.passiveDamage;
         _saveFile.passiveMoney = UpgradesFunction.Instance.passiveMoney;
-        
+        _saveFile.hammerTier = UpgradesFunction.Instance.hammerTier;
+
         CloseSave();
         Debug.Log("Saved");
     }
@@ -176,6 +178,7 @@ public class SaveSystem : Singleton<SaveSystem>
         UpgradesFunction.Instance.hammerDamage1 = _saveFile.hammerDamage1;
         UpgradesFunction.Instance.hammerDamage2 = _saveFile.hammerDamage2;
         UpgradesFunction.Instance.hammerDamage3 = _saveFile.hammerDamage3;
+        UpgradesFunction.Instance.hammerTier = _saveFile.hammerTier;
 
         var i = 0;
         var j = 0;

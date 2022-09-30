@@ -218,7 +218,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     }
 
     public bool hammerDamage1, hammerDamage2, hammerDamage3;
-    public int hammerTier;
+    public float hammerTier;
     
     public void ChangeHammerDamage1()
     {
@@ -229,6 +229,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 hammerDamage1 = true;
                 _gameManager.ModifyHammerDamage(2);
                 upgradeCount++;
+                hammerTier++;
                 selectedButton.transform.gameObject.SetActive(false);
                // _soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Upgrade)[0]);
                _soundManager.PlaySound("Upgrade");
@@ -245,6 +246,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 hammerDamage2 = true;
                 _gameManager.ModifyHammerDamage(4);
                 upgradeCount++;
+                hammerTier++;
                 selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
@@ -260,6 +262,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 hammerDamage3 = true;
                 _gameManager.ModifyHammerDamage(8);
                 upgradeCount++;
+                hammerTier++;
                 selectedButton.transform.gameObject.SetActive(false);
                 _soundManager.PlaySound("Upgrade");
             }
