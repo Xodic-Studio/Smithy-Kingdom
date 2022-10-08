@@ -241,7 +241,7 @@ public class Ore : Singleton<Ore>
             {
                 ModifyOreAmount(_thisOre, -1);
             }
-            Invoke("DropItemDelay",1f);
+            Invoke("DropItemDelay",.1f);
         }
     }
     

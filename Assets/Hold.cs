@@ -26,7 +26,7 @@ public class Hold : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             holdTime += Time.deltaTime;
             timer += Time.deltaTime;
-            if (holdTime >= 1)
+            if (holdTime >= 0.1f)
             {
                 if (timer > 1f / upgradesFunction.premiumUpgradeDatabase.stats[0].upgradeLevel)
                 {

@@ -137,12 +137,12 @@ public class GameManager : Singleton<GameManager>
             Debug.Log("Coin");
         }
         
-        mailReward = Mathf.Floor(mailMoney).ToString();
+        mailReward = Mathf.Floor(mailMoney);
         ModifyMoney(Mathf.Floor(mailMoney));
     }
 
-    private string mailReward;
-    public string GetMailReward()
+    private float mailReward;
+    public float GetMailReward()
     {
         return mailReward;
     }
@@ -358,6 +358,9 @@ public class GameManager : Singleton<GameManager>
         {
             ModifyMoney(-money);
             money = 0;
+            _ore.GetOreStats().currentHardness = _ore.GetOreStats().defaultHardness;
+            _ore.tempSelectOreIndex = 0;
+            _ore.UpdateCommonOre();
             var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3 - _upgradesFunction.premiumUpgradeDatabase.stats[3].upgradeLevel * 0.1f));
             Debug.Log(result);
             ModifyReputation(result * CollectionManager.Instance.prestigePremiumMultiplier);

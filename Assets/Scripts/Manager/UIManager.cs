@@ -577,7 +577,7 @@ namespace Manager
             _achievementDatabase.ModifyProgress("You’ve got Mail!",1);
             StopCoroutine(MailTimer());
             popupTitle.text = mail.title;
-            popupDescription.text = mail.content + "\n\n" + $"You Received: {_gameManager.GetMailReward()} Coins";
+            popupDescription.text = mail.content + "\n\n" + $"You Received: {_gameManager.NumberToString((decimal)_gameManager.GetMailReward())} Coins";
             popupImage.sprite = mail.icon;
             popup.SetActive(true);
             mailPanel.SetActive(false);
