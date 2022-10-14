@@ -164,11 +164,11 @@ namespace Manager
             }
             if (itemDatabase.collections[6].items[1].isUnlocked)
             {
-                tapPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[6].items[1].timesForged;
+                tapPremiumMultiplier += 3 + 0.3f * itemDatabase.collections[6].items[1].timesForged;
             }
             if (itemDatabase.collections[6].items[2].isUnlocked)
             {
-                tapPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[6].items[2].timesForged;
+                tapPremiumMultiplier += 10 + 1f * itemDatabase.collections[6].items[2].timesForged;
             }
             if (itemDatabase.collections[7].items[0].isUnlocked)
             {
@@ -177,11 +177,11 @@ namespace Manager
             }
             if (itemDatabase.collections[7].items[1].isUnlocked)
             {
-                dpsPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[7].items[1].timesForged;
+                dpsPremiumMultiplier += 3 + 0.3f * itemDatabase.collections[7].items[1].timesForged;
             }
             if (itemDatabase.collections[7].items[2].isUnlocked)
             {
-                dpsPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[7].items[2].timesForged;
+                dpsPremiumMultiplier += 10 + 1f * itemDatabase.collections[7].items[2].timesForged;
             }
             if (itemDatabase.collections[8].items[0].isUnlocked)
             {
@@ -189,11 +189,11 @@ namespace Manager
             }
             if (itemDatabase.collections[8].items[1].isUnlocked)
             {
-                sellPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[8].items[1].timesForged;
+                sellPremiumMultiplier += 3 + 0.3f * itemDatabase.collections[8].items[1].timesForged;
             }
             if (itemDatabase.collections[8].items[2].isUnlocked)
             {
-                sellPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[8].items[2].timesForged;
+                sellPremiumMultiplier += 10 + 1f * itemDatabase.collections[8].items[2].timesForged;
             }
             if (itemDatabase.collections[9].items[0].isUnlocked)
             {
@@ -201,11 +201,11 @@ namespace Manager
             }
             if (itemDatabase.collections[9].items[1].isUnlocked)
             {
-                cpsPremiumMultiplier += 2 + 0.2f * itemDatabase.collections[9].items[1].timesForged;
+                cpsPremiumMultiplier += 3 + 0.3f * itemDatabase.collections[9].items[1].timesForged;
             }
             if (itemDatabase.collections[9].items[2].isUnlocked)
             {
-                cpsPremiumMultiplier += 4 + 0.4f * itemDatabase.collections[9].items[2].timesForged;
+                cpsPremiumMultiplier += 10 + 1f * itemDatabase.collections[9].items[2].timesForged;
             }
             if (itemDatabase.collections[10].items[0].isUnlocked)
             {
@@ -213,11 +213,11 @@ namespace Manager
             }
             if (itemDatabase.collections[10].items[1].isUnlocked)
             {
-                prestigePremiumMultiplier += 2 + 0.2f * itemDatabase.collections[10].items[1].timesForged;
+                prestigePremiumMultiplier += 3 + 0.3f * itemDatabase.collections[10].items[1].timesForged;
             }
             if (itemDatabase.collections[10].items[2].isUnlocked)
             {
-                prestigePremiumMultiplier += 4 + 0.4f * itemDatabase.collections[10].items[2].timesForged;
+                prestigePremiumMultiplier += 10 + 1f * itemDatabase.collections[10].items[2].timesForged;
             }
 
             tapPremiumMultiplier = Mathf.Round(tapPremiumMultiplier + 100f )/ 100f;

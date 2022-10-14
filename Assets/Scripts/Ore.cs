@@ -1,3 +1,4 @@
+using System;
 using GameDatabase;
 using Manager;
 using UnityEngine;
@@ -55,7 +56,7 @@ public class Ore : Singleton<Ore>
         _thisOre = oreDatabase.ores[selectedOreIndex];
         name = _thisOre.oreName;
         _uiManager.UpdateMaxHardnessSlider(_thisOre.defaultHardness);
-        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _thisOre.currentHardness = (int)_thisOre.defaultHardness;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
         _collectionManager.UpdateItemSelection();
         _collectionManager.UpdateRandomSystem();
@@ -76,7 +77,7 @@ public class Ore : Singleton<Ore>
         _thisOre = oreDatabase.premiumOres[selectedOreIndex];
         name = _thisOre.oreName;
         _uiManager.UpdateMaxHardnessSlider((float)_thisOre.defaultHardness);
-        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _thisOre.currentHardness = (int)_thisOre.defaultHardness;
         _uiManager.UpdateOreNameText(_thisOre.oreName);
         _collectionManager.UpdatePremiumItemSelection();
         _collectionManager.UpdateRandomSystem();
@@ -187,7 +188,7 @@ public class Ore : Singleton<Ore>
     }
     public void ModifyHardness(float amount)
     {
-        _thisOre.currentHardness -= amount;
+        _thisOre.currentHardness -= Convert.ToInt32(amount);
         CheckHardness();
     }
     
@@ -247,7 +248,7 @@ public class Ore : Singleton<Ore>
     
     void DropItemDelay()
     {
-        _thisOre.currentHardness = _thisOre.defaultHardness;
+        _thisOre.currentHardness = (int)_thisOre.defaultHardness;
         _isDroppingItem = false;
     }
     
@@ -270,7 +271,8 @@ public class Ore : Singleton<Ore>
     
     public void ModifyOreAmount(OreStats ore, int amount)
     {
-        if (!ore.isUnlocked)
+        ore.amount += amount;
+        if (ore.amount <= 0)
         {
             ore.amount = 0;
             tempSelectOreIndex = 0;
@@ -278,11 +280,10 @@ public class Ore : Singleton<Ore>
             _uiManager.UpdateOreDetails();
             _uiManager.UpdateOreNameText(_thisOre.oreName);
         }
-        ore.amount += amount;
+
         if (ore.amount > 0 && ore.isUnlocked == false)
         {
             ore.isUnlocked = true;
-            Debug.Log("Why?");
             _uiManager.AddNotification(UIManager.NotificationType.Ore,1);
         }
     }

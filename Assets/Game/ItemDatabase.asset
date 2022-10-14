@@ -52,9 +52,9 @@ MonoBehaviour:
       itemDescription: A sword with a blade that looks similar to an insect's claw.
         It has exceptional slicing and piercing power.
       dropChance: 2
-      timesForged: 0
-      itemFirstForged: 
-      isUnlocked: 0
+      timesForged: 1
+      itemFirstForged: 10/14/2022
+      isUnlocked: 1
     - itemName: Earthen Blade
       itemSprite: {fileID: 21300000, guid: 0e1090fb60d4eb04ea732efb1ceaba36, type: 3}
       itemPrice: 17500
@@ -438,7 +438,7 @@ MonoBehaviour:
       itemDescription: "The name means \u201CThe Lady of the Snow\u201D and is also
         the \r\nname of the dragon that rules the snowy lands. The blade \r\nis enchanted
         with ice magic and is said to freeze anything \r\nit touches."
-      dropChance: 15
+      dropChance: 17
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -450,7 +450,7 @@ MonoBehaviour:
         \r\nto lay waste to the world. This sword grants the feeling of \r\nomnipotence
         to the wielder. The fiery blade is said to burn \r\nthe whole continent if
         plunged into the earth."
-      dropChance: 5
+      dropChance: 3
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
       itemDescription: "Not to be confused with its counterpart that lives in the
         \r\nsea, swordfish. This one is more dead than alive and its \r\nbony structure
         shows that much."
-      dropChance: 15
+      dropChance: 17
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
       itemDescription: "A sword modeled after the legendary fish that rules the \r\nsea.
         It radiates a magnificent aura of perfection and it \r\nstrikes terror to
         all who comes from the sea."
-      dropChance: 5
+      dropChance: 3
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
       itemDescription: "This blue sword was created with more cores than you \r\ncould
         ever imagines. In addition to its usual cutting and \r\nslashing function,
         it also supports hyper-threading and \r\ncomes with a built-in graphics chip."
-      dropChance: 15
+      dropChance: 17
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
       itemDescription: "Stands for Deep Thought-42, and is named after the most \r\npowerful
         computer in existence. The selling point of this \r\nsword is that it is,
         without a doubt, the answer to life, the \r\nuniverse, and everything."
-      dropChance: 5
+      dropChance: 3
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
         \r\nis said to return to its owner no matter how far it was \r\nthrown. The
         cute design also brings an unbelievable \r\namount of joy and positivity
         to all, even those on the \r\nreceiving end.\r"
-      dropChance: 15
+      dropChance: 17
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -561,7 +561,7 @@ MonoBehaviour:
         \r\nthat rules all others. In exchange to food and care, it \r\nbrought upon
         destructive power that can\u2019t be easily \r\ncontrolled. Surely, this
         sword must\u2019ve pushed at least a \r\nhundred cups off the table."
-      dropChance: 5
+      dropChance: 3
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
       itemDescription: "Often times, ores from space often comes with \r\nextraordinary
         property. The one used to make this sword \r\nseems to levitate at all times,
         making it extremely swift for \r\npiercing unsuspecting target.\r"
-      dropChance: 15
+      dropChance: 17
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0
@@ -599,7 +599,7 @@ MonoBehaviour:
         \r\nvast space. Forged from astral shards of the highest\r\nquality, it exudes
         power beyond comprehension, and the \r\nmemory of when it once travel across
         the galaxy is still \r\nkept within."
-      dropChance: 5
+      dropChance: 3
       timesForged: 0
       itemFirstForged: 
       isUnlocked: 0

@@ -288,7 +288,7 @@ public class SaveSystem : Singleton<SaveSystem>
             i = 0;
             foreach (var VARIABLE in _saveFile.upgradeLevels)
             {
-                _saveFile.upgradeLevels[i] = 1;
+                _saveFile.upgradeLevels[i] = 0;
                 i++;
             }
             _saveFile.upgradeTier = new float[UpgradesFunction.Instance.upgradeDatabase.stats.Length];
@@ -305,7 +305,7 @@ public class SaveSystem : Singleton<SaveSystem>
             i = 0;
             foreach (var VARIABLE in _saveFile.premiumUpgradeLevels)
             {
-                _saveFile.premiumUpgradeLevels[i] = 1;
+                _saveFile.premiumUpgradeLevels[i] = 0;
                 i++;
             }
             _saveFile.premiumUpgradeTier = new float[UpgradesFunction.Instance.premiumUpgradeDatabase.stats.Length];

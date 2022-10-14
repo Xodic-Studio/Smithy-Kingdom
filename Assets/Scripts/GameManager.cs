@@ -234,11 +234,6 @@ public class GameManager : Singleton<GameManager>
             //_soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
             _soundManager.PlaySound("Hammer");
             
-            var random = Random.Range(1, 10);
-            if (random == 1)
-            {
-               // _soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.SmithVoice));
-            }
         }
     }
 
@@ -358,7 +353,7 @@ public class GameManager : Singleton<GameManager>
         {
             ModifyMoney(-money);
             money = 0;
-            _ore.GetOreStats().currentHardness = _ore.GetOreStats().defaultHardness;
+            _ore.GetOreStats().currentHardness = (int)_ore.GetOreStats().defaultHardness;
             _ore.tempSelectOreIndex = 0;
             _ore.UpdateCommonOre();
             var result = Mathf.Ceil(Mathf.Pow(allMoney / 50000000, (float) 1 / 3 - _upgradesFunction.premiumUpgradeDatabase.stats[3].upgradeLevel * 0.1f));

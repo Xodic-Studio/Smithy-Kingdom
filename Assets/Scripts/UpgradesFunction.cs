@@ -91,8 +91,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         upgradeDatabase.stats[1].upgradeCost = upgradeDatabase.stats[1].upgradeBaseCost;
         upgradeDatabase.stats[2].upgradeCost = upgradeDatabase.stats[2].upgradeBaseCost;
         upgradeDatabase.stats[3].upgradeCost = upgradeDatabase.stats[3].upgradeBaseCost;
-        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel - 1);
-        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel - 1);
+        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel);
+        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel);
         upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel);
         upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel);
         upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel);
@@ -275,7 +275,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void HammerEnhancement()
     {
-        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel-1);
+        upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[4].upgradeCost))
         {
             upgradeDatabase.stats[4].upgradeLevel++; 
@@ -287,7 +287,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     
     public void HammerEnvironment()
     {
-        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel-1);
+        upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel);
         if (_gameManager.HasMoney(upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel)))
         {
             upgradeDatabase.stats[5].upgradeLevel++;

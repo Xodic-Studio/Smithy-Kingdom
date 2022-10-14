@@ -17,17 +17,17 @@ MonoBehaviour:
     upgradeDescription: Upgrade the ore
     upgradeIcon: {fileID: 1793601052, guid: be1f9a758e7fc14449fcff67c46fd9c1, type: 3}
     upgradeCost: 5000000
-    upgradeLevel: 1
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 5000
+    upgradeBaseCost: 50000
     baseFloat1: 0
     id: 0
   - upgradeName: 'Tier 1 Hammer '
     upgradeDescription: Increase base Tapping Power to 2
     upgradeIcon: {fileID: 264805477, guid: 43f458cce7fbf0d4e8152d9dceab6814, type: 3}
     upgradeCost: 500
-    upgradeLevel: 1
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 500
@@ -37,7 +37,7 @@ MonoBehaviour:
     upgradeDescription: Increase base Tapping Power to 4
     upgradeIcon: {fileID: 248247382, guid: 6948658c12d88be4098af020cee836fb, type: 3}
     upgradeCost: 25000
-    upgradeLevel: 1
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 25000
@@ -47,7 +47,7 @@ MonoBehaviour:
     upgradeDescription: 'Increase base Tapping Power to 8 '
     upgradeIcon: {fileID: -1459192416, guid: 7a4700e160fce214192419dd2f69c06d, type: 3}
     upgradeCost: 50000
-    upgradeLevel: 1
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 50000
@@ -56,8 +56,8 @@ MonoBehaviour:
   - upgradeName: Hammer  Enhancement
     upgradeDescription: 'Increase base Tapping Power by 1% of your  DpS '
     upgradeIcon: {fileID: 1655500534, guid: fbe32fd34008b3648a0b6bcc4f19573d, type: 3}
-    upgradeCost: 200000
-    upgradeLevel: 1
+    upgradeCost: 20000000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 200000
@@ -66,8 +66,8 @@ MonoBehaviour:
   - upgradeName: 'Hammer Environment '
     upgradeDescription: 'Increase base Tapping Power by 0.1 for each  of your upgrades '
     upgradeIcon: {fileID: 461994747, guid: edb30e43e74d4b34181622bbc4df98b0, type: 3}
-    upgradeCost: 500000
-    upgradeLevel: 1
+    upgradeCost: 1000000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
     upgradeBaseCost: 500000
@@ -76,200 +76,200 @@ MonoBehaviour:
   - upgradeName: 'Helping Hand '
     upgradeDescription: Decrease the ore HP by 1 per second.
     upgradeIcon: {fileID: -381889886, guid: 836966abcfa86324cb283a46c44d1977, type: 3}
-    upgradeCost: 287.5
-    upgradeLevel: 1
+    upgradeCost: 575
+    upgradeLevel: 0
     upgradeTier: 0
-    float1: 1
-    upgradeBaseCost: 250
+    float1: 0
+    upgradeBaseCost: 500
     baseFloat1: 1
     id: 6
   - upgradeName: More Helpers
     upgradeDescription: Decrease the ore HP by 8 per second.
     upgradeIcon: {fileID: -837576071, guid: c4130a14992a20b4f889af06a1e30592, type: 3}
-    upgradeCost: 2750
-    upgradeLevel: 1
+    upgradeCost: 6900
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 2750
+    upgradeBaseCost: 6000
     baseFloat1: 8
     id: 7
   - upgradeName: Lingering Flame
     upgradeDescription: Decrease the ore HP by 37 per second.
     upgradeIcon: {fileID: -1879092992, guid: 729247aa2599ede4e9970cf413d949af, type: 3}
-    upgradeCost: 30300
-    upgradeLevel: 1
+    upgradeCost: 86250
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 30300
+    upgradeBaseCost: 75000
     baseFloat1: 37
     id: 8
   - upgradeName: Self-forging hammer
-    upgradeDescription: ' Decrease the ore HP by 202 per second.'
+    upgradeDescription: ' Decrease the ore HP by 200 per second.'
     upgradeIcon: {fileID: 471666986, guid: 5f78caaa09116644488273e2192e3e6c, type: 3}
-    upgradeCost: 333000
-    upgradeLevel: 1
+    upgradeCost: 920000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 333000
-    baseFloat1: 202
+    upgradeBaseCost: 800000
+    baseFloat1: 200
     id: 9
   - upgradeName: 'Self-forging anvil '
-    upgradeDescription: 'Decrease the ore HP by 1.09k per second. '
+    upgradeDescription: 'Decrease the ore HP by 1k per second. '
     upgradeIcon: {fileID: -1184213988, guid: 3144c1bde6e40cd418a3a1dc5cf588aa, type: 3}
-    upgradeCost: 3670000
-    upgradeLevel: 1
+    upgradeCost: 11500000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 3670000
-    baseFloat1: 1090
+    upgradeBaseCost: 10000000
+    baseFloat1: 1000
     id: 10
   - upgradeName: Self-forging ore
-    upgradeDescription: Decrease the ore HP by 5.85k per second.
+    upgradeDescription: Decrease the ore HP by 5.5k per second.
     upgradeIcon: {fileID: -2136245758, guid: 132a272c0b5d1ed4da80f1aab813f6ce, type: 3}
-    upgradeCost: 40400000
-    upgradeLevel: 1
+    upgradeCost: 230000000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 40400000
-    baseFloat1: 5850
+    upgradeBaseCost: 200000000
+    baseFloat1: 5500
     id: 11
   - upgradeName: Sentient Smithy
-    upgradeDescription: 'Decrease the ore HP by 31.4k per second. '
+    upgradeDescription: 'Decrease the ore HP by 30k per second. '
     upgradeIcon: {fileID: 98930816, guid: b9034eff17a174c47bd5d3c272ff5a2e, type: 3}
-    upgradeCost: 444000000
-    upgradeLevel: 1
+    upgradeCost: 2.875e+9
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 444000000
-    baseFloat1: 31400
+    upgradeBaseCost: 2.5e+9
+    baseFloat1: 30000
     id: 12
   - upgradeName: Ancestral Spirits
-    upgradeDescription: Decrease the ore HP by 168k per second.
+    upgradeDescription: Decrease the ore HP by 150k per second.
     upgradeIcon: {fileID: -888955207, guid: f998d89cc92a9d540bbea0c17f5b8122, type: 3}
-    upgradeCost: 4.88e+9
-    upgradeLevel: 1
+    upgradeCost: 5.7499996e+10
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 4.88e+9
-    baseFloat1: 168000
+    upgradeBaseCost: 5e+10
+    baseFloat1: 150000
     id: 13
   - upgradeName: Future Generations
-    upgradeDescription: 'Decrease the ore HP by 904k per second. '
+    upgradeDescription: 'Decrease the ore HP by 700k per second. '
     upgradeIcon: {fileID: 559349013, guid: e4bc3c8785792224c9c6ae750acb5366, type: 3}
-    upgradeCost: 5.37e+10
-    upgradeLevel: 1
+    upgradeCost: 3.45e+12
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 5.37e+10
-    baseFloat1: 904000
+    upgradeBaseCost: 3e+12
+    baseFloat1: 700000
     id: 14
   - upgradeName: 'C# Hammer '
-    upgradeDescription: Decrease the ore HP by 4.95M per second.
+    upgradeDescription: Decrease the ore HP by 2M per second.
     upgradeIcon: {fileID: 2142491352, guid: 6952c232490ff4040951925fa82fc745, type: 3}
-    upgradeCost: 5.91e+11
-    upgradeLevel: 1
+    upgradeCost: 2.0699999e+15
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 5.91e+11
-    baseFloat1: 4950000
+    upgradeBaseCost: 1.8e+15
+    baseFloat1: 2000000
     id: 15
   - upgradeName: Donation Box
     upgradeDescription: 'Generate 1 Coin per second. '
     upgradeIcon: {fileID: 1522753843, guid: 073e7cbbcf897be46834e3f474ffe0d1, type: 3}
     upgradeCost: 115
-    upgradeLevel: 1
+    upgradeLevel: 0
     upgradeTier: 0
-    float1: 2
+    float1: 0
     upgradeBaseCost: 100
     baseFloat1: 1
     id: 16
   - upgradeName: Comunity Service
     upgradeDescription: Generate 8 Coins per second.
     upgradeIcon: {fileID: 635527309, guid: 805bc2419037ed44989da58c91ffd0af, type: 3}
-    upgradeCost: 1100
-    upgradeLevel: 1
+    upgradeCost: 1380
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 1100
+    upgradeBaseCost: 1200
     baseFloat1: 8
     id: 17
   - upgradeName: 'Sword Betting '
     upgradeDescription: Generate 37 Coins per second.
     upgradeIcon: {fileID: -997967443, guid: 0a5f87dd03fb1954483588b8751bf2f4, type: 3}
-    upgradeCost: 12100
-    upgradeLevel: 1
+    upgradeCost: 17250
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 12100
+    upgradeBaseCost: 15000
     baseFloat1: 37
     id: 18
   - upgradeName: Sword Reselling
-    upgradeDescription: Generate 202  Coins per second
+    upgradeDescription: Generate 200  Coins per second
     upgradeIcon: {fileID: -1752166430, guid: 0ac915e99d6612d4aa5aaacb11a16aa3, type: 3}
-    upgradeCost: 133000
-    upgradeLevel: 1
+    upgradeCost: 184000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 133000
-    baseFloat1: 202
+    upgradeBaseCost: 160000
+    baseFloat1: 200
     id: 19
   - upgradeName: Smithy Network
-    upgradeDescription: Generate 1.09k Coins per  second
+    upgradeDescription: Generate 1k Coins per  second
     upgradeIcon: {fileID: 1045139385, guid: ebf3e730478766147a259b2b5915e929, type: 3}
-    upgradeCost: 1460000
-    upgradeLevel: 1
+    upgradeCost: 2300000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 1460000
-    baseFloat1: 1090
+    upgradeBaseCost: 2000000
+    baseFloat1: 1000
     id: 20
   - upgradeName: 'Smithy Co. '
-    upgradeDescription: ' Generate  5.85k Coins per second.'
+    upgradeDescription: ' Generate  5.5k Coins per second.'
     upgradeIcon: {fileID: 1562494901, guid: 401f32ec9cd12044a84a3e2fa339c35e, type: 3}
-    upgradeCost: 16100000
-    upgradeLevel: 1
+    upgradeCost: 46000000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 16100000
-    baseFloat1: 5850
+    upgradeBaseCost: 40000000
+    baseFloat1: 5500
     id: 21
-  - upgradeName: Non-fungible  Weapons
-    upgradeDescription: 'Generate 168k Coins per  second. '
-    upgradeIcon: {fileID: 884313224, guid: 57b94b5216dc50545bc600144ae4da27, type: 3}
-    upgradeCost: 177000000
-    upgradeLevel: 1
-    upgradeTier: 0
-    float1: 0
-    upgradeBaseCost: 177000000
-    baseFloat1: 31400
-    id: 22
   - upgradeName: 'International Smithy '
-    upgradeDescription: Generate 31.4k Coins per second
+    upgradeDescription: Generate 30k Coins per second
     upgradeIcon: {fileID: -194572276, guid: 489476738240129499a8ccde22f44dc5, type: 3}
-    upgradeCost: 1.95e+9
-    upgradeLevel: 1
+    upgradeCost: 575000000
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 1.95e+9
-    baseFloat1: 168000
+    upgradeBaseCost: 500000000
+    baseFloat1: 30000
+    id: 22
+  - upgradeName: Non-fungible  Weapons
+    upgradeDescription: 'Generate 150k Coins per  second. '
+    upgradeIcon: {fileID: 884313224, guid: 57b94b5216dc50545bc600144ae4da27, type: 3}
+    upgradeCost: 1.15e+10
+    upgradeLevel: 0
+    upgradeTier: 0
+    float1: 0
+    upgradeBaseCost: 1e+10
+    baseFloat1: 150000
     id: 23
   - upgradeName: Coin Duplication  Glitch
-    upgradeDescription: Generate 904k  Coins per second.
+    upgradeDescription: Generate 700k  Coins per second.
     upgradeIcon: {fileID: -836781404, guid: e2a4eefb21722294a9a8732cf73f52f4, type: 3}
-    upgradeCost: 2.15e+9
-    upgradeLevel: 1
+    upgradeCost: 6.9e+11
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 2.15e+9
-    baseFloat1: 904000
+    upgradeBaseCost: 6e+11
+    baseFloat1: 700000
     id: 24
   - upgradeName: Weapon Duplication  Glitch
-    upgradeDescription: Generate  4.95M Coins per second
+    upgradeDescription: Generate  2M Coins per second
     upgradeIcon: {fileID: 1694741314, guid: b89ca34db380b48488b90534ed7a1ef1, type: 3}
-    upgradeCost: 2.36e+10
-    upgradeLevel: 1
+    upgradeCost: 5.1749997e+14
+    upgradeLevel: 0
     upgradeTier: 0
     float1: 0
-    upgradeBaseCost: 2.36e+10
-    baseFloat1: 4950000
+    upgradeBaseCost: 4.5e+14
+    baseFloat1: 2000000
     id: 25

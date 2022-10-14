@@ -26,7 +26,7 @@ namespace GameDatabase
                 public string oreName;
                 public Sprite oreSprite;
                 public string oreDescription;
-                public float currentHardness;
+                public int currentHardness;
                 public bool isUnlocked;
 
                 public int amount;
