@@ -277,7 +277,7 @@ public class GameManager : Singleton<GameManager>
         var i = 0;
         foreach (Transform upgrade in _uiManager.upgradeList.transform)
         {
-            if (money > _upgradesFunction.upgradeDatabase.stats[i].upgradeCost)
+            if (money >= _upgradesFunction.upgradeDatabase.stats[i].upgradeCost)
             {
                 upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
                 upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = true;
@@ -288,8 +288,26 @@ public class GameManager : Singleton<GameManager>
             }
             i++;
         }
+
+        i = 0;
+        foreach (Transform upgrade in _uiManager.premiumUpgradeList.transform)
+        {
+            if (gems >= _upgradesFunction.premiumUpgradeDatabase.stats[i].upgradeCost)
+            {
+                upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
+                upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = true;
+            } else
+            {
+                upgrade.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.red;
+                //upgrade.GetChild(2).GetChild(0).GetComponent<Button>().interactable = false;
+            }
+            i++;
+        }
+        {
+            
+        }
     }
-    
+
     public float GetMoney()
     {
         return money;

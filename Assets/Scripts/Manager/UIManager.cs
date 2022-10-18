@@ -332,6 +332,7 @@ namespace Manager
         public TMP_Text premiumOreName;
         public TMP_Text oreDescription;
         public TMP_Text premiumOreDescription;
+        public TMP_Text premiumOreAmount;
         [SerializeField] private Button normalOreButton;
         [SerializeField] private Button premiumOreButton;
         [SerializeField] private GameObject normalOrePanel;
@@ -397,6 +398,7 @@ namespace Manager
             premiumOreImageBody.sprite = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreSprite;
             premiumOreName.text = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreName;
             premiumOreDescription.text = _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].oreDescription;
+            premiumOreAmount.text = "Amount: " + _ore.oreDatabase.premiumOres[_ore.tempSelectOreIndex].amount;
             if (_ore.selectedOreIndex == _ore.tempSelectOreIndex && _ore.isPremium)
             {
                 ConfirmPremiumOreButton.interactable = false;
@@ -484,12 +486,17 @@ namespace Manager
             normalOrePanel.SetActive(true);
             premiumOrePanel.SetActive(false);
             _ore.tempSelectOreIndex = 0;
+            _ore.isPremium = false;
             UpdateOreDetails();
             _ore.DisableButtonIfNoNextOre();
             //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
             _soundManager.PlaySound("ChangePage");
-            if(_confirmOreButtonText.text == "Select")
+            if (_confirmOreButtonText.text == "Select")
+            {
                 ConfirmOreButton.interactable = true;
+            }
+            oreImageBody.color = Color.white;
+               
 
         } 
         

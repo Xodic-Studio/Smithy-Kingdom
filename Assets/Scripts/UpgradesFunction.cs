@@ -113,10 +113,10 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel);
         upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel);
         upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost * Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel);
-        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost * premiumUpgradeDatabase.stats[0].upgradeLevel;
+        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost;
         //premiumUpgradeDatabase.stats[1].upgradeCost = premiumUpgradeDatabase.stats[1].upgradeBaseCost * premiumUpgradeDatabase.stats[1].upgradeLevel;
-        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost * premiumUpgradeDatabase.stats[2].upgradeLevel;
-        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * premiumUpgradeDatabase.stats[3].upgradeLevel;
+        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost;
+        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * (premiumUpgradeDatabase.stats[3].upgradeLevel + 1);
 
         if (hammerDamage1)
         {
@@ -150,7 +150,13 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             upgrade.GetChild(2).GetChild(0).GetComponent<ButtonHold>().onHold = upgradeFunctionList[upgrade.GetSiblingIndex()].upgradesFunction;
         }
-        
+
+        foreach (var VARIABLE in _uiManager.premiumUpgradeList.transform)
+        {
+            var upgrade = VARIABLE as Transform;
+            upgrade.GetChild(2).GetChild(0).GetComponent<ButtonHold>().onHold = premiumUpgradeFunctionList[upgrade.GetSiblingIndex()].upgradesFunction;
+        }
+
         _gameManager.CheckMoneyForUpgrades();
     }
     
@@ -207,8 +213,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             if (_gameManager.HasMoney(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]) )
             {
-                _ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].isUnlocked = true;
-                if (_ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel].oreName == _ore.oreDatabase.ores[3].oreName)
+                _ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel + 1].isUnlocked = true;
+                if (_ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel + 1].oreName == _ore.oreDatabase.ores[3].oreName)
                 {
                     achievementDatabase.ModifyProgress("Power of the Falling Star",1);
                 }
@@ -318,6 +324,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[6].upgradeCost))
         {
             upgradeDatabase.stats[6].upgradeLevel++;
+            upgradeDatabase.stats[6].upgradeCost = upgradeDatabase.stats[6].upgradeBaseCost *
+                                                   Mathf.Pow(1.15f, upgradeDatabase.stats[6].upgradeLevel);
             upgradeDatabase.stats[6].upgradeTier = CheckLevel(upgradeDatabase.stats[6].upgradeLevel);
             upgradeDatabase.stats[6].float1 = upgradeDatabase.stats[6].baseFloat1 * upgradeDatabase.stats[6].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[6].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             UpdateDamagePassive();
@@ -335,6 +343,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[7].upgradeCost))
         {
             upgradeDatabase.stats[7].upgradeLevel++;
+            upgradeDatabase.stats[7].upgradeCost = upgradeDatabase.stats[7].upgradeBaseCost *
+                                                   Mathf.Pow(1.15f, upgradeDatabase.stats[7].upgradeLevel);
             upgradeDatabase.stats[7].upgradeTier = CheckLevel(upgradeDatabase.stats[7].upgradeLevel);
             upgradeDatabase.stats[7].float1 = upgradeDatabase.stats[7].baseFloat1 * upgradeDatabase.stats[7].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[7].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -352,6 +362,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[8].upgradeCost))
         {
             upgradeDatabase.stats[8].upgradeLevel++;
+            upgradeDatabase.stats[8].upgradeCost = upgradeDatabase.stats[8].upgradeBaseCost *
+                                                   Mathf.Pow(1.15f, upgradeDatabase.stats[8].upgradeLevel);
             upgradeDatabase.stats[8].upgradeTier = CheckLevel(upgradeDatabase.stats[8].upgradeLevel);
             upgradeDatabase.stats[8].float1 = upgradeDatabase.stats[8].baseFloat1 * upgradeDatabase.stats[8].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[8].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -369,6 +381,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[9].upgradeCost))
         {
             upgradeDatabase.stats[9].upgradeLevel++;
+            upgradeDatabase.stats[9].upgradeCost = upgradeDatabase.stats[9].upgradeBaseCost *
+                                                   Mathf.Pow(1.15f, upgradeDatabase.stats[9].upgradeLevel);
             upgradeDatabase.stats[9].upgradeTier = CheckLevel(upgradeDatabase.stats[9].upgradeLevel);
             upgradeDatabase.stats[9].float1 = upgradeDatabase.stats[9].baseFloat1 * upgradeDatabase.stats[9].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[9].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -386,6 +400,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[10].upgradeCost))
         {
             upgradeDatabase.stats[10].upgradeLevel++;
+            upgradeDatabase.stats[10].upgradeCost = upgradeDatabase.stats[10].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[10].upgradeLevel);
             upgradeDatabase.stats[10].upgradeTier = CheckLevel(upgradeDatabase.stats[10].upgradeLevel);
             upgradeDatabase.stats[10].float1 = upgradeDatabase.stats[10].baseFloat1 * upgradeDatabase.stats[10].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[10].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -403,6 +419,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[11].upgradeCost))
         {
             upgradeDatabase.stats[11].upgradeLevel++;
+            upgradeDatabase.stats[11].upgradeCost = upgradeDatabase.stats[11].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[11].upgradeLevel);
             upgradeDatabase.stats[11].upgradeTier = CheckLevel(upgradeDatabase.stats[11].upgradeLevel);
             upgradeDatabase.stats[11].float1 = upgradeDatabase.stats[11].baseFloat1 * upgradeDatabase.stats[11].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[11].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -420,6 +438,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[12].upgradeCost))
         {
             upgradeDatabase.stats[12].upgradeLevel++;
+            upgradeDatabase.stats[12].upgradeCost = upgradeDatabase.stats[12].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[12].upgradeLevel);
             upgradeDatabase.stats[12].upgradeTier = CheckLevel(upgradeDatabase.stats[12].upgradeLevel);
             upgradeDatabase.stats[12].float1 = upgradeDatabase.stats[12].baseFloat1 * upgradeDatabase.stats[12].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[12].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -437,6 +457,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[13].upgradeCost))
         {
             upgradeDatabase.stats[13].upgradeLevel++;
+            upgradeDatabase.stats[13].upgradeCost = upgradeDatabase.stats[13].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[13].upgradeLevel);
             upgradeDatabase.stats[13].upgradeTier = CheckLevel(upgradeDatabase.stats[13].upgradeLevel);
             upgradeDatabase.stats[13].float1 = upgradeDatabase.stats[13].baseFloat1 * upgradeDatabase.stats[13].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[13].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -454,6 +476,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[14].upgradeCost))
         {
             upgradeDatabase.stats[14].upgradeLevel++;
+            upgradeDatabase.stats[14].upgradeCost = upgradeDatabase.stats[14].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[14].upgradeLevel);
             upgradeDatabase.stats[14].upgradeTier = CheckLevel(upgradeDatabase.stats[14].upgradeLevel);
             upgradeDatabase.stats[14].float1 = upgradeDatabase.stats[14].baseFloat1 * upgradeDatabase.stats[14].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[14].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -471,6 +495,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[15].upgradeCost))
         {
             upgradeDatabase.stats[15].upgradeLevel++;
+            upgradeDatabase.stats[15].upgradeCost = upgradeDatabase.stats[15].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[15].upgradeLevel);
             upgradeDatabase.stats[15].upgradeTier = CheckLevel(upgradeDatabase.stats[15].upgradeLevel);
             upgradeDatabase.stats[15].float1 = upgradeDatabase.stats[15].baseFloat1 * upgradeDatabase.stats[15].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[15].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -499,6 +525,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[16].upgradeCost))
         {
             upgradeDatabase.stats[16].upgradeLevel++;
+            upgradeDatabase.stats[16].upgradeCost = upgradeDatabase.stats[16].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[16].upgradeLevel);
             upgradeDatabase.stats[16].upgradeTier = CheckLevel(upgradeDatabase.stats[16].upgradeLevel);
             upgradeDatabase.stats[16].float1 = upgradeDatabase.stats[16].baseFloat1 * upgradeDatabase.stats[16].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[16].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -516,6 +544,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[17].upgradeCost))
         {
             upgradeDatabase.stats[17].upgradeLevel++;
+            upgradeDatabase.stats[17].upgradeCost = upgradeDatabase.stats[17].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[17].upgradeLevel);
             upgradeDatabase.stats[17].upgradeTier = CheckLevel(upgradeDatabase.stats[17].upgradeLevel);
             upgradeDatabase.stats[17].float1 = upgradeDatabase.stats[17].baseFloat1 * upgradeDatabase.stats[17].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[17].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -533,6 +563,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[18].upgradeCost))
         {
             upgradeDatabase.stats[18].upgradeLevel++;
+            upgradeDatabase.stats[18].upgradeCost = upgradeDatabase.stats[18].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[18].upgradeLevel);
             upgradeDatabase.stats[18].upgradeTier = CheckLevel(upgradeDatabase.stats[18].upgradeLevel);
             upgradeDatabase.stats[18].float1 = upgradeDatabase.stats[18].baseFloat1 * upgradeDatabase.stats[18].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[18].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -550,6 +582,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[19].upgradeCost))
         {
             upgradeDatabase.stats[19].upgradeLevel++;
+            upgradeDatabase.stats[19].upgradeCost = upgradeDatabase.stats[19].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[19].upgradeLevel);
             upgradeDatabase.stats[19].upgradeTier = CheckLevel(upgradeDatabase.stats[19].upgradeLevel);
             upgradeDatabase.stats[19].float1 = upgradeDatabase.stats[19].baseFloat1 * upgradeDatabase.stats[19].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[19].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -567,6 +601,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[20].upgradeCost))
         {
             upgradeDatabase.stats[20].upgradeLevel++;
+            upgradeDatabase.stats[20].upgradeCost = upgradeDatabase.stats[20].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[20].upgradeLevel);
             upgradeDatabase.stats[20].upgradeTier = CheckLevel(upgradeDatabase.stats[20].upgradeLevel);
             upgradeDatabase.stats[20].float1 = upgradeDatabase.stats[20].baseFloat1 * upgradeDatabase.stats[20].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[20].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -584,6 +620,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[21].upgradeCost))
         {
             upgradeDatabase.stats[21].upgradeLevel++;
+            upgradeDatabase.stats[21].upgradeCost = upgradeDatabase.stats[21].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[21].upgradeLevel);
             upgradeDatabase.stats[21].upgradeTier = CheckLevel(upgradeDatabase.stats[21].upgradeLevel);
             upgradeDatabase.stats[21].float1 = upgradeDatabase.stats[21].baseFloat1 * upgradeDatabase.stats[21].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[21].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -601,6 +639,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[22].upgradeCost))
         {
             upgradeDatabase.stats[22].upgradeLevel++;
+            upgradeDatabase.stats[22].upgradeCost = upgradeDatabase.stats[22].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[22].upgradeLevel);
             upgradeDatabase.stats[22].upgradeTier = CheckLevel(upgradeDatabase.stats[22].upgradeLevel);
             upgradeDatabase.stats[22].float1 = upgradeDatabase.stats[22].baseFloat1 * upgradeDatabase.stats[22].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[22].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -618,6 +658,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[23].upgradeCost))
         {
             upgradeDatabase.stats[23].upgradeLevel++;
+            upgradeDatabase.stats[23].upgradeCost = upgradeDatabase.stats[23].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[23].upgradeLevel);
             upgradeDatabase.stats[23].upgradeTier = CheckLevel(upgradeDatabase.stats[23].upgradeLevel);
             upgradeDatabase.stats[23].float1 = upgradeDatabase.stats[23].baseFloat1 * upgradeDatabase.stats[23].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[23].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -635,6 +677,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[24].upgradeCost))
         {
             upgradeDatabase.stats[24].upgradeLevel++;
+            upgradeDatabase.stats[24].upgradeCost = upgradeDatabase.stats[24].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[24].upgradeLevel);
             upgradeDatabase.stats[24].upgradeTier = CheckLevel(upgradeDatabase.stats[24].upgradeLevel);
             upgradeDatabase.stats[24].float1 = upgradeDatabase.stats[24].baseFloat1 * upgradeDatabase.stats[24].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[24].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -652,6 +696,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         if (_gameManager.HasMoney(upgradeDatabase.stats[25].upgradeCost))
         {
             upgradeDatabase.stats[25].upgradeLevel++;
+            upgradeDatabase.stats[25].upgradeCost = upgradeDatabase.stats[25].upgradeBaseCost *
+                                                    Mathf.Pow(1.15f, upgradeDatabase.stats[25].upgradeLevel);
             upgradeDatabase.stats[25].upgradeTier = CheckLevel(upgradeDatabase.stats[25].upgradeLevel);
             upgradeDatabase.stats[25].float1 = upgradeDatabase.stats[25].baseFloat1 * upgradeDatabase.stats[25].upgradeLevel * Mathf.Pow(2,upgradeDatabase.stats[25].upgradeTier) * (1 + 0.02f * _gameManager.reputation) ;
             upgradeCount++;
@@ -668,7 +714,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void AutoClicker()
     {
-        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost * premiumUpgradeDatabase.stats[0].upgradeLevel;
+        premiumUpgradeDatabase.stats[0].upgradeCost = premiumUpgradeDatabase.stats[0].upgradeBaseCost;
         if (_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[0].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[0].upgradeLevel++;
@@ -689,7 +735,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void VipMailService()
     {
-        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost * premiumUpgradeDatabase.stats[2].upgradeLevel;
+        premiumUpgradeDatabase.stats[2].upgradeCost = premiumUpgradeDatabase.stats[2].upgradeBaseCost;
         if(_gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[2].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[2].upgradeLevel++;
@@ -701,7 +747,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
 
     public void UnbelievableReputation()
     {
-        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * premiumUpgradeDatabase.stats[3].upgradeLevel;
+        premiumUpgradeDatabase.stats[3].upgradeCost = premiumUpgradeDatabase.stats[3].upgradeBaseCost * (premiumUpgradeDatabase.stats[3].upgradeLevel +1);
         if( _gameManager.HasGems(Convert.ToInt32(premiumUpgradeDatabase.stats[3].upgradeCost)))
         {
             premiumUpgradeDatabase.stats[3].upgradeLevel++;

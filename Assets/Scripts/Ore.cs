@@ -132,12 +132,12 @@ public class Ore : Singleton<Ore>
     {
         if (index == -1 && tempSelectOreIndex - 1 >= 0)
         {
-            if (!oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked)
+            if (!oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked || oreDatabase.premiumOres[tempSelectOreIndex - 1].amount == 0)
             {
                 _uiManager.premiumOreImageBody.color = Color.gray;
                 _uiManager.ConfirmPremiumOreButton.interactable = false;
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.gray;
-            } else if (oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked)
+            } else if (oreDatabase.premiumOres[tempSelectOreIndex - 1].isUnlocked && oreDatabase.premiumOres[tempSelectOreIndex - 1].amount != 0)
             {
                 _uiManager.premiumOreImageBody.color = Color.white;
                 _uiManager.ConfirmPremiumOreButton.interactable = true;
@@ -151,12 +151,12 @@ public class Ore : Singleton<Ore>
         }
         else if (index == 1 && tempSelectOreIndex + 1 < oreDatabase.premiumOres.Length)
         {
-            if (!oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked)
+            if (!oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked || oreDatabase.premiumOres[tempSelectOreIndex + 1].amount == 0)
             {
                 _uiManager.premiumOreImageBody.color = Color.gray;
                 _uiManager.ConfirmPremiumOreButton.interactable = false;
                 _uiManager.ConfirmPremiumOreButtonImage.color = Color.gray;
-            } else if (oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked)
+            } else if (oreDatabase.premiumOres[tempSelectOreIndex + 1].isUnlocked && oreDatabase.premiumOres[tempSelectOreIndex + 1].amount != 0)
             {
                 _uiManager.premiumOreImageBody.color = Color.white;
                 _uiManager.ConfirmPremiumOreButton.interactable = true;
