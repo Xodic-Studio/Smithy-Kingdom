@@ -51,6 +51,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        prestigePrice = 50000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3));
         //_soundManager.EffectsSource = GetComponent<AudioSource>();
         _uiManager.UpdateMoneyText();
         _uiManager.UpdateGemText();
@@ -159,7 +160,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (GetMoney() < amount)
         {
-            _uiManager.NotEnoughMoney();
+            _uiManager.NotEnoughMoney(amount - money);
             return false;
         }
         ModifyMoney(-amount);
@@ -364,10 +365,13 @@ public class GameManager : Singleton<GameManager>
     {
         reputation += amount;
     }
+
+    public float prestigePrice;
     
     public void Prestige()
     {
-        if (allMoney >= 50000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3)))
+        prestigePrice = 50000000 * (Mathf.Pow(reputation + 1, 3) - Mathf.Pow(reputation, 3));
+        if (allMoney >= prestigePrice)
         {
             ModifyMoney(-money);
             money = 0;
@@ -380,6 +384,8 @@ public class GameManager : Singleton<GameManager>
             database.oresDatabase.ResetDatabase();
             database.itemsDatabase.ResetDatabase();
             database.upgradeDatabase.ResetDatabase();
+            _uiManager.RemoveNotification(UIManager.NotificationType.Ore, _uiManager.oreNotificationCount);
+            _uiManager.RemoveNotification(UIManager.NotificationType.Collectible, _uiManager.collectibleNotificationCount);
             _upgradesFunction.passiveDamage = 0;
             _upgradesFunction.passiveMoney = 0;
             _uiManager.CloseMenu();
@@ -389,10 +395,11 @@ public class GameManager : Singleton<GameManager>
             allMoney = 0;
             //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.Prestige)[0]);
             _soundManager.PlaySound("Prestige");
+            _upgradesFunction.UpdatePriceStart();
         }
         else
         {
-            _uiManager.AssignPopupValue("Can't Prestige Yet", "You need to make at least 50M to prestige", _uiManager.denySprite);
+            _uiManager.AssignPopupValue("Can't Prestige Yet", $"You need to make at least {NumberToString((decimal)prestigePrice)} to prestige", _uiManager.denySprite);
             _uiManager.OpenPopup();
         }
         

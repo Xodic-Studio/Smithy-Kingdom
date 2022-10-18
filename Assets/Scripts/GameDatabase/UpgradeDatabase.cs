@@ -14,7 +14,7 @@ namespace GameDatabase
             foreach (var upgrade in stats)
             {
                 upgrade.upgradeCost = 0;
-                upgrade.upgradeLevel = 1;
+                upgrade.upgradeLevel = 0;
                 upgrade.upgradeTier = 0;
                 upgrade.float1 = 0;
             }

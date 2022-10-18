@@ -209,9 +209,10 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
     #region NormalUpgrade
     public void UpgradeOre()
     {
+        upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel];
         if (upgradeDatabase.stats[0].upgradeLevel < _ore.oreDatabase.ores.Length)
         {
-            if (_gameManager.HasMoney(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]) )
+            if (_gameManager.HasMoney(upgradeDatabase.stats[0].upgradeCost) )
             {
                 _ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel + 1].isUnlocked = true;
                 if (_ore.oreDatabase.ores[upgradeDatabase.stats[0].upgradeLevel + 1].oreName == _ore.oreDatabase.ores[3].oreName)
@@ -220,7 +221,8 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
                 }
                 _uiManager.AddNotification(UIManager.NotificationType.Ore, 1);
                 upgradeDatabase.stats[0].upgradeLevel++;
-                UpdateUpgradePrice(_oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel]);
+                upgradeDatabase.stats[0].upgradeCost = _oreUpgradeCost[upgradeDatabase.stats[0].upgradeLevel];
+                UpdateUpgradePrice(upgradeDatabase.stats[0].upgradeCost);
                 _soundManager.PlaySound("Upgrade");
                 upgradeCount++;
             }
@@ -286,6 +288,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             upgradeDatabase.stats[4].upgradeLevel++; 
             upgradeCount++;
+            upgradeDatabase.stats[4].upgradeCost = upgradeDatabase.stats[4].upgradeBaseCost * Mathf.Pow(100, upgradeDatabase.stats[4].upgradeLevel);
             UpdateUpgradePrice(upgradeDatabase.stats[4].upgradeCost);
             _soundManager.PlaySound("Upgrade");
         }
@@ -298,6 +301,7 @@ public class UpgradesFunction : Singleton<UpgradesFunction>
         {
             upgradeDatabase.stats[5].upgradeLevel++;
             upgradeCount++;
+            upgradeDatabase.stats[5].upgradeCost = upgradeDatabase.stats[5].upgradeBaseCost * Mathf.Pow(2, upgradeDatabase.stats[5].upgradeLevel);
             UpdateUpgradePrice(upgradeDatabase.stats[5].upgradeCost);
             _soundManager.PlaySound("Upgrade");
         }

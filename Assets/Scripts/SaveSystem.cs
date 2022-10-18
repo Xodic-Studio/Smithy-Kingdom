@@ -70,7 +70,6 @@ public class SaveSystem : Singleton<SaveSystem>
             _saveFile = new Save();
             CloseSave();
         }
-
         LoadGame();
     }
 

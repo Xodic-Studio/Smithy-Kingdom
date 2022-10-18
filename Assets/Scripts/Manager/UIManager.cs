@@ -272,6 +272,7 @@ namespace Manager
         {
             CheckCanvas();
             CloseAllMenus();
+            UpdatePresigeCost();
             prestigeMenuPanel.SetActive(true);
             //_soundManager.PlayOneShot(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.ChangePage)[0]);
             _soundManager.PlaySound("ChangePage");
@@ -538,12 +539,12 @@ namespace Manager
             popupImage.sprite = sprite;
         }
 
-        public void NotEnoughMoney()
+        public void NotEnoughMoney(float needMoney)
         {
-            AssignPopupValue("Not Enough Money", "You don't have enough money to buy this", denySprite);
+            AssignPopupValue("Not Enough Money", "You need " + _gameManager.NumberToString((decimal)needMoney) + " more money to buy this", denySprite);
             OpenPopup();
         }
-        
+
         public void NotEnoughGems()
         {
             AssignPopupValue("Not Enough Gems", "You don't have enough gems to buy this", denySprite);
@@ -728,7 +729,14 @@ namespace Manager
 
         #region Prestige
 
-        [Header("Prestige")] public TMP_Text prestigeText;
+        [Header("Prestige")] 
+        public TMP_Text prestigeText;
+        public TMP_Text prestigeCostText;
+        
+        public void UpdatePresigeCost()
+        {
+            prestigeCostText.text = $"Cost: {_gameManager.NumberToString((decimal)(50000000 * (Mathf.Pow(_gameManager.reputation + 1, 3) - Mathf.Pow(_gameManager.reputation, 3))))}";
+        }
 
         #endregion
 
