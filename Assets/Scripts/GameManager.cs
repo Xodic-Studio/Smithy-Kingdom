@@ -1,4 +1,5 @@
 using System.Collections;
+using AnimationScript;
 using GameDatabase;
 using Manager;
 using TMPro;
@@ -14,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     private UIManager _uiManager;
     private SoundManagerr _soundManager;
     private UpgradesFunction _upgradesFunction;
+    public SmithyAnimationController smithyAnimationController;
 
     public float reputation;
     private int _hammerDamageRaw = 1;
@@ -47,6 +49,7 @@ public class GameManager : Singleton<GameManager>
         _ore = Ore.Instance;
         _soundManager = SoundManagerr.Instance;
         _upgradesFunction = UpgradesFunction.Instance;
+        smithyAnimationController = SmithyAnimationController.Instance;
     }
 
     private void Start()
@@ -216,6 +219,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (!_ore.GetIsDroppingItem())
         {
+            smithyAnimationController.Hit();
             _dps += _hammerDamageCombined;
             smithy.SetTrigger(Hit);
             anvil.SetTrigger(Hit);
@@ -231,10 +235,8 @@ public class GameManager : Singleton<GameManager>
             _finalDamage = (_hammerDamageCombined + _upgradesFunction.upgradeDatabase.stats[4].upgradeLevel * 0.01f * _dps) * CollectionManager.Instance.tapPremiumMultiplier;
             AddDamageText(NumberToString((decimal)_finalDamage));
             _ore.ModifyHardness(_finalDamage);
-            
-            //_soundManager.RandomSoundEffect(_soundManager.soundDatabase.GetSfx(SoundDatabase.SfxType.HammerHit));
-            _soundManager.PlaySound("Hammer");
-            
+
+
         }
     }
 
